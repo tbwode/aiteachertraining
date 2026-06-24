@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI教师研训 — 产品分析矩阵 & 业务泳道图</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #FAFAF9;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* 统一容器 */
+    .diagram-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 32px;
+    }
+
+    /* 标题区 */
+    .diagram-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #292524;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .diagram-subtitle {
+      font-size: 13px;
+      color: #78716C;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* ========== 产品分析矩阵 ========== */
+    .matrix-wrapper { width: 1200px; }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .matrix-card {
+      border-radius: 10px;
+      padding: 24px;
+      border: 1px solid #E7E5E4;
+      background: #FAFAF9;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #E7E5E4;
+    }
+    .card-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .card-title { font-size: 16px; font-weight: 600; color: #292524; }
+    .card-content { font-size: 13px; line-height: 1.8; color: #57534E; }
+    .card-content ul { list-style: none; padding: 0; }
+    .card-content li { padding: 6px 0; padding-left: 20px; position: relative; }
+    .card-content li::before {
+      content: ""; position: absolute; left: 0; top: 14px;
+      width: 6px; height: 6px; border-radius: 50%; background: #C8000C;
+    }
+    .card-content li.sub-item::before {
+      background: #A8A29E; width: 4px; height: 4px; top: 15px;
+    }
+    .card-content li strong { color: #292524; font-weight: 600; }
+
+    .card-user  { border-top: 4px solid #78716C; }
+    .card-user  .card-icon { background: #78716C; color: #FAFAF9; }
+    .card-scene { border-top: 4px solid #C8000C; }
+    .card-scene .card-icon { background: #C8000C; color: #FAFAF9; }
+    .card-pain  { border-top: 4px solid #78716C; }
+    .card-pain  .card-icon { background: #78716C; color: #FAFAF9; }
+    .card-solution { border-top: 4px solid #C8000C; }
+    .card-solution .card-icon { background: #C8000C; color: #FAFAF9; }
+
+    .bottom-note {
+      margin-top: 24px; padding: 16px;
+      background: #FEF2F2; border-radius: 8px;
+      border-left: 4px solid #C8000C;
+      font-size: 13px; color: #57534E; line-height: 1.8;
+    }
+    .bottom-note strong { color: #C8000C; }
+
+    /* ========== 业务泳道图 ========== */
+    .swimlane-wrapper { width: 1600px; }
+    .swimlane-chart {
+      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid #E7E5E4; border-radius: 8px; overflow: hidden;
+    }
+    .swimlane { display: flex; min-height: 140px; border-bottom: 1px solid #E7E5E4; }
+    .swimlane:last-child { border-bottom: none; }
+    .swimlane-header {
+      width: 160px; padding: 16px;
+      font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      flex-shrink: 0; border-right: 1px solid #E7E5E4;
+    }
+    .swimlane-content {
+      flex: 1; padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+      position: relative; overflow-x: auto;
+    }
+    .admin-header  { background: #292524; color: #FAFAF9; }
+    .teacher-header{ background: #FAFAF9; color: #292524; }
+    .ai-header     { background: #F5F5F4; color: #292524; border-left: 4px solid #C8000C; }
+    .system-header { background: #FAFAF9; color: #292524; }
+    .admin-content  { background: #FAFAF9; }
+    .teacher-content{ background: white; }
+    .ai-content     { background: #FEF2F2; }
+    .system-content { background: #FAFAF9; }
+
+    .node {
+      padding: 10px 16px; border-radius: 8px;
+      font-size: 12px; font-weight: 500; text-align: center;
+      white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      min-width: 100px; z-index: 2;
+    }
+    .node-admin  { background: #C8000C; color: #FAFAF9; border: 1px solid #A3000A; }
+    .node-teacher{ background: #FAFAF9; color: #292524; border: 1px solid #D6D3D1; }
+    .node-ai     { background: #C8000C; color: #FAFAF9; border: 1px solid #A3000A; }
+    .node-system { background: #FAFAF9; color: #292524; border: 1px solid #D6D3D1; }
+    .node-teacher-ai { background: #FEF2F2; color: #292524; border: 1px solid #C8000C; }
+    .arrow { color: #78716C; font-size: 16px; flex-shrink: 0; }
+    .arrow-ai { color: #C8000C; }
+
+    .phase-bar { display: flex; margin-bottom: 12px; padding: 0 160px; }
+    .phase-item {
+      flex: 1; text-align: center; font-size: 12px; font-weight: 600;
+      color: #78716C; padding: 8px 0; border-bottom: 2px solid #E7E5E4;
+    }
+    .phase-item.active { color: #C8000C; border-bottom-color: #C8000C; }
+
+    .legend {
+      display: flex; gap: 24px; justify-content: center;
+      margin-top: 20px; font-size: 12px; color: #78716C;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .legend-color { width: 12px; height: 12px; border-radius: 3px; }
+
+    /* 打印优化 */
+    @media print {
+      body { padding: 0; background: white; gap: 0; }
+      .diagram-container { box-shadow: none; border-radius: 0; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 第一部分：产品分析矩阵 -->
+<section class="diagram-container matrix-wrapper">
+  <div class="diagram-title">AI教师研训产品分析矩阵</div>
+  <div class="diagram-subtitle">目标用户 · 核心场景 · 业务痛点 · 产品解决方案</div>
+
+  <div class="matrix-grid">
+    <!-- 目标用户 -->
+    <div class="matrix-card card-user">
+      <div class="card-header">
+        <div class="card-icon">👤</div>
+        <div class="card-title">目标用户</div>
+      </div>
+      <div class="card-content">
+        <ul>
+          <li><strong>一线教师（核心用户）</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">需要提升专业能力的各学科教师</li>
+              <li class="sub-item">面临新课标、信息化教学等转型挑战</li>
+              <li class="sub-item">学习时间碎片化，需要灵活的学习方式</li>
+            </ul>
+          </li>
+          <li><strong>教研组长/骨干教师</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">需要带动团队共同成长</li>
+              <li class="sub-item">关注教师培训效果与数据</li>
+            </ul>
+          </li>
+          <li><strong>学校/区域管理员</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">负责统筹教师培训工作</li>
+              <li class="sub-item">需要可视化统计与报表导出</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 核心场景 -->
+    <div class="matrix-card card-scene">
+      <div class="card-header">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">核心场景</div>
+      </div>
+      <div class="card-content">
+        <ul>
+          <li><strong>场景一：自主学习课程</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">浏览研训课程，关注/报名感兴趣的课程</li>
+              <li class="sub-item">在线观看课件、视频，完成学习</li>
+            </ul>
+          </li>
+          <li><strong>场景二：参与教研活动</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">查看活动列表，进入活动详情</li>
+              <li class="sub-item">学习活动关联课程，完成活动要求</li>
+            </ul>
+          </li>
+          <li><strong>场景三：AI智能辅助</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">AI研训助手基于课程内容智能问答</li>
+              <li class="sub-item">查看个人学习画像与6维能力诊断</li>
+            </ul>
+          </li>
+          <li><strong>场景四：管理运营（PC端）</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">发布课程/活动，配置资源</li>
+              <li class="sub-item">查看统计数据，导出学习报告</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 业务痛点 -->
+    <div class="matrix-card card-pain">
+      <div class="card-header">
+        <div class="card-icon">⚠️</div>
+        <div class="card-title">业务痛点</div>
+      </div>
+      <div class="card-content">
+        <ul>
+          <li><strong>教师端痛点</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">时间碎片化：难以安排固定时间参加集中培训</li>
+              <li class="sub-item">学习动力不足：缺乏个性化反馈与成就感</li>
+              <li class="sub-item">问题无人解答：学习中遇到疑问无法及时获得指导</li>
+              <li class="sub-item">能力盲区：不清楚自身专业能力的优势与薄弱点</li>
+            </ul>
+          </li>
+          <li><strong>管理端痛点</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">培训效果难衡量：无法量化教师学习成果</li>
+              <li class="sub-item">课程资源分散：缺乏统一的课程管理与分发平台</li>
+              <li class="sub-item">数据收集困难：学习记录、评价、反馈分散</li>
+              <li class="sub-item">人工统计低效：需要手动汇总Excel报表</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 产品解决方案 -->
+    <div class="matrix-card card-solution">
+      <div class="card-header">
+        <div class="card-icon">💡</div>
+        <div class="card-title">产品解决方案</div>
+      </div>
+      <div class="card-content">
+        <ul>
+          <li><strong>AI研训助手</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">基于课程内容的智能问答，支持历史对话</li>
+              <li class="sub-item">教师端随时提问，AI即时解答（7×24小时）</li>
+            </ul>
+          </li>
+          <li><strong>AI学习画像</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">6维能力雷达图（课堂互动/新课标/信息化/班级管理/作业设计/教研）</li>
+              <li class="sub-item">分层改进建议（短期+中期）+ 定制化课程推荐</li>
+            </ul>
+          </li>
+          <li><strong>课程/活动一体化</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">研训课程与活动统一管理，建立课程-活动关联</li>
+              <li class="sub-item">支持视频/文档/PPT多种课件类型，支持全屏学习</li>
+            </ul>
+          </li>
+          <li><strong>数据看板与报表</strong>
+            <ul style="margin-left:8px;margin-top:4px;">
+              <li class="sub-item">管理员PC端：学习统计、活动数据、评价汇总</li>
+              <li class="sub-item">一键导出学习报告（Excel/PNG）</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-note">
+    <strong>产品价值闭环：</strong>管理员发布课程/活动 → 教师自主学习 → AI智能辅助答疑 → 学习行为数据沉淀 → 6维能力诊断 → 个性化课程推荐 → 教师持续成长 → 管理员查看统计效果。形成<strong>"内容运营-学习消费-AI赋能-数据反馈"</strong>的正向循环。
+  </div>
+</section>
+
+<!-- 第二部分：业务泳道图 -->
+<section class="diagram-container swimlane-wrapper">
+  <div class="diagram-title">AI教师研训业务泳道图</div>
+  <div class="diagram-subtitle">跨角色业务流程全景 · 从内容运营到数据管理</div>
+
+  <div class="phase-bar">
+    <div class="phase-item">阶段一：内容运营</div>
+    <div class="phase-item">阶段二：学习过程</div>
+    <div class="phase-item active">阶段三：AI赋能</div>
+    <div class="phase-item">阶段四：数据管理</div>
+  </div>
+
+  <div class="swimlane-chart">
+    <!-- 管理员泳道 -->
+    <div class="swimlane">
+      <div class="swimlane-header admin-header">管理员<br>（PC端）</div>
+      <div class="swimlane-content admin-content">
+        <div class="node node-admin">发布研训课程</div>
+        <div class="arrow">→</div>
+        <div class="node node-admin">发布研训活动</div>
+        <div class="arrow" style="flex:1;min-width:400px;border-bottom:2px dashed #D6D3D1;align-self:center;margin:0 16px;height:0;"></div>
+        <div class="node node-admin" style="background:#78716C;border-color:#57534E;">查看数据统计</div>
+        <div class="arrow">→</div>
+        <div class="node node-admin" style="background:#78716C;border-color:#57534E;">导出学习报告</div>
+      </div>
+    </div>
+
+    <!-- 教师泳道 -->
+    <div class="swimlane">
+      <div class="swimlane-header teacher-header">教师<br>（学员端）</div>
+      <div class="swimlane-content teacher-content">
+        <div class="node node-teacher">浏览研训课程/活动</div>
+        <div class="arrow">→</div>
+        <div class="node node-teacher">关注/报名课程</div>
+        <div class="arrow">→</div>
+        <div class="node node-teacher">学习课件</div>
+        <div class="arrow arrow-ai">→</div>
+        <div class="node node-teacher-ai">AI问答<br>（AI研训助手）</div>
+        <div class="arrow">→</div>
+        <div class="node node-teacher">提交课程评价</div>
+        <div class="arrow">→</div>
+        <div class="node node-teacher-ai">查看个人画像</div>
+        <div class="arrow arrow-ai">→</div>
+        <div class="node node-teacher-ai">查看改进建议</div>
+        <div class="arrow" style="flex:1;min-width:60px;"></div>
+        <div class="node node-teacher">参与活动签到</div>
+        <div class="arrow">→</div>
+        <div class="node node-teacher">提交反馈/心得</div>
+      </div>
+    </div>
+
+    <!-- AI系统泳道 -->
+    <div class="swimlane">
+      <div class="swimlane-header ai-header">AI系统<br>（智能引擎）</div>
+      <div class="swimlane-content ai-content">
+        <div class="arrow" style="flex:1;min-width:360px;"></div>
+        <div class="node node-ai">AI研训助手<br>智能问答</div>
+        <div class="arrow" style="flex:1;min-width:100px;"></div>
+        <div class="node node-ai">学习诊断分析<br>（6维能力评估）</div>
+        <div class="arrow" style="flex:1;min-width:40px;"></div>
+        <div class="node node-ai">课程推荐算法</div>
+        <div class="arrow" style="flex:1;min-width:200px;"></div>
+      </div>
+    </div>
+
+    <!-- 系统泳道 -->
+    <div class="swimlane">
+      <div class="swimlane-header system-header">课程/活动<br>系统</div>
+      <div class="swimlane-content system-content">
+        <div class="node node-system">课程资源库</div>
+        <div class="arrow">→</div>
+        <div class="node node-system">活动管理</div>
+        <div class="arrow" style="flex:1;min-width:440px;border-bottom:2px dashed #D6D3D1;align-self:center;margin:0 16px;height:0;"></div>
+        <div class="node node-system">学习记录存储</div>
+        <div class="arrow" style="flex:1;min-width:200px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-color" style="background:#C8000C;"></div>核心操作</div>
+    <div class="legend-item"><div class="legend-color" style="background:#78716C;"></div>管理操作</div>
+    <div class="legend-item"><div class="legend-color" style="background:#FEF2F2;border:1px solid #C8000C;"></div>AI交互</div>
+    <div class="legend-item"><div class="legend-color" style="background:#FAFAF9;border:1px solid #D6D3D1;"></div>常规操作</div>
+    <div class="legend-item">— — 异步/后台流程</div>
+  </div>
+</section>
+
+</body>
+</html>

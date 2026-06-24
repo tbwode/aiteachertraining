@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI教师研训业务泳道图</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #FAFAF9;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .diagram-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 32px;
+      width: 1600px;
+    }
+    .diagram-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #292524;
+      text-align: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #E7E5E4;
+    }
+    .swimlane-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid #E7E5E4;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .swimlane {
+      display: flex;
+      min-height: 140px;
+      border-bottom: 1px solid #E7E5E4;
+    }
+    .swimlane:last-child { border-bottom: none; }
+    .swimlane-header {
+      width: 160px;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-shrink: 0;
+      border-right: 1px solid #E7E5E4;
+    }
+    .swimlane-content {
+      flex: 1;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      overflow-x: auto;
+    }
+    .admin-header { background: #292524; color: #FAFAF9; }
+    .teacher-header { background: #FAFAF9; color: #292524; }
+    .ai-header { background: #F5F5F4; color: #292524; border-left: 4px solid #C8000C; }
+    .system-header { background: #FAFAF9; color: #292524; }
+    .admin-content { background: #FAFAF9; }
+    .teacher-content { background: white; }
+    .ai-content { background: #FEF2F2; }
+    .system-content { background: #FAFAF9; }
+    .node {
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      min-width: 100px;
+      z-index: 2;
+    }
+    .node-admin { background: #C8000C; color: #FAFAF9; border: 1px solid #A3000A; }
+    .node-teacher { background: #FAFAF9; color: #292524; border: 1px solid #D6D3D1; }
+    .node-ai { background: #C8000C; color: #FAFAF9; border: 1px solid #A3000A; }
+    .node-system { background: #FAFAF9; color: #292524; border: 1px solid #D6D3D1; }
+    .node-teacher-ai { background: #FEF2F2; color: #292524; border: 1px solid #C8000C; }
+    .arrow {
+      color: #78716C;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .arrow-ai { color: #C8000C; }
+    .phase-bar {
+      display: flex;
+      margin-bottom: 12px;
+      padding: 0 160px;
+    }
+    .phase-item {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #78716C;
+      padding: 8px 0;
+      border-bottom: 2px solid #E7E5E4;
+    }
+    .phase-item.active { color: #C8000C; border-bottom-color: #C8000C; }
+    .legend {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #78716C;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .diagram-container { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <div class="diagram-title">AI教师研训业务泳道图</div>
+
+    <div class="phase-bar">
+      <div class="phase-item">阶段一：内容运营</div>
+      <div class="phase-item">阶段二：学习过程</div>
+      <div class="phase-item active">阶段三：AI赋能</div>
+      <div class="phase-item">阶段四：数据管理</div>
+    </div>
+
+    <div class="swimlane-chart">
+      <!-- 管理员泳道 -->
+      <div class="swimlane">
+        <div class="swimlane-header admin-header">管理员<br>（PC端）</div>
+        <div class="swimlane-content admin-content">
+          <div class="node node-admin">发布研训课程</div>
+          <div class="arrow">→</div>
+          <div class="node node-admin">发布研训活动</div>
+          <div class="arrow" style="flex:1;min-width:400px;border-bottom:2px dashed #D6D3D1;align-self:center;margin:0 16px;height:0;"></div>
+          <div class="node node-admin" style="background:#78716C;border-color:#57534E;">查看数据统计</div>
+          <div class="arrow">→</div>
+          <div class="node node-admin" style="background:#78716C;border-color:#57534E;">导出学习报告</div>
+        </div>
+      </div>
+
+      <!-- 教师泳道 -->
+      <div class="swimlane">
+        <div class="swimlane-header teacher-header">教师<br>（学员端）</div>
+        <div class="swimlane-content teacher-content">
+          <div class="node node-teacher">浏览研训课程/活动</div>
+          <div class="arrow">→</div>
+          <div class="node node-teacher">关注/报名课程</div>
+          <div class="arrow">→</div>
+          <div class="node node-teacher">学习课件</div>
+          <div class="arrow arrow-ai">→</div>
+          <div class="node node-teacher-ai">AI问答<br>（AI研训助手）</div>
+          <div class="arrow">→</div>
+          <div class="node node-teacher">提交课程评价</div>
+          <div class="arrow">→</div>
+          <div class="node node-teacher-ai">查看个人画像</div>
+          <div class="arrow arrow-ai">→</div>
+          <div class="node node-teacher-ai">查看改进建议</div>
+          <div class="arrow" style="flex:1;min-width:60px;"></div>
+          <div class="node node-teacher">参与活动签到</div>
+          <div class="arrow">→</div>
+          <div class="node node-teacher">提交反馈/心得</div>
+        </div>
+      </div>
+
+      <!-- AI系统泳道 -->
+      <div class="swimlane">
+        <div class="swimlane-header ai-header">AI系统<br>（智能引擎）</div>
+        <div class="swimlane-content ai-content">
+          <div class="arrow" style="flex:1;min-width:360px;"></div>
+          <div class="node node-ai">AI研训助手<br>智能问答</div>
+          <div class="arrow" style="flex:1;min-width:100px;"></div>
+          <div class="node node-ai">学习诊断分析<br>（6维能力评估）</div>
+          <div class="arrow" style="flex:1;min-width:40px;"></div>
+          <div class="node node-ai">课程推荐算法</div>
+          <div class="arrow" style="flex:1;min-width:200px;"></div>
+        </div>
+      </div>
+
+      <!-- 系统泳道 -->
+      <div class="swimlane">
+        <div class="swimlane-header system-header">课程/活动<br>系统</div>
+        <div class="swimlane-content system-content">
+          <div class="node node-system">课程资源库</div>
+          <div class="arrow">→</div>
+          <div class="node node-system">活动管理</div>
+          <div class="arrow" style="flex:1;min-width:440px;border-bottom:2px dashed #D6D3D1;align-self:center;margin:0 16px;height:0;"></div>
+          <div class="node node-system">学习记录存储</div>
+          <div class="arrow" style="flex:1;min-width:200px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-color" style="background:#C8000C;"></div>核心操作</div>
+      <div class="legend-item"><div class="legend-color" style="background:#78716C;"></div>管理操作</div>
+      <div class="legend-item"><div class="legend-color" style="background:#FEF2F2;border:1px solid #C8000C;"></div>AI交互</div>
+      <div class="legend-item"><div class="legend-color" style="background:#FAFAF9;border:1px solid #D6D3D1;"></div>常规操作</div>
+      <div class="legend-item">— — 异步/后台流程</div>
+    </div>
+  </div>
+</body>
+</html>

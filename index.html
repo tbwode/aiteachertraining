@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教师端 - AI教师研训</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.15.0/reset.css">
+  <link rel="stylesheet" href="css/teacher-style.css?v=16">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C8000C'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.18.5/package/dist/xlsx.full.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="teacher-layout">
+    <!-- Header -->
+    <header class="teacher-header">
+      <div class="teacher-header-logo">AI教师研训 - 教师端</div>
+      <div class="teacher-header-user">
+        <span id="header-user-name">张老师</span>
+        <span id="header-user-org" style="color:var(--text-tertiary);">教学研究组</span>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="teacher-sidebar">
+      <div class="teacher-menu">
+        <div class="teacher-menu-item active" data-page="teacher-space" onclick="app.goTo('teacher-space')">
+          <span class="teacher-menu-icon"><i data-lucide="graduation-cap"></i></span>
+          <span class="teacher-menu-label">AI教师研训</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="teacher-main">
+      <!-- ==================== Training Space ==================== -->
+      <section id="page-teacher-space" class="page-section active">
+        <h1 class="page-title mb-6">AI教师研训</h1>
+        <div class="space-tabs">
+          <button class="space-tab active" data-tab="courses" onclick="app.switchSpaceTab('courses')">研训课程</button>
+          <button class="space-tab" data-tab="activities" onclick="app.switchSpaceTab('activities')">研训活动</button>
+          <button class="space-tab" data-tab="learning" onclick="app.switchSpaceTab('learning')">我的学习</button>
+          <button class="space-tab" data-tab="admin" id="space-tab-admin-btn" style="display:none;" onclick="app.switchSpaceTab('admin')">研训管理</button>
+        </div>
+
+        <div class="space-layout">
+          <!-- Main Area -->
+          <div class="space-main">
+            <!-- Courses Tab -->
+            <div id="space-tab-courses" class="tab-content active">
+              <div class="filter-bar" style="margin-bottom:12px;">
+                <div class="multi-select" id="course-type-multi-select" style="width:200px;">
+                  <div class="multi-select-trigger" onclick="app.toggleCourseTypeDropdown(event)">
+                    <span id="course-type-select-label">全部类型</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                  <div class="multi-select-dropdown" id="course-type-dropdown">
+                    <div class="multi-select-search">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                      <input type="text" id="course-type-search-input" placeholder="搜索类型" oninput="app.filterCourseTypeOptions(this.value)">
+                    </div>
+                    <div class="multi-select-options" id="course-type-options"></div>
+                    <div class="multi-select-footer">
+                      <button class="btn btn-ghost btn-sm" onclick="app.clearCourseTypeSelection()">清空</button>
+                      <button class="btn btn-primary btn-sm" onclick="app.confirmCourseTypeSelection()">确定</button>
+                    </div>
+                  </div>
+                </div>
+                <select id="course-completion-filter" class="form-select" style="width:120px;" onchange="app.filterCourses()">
+                  <option value="">全部</option>
+                  <option value="learned">已学</option>
+                  <option value="unlearned">未学</option>
+                </select>
+                <div class="search-input" style="max-width:280px;">
+                  <span class="search-icon"><i data-lucide="search"></i></span>
+                  <input type="text" id="course-search-input" class="form-input" placeholder="请输入课程名称、讲师/机构" oninput="app.filterCourses()">
+                </div>
+              </div>
+              <!-- AI Recommendation Bar -->
+              <div id="ai-recommend-bar" class="ai-recommend-bar" style="display:none;">
+                <div class="ai-recommend-header">
+                  <div class="ai-recommend-title"><span><i data-lucide="bot"></i></span> 为您推荐</div>
+                  <div class="ai-recommend-actions">
+                    <button onclick="app.refreshAiRecommendations()"><i data-lucide="refresh-cw"></i> 换一批</button>
+                    <button onclick="app.toggleAiRecommendations()"><i data-lucide="x"></i> 收起</button>
+                  </div>
+                </div>
+                <div id="ai-recommend-list" class="ai-recommend-list"></div>
+              </div>
+              <div id="course-card-list" class="course-card-grid"></div>
+              <div id="course-list-pagination" class="pagination mt-6"></div>
+            </div>
+
+            <!-- Activities Tab -->
+            <div id="space-tab-activities" class="tab-content">
+              <div class="filter-bar" style="margin-bottom:12px;">
+                <select id="activity-filter-status" class="form-select" style="width:140px;" onchange="app.filterActivities()">
+                  <option value="">全部状态</option>
+                  <option value="upcoming">未开始</option>
+                  <option value="ongoing">进行中</option>
+                  <option value="ended">已结束</option>
+                </select>
+                <input type="date" id="activity-filter-start" class="form-input" style="width:150px;" onchange="app.filterActivities()">
+                <span class="text-secondary text-sm">至</span>
+                <input type="date" id="activity-filter-end" class="form-input" style="width:150px;" onchange="app.filterActivities()">
+                <div class="search-input" style="max-width:280px;">
+                  <span class="search-icon"><i data-lucide="search"></i></span>
+                  <input type="text" id="activity-search-input" class="form-input" placeholder="请输入活动名称" oninput="app.filterActivities()">
+                </div>
+              </div>
+              <div id="activity-card-list" class="flex flex-col gap-4"></div>
+              <div id="activity-list-pagination" class="pagination mt-6"></div>
+            </div>
+
+            <!-- Learning Tab -->
+            <div id="space-tab-learning" class="tab-content">
+              <div class="learning-sub-tabs mb-4">
+                <button class="learning-sub-tab active" data-subtab="profile" onclick="app.switchLearningSubTab('profile')">个人画像</button>
+                <button class="learning-sub-tab" data-subtab="activities" onclick="app.switchLearningSubTab('activities')">参加的活动</button>
+                <button class="learning-sub-tab" data-subtab="courses" onclick="app.switchLearningSubTab('courses')">学习的课程</button>
+                <button class="learning-sub-tab" data-subtab="followed" onclick="app.switchLearningSubTab('followed')">关注的课程</button>
+                <button class="learning-sub-tab" data-subtab="reviews" onclick="app.switchLearningSubTab('reviews')">评价的课程</button>
+              </div>
+
+              <!-- Sub-tab: Activities -->
+              <div id="learning-sub-activities" class="learning-sub-content">
+                <div class="filter-bar" style="margin-bottom:12px;">
+                  <select id="my-activity-filter-status" class="form-select" style="width:140px;" onchange="app.filterMyActivities()">
+                    <option value="">全部状态</option>
+                    <option value="upcoming">未开始</option>
+                    <option value="ongoing">进行中</option>
+                    <option value="ended">已结束</option>
+                  </select>
+                  <input type="date" id="my-activity-filter-start" class="form-input" style="width:150px;" onchange="app.filterMyActivities()">
+                  <span class="text-secondary text-sm">至</span>
+                  <input type="date" id="my-activity-filter-end" class="form-input" style="width:150px;" onchange="app.filterMyActivities()">
+                  <div class="search-input" style="max-width:280px;">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="my-activity-search-input" class="form-input" placeholder="请输入活动名称" oninput="app.filterMyActivities()">
+                  </div>
+                </div>
+                <div class="table-wrapper">
+                  <table class="data-table" id="my-activities-table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>活动名称</th>
+                        <th>活动时间</th>
+                        <th>活动状态</th>
+                        <th>需修满学时</th>
+                        <th>已获得学时</th>
+                        <th><span class="tooltip-wrap">参与进度<span class="tooltip-text">已学课程/活动课程总数</span></span></th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div id="my-activities-pagination" class="pagination mt-6"></div>
+              </div>
+
+              <!-- Sub-tab: Courses -->
+              <div id="learning-sub-courses" class="learning-sub-content">
+                <div class="filter-bar mb-4">
+                  <div class="multi-select" id="my-courses-type-select" style="width:200px;">
+                    <div class="multi-select-trigger" onclick="app.toggleMyCoursesTypeDropdown(event)">
+                      <span id="my-courses-type-label">全部类型</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="multi-select-dropdown" id="my-courses-type-dropdown">
+                      <div class="multi-select-search">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" placeholder="搜索类型" oninput="app.filterMyCoursesTypeOptions(this.value)">
+                      </div>
+                      <div class="multi-select-options" id="my-courses-type-options"></div>
+                      <div class="multi-select-footer">
+                        <button class="btn btn-ghost btn-sm" onclick="app.clearMyCoursesTypeSelection()">清空</button>
+                        <button class="btn btn-primary btn-sm" onclick="app.confirmMyCoursesTypeSelection()">确定</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search-input" style="flex:1;max-width:320px;">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="my-courses-search" class="form-input" placeholder="请输入课程名称、讲师/机构" oninput="app.filterMyCourses()">
+                  </div>
+                  <button class="btn btn-secondary btn-sm" onclick="app.exportMyLearningCourses()">
+                    <span><i data-lucide="download"></i></span> 导出Excel
+                  </button>
+                </div>
+                <div class="text-sm text-secondary mb-2">共 <span id="learning-total-courses">0</span> 条学习记录</div>
+                <div class="table-wrapper">
+                  <table class="data-table" id="learning-courses-table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>课程名称</th>
+                        <th>课程讲师/机构</th>
+                        <th>课件数</th>
+                        <th>学习进度</th>
+                        <th>课程类型</th>
+                        <th>学习完成时间</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div id="learning-courses-pagination" class="pagination mt-6"></div>
+              </div>
+
+              <!-- Sub-tab: Followed -->
+              <div id="learning-sub-followed" class="learning-sub-content">
+                <div class="filter-bar mb-4">
+                  <div class="multi-select" id="my-followed-type-select" style="width:200px;">
+                    <div class="multi-select-trigger" onclick="app.toggleMyFollowedTypeDropdown(event)">
+                      <span id="my-followed-type-label">全部类型</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="multi-select-dropdown" id="my-followed-type-dropdown">
+                      <div class="multi-select-search">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" placeholder="搜索类型" oninput="app.filterMyFollowedTypeOptions(this.value)">
+                      </div>
+                      <div class="multi-select-options" id="my-followed-type-options"></div>
+                      <div class="multi-select-footer">
+                        <button class="btn btn-ghost btn-sm" onclick="app.clearMyFollowedTypeSelection()">清空</button>
+                        <button class="btn btn-primary btn-sm" onclick="app.confirmMyFollowedTypeSelection()">确定</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search-input" style="flex:1;max-width:320px;">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="my-followed-search" class="form-input" placeholder="请输入课程名称、讲师/机构" oninput="app.filterMyFollowed()">
+                  </div>
+                  <button class="btn btn-secondary btn-sm" onclick="app.exportMyFollowedCourses()">
+                    <span><i data-lucide="download"></i></span> 导出Excel
+                  </button>
+                </div>
+                <div class="table-wrapper">
+                  <table class="data-table" id="learning-followed-table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>课程名称</th>
+                        <th>课程讲师/机构</th>
+                        <th>课件数</th>
+                        <th>课程类型</th>
+                        <th>关注时间</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div id="learning-followed-pagination" class="pagination mt-6"></div>
+              </div>
+
+              <!-- Sub-tab: Reviews -->
+              <div id="learning-sub-reviews" class="learning-sub-content">
+                <div class="filter-bar mb-4">
+                  <div class="multi-select" id="my-reviews-type-select" style="width:200px;">
+                    <div class="multi-select-trigger" onclick="app.toggleMyReviewsTypeDropdown(event)">
+                      <span id="my-reviews-type-label">全部类型</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="multi-select-dropdown" id="my-reviews-type-dropdown">
+                      <div class="multi-select-search">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" placeholder="搜索类型" oninput="app.filterMyReviewsTypeOptions(this.value)">
+                      </div>
+                      <div class="multi-select-options" id="my-reviews-type-options"></div>
+                      <div class="multi-select-footer">
+                        <button class="btn btn-ghost btn-sm" onclick="app.clearMyReviewsTypeSelection()">清空</button>
+                        <button class="btn btn-primary btn-sm" onclick="app.confirmMyReviewsTypeSelection()">确定</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search-input" style="flex:1;max-width:320px;">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="my-reviews-search" class="form-input" placeholder="请输入课程名称、讲师/机构" oninput="app.filterMyReviews()">
+                  </div>
+                  <button class="btn btn-secondary btn-sm" onclick="app.exportMyReviews()">
+                    <span><i data-lucide="download"></i></span> 导出Excel
+                  </button>
+                </div>
+                <div class="table-wrapper">
+                  <table class="data-table" id="learning-reviews-table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>课程名称</th>
+                        <th>课程讲师/机构</th>
+                        <th>课件数</th>
+                        <th>课程类型</th>
+                        <th>课程评星</th>
+                        <th>评语内容</th>
+                        <th>评价时间</th>
+                        <th>点赞</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div id="learning-reviews-pagination" class="pagination mt-6"></div>
+              </div>
+
+              <!-- Sub-tab: Profile -->
+              <div id="learning-sub-profile" class="learning-sub-content">
+                <!-- Profile Stats Summary -->
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <span class="card-title"><i data-lucide="user"></i> 学习数据概览</span>
+                  </div>
+                  <div class="card-body">
+                    <!-- Stats Grid -->
+                    <div class="profile-stats-grid">
+                      <div class="profile-stat-card" style="--accent: var(--primary);">
+                        <div class="profile-stat-icon"><i data-lucide="book-open"></i></div>
+                        <div class="profile-stat-value text-primary" id="profile-total-courses">0</div>
+                        <div class="profile-stat-label">已学课程</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: var(--success);">
+                        <div class="profile-stat-icon"><i data-lucide="award"></i></div>
+                        <div class="profile-stat-value" style="color: var(--success);" id="profile-total-hours">0</div>
+                        <div class="profile-stat-label">获得学时</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: var(--info);">
+                        <div class="profile-stat-icon"><i data-lucide="calendar-check"></i></div>
+                        <div class="profile-stat-value" style="color: var(--info);" id="profile-activity-count">0</div>
+                        <div class="profile-stat-label">参与活动</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: var(--warning);">
+                        <div class="profile-stat-icon"><i data-lucide="trophy"></i></div>
+                        <div class="profile-stat-value" style="color: var(--warning);" id="profile-rank">--</div>
+                        <div class="profile-stat-label">同组排名</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: #8B5CF6;">
+                        <div class="profile-stat-icon"><i data-lucide="flame"></i></div>
+                        <div class="profile-stat-value" style="color: #8B5CF6;" id="profile-streak-days">0</div>
+                        <div class="profile-stat-label">连续学习(天)</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: #EC4899;">
+                        <div class="profile-stat-icon"><i data-lucide="clock"></i></div>
+                        <div class="profile-stat-value" style="color: #EC4899;" id="profile-total-minutes">0</div>
+                        <div class="profile-stat-label">学习时长(分钟)</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: #14B8A6;">
+                        <div class="profile-stat-icon"><i data-lucide="check-circle-2"></i></div>
+                        <div class="profile-stat-value" style="color: #14B8A6;" id="profile-completion-rate">0%</div>
+                        <div class="profile-stat-label">课程完成率</div>
+                      </div>
+                      <div class="profile-stat-card" style="--accent: #F97316;">
+                        <div class="profile-stat-icon"><i data-lucide="message-square"></i></div>
+                        <div class="profile-stat-value" style="color: #F97316;" id="profile-review-count">0</div>
+                        <div class="profile-stat-label">课程评价</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Learning Behavior Analysis -->
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <span class="card-title"><i data-lucide="bar-chart-3"></i> 学习行为分析</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <!-- Active Time Distribution -->
+                      <div>
+                        <div class="text-sm font-medium text-primary mb-3" style="display:inline-flex;align-items:center;gap:4px;"><i data-lucide="clock"></i> 活跃时段分布</div>
+                        <div id="profile-active-time-chart" style="height: 180px;"></div>
+                      </div>
+                      <!-- Weekly Learning Heatmap -->
+                      <div>
+                        <div class="text-sm font-medium text-primary mb-3" style="display:inline-flex;align-items:center;gap:4px;"><i data-lucide="calendar"></i> 近7天学习记录</div>
+                        <div id="profile-weekly-heatmap" style="height: 180px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AI Learning Insight Card -->
+                <div id="ai-insight-card" class="ai-insight-card" style="display:none;">
+                  <!-- Header -->
+                  <div class="ai-insight-header">
+                    <div class="ai-insight-title"><span><i data-lucide="bot"></i></span> AI学习诊断与改进建议</div>
+                    <div class="ai-insight-actions">
+                      <button class="btn btn-ghost btn-sm" onclick="app.refreshAiInsight()"><i data-lucide="refresh-cw"></i> 刷新诊断</button>
+                      <button class="btn btn-secondary btn-sm" onclick="app.exportAiInsight()"><i data-lucide="download"></i> 导出完整报告</button>
+                    </div>
+                  </div>
+
+                  <!-- 能力维度诊断（含综合评分） -->
+                  <div class="ai-radar-section">
+                    <div class="ai-radar-header">
+                      <h3 class="ai-section-title"><i data-lucide="target"></i> 能力维度诊断</h3>
+                      <div class="ai-overall-score-inline">
+                        <div class="ai-overall-number" id="ai-overall-score">--</div>
+                        <div class="ai-overall-label" id="ai-score-label">--</div>
+                        <div class="ai-overall-level" id="ai-overall-level">--</div>
+                      </div>
+                    </div>
+                    <div class="ai-dimension-comment" id="ai-dimension-comment">
+                      <!-- AI点评内容由JS渲染 -->
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                      <div class="lg:col-span-2">
+                        <div id="ai-insight-radar-chart" style="height: 280px;"></div>
+                      </div>
+                      <div class="ai-radar-legend" id="ai-radar-legend">
+                        <!-- Rendered by JS -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 3. 优势总结 + 问题归因 -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="ai-analysis-card ai-analysis-good">
+                      <div class="ai-analysis-header">
+                        <span class="ai-analysis-icon"><i data-lucide="check-circle-2"></i></span>
+                        <span class="ai-analysis-title">优势领域</span>
+                      </div>
+                      <div class="ai-analysis-body" id="ai-strengths-list">
+                        <!-- Rendered by JS -->
+                      </div>
+                    </div>
+                    <div class="ai-analysis-card ai-analysis-bad">
+                      <div class="ai-analysis-header">
+                        <span class="ai-analysis-icon"><i data-lucide="alert-triangle"></i></span>
+                        <span class="ai-analysis-title">待改进项</span>
+                      </div>
+                      <div class="ai-analysis-body" id="ai-weaknesses-list">
+                        <!-- Rendered by JS -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 4. 分层改进建议 -->
+                  <div class="ai-timeline-section">
+                    <h3 class="ai-section-title"><i data-lucide="lightbulb"></i> 分层改进建议</h3>
+                    <div class="ai-timeline">
+                      <div class="ai-timeline-item">
+                        <div class="ai-timeline-dot ai-timeline-short"></div>
+                        <div class="ai-timeline-content">
+                          <div class="ai-timeline-label">短期目标（1周内）</div>
+                          <div class="ai-timeline-text" id="ai-short-term">
+                            <!-- Rendered by JS -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ai-timeline-item">
+                        <div class="ai-timeline-dot ai-timeline-mid"></div>
+                        <div class="ai-timeline-content">
+                          <div class="ai-timeline-label">中期目标（1个月内）</div>
+                          <div class="ai-timeline-text" id="ai-mid-term">
+                            <!-- Rendered by JS -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 5. 定制化课程推荐 + 学习任务推送 -->
+                  <div class="ai-recommend-section">
+                    <h3 class="ai-section-title"><i data-lucide="book-open"></i> 定制化研训推荐</h3>
+                    <div id="ai-course-recommendations">
+                      <!-- Rendered by JS -->
+                    </div>
+                  </div>
+
+                  <!-- 6. 阶段性追踪指标 -->
+                  <div class="ai-track-section">
+                    <h3 class="ai-section-title"><i data-lucide="bar-chart-3"></i> 阶段性追踪指标</h3>
+                    <div class="ai-track-desc">下次复测（建议2周后）重点观测以下指标变化：</div>
+                    <div class="ai-track-tags" id="ai-track-tags">
+                      <!-- Rendered by JS -->
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Admin Tab -->
+            <div id="space-tab-admin" class="tab-content">
+              <div class="admin-sub-tabs mb-4">
+                <button class="admin-sub-tab active" data-subtab="cockpit" onclick="app.switchAdminSubTab('cockpit')">研训驾驶舱</button>
+                <button class="admin-sub-tab" data-subtab="courses" onclick="app.switchAdminSubTab('courses')">研训课程</button>
+                <button class="admin-sub-tab" data-subtab="activities" onclick="app.switchAdminSubTab('activities')">研训活动</button>
+              </div>
+
+              <!-- Sub-tab: Cockpit -->
+              <div id="admin-sub-cockpit" class="admin-sub-content">
+                <div class="cockpit-container">
+                  <div class="cockpit-header">
+                    <div class="cockpit-header-left">
+                      <div class="cockpit-title">研训驾驶舱</div>
+                      <div class="cockpit-subtitle">实时数据监控与运营分析</div>
+                    </div>
+                    <div class="cockpit-header-right">
+                      <div class="cockpit-time" id="cockpit-time"></div>
+                      <button class="cockpit-fullscreen-btn" onclick="app.toggleCockpitFullscreen()">
+                        <i data-lucide="maximize"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="cockpit-body">
+                    <aside class="cockpit-left">
+                      <div class="cockpit-panel">
+                        <div class="cockpit-panel-title">人员概览</div>
+                        <div class="cockpit-panel-main">
+                          <div class="cockpit-personnel">
+                            <div class="cockpit-personnel-row">
+                              <span class="cockpit-personnel-label">参训教师</span>
+                              <span class="cockpit-personnel-num" id="dash-total-teachers">0</span>
+                            </div>
+                            <div class="cockpit-personnel-row">
+                              <span class="cockpit-personnel-label">已完成</span>
+                              <span class="cockpit-personnel-num" id="dash-completed-teachers">0</span>
+                            </div>
+                            <div class="cockpit-personnel-row">
+                              <span class="cockpit-personnel-label">完成率</span>
+                              <span class="cockpit-personnel-num" id="dash-completion-rate">0%</span>
+                            </div>
+                          </div>
+                          <div id="cockpit-radar-chart" style="height:200px;margin-top:12px;"></div>
+                          <div id="cockpit-subject-chart" style="height:180px;margin-top:12px;"></div>
+                        </div>
+                      </div>
+                    </aside>
+                    <main class="cockpit-center">
+                      <div class="cockpit-kpi-row">
+                        <div class="cockpit-kpi-card">
+                          <div class="cockpit-kpi-icon" style="background:rgba(200,0,12,0.1);color:#C8000C;"><i data-lucide="book-open"></i></div>
+                          <div class="cockpit-kpi-value" id="dash-total-courses">0</div>
+                          <div class="cockpit-kpi-label">研训课程</div>
+                        </div>
+                        <div class="cockpit-kpi-card">
+                          <div class="cockpit-kpi-icon" style="background:rgba(120,113,108,0.1);color:#78716C;"><i data-lucide="calendar"></i></div>
+                          <div class="cockpit-kpi-value" id="dash-total-activities">0</div>
+                          <div class="cockpit-kpi-label">研训活动</div>
+                        </div>
+                        <div class="cockpit-kpi-card">
+                          <div class="cockpit-kpi-icon" style="background:rgba(40,167,69,0.1);color:#28a745;"><i data-lucide="trending-up"></i></div>
+                          <div class="cockpit-kpi-value" id="dash-avg-ability">0</div>
+                          <div class="cockpit-kpi-label">平均能力</div>
+                        </div>
+                      </div>
+                      <div class="cockpit-panel">
+                        <div class="cockpit-panel-title">活动参与完成情况</div>
+                        <div class="cockpit-panel-main">
+                          <div id="cockpit-activity-completion-chart" style="height:260px;"></div>
+                        </div>
+                      </div>
+                      <div class="cockpit-panel">
+                        <div class="cockpit-panel-title">学习时长趋势</div>
+                        <div class="cockpit-panel-main">
+                          <div id="cockpit-learning-hours-chart" style="height:220px;"></div>
+                        </div>
+                      </div>
+                    </main>
+                    <aside class="cockpit-right">
+                      <div class="cockpit-panel">
+                        <div class="cockpit-panel-title">热门课程 TOP5</div>
+                        <div class="cockpit-panel-main">
+                          <div class="cockpit-rank-list" id="cockpit-top-courses"></div>
+                        </div>
+                      </div>
+                      <div class="cockpit-panel">
+                        <div class="cockpit-panel-title">活跃教师 TOP5</div>
+                        <div class="cockpit-panel-main">
+                          <div class="cockpit-rank-list" id="cockpit-top-teachers"></div>
+                        </div>
+                      </div>
+                      <div class="cockpit-panel">
+                        <div class="cockpit-panel-title">热门活动 TOP5</div>
+                        <div class="cockpit-panel-main">
+                          <div class="cockpit-rank-list" id="cockpit-top-activities"></div>
+                        </div>
+                      </div>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sub-tab: Courses -->
+              <div id="admin-sub-courses" class="admin-sub-content" style="display:none;">
+                <div class="filter-bar" style="margin-bottom:12px;">
+                  <div class="search-input" style="max-width:280px;">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="admin-course-search" class="form-input" placeholder="请输入课程名称" oninput="app.filterAdminCourses()">
+                  </div>
+                  <select id="admin-course-status" class="form-select" style="width:140px;" onchange="app.filterAdminCourses()">
+                    <option value="">全部状态</option>
+                    <option value="published">已发布</option>
+                    <option value="draft">草稿</option>
+                  </select>
+                  <input type="date" id="admin-course-date-from" class="form-input" style="width:150px;" onchange="app.filterAdminCourses()">
+                  <span class="text-secondary text-sm">至</span>
+                  <input type="date" id="admin-course-date-to" class="form-input" style="width:150px;" onchange="app.filterAdminCourses()">
+                </div>
+                <div class="table-wrapper">
+                  <table class="data-table" id="admin-courses-table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>课程名称</th>
+                        <th>课程类型</th>
+                        <th>讲师/机构</th>
+                        <th>发布状态</th>
+                        <th>学习人数</th>
+                        <th>完成率</th>
+                        <th>发布时间</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div id="admin-courses-pagination" class="pagination mt-6"></div>
+              </div>
+
+              <!-- Sub-tab: Activities -->
+              <div id="admin-sub-activities" class="admin-sub-content" style="display:none;">
+                <div class="filter-bar" style="margin-bottom:12px;">
+                  <div class="search-input" style="max-width:280px;">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="admin-activity-search" class="form-input" placeholder="请输入活动名称" oninput="app.filterAdminActivities()">
+                  </div>
+                  <select id="admin-activity-status" class="form-select" style="width:140px;" onchange="app.filterAdminActivities()">
+                    <option value="">全部状态</option>
+                    <option value="upcoming">未开始</option>
+                    <option value="ongoing">进行中</option>
+                    <option value="ended">已结束</option>
+                  </select>
+                  <input type="date" id="admin-activity-date-from" class="form-input" style="width:150px;" onchange="app.filterAdminActivities()">
+                  <span class="text-secondary text-sm">至</span>
+                  <input type="date" id="admin-activity-date-to" class="form-input" style="width:150px;" onchange="app.filterAdminActivities()">
+                </div>
+                <div class="table-wrapper">
+                  <table class="data-table" id="admin-activities-table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>活动名称</th>
+                        <th>活动时间</th>
+                        <th>活动状态</th>
+                        <th>参与人数</th>
+                        <th>完成人数</th>
+                        <th>完成率</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <div id="admin-activities-pagination" class="pagination mt-6"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar Rankings -->
+          <aside class="space-sidebar" id="rankings-sidebar">
+            <div class="card mb-4">
+              <div class="card-header">
+                <span class="card-title">课程排名 Top5</span>
+              </div>
+              <div class="card-body">
+                <div class="tabs mb-3">
+                  <div class="tab active" data-tab="rank-learn" onclick="app.switchRankingTab('rank-learn')">学习最多</div>
+                  <div class="tab" data-tab="rank-follow" onclick="app.switchRankingTab('rank-follow')">关注最多</div>
+                  <div class="tab" data-tab="rank-rating" onclick="app.switchRankingTab('rank-rating')">评价最高</div>
+                </div>
+                <div id="ranking-list-container" class="ranking-list"></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">学习排名 Top5</span>
+              </div>
+              <div class="card-body">
+                <div id="teacher-ranking-list" class="ranking-list"></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ==================== Course Detail ==================== -->
+      <section id="page-course-detail" class="page-section">
+        <div class="breadcrumb mb-4" id="course-detail-breadcrumb-container">
+          <span class="breadcrumb-item" onclick="app.goTo('teacher-space')">AI教师研训</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-item active" id="course-detail-breadcrumb">课程详情</span>
+        </div>
+
+        <div id="course-detail-header" class="course-detail-header"></div>
+
+        <div class="card">
+          <div class="tabs">
+            <div class="tab active" data-tab="intro" onclick="app.switchCourseDetailTab('intro')">课程简介</div>
+            <div class="tab" data-tab="ai-advice" onclick="app.switchCourseDetailTab('ai-advice')">AI研训建议</div>
+            <div class="tab" data-tab="catalog" onclick="app.switchCourseDetailTab('catalog')">课程目录</div>
+            <div class="tab" data-tab="reviews" onclick="app.switchCourseDetailTab('reviews')">课程评价</div>
+            <div class="tab" data-tab="feedback" onclick="app.switchCourseDetailTab('feedback')">反馈</div>
+          </div>
+          <div class="card-body">
+            <div id="course-tab-intro" class="tab-content active">
+              <div id="course-intro-content" class="text-sm text-secondary leading-relaxed"></div>
+            </div>
+            <div id="course-tab-ai-advice" class="tab-content">
+              <div id="course-ai-advice-content"></div>
+            </div>
+            <div id="course-tab-catalog" class="tab-content">
+              <div id="course-catalog-content"></div>
+            </div>
+            <div id="course-tab-reviews" class="tab-content">
+              <div id="course-reviews-content"></div>
+            </div>
+            <div id="course-tab-feedback" class="tab-content">
+              <div id="course-feedback-container"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== Courseware Learning ==================== -->
+      <section id="page-courseware-learn" class="page-section">
+        <div class="breadcrumb mb-4">
+          <span class="breadcrumb-item" onclick="app.goTo('teacher-space')">AI教师研训</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-item" onclick="app.backToCourseDetail()">课程详情</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-item active">课件学习</span>
+        </div>
+
+        <div class="courseware-layout">
+          <div class="courseware-main">
+            <div id="courseware-main-content"></div>
+          </div>
+          <div class="courseware-sidebar">
+            <div class="font-semibold text-sm mb-4">课程目录</div>
+            <div id="courseware-sidebar-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== Activity Detail ==================== -->
+      <section id="page-activity-detail" class="page-section">
+        <div class="breadcrumb mb-4">
+          <span class="breadcrumb-item" onclick="app.goTo('teacher-space')">AI教师研训</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-item active" id="activity-detail-breadcrumb">活动详情</span>
+        </div>
+        <div id="activity-detail-content"></div>
+      </section>
+
+      <!-- ==================== Feedback ==================== -->
+      <section id="page-feedback" class="page-section">
+        <div class="breadcrumb mb-4">
+          <span class="breadcrumb-item" onclick="app.goTo('teacher-space')">AI教师研训</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-item active">意见反馈</span>
+        </div>
+        <div class="card" style="max-width:720px;">
+          <div class="card-header">
+            <span class="card-title">意见反馈</span>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label class="form-label">反馈内容 <span class="required">*</span></label>
+              <textarea id="feedback-content" class="form-textarea" rows="6" maxlength="500" placeholder="请输入您的反馈意见，最多500字"></textarea>
+              <div class="text-right text-xs text-tertiary mt-1"><span id="feedback-char-count">0</span>/500</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">上传附件</label>
+              <div class="file-upload" id="feedback-file-area" onclick="document.getElementById('feedback-file-input').click()">
+                <input type="file" id="feedback-file-input" style="display:none;" onchange="app.handleFeedbackFile(this)">
+                <div style="font-size:28px;margin-bottom:8px;"><i data-lucide="paperclip"></i></div>
+                <div class="text-sm text-secondary">点击上传附件</div>
+                <div class="text-xs text-tertiary mt-1">支持 Word、PDF、图片等格式</div>
+              </div>
+              <div id="feedback-file-name" class="text-sm text-secondary mt-2" style="display:none;"></div>
+            </div>
+          </div>
+          <div class="card-footer" style="display:flex;justify-content:flex-end;gap:12px;">
+            <button class="btn btn-secondary" onclick="app.goTo('teacher-space')">取消</button>
+            <button class="btn btn-primary" onclick="app.submitFeedback()">提交反馈</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- AI Agent Floating Button -->
+    <div class="ai-float-btn" id="ai-float-btn" onclick="app.openAiAgentSidebar()">
+      <span><i data-lucide="bot"></i></span>
+    </div>
+
+    <!-- AI Agent Wrapper (contains history + chat panels) -->
+    <div class="ai-agent-wrapper" id="ai-agent-wrapper">
+      <!-- History Panel (left side, outer) -->
+      <div class="ai-agent-history-outer" id="ai-agent-history-outer">
+        <div class="ai-agent-history-title"><i data-lucide="book-open"></i> 历史对话</div>
+        <div id="ai-agent-history-list"></div>
+      </div>
+      <!-- Chat Panel (right side, fixed 420px) -->
+      <div class="ai-agent-chat-panel" id="ai-agent-sidebar">
+        <div class="ai-agent-sidebar-header">
+          <div class="ai-agent-sidebar-title">
+            <span><i data-lucide="bot"></i></span> AI研训助手
+          </div>
+          <div class="ai-agent-sidebar-actions">
+            <button class="ai-agent-action-btn" onclick="app.toggleAiHistory()" title="历史对话"><i data-lucide="book-open"></i></button>
+            <button class="ai-agent-action-btn" onclick="app.newAiChat()" title="新建对话"><i data-lucide="plus"></i></button>
+            <button class="ai-agent-action-btn" onclick="app.closeAiAgentSidebar()" title="关闭"><i data-lucide="x"></i></button>
+          </div>
+        </div>
+        <div class="ai-agent-sidebar-body" id="ai-agent-sidebar-body">
+          <div id="ai-agent-chat-messages"></div>
+        </div>
+        <div class="ai-agent-sidebar-footer">
+          <div class="ai-agent-input-wrap">
+            <input type="text" id="ai-agent-input" class="ai-agent-input" placeholder="输入您的问题，AI助手将为您解答..." onkeydown="if(event.key==='Enter')app.sendAiQuestion()">
+            <button class="btn btn-primary ai-agent-send" onclick="app.sendAiQuestion()">发送</button>
+          </div>
+          <div class="ai-agent-hint">AI生成的内容仅供参考，请以课程官方资料为准</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Modals ==================== -->
+
+  <!-- Review Submit Modal -->
+  <div class="modal-overlay" id="modal-review-submit">
+    <div class="modal" style="max-width:480px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="review-modal-title">提交评价</h3>
+        <button class="modal-close" onclick="app.closeModal('modal-review-submit')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">评分</label>
+          <div class="star-rating-input" id="review-star-input" onmouseleave="app.resetReviewHover()">
+            <span class="star" data-val="1" onclick="app.setReviewRating(1)" onmouseenter="app.hoverReviewRating(1)"><i data-lucide="star" class="star-icon"></i></span>
+            <span class="star" data-val="2" onclick="app.setReviewRating(2)" onmouseenter="app.hoverReviewRating(2)"><i data-lucide="star" class="star-icon"></i></span>
+            <span class="star" data-val="3" onclick="app.setReviewRating(3)" onmouseenter="app.hoverReviewRating(3)"><i data-lucide="star" class="star-icon"></i></span>
+            <span class="star" data-val="4" onclick="app.setReviewRating(4)" onmouseenter="app.hoverReviewRating(4)"><i data-lucide="star" class="star-icon"></i></span>
+            <span class="star" data-val="5" onclick="app.setReviewRating(5)" onmouseenter="app.hoverReviewRating(5)"><i data-lucide="star" class="star-icon"></i></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">评价内容 <span class="required">*</span></label>
+          <textarea id="review-content-input" class="form-textarea" rows="4" maxlength="200" placeholder="请输入评价内容，最多200字"></textarea>
+          <div class="text-right text-xs text-tertiary mt-1"><span id="review-char-count">0</span>/200</div>
+        </div>
+        <div class="form-group">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" id="review-anonymous-input" class="w-4 h-4" style="accent-color:var(--primary);">
+            <span class="text-sm text-secondary">匿名评价</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="app.closeModal('modal-review-submit')">取消</button>
+        <button class="btn btn-primary" onclick="app.submitReview()">提交</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generic Confirm Modal -->
+  <div class="modal-overlay" id="modal-generic-confirm">
+    <div class="modal" style="max-width:400px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="confirm-title">确认</h3>
+        <button class="modal-close" onclick="app.closeModal('modal-generic-confirm')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message">确定要执行此操作吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="app.closeModal('modal-generic-confirm')">取消</button>
+        <button class="btn btn-danger" id="confirm-btn" onclick="app.executeConfirm()">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Material List Modal -->
+  <div class="modal-overlay" id="modal-material-list">
+    <div class="modal" style="max-width:480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">拓展资料</h3>
+        <button class="modal-close" onclick="app.closeModal('modal-material-list')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="material-list-container" class="flex flex-col" style="gap:10px;"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="app.closeModal('modal-material-list')">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Material Preview Modal -->
+  <div class="modal-overlay" id="modal-material-preview" style="z-index:220;">
+    <div class="modal" style="max-width:720px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="material-preview-title">文件预览</h3>
+        <button class="modal-close" onclick="app.closeModal('modal-material-preview')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="material-preview-content" class="mb-4" style="min-height:320px; background:#f5f5f5; border-radius:8px; overflow:hidden;"></div>
+        <div class="flex items-center gap-3 p-3 bg-stone-50 rounded">
+          <div id="material-preview-icon" style="font-size:36px;"><i data-lucide="file"></i></div>
+          <div>
+            <div id="material-preview-name" class="font-medium"></div>
+            <div class="flex gap-2 text-xs text-tertiary">
+              <span id="material-preview-type"></span>
+              <span id="material-preview-size"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="app.closeModal('modal-material-preview')">关闭</button>
+        <button class="btn btn-primary" id="material-preview-download-btn">下载</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback Detail Modal -->
+  <div class="modal-overlay" id="modal-feedback-detail" style="z-index:210;">
+    <div class="modal" style="max-width:560px;">
+      <div class="modal-header">
+        <h3 class="modal-title">反馈详情</h3>
+        <button class="modal-close" onclick="app.closeModal('modal-feedback-detail')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4">
+          <div class="text-xs text-stone-500 mb-1">课程名称</div>
+          <div class="font-medium text-sm" id="feedback-detail-course-name"></div>
+        </div>
+        <div class="mb-4">
+          <div class="text-xs text-stone-500 mb-1">反馈内容</div>
+          <div class="text-sm leading-relaxed bg-stone-50 rounded p-3" id="feedback-detail-content"></div>
+        </div>
+        <div class="mb-4" id="feedback-detail-attachment">
+          <div class="text-xs text-stone-500 mb-1">附件</div>
+          <div class="flex items-center justify-between bg-stone-50 rounded p-3">
+            <span class="text-sm" id="feedback-detail-file-name"></span>
+            <button class="btn btn-ghost btn-sm" onclick="app.previewFeedbackAttachment()">预览</button>
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-stone-500 mb-1">提交时间</div>
+          <div class="text-sm text-stone-600" id="feedback-detail-time"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="app.closeModal('modal-feedback-detail')">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Study Report Modal -->
+  <div class="modal-overlay" id="modal-study-report">
+    <div class="modal" style="max-width:800px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="study-report-title">学习报告</h3>
+        <button class="modal-close" onclick="app.closeModal('modal-study-report')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div id="study-report-hours-chart" style="height:200px;"></div>
+          <div id="study-report-courses-chart" style="height:200px;"></div>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <div class="font-semibold text-sm">学习明细</div>
+          <button class="btn btn-secondary btn-sm" onclick="app.exportStudyReport()">
+            <span><i data-lucide="download"></i></span> 导出Excel
+          </button>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table" id="study-report-table">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>课程名称</th>
+                <th>获得学时</th>
+                <th>完成时间</th>
+                <th>反馈</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="app.closeModal('modal-study-report')">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/mock-data-pc.js"></script>
+  <script src="js/teacher-mock-data.js"></script>
+  <script src="js/teacher-app.js?v=16"></script>
+</body>
+</html>

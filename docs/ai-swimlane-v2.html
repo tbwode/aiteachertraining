@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI教师研训业务泳道图</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #FAFAF9;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .diagram-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 32px;
+      width: 1800px;
+    }
+    .diagram-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #292524;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .diagram-subtitle {
+      font-size: 12px;
+      color: #78716C;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .chart-wrapper {
+      display: flex;
+      border: 1px solid #E7E5E4;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .lane-labels {
+      width: 160px;
+      flex-shrink: 0;
+      border-right: 1px solid #E7E5E4;
+      display: flex;
+      flex-direction: column;
+    }
+    .lane-label {
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid #E7E5E4;
+      flex: 1;
+      min-height: 140px;
+    }
+    .lane-label:last-child { border-bottom: none; }
+    .label-admin { background: #292524; color: #FAFAF9; }
+    .label-teacher { background: #FAFAF9; color: #292524; }
+    .label-ai { background: #F5F5F4; color: #292524; border-left: 4px solid #C8000C; }
+    .label-system { background: #FAFAF9; color: #292524; }
+    .flow-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .flow-lane {
+      flex: 1;
+      min-height: 140px;
+      border-bottom: 1px solid #E7E5E4;
+      padding: 20px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      overflow-x: auto;
+    }
+    .flow-lane:last-child { border-bottom: none; }
+    .bg-admin { background: #FAFAF9; }
+    .bg-teacher { background: white; }
+    .bg-ai { background: #FEF2F2; }
+    .bg-system { background: #FAFAF9; }
+    .node {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      min-width: 90px;
+      z-index: 2;
+      position: relative;
+    }
+    .node-admin { background: #C8000C; color: #FAFAF9; border: 1px solid #A3000A; }
+    .node-teacher { background: #FAFAF9; color: #292524; border: 1px solid #D6D3D1; }
+    .node-ai { background: #C8000C; color: #FAFAF9; border: 1px solid #A3000A; }
+    .node-system { background: #FAFAF9; color: #292524; border: 1px solid #D6D3D1; }
+    .node-teacher-ai { background: #FEF2F2; color: #292524; border: 1px solid #C8000C; }
+    .arrow {
+      color: #78716C;
+      font-size: 14px;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+    .arrow-ai { color: #C8000C; }
+    .spacer { flex: 1; min-width: 40px; }
+    .dashed-line {
+      flex: 1;
+      min-width: 80px;
+      border-bottom: 2px dashed #D6D3D1;
+      align-self: center;
+      height: 0;
+      margin: 0 8px;
+    }
+    /* 跨泳道连接线 */
+    .connection-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: transparent;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .connection-solid { border-top: 2px solid #78716C; }
+    .connection-dashed { border-top: 2px dashed #C8000C; }
+    .connection-dot { border-top: 2px dotted #A8A29E; }
+    .connection-label {
+      position: absolute;
+      font-size: 10px;
+      color: #78716C;
+      background: white;
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid #E7E5E4;
+      white-space: nowrap;
+      z-index: 3;
+    }
+    .phase-bar {
+      display: flex;
+      padding: 0 160px;
+      margin-bottom: 12px;
+    }
+    .phase-item {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #78716C;
+      padding: 8px 0;
+      border-bottom: 2px solid #E7E5E4;
+      position: relative;
+    }
+    .phase-item.active { color: #C8000C; border-bottom-color: #C8000C; }
+    .phase-connector {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #C8000C;
+    }
+    .legend {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #78716C;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+    .annotation {
+      font-size: 10px;
+      color: #78716C;
+      font-style: italic;
+      margin-top: 4px;
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .diagram-container { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <div class="diagram-title">AI教师研训业务泳道图</div>
+    <div class="diagram-subtitle">基于真实代码逻辑 · 体现角色间关联关系</div>
+
+    <div class="phase-bar">
+      <div class="phase-item">阶段一：内容运营</div>
+      <div class="phase-item">阶段二：学习过程</div>
+      <div class="phase-item active">阶段三：AI赋能</div>
+      <div class="phase-item">阶段四：数据沉淀</div>
+    </div>
+
+    <div class="chart-wrapper">
+      <!-- 泳道标签列 -->
+      <div class="lane-labels">
+        <div class="lane-label label-admin">管理员<br><span style="font-size:11px;font-weight:400;">（PC端）</span></div>
+        <div class="lane-label label-system">课程/活动<br><span style="font-size:11px;font-weight:400;">系统</span></div>
+        <div class="lane-label label-teacher">教师<br><span style="font-size:11px;font-weight:400;">（学员端）</span></div>
+        <div class="lane-label label-ai">AI系统<br><span style="font-size:11px;font-weight:400;">智能引擎</span></div>
+      </div>
+
+      <!-- 流程区域 -->
+      <div class="flow-area">
+        <!-- 阶段标注线 -->
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;">
+          <div style="position:absolute;left:25%;top:0;bottom:0;width:1px;border-left:1px dashed #E7E5E4;"></div>
+          <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;border-left:1px dashed #E7E5E4;"></div>
+          <div style="position:absolute;left:75%;top:0;bottom:0;width:1px;border-left:1px dashed #E7E5E4;"></div>
+        </div>
+
+        <!-- 管理员泳道 -->
+        <div class="flow-lane bg-admin">
+          <div class="node node-admin">发布研训课程</div>
+          <div class="arrow">→</div>
+          <div class="node node-admin">发布研训活动</div>
+          <div class="dashed-line" style="min-width:280px;"></div>
+          <div class="annotation" style="position:absolute;bottom:8px;left:34%;color:#A8A29E;">异步数据同步</div>
+          <div class="dashed-line" style="min-width:200px;"></div>
+          <div class="node node-admin" style="background:#78716C;border-color:#57534E;">查看学习统计</div>
+          <div class="arrow">→</div>
+          <div class="node node-admin" style="background:#78716C;border-color:#57534E;">导出数据报告</div>
+        </div>
+
+        <!-- 系统泳道 -->
+        <div class="flow-lane bg-system">
+          <div class="node node-system">课程资源入库</div>
+          <div class="arrow">→</div>
+          <div class="node node-system">活动配置</div>
+          <div class="arrow">→</div>
+          <div class="node node-system">建立活动-课程关联</div>
+          <div class="dashed-line" style="min-width:120px;"></div>
+          <div class="node node-system">记录学习行为</div>
+          <div class="arrow">→</div>
+          <div class="node node-system">更新活动进度</div>
+          <div class="arrow">→</div>
+          <div class="node node-system">存储课程评价</div>
+          <div class="arrow">→</div>
+          <div class="node node-system">聚合学习数据</div>
+        </div>
+
+        <!-- 教师泳道 -->
+        <div class="flow-lane bg-teacher">
+          <div style="display:flex;align-items:center;gap:6px;position:relative;z-index:2;">
+            <div class="node node-teacher">浏览研训课程/活动</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">关注/报名课程</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">进入活动详情</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">点击课程学习</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">观看课件/视频</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">完成学习</div>
+            <div class="arrow arrow-ai">→</div>
+            <div class="node node-teacher-ai">AI研训助手<br>智能问答</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">提交课程评价</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">提交课程反馈<br>（心得/附件）</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher-ai">查看学习画像</div>
+            <div class="arrow arrow-ai">→</div>
+            <div class="node node-teacher-ai">查看AI改进建议</div>
+            <div class="arrow">→</div>
+            <div class="node node-teacher">查看学习报告</div>
+          </div>
+        </div>
+
+        <!-- AI系统泳道 -->
+        <div class="flow-lane bg-ai">
+          <div class="spacer" style="min-width:360px;"></div>
+          <div class="node node-ai">AI智能问答<br>（基于课程内容）</div>
+          <div class="spacer" style="min-width:60px;"></div>
+          <div class="node node-ai">6维能力评估<br>（学习行为分析）</div>
+          <div class="spacer" style="min-width:30px;"></div>
+          <div class="node node-ai">生成改进建议<br>（短期+中期）</div>
+          <div class="spacer" style="min-width:30px;"></div>
+          <div class="node node-ai">课程推荐算法<br>（薄弱维度匹配）</div>
+          <div class="spacer" style="min-width:80px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 跨泳道关联关系标注 -->
+    <div style="margin-top:20px;padding:16px;background:#FAFAF9;border-radius:8px;border:1px solid #E7E5E4;">
+      <div style="font-size:13px;font-weight:600;color:#292524;margin-bottom:12px;">角色间核心关联关系</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:11px;color:#57534E;">
+        <div><span style="color:#C8000C;font-weight:600;">①</span> 管理员 <strong>发布</strong> → 系统 <strong>入库</strong> → 教师 <strong>浏览</strong>（内容运营链路）</div>
+        <div><span style="color:#C8000C;font-weight:600;">②</span> 教师 <strong>学习</strong> → 系统 <strong>记录</strong> → AI <strong>分析</strong>（数据驱动链路）</div>
+        <div><span style="color:#C8000C;font-weight:600;">③</span> 教师 <strong>提问</strong> → AI <strong>回答</strong>（基于课程内容，AI研训助手）</div>
+        <div><span style="color:#C8000C;font-weight:600;">④</span> AI <strong>诊断</strong> → 教师 <strong>查看</strong> → 系统 <strong>推荐课程</strong>（闭环改进链路）</div>
+        <div><span style="color:#C8000C;font-weight:600;">⑤</span> 教师 <strong>评价/反馈</strong> → 系统 <strong>存储</strong> → 管理员 <strong>统计</strong>（数据管理链路）</div>
+        <div><span style="color:#C8000C;font-weight:600;">⑥</span> 系统 <strong>聚合</strong> → 管理员 <strong>导出</strong>（报表导出链路）</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-color" style="background:#C8000C;"></div>核心操作</div>
+      <div class="legend-item"><div class="legend-color" style="background:#78716C;"></div>管理操作</div>
+      <div class="legend-item"><div class="legend-color" style="background:#FEF2F2;border:1px solid #C8000C;"></div>AI交互</div>
+      <div class="legend-item"><div class="legend-color" style="background:#FAFAF9;border:1px solid #D6D3D1;"></div>常规操作</div>
+      <div class="legend-item">— — 异步/后台流程</div>
+      <div class="legend-item">· · · 阶段边界</div>
+    </div>
+  </div>
+</body>
+</html>

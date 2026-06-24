@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI教师研训 — 产品分析矩阵</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #FAFAF9;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .diagram-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 40px;
+      width: 1200px;
+    }
+    .diagram-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #292524;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .diagram-subtitle {
+      font-size: 13px;
+      color: #78716C;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .matrix-card {
+      border-radius: 10px;
+      padding: 24px;
+      border: 1px solid #E7E5E4;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #E7E5E4;
+    }
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #292524;
+    }
+    .card-content {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #57534E;
+    }
+    .card-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .card-content li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .card-content li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #C8000C;
+    }
+    .card-content li.sub-item::before {
+      background: #A8A29E;
+      width: 4px;
+      height: 4px;
+      top: 15px;
+    }
+    .card-content li strong {
+      color: #292524;
+      font-weight: 600;
+    }
+    .card-user { background: #FAFAF9; border-top: 4px solid #78716C; }
+    .card-user .card-icon { background: #78716C; color: #FAFAF9; }
+    .card-scene { background: #FAFAF9; border-top: 4px solid #C8000C; }
+    .card-scene .card-icon { background: #C8000C; color: #FAFAF9; }
+    .card-pain { background: #FAFAF9; border-top: 4px solid #78716C; }
+    .card-pain .card-icon { background: #78716C; color: #FAFAF9; }
+    .card-solution { background: #FAFAF9; border-top: 4px solid #C8000C; }
+    .card-solution .card-icon { background: #C8000C; color: #FAFAF9; }
+    .connection-arrow {
+      text-align: center;
+      font-size: 24px;
+      color: #C8000C;
+      margin: 8px 0;
+    }
+    .bottom-note {
+      margin-top: 24px;
+      padding: 16px;
+      background: #FEF2F2;
+      border-radius: 8px;
+      border-left: 4px solid #C8000C;
+      font-size: 13px;
+      color: #57534E;
+      line-height: 1.8;
+    }
+    .bottom-note strong {
+      color: #C8000C;
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .diagram-container { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <div class="diagram-title">AI教师研训产品分析矩阵</div>
+    <div class="diagram-subtitle">目标用户 · 核心场景 · 业务痛点 · 产品解决方案</div>
+
+    <div class="matrix-grid">
+      <!-- 目标用户 -->
+      <div class="matrix-card card-user">
+        <div class="card-header">
+          <div class="card-icon">👤</div>
+          <div class="card-title">目标用户</div>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><strong>一线教师（核心用户）</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">需要提升专业能力的各学科教师</li>
+                <li class="sub-item">面临新课标、信息化教学等转型挑战</li>
+                <li class="sub-item">学习时间碎片化，需要灵活的学习方式</li>
+              </ul>
+            </li>
+            <li><strong>教研组长/骨干教师</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">需要带动团队共同成长</li>
+                <li class="sub-item">关注教师培训效果与数据</li>
+              </ul>
+            </li>
+            <li><strong>学校/区域管理员</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">负责统筹教师培训工作</li>
+                <li class="sub-item">需要可视化统计与报表导出</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 核心场景 -->
+      <div class="matrix-card card-scene">
+        <div class="card-header">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">核心场景</div>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><strong>场景一：自主学习课程</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">浏览研训课程，关注/报名感兴趣的课程</li>
+                <li class="sub-item">在线观看课件、视频，完成学习</li>
+              </ul>
+            </li>
+            <li><strong>场景二：参与教研活动</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">查看活动列表，进入活动详情</li>
+                <li class="sub-item">学习活动关联课程，完成活动要求</li>
+              </ul>
+            </li>
+            <li><strong>场景三：AI智能辅助</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">AI研训助手基于课程内容智能问答</li>
+                <li class="sub-item">查看个人学习画像与6维能力诊断</li>
+              </ul>
+            </li>
+            <li><strong>场景四：管理运营（PC端）</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">发布课程/活动，配置资源</li>
+                <li class="sub-item">查看统计数据，导出学习报告</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 业务痛点 -->
+      <div class="matrix-card card-pain">
+        <div class="card-header">
+          <div class="card-icon">⚠️</div>
+          <div class="card-title">业务痛点</div>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><strong>教师端痛点</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">时间碎片化：难以安排固定时间参加集中培训</li>
+                <li class="sub-item">学习动力不足：缺乏个性化反馈与成就感</li>
+                <li class="sub-item">问题无人解答：学习中遇到疑问无法及时获得指导</li>
+                <li class="sub-item">能力盲区：不清楚自身专业能力的优势与薄弱点</li>
+              </ul>
+            </li>
+            <li><strong>管理端痛点</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">培训效果难衡量：无法量化教师学习成果</li>
+                <li class="sub-item">课程资源分散：缺乏统一的课程管理与分发平台</li>
+                <li class="sub-item">数据收集困难：学习记录、评价、反馈分散</li>
+                <li class="sub-item">人工统计低效：需要手动汇总Excel报表</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 产品解决方案 -->
+      <div class="matrix-card card-solution">
+        <div class="card-header">
+          <div class="card-icon">💡</div>
+          <div class="card-title">产品解决方案</div>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><strong>AI研训助手</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">基于课程内容的智能问答，支持历史对话</li>
+                <li class="sub-item">教师端随时提问，AI即时解答（7×24小时）</li>
+              </ul>
+            </li>
+            <li><strong>AI学习画像</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">6维能力雷达图（课堂互动/新课标/信息化/班级管理/作业设计/教研）</li>
+                <li class="sub-item">分层改进建议（短期+中期）+ 定制化课程推荐</li>
+              </ul>
+            </li>
+            <li><strong>课程/活动一体化</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">研训课程与活动统一管理，建立课程-活动关联</li>
+                <li class="sub-item">支持视频/文档/PPT多种课件类型，支持全屏学习</li>
+              </ul>
+            </li>
+            <li><strong>数据看板与报表</strong>
+              <ul style="margin-left:8px;margin-top:4px;">
+                <li class="sub-item">管理员PC端：学习统计、活动数据、评价汇总</li>
+                <li class="sub-item">一键导出学习报告（Excel/PNG）</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-note">
+      <strong>产品价值闭环：</strong>管理员发布课程/活动 → 教师自主学习 → AI智能辅助答疑 → 学习行为数据沉淀 → 6维能力诊断 → 个性化课程推荐 → 教师持续成长 → 管理员查看统计效果。形成<strong>"内容运营-学习消费-AI赋能-数据反馈"</strong>的正向循环。
+    </div>
+  </div>
+</body>
+</html>
