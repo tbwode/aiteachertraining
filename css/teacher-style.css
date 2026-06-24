@@ -3190,58 +3190,17 @@ input[type="checkbox"]:disabled ~ span {
 /* ==================== AI V2.0 Components ==================== */
 
 /* AI Recommendation Bar */
-.ai-recommend-bar {
-  background: linear-gradient(135deg, #FAFAF9 0%, #F5F5F4 100%);
-  border: 1px solid #E7E5E4;
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  margin-bottom: 16px;
-  position: relative;
-}
 
-.ai-recommend-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
 
-.ai-recommend-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--primary-dark);
-}
 
-.ai-recommend-actions {
-  display: flex;
-  gap: 8px;
-}
 
-.ai-recommend-actions button {
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: #FAFAF9;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s;
-}
 
-.ai-recommend-actions button:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-}
 
-.ai-recommend-list {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
+
+
+
+
+
 
 .ai-recommend-card {
   flex-shrink: 0;

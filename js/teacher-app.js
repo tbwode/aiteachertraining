@@ -94,7 +94,6 @@ class TeacherApp {
   renderSpaceContent() {
     if (this.spaceTab === 'courses') {
       this.renderCourseCards();
-      this.renderAiRecommendations();
       this.renderSidebar();
     } else if (this.spaceTab === 'activities') {
       this.renderActivityCards();
@@ -2645,76 +2644,6 @@ class TeacherApp {
   // ==================== AI V2.0 Features ====================
 
   // --- AI Recommendations (Scene A) ---
-  renderAiRecommendations() {
-    const bar = document.getElementById('ai-recommend-bar');
-    if (!bar) return;
-    const hidden = localStorage.getItem('aiRecommendHidden') === 'true';
-    if (hidden) {
-      bar.style.display = 'none';
-      return;
-    }
-    bar.style.display = 'block';
-
-    // Mock recommendations based on teacher profile
-    const teacher = this.currentUser;
-    const allCourses = MOCK_COURSES;
-    const myRelations = TEACHER_COURSE_RELATIONS[teacher.id] || [];
-    const learnedIds = myRelations.filter(r => r.progress > 0).map(r => r.courseId);
-
-    // Simple mock algorithm: pick courses matching teacher's subject, not learned
-    let candidates = allCourses.filter(c =>
-      !learnedIds.includes(c.id) &&
-      (c.type.includes(teacher.subject) || c.name.includes(teacher.subject))
-    );
-    if (candidates.length < 3) {
-      candidates = allCourses.filter(c => !learnedIds.includes(c.id));
-    }
-    const recommendations = candidates.slice(0, 4);
-
-    const listEl = document.getElementById('ai-recommend-list');
-    if (recommendations.length === 0) {
-      listEl.innerHTML = '<div style="padding:12px; color:var(--text-tertiary); font-size:13px;">暂无推荐课程，请浏览全部课程</div>';
-      return;
-    }
-
-    const reasons = [
-      `基于您的${teacher.subject}学科背景推荐`,
-      `与您当前学习方向高度相关`,
-      `同组教师学习最多的课程`,
-      `可提升${teacher.grade}教学实践能力`
-    ];
-
-    listEl.innerHTML = recommendations.map((course, idx) => `
-      <div class="ai-recommend-card" onclick="app.goTo('course-detail', '${course.id}')">
-        <button class="dislike-btn" onclick="event.stopPropagation(); app.dislikeRecommendation('${course.id}')" title="不感兴趣">&#128683;</button>
-        <img src="${course.cover}" alt="${course.name}">
-        <div class="ai-recommend-card-body">
-          <div class="ai-recommend-card-name">${course.name}</div>
-          <div class="ai-recommend-card-reason">&#129302; ${reasons[idx % reasons.length]}</div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  refreshAiRecommendations() {
-    this.renderAiRecommendations();
-    this.toast('已为您刷新推荐', 'success');
-  }
-
-  toggleAiRecommendations() {
-    const bar = document.getElementById('ai-recommend-bar');
-    if (!bar) return;
-    const isHidden = bar.style.display === 'none';
-    bar.style.display = isHidden ? 'block' : 'none';
-    localStorage.setItem('aiRecommendHidden', (!isHidden).toString());
-  }
-
-  dislikeRecommendation(courseId) {
-    this.toast('已记录您的反馈，后续将减少推荐', 'info');
-    // In real implementation, send feedback to backend
-    this.renderAiRecommendations();
-  }
-
   // --- AI Learning Insight (Scene D) ---
   renderAiInsight() {
     const card = document.getElementById('ai-insight-card');
