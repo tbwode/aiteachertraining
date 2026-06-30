@@ -81,6 +81,7 @@
                 <select id="course-completion-filter" class="form-select" style="width:120px;" onchange="app.filterCourses()">
                   <option value="">全部</option>
                   <option value="learned">已学</option>
+                  <option value="inprogress">进行中</option>
                   <option value="unlearned">未学</option>
                 </select>
                 <div class="search-input" style="max-width:280px;">
@@ -121,7 +122,7 @@
                 <button class="learning-sub-tab active" data-subtab="profile" onclick="app.switchLearningSubTab('profile')">个人画像</button>
                 <button class="learning-sub-tab" data-subtab="activities" onclick="app.switchLearningSubTab('activities')">参加的活动</button>
                 <button class="learning-sub-tab" data-subtab="courses" onclick="app.switchLearningSubTab('courses')">学习的课程</button>
-                <button class="learning-sub-tab" data-subtab="followed" onclick="app.switchLearningSubTab('followed')">关注的课程</button>
+                <button class="learning-sub-tab" data-subtab="followed" onclick="app.switchLearningSubTab('followed')">收藏的课程</button>
                 <button class="learning-sub-tab" data-subtab="reviews" onclick="app.switchLearningSubTab('reviews')">评价的课程</button>
               </div>
 
@@ -248,7 +249,7 @@
                         <th>课程讲师/机构</th>
                         <th>课件数</th>
                         <th>课程类型</th>
-                        <th>关注时间</th>
+                        <th>收藏时间</th>
                         <th>操作</th>
                       </tr>
                     </thead>
@@ -672,7 +673,7 @@
               <div class="card-body">
                 <div class="tabs mb-3">
                   <div class="tab active" data-tab="rank-learn" onclick="app.switchRankingTab('rank-learn')">学习最多</div>
-                  <div class="tab" data-tab="rank-follow" onclick="app.switchRankingTab('rank-follow')">关注最多</div>
+                  <div class="tab" data-tab="rank-follow" onclick="app.switchRankingTab('rank-follow')">收藏最多</div>
                   <div class="tab" data-tab="rank-rating" onclick="app.switchRankingTab('rank-rating')">评价最高</div>
                 </div>
                 <div id="ranking-list-container" class="ranking-list"></div>
@@ -703,10 +704,10 @@
         <div class="card">
           <div class="tabs">
             <div class="tab active" data-tab="intro" onclick="app.switchCourseDetailTab('intro')">课程简介</div>
-            <div class="tab" data-tab="ai-advice" onclick="app.switchCourseDetailTab('ai-advice')">AI研训建议</div>
+            <div class="tab" data-tab="ai-advice" onclick="app.switchCourseDetailTab('ai-advice')">AI学习指引</div>
             <div class="tab" data-tab="catalog" onclick="app.switchCourseDetailTab('catalog')">课程目录</div>
             <div class="tab" data-tab="reviews" onclick="app.switchCourseDetailTab('reviews')">课程评价</div>
-            <div class="tab" data-tab="feedback" onclick="app.switchCourseDetailTab('feedback')">反馈</div>
+            <div class="tab" data-tab="feedback" onclick="app.switchCourseDetailTab('feedback')">学习心得</div>
           </div>
           <div class="card-body">
             <div id="course-tab-intro" class="tab-content active">
@@ -759,41 +760,7 @@
         <div id="activity-detail-content"></div>
       </section>
 
-      <!-- ==================== Feedback ==================== -->
-      <section id="page-feedback" class="page-section">
-        <div class="breadcrumb mb-4">
-          <span class="breadcrumb-item" onclick="app.goTo('teacher-space')">AI教师研训</span>
-          <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-item active">意见反馈</span>
-        </div>
-        <div class="card" style="max-width:720px;">
-          <div class="card-header">
-            <span class="card-title">意见反馈</span>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label class="form-label">反馈内容 <span class="required">*</span></label>
-              <textarea id="feedback-content" class="form-textarea" rows="6" maxlength="500" placeholder="请输入您的反馈意见，最多500字"></textarea>
-              <div class="text-right text-xs text-tertiary mt-1"><span id="feedback-char-count">0</span>/500</div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">上传附件</label>
-              <div class="file-upload" id="feedback-file-area" onclick="document.getElementById('feedback-file-input').click()">
-                <input type="file" id="feedback-file-input" style="display:none;" onchange="app.handleFeedbackFile(this)">
-                <div style="font-size:28px;margin-bottom:8px;"><i data-lucide="paperclip"></i></div>
-                <div class="text-sm text-secondary">点击上传附件</div>
-                <div class="text-xs text-tertiary mt-1">支持 Word、PDF、图片等格式</div>
-              </div>
-              <div id="feedback-file-name" class="text-sm text-secondary mt-2" style="display:none;"></div>
-            </div>
-          </div>
-          <div class="card-footer" style="display:flex;justify-content:flex-end;gap:12px;">
-            <button class="btn btn-secondary" onclick="app.goTo('teacher-space')">取消</button>
-            <button class="btn btn-primary" onclick="app.submitFeedback()">提交反馈</button>
-          </div>
-        </div>
-      </section>
-    </main>
+      </main>
 
     <!-- AI Agent Floating Button -->
     <div class="ai-float-btn" id="ai-float-btn" onclick="app.openAiAgentSidebar()">
@@ -936,7 +903,7 @@
   <div class="modal-overlay" id="modal-feedback-detail" style="z-index:210;">
     <div class="modal" style="max-width:560px;">
       <div class="modal-header">
-        <h3 class="modal-title">反馈详情</h3>
+        <h3 class="modal-title">学习心得详情</h3>
         <button class="modal-close" onclick="app.closeModal('modal-feedback-detail')">&times;</button>
       </div>
       <div class="modal-body">
@@ -945,7 +912,7 @@
           <div class="font-medium text-sm" id="feedback-detail-course-name"></div>
         </div>
         <div class="mb-4">
-          <div class="text-xs text-stone-500 mb-1">反馈内容</div>
+          <div class="text-xs text-stone-500 mb-1">学习心得内容</div>
           <div class="text-sm leading-relaxed bg-stone-50 rounded p-3" id="feedback-detail-content"></div>
         </div>
         <div class="mb-4" id="feedback-detail-attachment">
@@ -992,7 +959,7 @@
                 <th>课程名称</th>
                 <th>获得学时</th>
                 <th>完成时间</th>
-                <th>反馈</th>
+                <th>学习心得</th>
               </tr>
             </thead>
             <tbody></tbody>
