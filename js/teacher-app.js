@@ -118,7 +118,7 @@ class TeacherApp {
           <div class="card-body">
             <div class="tabs mb-3">
               <div class="tab active" data-tab="rank-learn" onclick="app.switchRankingTab('rank-learn')">学习最多</div>
-              <div class="tab" data-tab="rank-follow" onclick="app.switchRankingTab('rank-follow')">关注最多</div>
+              <div class="tab" data-tab="rank-follow" onclick="app.switchRankingTab('rank-follow')">收藏最多</div>
               <div class="tab" data-tab="rank-rating" onclick="app.switchRankingTab('rank-rating')">评价最高</div>
             </div>
             <div id="ranking-list-container" class="ranking-list"></div>
@@ -250,9 +250,6 @@ class TeacherApp {
       this.currentActivityId = args[0];
       this.fromActivityId = null;
       this.renderActivityDetail();
-    } else if (page === 'feedback') {
-      this.fromActivityId = null;
-      this.resetFeedbackForm();
     } else {
       this.fromActivityId = null;
     }
@@ -387,8 +384,12 @@ class TeacherApp {
       const relations = TEACHER_COURSE_RELATIONS[this.currentUser.id] || [];
       courses = courses.filter(c => {
         const rel = relations.find(r => r.courseId === c.id);
-        const isLearned = rel && rel.progress > 0;
-        return this.courseCompletionFilter === 'learned' ? isLearned : !isLearned;
+        const progress = rel ? rel.progress : 0;
+        const isLearned = progress === 100;
+        const isInProgress = progress > 0 && progress < 100;
+        if (this.courseCompletionFilter === 'learned') return isLearned;
+        if (this.courseCompletionFilter === 'inprogress') return isInProgress;
+        return !isLearned && !isInProgress;
       });
     }
     return courses;
@@ -414,8 +415,16 @@ class TeacherApp {
       const reviewCount = reviews.length;
       const relation = (TEACHER_COURSE_RELATIONS[this.currentUser.id] || []).find(r => r.courseId === course.id);
       const progress = relation ? relation.progress : 0;
-      const isLearned = progress > 0;
-      const statusTag = isLearned ? '<span class="tag tag-success">已学</span>' : '<span class="tag tag-default">未学</span>';
+      const isLearned = progress === 100;
+      const isInProgress = progress > 0 && progress < 100;
+      let statusTag;
+      if (isLearned) {
+        statusTag = '<span class="tag tag-success">已学</span>';
+      } else if (isInProgress) {
+        statusTag = '<span class="tag tag-warning">进行中</span>';
+      } else {
+        statusTag = '<span class="tag tag-default">未学</span>';
+      }
       return `
         <div class="course-card" onclick="app.goTo('course-detail', '${course.id}')">
           <div style="position:relative;">
@@ -436,10 +445,10 @@ class TeacherApp {
               <span>&#128100; ${course.learners} 学习</span>
               <span>&#128172; ${reviewCount} 评价</span>
             </div>
-            ${isLearned ? `
+            ${isLearned || isInProgress ? `
               <div class="mt-2">
                 <div class="progress-bar-thin"><div class="progress-bar-fill" style="width:${progress}%"></div></div>
-                <div class="text-xs text-tertiary mt-1">已学习 ${progress}%</div>
+                <div class="text-xs text-tertiary mt-1">${isLearned ? '已学完' : '已学习 ' + progress + '%'}</div>
               </div>
             ` : ''}
           </div>
@@ -518,6 +527,7 @@ class TeacherApp {
       const statusMap = { ongoing: { label: '进行中', cls: 'tag-success' }, ended: { label: '已结束', cls: 'tag-default' }, upcoming: { label: '未开始', cls: 'tag-warning' } };
       const s = statusMap[act.status] || statusMap.upcoming;
       const courseCount = (MOCK_ACTIVITY_COURSES[act.id] || []).length;
+      const btnText = act.status === 'ended' ? '查看学习记录' : '去学习';
       return `
         <div class="activity-card">
           <img src="${act.cover}" class="activity-card-cover" alt="${act.name}">
@@ -533,7 +543,7 @@ class TeacherApp {
               ${act.hasHours ? `<span>&#9201; 已获得 ${act.earnedHours || 0} 学时</span>` : ''}
             </div>
             <div class="mt-3">
-              <button class="btn btn-primary btn-sm" onclick="app.goToActivityDetail('${act.id}')">去学习</button>
+              <button class="btn btn-primary btn-sm" onclick="app.goToActivityDetail('${act.id}')">${btnText}</button>
             </div>
           </div>
         </div>
@@ -603,7 +613,8 @@ class TeacherApp {
               <span class="font-medium" style="color:var(--text-primary);">完成学习方式：</span>
               ${activity.studyMode === 'complete' ? '<span class="flex items-center gap-1" style="display:inline-flex;">&#9989; 完成课程下所有课件学习</span>' : ''}
               ${activity.studyMode === 'view' ? '<span class="flex items-center gap-1" style="display:inline-flex;">&#128221; 查看课程</span>' : ''}
-              ${activity.studyMode === 'feedback' ? '<span class="flex items-center gap-1" style="display:inline-flex;">&#128172; 提交反馈</span>' : ''}
+              ${activity.studyMode === 'feedback' ? '<span class="flex items-center gap-1" style="display:inline-flex;">&#128172; 提交学习心得</span>' : ''}
+              ${activity.studyMode === 'complete_feedback' ? '<span class="flex items-center gap-1" style="display:inline-flex;">&#9989; 完成课程下所有课件学习</span><span class="flex items-center gap-1" style="display:inline-flex;">&#128172; 提交学习心得</span>' : ''}
             </div>
           ` : ''}
         </div>
@@ -643,13 +654,13 @@ class TeacherApp {
               <div class="ranking-header">
                 <div class="col-rank">排名</div>
                 <div class="col-name">教师姓名</div>
-                <div class="col-value">学时</div>
+                <div class="col-value">${activity.hasHours ? '学时' : '课件数'}</div>
               </div>
               ${STUDY_RANKINGS.map(item => `
                 <div class="ranking-item">
                   <div class="ranking-rank ${item.rank <= 3 ? ['top1','top2','top3'][item.rank-1] : ''}">${item.rank}</div>
                   <div class="ranking-name">${item.name}</div>
-                  <div class="ranking-value">${item.hours}</div>
+                  <div class="ranking-value">${activity.hasHours ? item.hours : item.coursewareCount}</div>
                 </div>
               `).join('')}
             </div>
@@ -727,7 +738,6 @@ class TeacherApp {
             <div class="course-card-stats">
               <span>&#128221; ${course?.sections || 0} 课件</span>
               <span>&#128100; ${course?.learners || 0} 学习</span>
-              <span>&#11088; ${Object.values(TEACHER_COURSE_RELATIONS).flat().filter(r => r.courseId === c.courseId && r.followed).length} 关注</span>
               <span>&#128172; ${reviewCount} 评价</span>
             </div>
           </div>
@@ -869,7 +879,7 @@ class TeacherApp {
         <td><span class="tooltip-wrap">${a.progressText}<span class="tooltip-text">已学课程/活动课程总数</span></span></td>
         <td>
           <button class="btn btn-ghost btn-sm" onclick="app.openStudyReport('${a.activityId}')">查看学习报告</button>
-          <button class="btn btn-primary btn-sm" onclick="app.goTo('activity-detail', '${a.activityId}')">去学习</button>
+          <button class="btn btn-primary btn-sm" onclick="app.goTo('activity-detail', '${a.activityId}')">${a.status === 'ended' ? '查看学习记录' : '去学习'}</button>
         </td>
       </tr>
     `).join('');
@@ -984,7 +994,7 @@ class TeacherApp {
         '课程名称': c.name,
         '获得学时': cr ? cr.earnedHours : 0,
         '完成时间': isCompleted ? (cr.lastLearnTime || '-') : '-',
-        '反馈': feedback ? feedback.content : '-'
+        '学习心得': feedback ? feedback.content : '-'
       };
     });
     this.exportToExcel(records, (activity ? activity.name : '学习报告') + '_学习明细');
@@ -996,7 +1006,7 @@ class TeacherApp {
     const course = MOCK_COURSES.find(c => c.id === courseId);
     const courseName = course ? course.name : '课程';
     document.getElementById('feedback-detail-course-name').textContent = courseName;
-    document.getElementById('feedback-detail-content').textContent = feedback.content || '无反馈内容';
+    document.getElementById('feedback-detail-content').textContent = feedback.content || '无学习心得内容';
     document.getElementById('feedback-detail-time').textContent = feedback.submitTime || '-';
 
     const attachmentSection = document.getElementById('feedback-detail-attachment');
@@ -1166,7 +1176,7 @@ class TeacherApp {
     const tbody = document.querySelector('#learning-followed-table tbody');
 
     if (pageList.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-secondary">暂无关注的课程</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-secondary">暂无收藏的课程</td></tr>`;
       this.renderPagination('learning-followed-pagination', followed.length, this.learningFollowedPageSize, this.learningFollowedPage, (p) => {
         this.learningFollowedPage = p;
         this.renderMyFollowed();
@@ -1183,7 +1193,7 @@ class TeacherApp {
         <td>${r.typeName}</td>
         <td>${r.followTime || '-'}</td>
         <td>
-          <button class="btn btn-ghost btn-sm" onclick="app.unfollowCourse('${r.courseId}')">取消关注</button>
+          <button class="btn btn-ghost btn-sm" onclick="app.unfollowCourse('${r.courseId}')">取消收藏</button>
           <button class="btn btn-primary btn-sm" onclick="app.goTo('course-detail', '${r.courseId}')">去学习</button>
         </td>
       </tr>
@@ -1196,12 +1206,12 @@ class TeacherApp {
   }
 
   unfollowCourse(courseId) {
-    this.showConfirm('取消关注', '确定取消关注该课程吗？', () => {
+    this.showConfirm('取消收藏', '确定取消收藏该课程吗？', () => {
       const relations = TEACHER_COURSE_RELATIONS[this.currentUser.id] || [];
       const rel = relations.find(r => r.courseId === courseId);
       if (rel) {
         rel.followed = false;
-        this.toast('已取消关注', 'success');
+        this.toast('已取消收藏', 'success');
         this.renderMyFollowed();
       }
     });
@@ -1214,9 +1224,9 @@ class TeacherApp {
       '课程讲师/机构': r.instructor,
       '课件数': r.coursewareCount,
       '课程类型': r.typeName,
-      '关注时间': r.followTime || '-'
+      '收藏时间': r.followTime || '-'
     }));
-    this.exportToExcel(records, '关注的课程');
+    this.exportToExcel(records, '收藏的课程');
   }
 
   getFilteredMyReviews() {
@@ -1465,7 +1475,7 @@ class TeacherApp {
       valueHeader = '学习人数';
     } else if (this.rankingTab === 'rank-follow') {
       data = RANKINGS.followTop5;
-      valueHeader = '关注人数';
+      valueHeader = '收藏人数';
     } else if (this.rankingTab === 'rank-rating') {
       data = RANKINGS.ratingTop5;
       valueHeader = '评分';
@@ -1606,11 +1616,11 @@ class TeacherApp {
         <div class="course-detail-stats">
           <span>&#128221; ${course.sections} 课件</span>
           <span>&#128100; ${course.learners} 学习</span>
-          <span>&#11088; ${this.getFollowCount(course.id)} 关注</span>
+          <span>&#11088; ${this.getFollowCount(course.id)} 收藏</span>
         </div>
         <div class="mt-4">
           <button class="follow-btn ${isFollowed ? 'followed' : ''}" onclick="app.toggleFollowCourse('${course.id}')">
-            ${isFollowed ? '&#10003; 已关注' : '&#43; 关注课程'}
+            ${isFollowed ? '&#10003; 已收藏' : '&#43; 收藏课程'}
           </button>
         </div>
       </div>
@@ -1641,7 +1651,7 @@ class TeacherApp {
       relation.followed = !relation.followed;
     }
     this.renderCourseDetailHeader(MOCK_COURSES.find(c => c.id === courseId));
-    this.toast(relation.followed ? '关注成功' : '已取消关注', 'success');
+    this.toast(relation.followed ? '收藏成功' : '已取消收藏', 'success');
   }
 
   switchCourseDetailTab(tab) {
@@ -1660,11 +1670,7 @@ class TeacherApp {
     const course = MOCK_COURSES.find(c => c.id === this.currentCourseId);
     if (!course) return;
     if (tab === 'intro') {
-      const introContent = [
-        course.description ? '<div class="course-intro-section">' + course.description + '</div>' : '',
-        course.contentDescription ? '<div class="course-intro-section">' + course.contentDescription + '</div>' : '',
-        course.teacherIntro ? '<div class="course-intro-section">' + course.teacherIntro + '</div>' : ''
-      ].join('');
+      const introContent = course.description ? '<div class="course-intro-section">' + course.description + '</div>' : '';
       document.getElementById('course-intro-content').innerHTML = introContent || '<div class="course-intro-empty">暂无课程简介</div>';
     } else if (tab === 'catalog') {
       this.renderCourseCatalog(course);
@@ -1922,7 +1928,7 @@ class TeacherApp {
       container.innerHTML = `
         <div class="card mb-4" style="background:#F5F5F4;">
           <div class="card-body">
-            <div class="text-sm text-secondary mb-2">反馈内容</div>
+            <div class="text-sm text-secondary mb-2">学习心得内容</div>
             <div class="text-sm leading-relaxed mb-4" style="white-space:pre-wrap;">${existing.content}</div>
             ${existing.fileName ? `
               <div class="flex items-center gap-2 text-sm text-secondary">
@@ -1944,8 +1950,8 @@ class TeacherApp {
     const editFileName = existing ? existing.fileName : '';
     container.innerHTML = `
       <div class="form-group">
-        <label class="form-label">反馈内容 <span class="required">*</span></label>
-        <textarea id="course-feedback-textarea" class="form-textarea" rows="6" maxlength="500" placeholder="请输入您的反馈意见，最多500字">${editContent}</textarea>
+        <label class="form-label">学习心得内容 <span class="required">*</span></label>
+        <textarea id="course-feedback-textarea" class="form-textarea" rows="6" maxlength="500" placeholder="请输入您的学习心得，最多500字">${editContent}</textarea>
         <div class="text-right text-xs text-tertiary mt-1"><span id="course-feedback-char-count">${editContent.length}</span>/500</div>
       </div>
       <div class="form-group">
@@ -1960,7 +1966,7 @@ class TeacherApp {
       </div>
       <div style="display:flex;justify-content:flex-end;gap:12px;">
         ${existing ? `<button class="btn btn-ghost" onclick="app.cancelEditCourseFeedback('${course.id}')">取消</button>` : ''}
-        <button class="btn btn-primary" onclick="app.submitCourseFeedback('${course.id}')">提交反馈</button>
+        <button class="btn btn-primary" onclick="app.submitCourseFeedback('${course.id}')">提交学习心得</button>
       </div>
     `;
     const textarea = document.getElementById('course-feedback-textarea');
@@ -1994,19 +2000,19 @@ class TeacherApp {
   submitCourseFeedback(courseId) {
     const content = document.getElementById('course-feedback-textarea').value.trim();
     if (!content) {
-      this.toast('请输入反馈内容', 'warning');
+      this.toast('请输入学习心得内容', 'warning');
       return;
     }
     const fileInput = document.getElementById('course-feedback-file-input');
     const fileName = fileInput && fileInput.files[0] ? fileInput.files[0].name : (this.courseFeedbacks[courseId]?.fileName || '');
-    this.showConfirm('提交反馈', '提交后将无法撤回内容！', () => {
+    this.showConfirm('提交学习心得', '提交后将无法撤回内容！', () => {
       this.courseFeedbacks[courseId] = {
         content,
         fileName,
         submitTime: new Date().toISOString().slice(0, 19).replace('T', ' ')
       };
       this.editingCourseFeedbackId = null;
-      this.toast('反馈提交成功', 'success');
+      this.toast('学习心得提交成功', 'success');
       this.renderCourseFeedback(MOCK_COURSES.find(c => c.id === courseId));
     });
   }
@@ -2017,16 +2023,31 @@ class TeacherApp {
     const container = document.getElementById('course-ai-advice-content');
     if (!container) return;
 
-    const knowledgeGraph = course.knowledgeGraph || ['知识模块A', '知识模块B', '知识模块C'];
-    const coreValue = course.coreValue || '《' + course.name + '》聚焦' + (course.typeName || '教师专业发展') + '领域，旨在帮助教师系统掌握核心概念与实践方法。';
-    const keyDifficulties = course.keyDifficulties || '课程重难点在于理论与实践的有效结合。建议教师带着问题学习，边学边用。';
-    const tieredAdvice = course.tieredAdvice || '【新教师】重点掌握基础概念；【骨干教师】关注方法迁移；【资深教师】聚焦前沿理念与深度反思。';
+    // AI根据课程名称和课件内容生成知识图谱知识点
+    const catalog = MOCK_COURSE_CATALOG[course.id];
+    const coursewareNames = [];
+    if (catalog && catalog.chapters) {
+      catalog.chapters.forEach(ch => {
+        (ch.children || []).forEach(cw => {
+          coursewareNames.push(cw.name);
+        });
+      });
+    }
+    // 从课件名称中提取知识点（取前6个课件名称作为知识点节点，名称过长时截取关键词）
+    const knowledgeGraph = coursewareNames.length > 0
+      ? coursewareNames.slice(0, 6).map(n => n.length > 8 ? n.slice(0, 7) + '…' : n)
+      : ['知识模块A', '知识模块B', '知识模块C'];
 
-    const graphHtml = '<div class="ai-knowledge-graph"><div class="ai-knowledge-title">📚 知识图谱</div><div id="course-knowledge-graph" style="height: 280px;"></div></div>';
+    // AI根据课程内容生成结构化建议
+    const coreValue = '《' + course.name + '》聚焦' + (course.typeName || '教师专业发展') + '领域，旨在帮助教师系统掌握核心概念与实践方法。';
+    const keyDifficulties = '课程重难点在于理论与实践的有效结合。建议教师带着问题学习，边学边用。';
+    const tieredAdvice = '【新教师】重点掌握基础概念；【骨干教师】关注方法迁移；【资深教师】聚焦前沿理念与深度反思。';
+
+    const graphHtml = '<div class="ai-knowledge-graph"><div class="ai-knowledge-title">📚 知识图谱</div><div id="course-knowledge-graph" style="height: 280px;"></div><div id="knowledge-related-courseware" style="display:none;margin-top:12px;"></div></div>';
 
     const moduleHtml = (num, title, content) => '<div class="course-ai-advice-module"><div class="course-ai-advice-module-header"><span class="course-ai-advice-module-num">' + num + '</span><span class="course-ai-advice-module-title">' + title + '</span></div><div class="course-ai-advice-module-body">' + content.replace(/\\n/g, '<br>') + '</div></div>';
 
-    container.innerHTML = '<div class="course-ai-advice-container"><div class="course-ai-advice-header"><div class="course-ai-advice-title">AI研训建议</div><div class="course-ai-advice-subtitle">根据《' + course.name + '》内容，为您生成专属研修学习建议</div></div><div class="course-ai-advice-modules">' +
+    container.innerHTML = '<div class="course-ai-advice-container"><div class="course-ai-advice-header"><div class="course-ai-advice-title">AI学习指引</div><div class="course-ai-advice-subtitle">根据《' + course.name + '》内容，为您生成专属研修学习建议</div></div><div class="course-ai-advice-modules">' +
       graphHtml +
       moduleHtml(1, '课程核心价值与教师研修目标', coreValue) +
       moduleHtml(2, '课程重难点与教师研修常见误区', keyDifficulties) +
@@ -2079,12 +2100,51 @@ class TeacherApp {
           emphasis: { focus: 'adjacency', lineStyle: { width: 4, color: '#C8000C' } }
         }]
       });
+      // Click event: show related courseware resources
+      graphChart.on('click', (params) => {
+        if (params.dataType === 'node' && params.data.id !== 'center') {
+          const relatedContainer = document.getElementById('knowledge-related-courseware');
+          if (!relatedContainer) return;
+          const catalog = MOCK_COURSE_CATALOG[course.id];
+          const coursewares = [];
+          if (catalog && catalog.chapters) {
+            catalog.chapters.forEach(ch => {
+              (ch.children || []).forEach(cw => {
+                if (cw.name.includes(params.data.name) || params.data.name.includes(cw.name)) {
+                  coursewares.push({ ...cw, chapterName: ch.name });
+                }
+              });
+            });
+          }
+          if (coursewares.length === 0) {
+            // Fallback: show first 3 coursewares as related
+            catalog.chapters.forEach(ch => {
+              (ch.children || []).slice(0, 2).forEach(cw => {
+                coursewares.push({ ...cw, chapterName: ch.name });
+              });
+            });
+          }
+          relatedContainer.style.display = 'block';
+          relatedContainer.innerHTML = `
+            <div style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px;">📖 「${params.data.name}」关联课件资源</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              ${coursewares.slice(0, 4).map(cw => `
+                <div class="courseware-node" style="cursor:pointer;" onclick="app.enterCourseware('${course.id}', '${cw.id}')">
+                  <span class="cw-tag type-${cw.type || 'text'}">${cw.type === 'video' ? '视频' : cw.type === 'document' ? '文档' : '图文'}</span>
+                  <span class="cw-name">${cw.name}</span>
+                  <span style="margin-left:auto;font-size:12px;color:var(--text-tertiary);">${cw.chapterName}</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+      });
     }
   }
 
-  getAiOverallComment(totalScore, abilityScores, dimensionNames) {
+  getAiOverallComment(totalScore) {
     let level, color, suggestion;
-    if (totalScore >= 70) {
+    if (totalScore >= 80) {
       level = '优秀';
       color = 'var(--success)';
       suggestion = '您的综合能力表现优异，建议继续保持学习节奏，同时发挥引领示范作用，带动教研组共同进步。';
@@ -2097,11 +2157,43 @@ class TeacherApp {
       color = 'var(--danger)';
       suggestion = '您的综合能力尚有较大提升空间，建议制定系统性的学习计划，优先补强核心能力维度。';
     }
+    return '<span style="color:' + color + ';font-weight:600;">💬 AI点评：综合评分' + totalScore + '分，' + level + '。</span> ' + suggestion;
+  }
 
-    const topDim = dimensionNames[abilityScores.indexOf(Math.max(...abilityScores))];
-    const lowDim = dimensionNames[abilityScores.indexOf(Math.min(...abilityScores))];
+  getDimensionStrengthComment(name, score) {
+    const map = {
+      '课堂互动': '课堂互动能力突出，善于运用提问和讨论激发学生参与。建议继续保持并尝试跨学科融合互动模式，进一步提升课堂互动深度。',
+      '新课标解读': '对新课标理解深入，能够准确把握核心素养要求。建议在教研活动中分享解读经验，带动更多教师共同提升。',
+      '信息化教学': '信息化工具使用熟练，融合教学能力较强。建议探索AI辅助教学等前沿技术，深化信息技术与学科教学的融合创新。',
+      '班级管理': '班级管理经验丰富，师生关系和谐。建议总结管理方法论，形成可复制的班级管理经验，供其他教师参考借鉴。',
+      '作业设计': '作业设计有层次，能有效巩固和拓展学习。建议进一步研究分层作业与个性化学习反馈的结合，提升作业的精准度和有效性。',
+      '教学研究': '具备较强的教研意识和反思能力。建议参与更高层级的课题研究，将教学反思转化为学术成果。',
+      '师德修养': '师德修养扎实，以身作则，为学生树立了良好的榜样。建议在师德师风建设中发挥带头作用，分享师德践行经验。',
+      '课程设计': '课程设计思路清晰，目标明确。建议关注跨学科课程整合，丰富课程设计的维度和创新性。',
+      '评价反馈': '评价反馈及时有效，能够帮助学生明确改进方向。建议探索多元化评价方式，如表现性评价、成长档案袋等。',
+      '学生发展': '关注学生全面发展，能够因材施教。建议进一步研究学生发展心理学，提升对特殊需求学生的教育支持能力。',
+      '家校沟通': '家校沟通渠道畅通，家长满意度较高。建议建立系统化的家校共育机制，定期组织家校交流活动。',
+      '教研引领': '教研组织能力较强，能够有效引领教研组开展活动。建议提升教研成果的辐射影响力，争取更高层级的教研示范机会。',
+    };
+    return map[name] || '该维度表现良好，继续保持并寻求进一步提升。';
+  }
 
-    return '<span style="color:' + color + ';font-weight:600;">💬 AI点评：综合评分' + totalScore + '分，' + level + '。</span> ' + suggestion + ' 优势维度为<strong>' + topDim + '</strong>，建议关注<strong>' + lowDim + '</strong>的提升。';
+  getDimensionWeaknessComment(name, score) {
+    const map = {
+      '课堂互动': '课堂互动形式较为单一，小组合作学习组织不足。建议优先学习互动教学相关课程，从提问技巧和小组活动设计入手，逐步提升课堂互动质量。',
+      '新课标解读': '对新课标理念理解停留在表面，缺乏系统性学习。建议系统学习新课标解读课程，结合自身学科特点，制定课标落地的具体行动计划。',
+      '信息化教学': '信息化工具使用停留在基础层面，创新应用不足。建议从智慧课堂基础课程开始学习，每周尝试1个新的信息化教学工具或方法。',
+      '班级管理': '班级管理方法传统，应对突发事件能力有待提升。建议优先学习《班级管理策略与技巧》课程，从规则建立与师生关系营造入手，逐步提升管理效能。',
+      '作业设计': '作业设计缺乏分层，评价反馈不够及时具体。建议学习分层作业设计方法，尝试为每节课设计基础版、提高版、拓展版三级作业。',
+      '教学研究': '教研参与度低，教学反思深度不够。建议每周撰写1篇教学反思笔记，积极参与教研组活动，逐步提升教研意识和能力。',
+      '师德修养': '师德修养方面有待加强，建议学习新时代教师职业道德规范课程，在日常教学中注重言传身教。',
+      '课程设计': '课程设计缺乏系统性，目标与评价衔接不够紧密。建议学习课程设计方法论，从教学目标的精准设定开始改进。',
+      '评价反馈': '评价方式较为单一，以分数为主。建议学习多元评价理论与实践课程，尝试引入过程性评价和表现性评价。',
+      '学生发展': '对学生个性化发展关注不足，指导缺乏针对性。建议学习学生发展心理学，建立学生成长档案，跟踪个体发展轨迹。',
+      '家校沟通': '家校沟通频次低，方式单一。建议建立定期沟通机制，利用线上线下结合的方式提升家校互动质量。',
+      '教研引领': '教研参与被动，缺乏主动引领意识。建议从小型教研分享开始，逐步承担教研组织角色，提升教研领导力。',
+    };
+    return map[name] || '该维度存在提升空间，建议针对性学习相关课程，制定改进计划。';
   }
 
   // ==================== AI Agent ====================
@@ -2295,7 +2387,7 @@ class TeacherApp {
     if (lower.includes('解读') || lower.includes('课件')) {
       return `该课件的主要内容包括：<br><br>1. <strong>知识要点</strong>：详细讲解了核心概念与原理。<br>2. <strong>案例分析</strong>：通过典型案例帮助理解抽象理论。<br>3. <strong>实践指导</strong>：提供了具体的操作步骤与注意事项。<br><br>建议您在观看课件时做好笔记，并结合自身教学实际进行思考。`;
     }
-    return `感谢您的提问！关于《${courseName}》的这个问题，我建议您：<br><br>1. 仔细回顾课程课件中的相关内容。<br>2. 结合课程评价区其他教师的讨论进行思考。<br>3. 如有疑问，可以通过课程反馈功能向课程提供方咨询。<br><br>如需更详细的解答，请告诉我具体想了解哪方面的内容。`;
+    return `感谢您的提问！关于《${courseName}》的这个问题，我建议您：<br><br>1. 仔细回顾课程课件中的相关内容。<br>2. 结合课程评价区其他教师的讨论进行思考。<br>3. 如有疑问，可以通过课程学习心得功能向课程提供方咨询。<br><br>如需更详细的解答，请告诉我具体想了解哪方面的内容。`;
   }
 
   // ==================== Courseware Learning ====================
@@ -2374,7 +2466,7 @@ class TeacherApp {
                 <h2>二、实施方法</h2>
                 <ul>
                   <li>方法一是基础操作步骤，适用于常规教学场景；</li>
-                  <li>方法二强调互动与反馈，能够显著提升学生参与度；</li>
+                  <li>方法二强调互动与学习心得，能够显著提升学生参与度；</li>
                   <li>方法三为进阶策略，适合有一定经验的教师尝试。</li>
                 </ul>
                 <h2>三、典型案例</h2>
@@ -2599,48 +2691,6 @@ class TeacherApp {
     this.toast('开始下载...', 'info');
   }
 
-  // ==================== Feedback ====================
-
-  resetFeedbackForm() {
-    const content = document.getElementById('feedback-content');
-    if (content) content.value = '';
-    const count = document.getElementById('feedback-char-count');
-    if (count) count.textContent = '0';
-    const input = document.getElementById('feedback-file-input');
-    if (input) input.value = '';
-    const nameEl = document.getElementById('feedback-file-name');
-    if (nameEl) {
-      nameEl.style.display = 'none';
-      nameEl.textContent = '';
-    }
-  }
-
-  handleFeedbackFile(input) {
-    const file = input.files[0];
-    if (file) {
-      const nameEl = document.getElementById('feedback-file-name');
-      nameEl.textContent = '已选择：' + file.name;
-      nameEl.style.display = 'block';
-    }
-  }
-
-  submitFeedback() {
-    const content = document.getElementById('feedback-content').value.trim();
-    if (!content) {
-      this.toast('请输入反馈内容', 'warning');
-      return;
-    }
-    this.showConfirm('提交反馈', '提交后将无法撤回内容！', () => {
-      this.toast('反馈提交成功', 'success');
-      this.goTo('teacher-space');
-    });
-  }
-
-  updateFeedbackCharCount() {
-    const len = document.getElementById('feedback-content').value.length;
-    document.getElementById('feedback-char-count').textContent = len;
-  }
-
   // ==================== AI V2.0 Features ====================
 
   // --- AI Recommendations (Scene A) ---
@@ -2662,22 +2712,41 @@ class TeacherApp {
     }
 
     // ===== 1. 综合评分 =====
-    const dimensions = [
+    // 能力维度体系（12个维度），教师个人得分
+    const allDimensions = [
       { name: '课堂互动', score: 85 },
       { name: '新课标解读', score: 62 },
       { name: '信息化教学', score: 70 },
       { name: '班级管理', score: 45 },
       { name: '作业设计', score: 55 },
       { name: '教学研究', score: 60 },
+      { name: '师德修养', score: 78 },
+      { name: '课程设计', score: 50 },
+      { name: '评价反馈', score: 65 },
+      { name: '学生发展', score: 72 },
+      { name: '家校沟通', score: 40 },
+      { name: '教研引领', score: 58 },
     ];
-    const totalScore = Math.round(dimensions.reduce((s, d) => s + d.score, 0) / dimensions.length);
+    // 取前6个维度展示
+    const dimensions = allDimensions.sort((a, b) => b.score - a.score).slice(0, 6);
+    const totalScore = Math.round(allDimensions.reduce((s, d) => s + d.score, 0) / allDimensions.length);
 
     document.getElementById('ai-overall-score').textContent = totalScore;
-    document.getElementById('ai-score-label').innerHTML = '<span>综合评分</span><span>超过同组 ' + Math.round(totalScore * 0.85) + '% 教师</span>';
+    const hasGroup = teacher.grade && teacher.subject;
+
+    // 计算课程完成率和评价数（阶段性追踪指标需要）
+    const studiedCount = myRelations.filter(r => r.progress > 0).length;
+    const completionRate = studiedCount > 0 ? Math.round((completedCount / studiedCount) * 100) : 0;
+    let reviewCount = 0;
+    Object.values(COURSE_REVIEWS).forEach(reviews => {
+      reviewCount += reviews.filter(r => r.teacherId === teacher.id).length;
+    });
+
+    document.getElementById('ai-score-label').innerHTML = '<span>综合评分</span><span>' + (hasGroup ? '超过同组 ' + Math.round(totalScore * 0.85) + '% 教师' : '') + '</span>';
 
     const levelEl = document.getElementById('ai-overall-level');
     levelEl.className = 'ai-overall-level';
-    if (totalScore >= 70) {
+    if (totalScore >= 80) {
       levelEl.textContent = '优秀';
       levelEl.classList.add('excellent');
     } else if (totalScore >= 60) {
@@ -2689,46 +2758,65 @@ class TeacherApp {
     }
 
     // ===== 2. 能力雷达图 =====
-    this.renderInsightRadar(dimensions);
+    this.renderInsightRadar(dimensions, hasGroup);
 
-    // ===== 3. 优势总结 + 问题归因 =====
-    const strengths = dimensions.filter(d => d.score >= 70).sort((a, b) => b.score - a.score);
-    const weaknesses = dimensions.filter(d => d.score < 60).sort((a, b) => a.score - b.score);
+    // ===== 3. AI点评 =====
+    const strengths = allDimensions.filter(d => d.score >= 80).sort((a, b) => b.score - a.score);
+    const weaknesses = allDimensions.filter(d => d.score < 60).sort((a, b) => a.score - b.score);
 
-    document.getElementById('ai-strengths-list').innerHTML = strengths.map(s => `
-      <div class="ai-analysis-item">
-        <strong>${s.name}</strong>（${s.score}分）：${this.getStrengthDesc(s.name)}
-      </div>
-    `).join('') || '<div class="ai-analysis-item">暂无突出优势领域，建议全面均衡发展</div>';
+    // 总体评价
+    document.getElementById('ai-dimension-comment').innerHTML = this.getAiOverallComment(totalScore);
 
-    document.getElementById('ai-weaknesses-list').innerHTML = weaknesses.map(w => `
-      <div class="ai-analysis-item">
-        <strong>${w.name}</strong>（${w.score}分）：${this.getWeaknessDesc(w.name)}
-      </div>
-    `).join('') || '<div class="ai-analysis-item">各维度发展较为均衡，继续保持</div>';
+    // 优势领域逐项点评
+    document.getElementById('ai-strengths-list').innerHTML = strengths.map(s => {
+      const strengthComment = this.getDimensionStrengthComment(s.name, s.score);
+      return `
+        <div class="ai-analysis-item">
+          <div class="ai-dimension-item-header">
+            <strong>${s.name}</strong><span class="ai-dimension-score">${s.score}分</span>
+          </div>
+          <div class="ai-dimension-comment-text">${strengthComment}</div>
+        </div>
+      `;
+    }).join('') || '<div class="ai-analysis-item">暂无突出优势领域，建议全面均衡发展</div>';
+
+    // 待改进项逐项点评
+    document.getElementById('ai-weaknesses-list').innerHTML = weaknesses.map(w => {
+      const weaknessComment = this.getDimensionWeaknessComment(w.name, w.score);
+      return `
+        <div class="ai-analysis-item">
+          <div class="ai-dimension-item-header">
+            <strong>${w.name}</strong><span class="ai-dimension-score">${w.score}分</span>
+          </div>
+          <div class="ai-dimension-comment-text">${weaknessComment}</div>
+        </div>
+      `;
+    }).join('') || '<div class="ai-analysis-item">各维度发展较为均衡，继续保持</div>';
 
     // ===== 4. 分层改进建议 =====
+    const weakestDim = weaknesses.length > 0 ? weaknesses[0] : allDimensions.sort((a, b) => a.score - b.score)[0];
+    const strongestDim = dimensions[0];
     document.getElementById('ai-short-term').innerHTML = `
       <ul>
-        <li>完成${weaknesses[0]?.name || '薄弱领域'}基础课程1门（建议学时：2小时）</li>
-        <li>参与1次${weaknesses[0]?.name || '薄弱领域'}主题的教研讨论</li>
+        <li>完成「${weakestDim.name}」关联课程中未学习的基础课程1门（建议学时：2小时）</li>
+        <li>参与1次「${weakestDim.name}」主题的教研讨论</li>
         <li>每日保持30分钟学习时长，连续打卡5天</li>
       </ul>
     `;
     document.getElementById('ai-mid-term').innerHTML = `
       <ul>
-        <li>系统学习${weaknesses[0]?.name || '薄弱领域'}进阶课程，完成率达80%</li>
-        <li>尝试将${strengths[0]?.name || '优势领域'}经验迁移应用到${weaknesses[0]?.name || '薄弱领域'}</li>
+        <li>系统学习「${weakestDim.name}」进阶课程，完成率达80%</li>
+        <li>尝试将「${strongestDim.name}」经验迁移应用到「${weakestDim.name}」</li>
         <li>完成1份教学实践反思报告</li>
-        <li>争取${weaknesses[0]?.name || '薄弱领域'}维度评分提升至70分以上</li>
+        <li>争取「${weakestDim.name}」维度评分提升至60分以上</li>
       </ul>
     `;
 
     // ===== 5. 定制化课程推荐（含AI建议） =====
     const recCourses = [
-      { name: '班级管理策略与技巧', reason: '针对班级管理薄弱环节强化', cover: 'https://picsum.photos/seed/rec1/400/225', advice: '建议从班级规则建立与师生关系营造入手，结合本课程模块2的案例分析，设计一份适合您班级的管理方案。' },
-      { name: '新课标核心素养解读', reason: '补足新课标理解短板', cover: 'https://picsum.photos/seed/rec2/400/225', advice: '重点研读课程中关于核心素养落地的教学设计框架，尝试将1个单元的教学目标与核心素养对应表梳理出来。' },
-      { name: '高效作业设计方法', reason: '提升作业设计专业能力', cover: 'https://picsum.photos/seed/rec3/400/225', advice: '学习课程中分层作业设计策略，选择1节课设计基础版、提高版、拓展版三级作业，并在课堂中试行。' },
+      { name: '班级管理策略与技巧', reason: `针对「${weakestDim.name}」薄弱环节强化`, cover: 'https://picsum.photos/seed/rec1/400/225', advice: `重点研读课程中关于${weakestDim.name}的教学设计框架，尝试将1个单元的教学目标与${weakestDim.name}对应表梳理出来。` },
+      { name: '新课标核心素养解读', reason: `补足「${weaknesses.length > 1 ? weaknesses[1].name : weakestDim.name}」理解短板`, cover: 'https://picsum.photos/seed/rec2/400/225', advice: '建议从课程模块2的案例分析入手，结合自身教学实际进行反思与应用。' },
+      { name: '高效作业设计方法', reason: `拓展「${strongestDim.name}」优势领域`, cover: 'https://picsum.photos/seed/rec3/400/225', advice: `在已有${strongestDim.name}优势基础上，学习进阶策略，进一步提升专业深度。` },
     ];
     document.getElementById('ai-course-recommendations').innerHTML = `
       <div class="ai-recommend-cards">
@@ -2746,50 +2834,84 @@ class TeacherApp {
     `;
 
     // ===== 6. 阶段性追踪指标 =====
-    document.getElementById('ai-track-tags').innerHTML = `
-      <span class="ai-track-tag">${weaknesses[0]?.name || '薄弱维度'}评分变化</span>
-      <span class="ai-track-tag">周学习时长稳定性</span>
-      <span class="ai-track-tag">推荐课程完成率</span>
-      <span class="ai-track-tag">教学实践反思质量</span>
-      <span class="ai-track-tag">同组排名变化</span>
-    `;
+    // 5步筛选法
+    const hasWeakness = weaknesses.length > 0;
+    const weaknessName = hasWeakness ? weaknesses[0].name : '';
+
+    // 第1步：必选指标
+    const selected = [];
+    if (hasWeakness) {
+      selected.push({ name: '薄弱维度评分变化', value: `「${weaknessName}」评分变化`, type: 'weakness' });
+    }
+    selected.push({ name: '推荐课程完成率', value: '推荐课程完成率 0/3', type: 'required' });
+
+    // 第2步：薄弱维度关联指标（至多2个）
+    if (hasWeakness) {
+      selected.push({ name: '周学习时长稳定性', value: '周学习时长稳定性 稳定', type: 'weakness-related' });
+      if (weaknesses.length >= 2) {
+        selected.push({ name: '学习连续天数', value: `学习连续天数 ${myRelations.filter(r => r.progress > 0).length > 0 ? Math.min(myRelations.filter(r => r.progress > 0).length, 7) : 0}天`, type: 'weakness-related' });
+      } else {
+        selected.push({ name: '教学实践反思质量', value: '教学实践反思质量 --', type: 'weakness-related' });
+      }
+    }
+
+    // 第3步：全局趋势指标（补足至5个）
+    const globalPool = [
+      { name: '同组排名变化', value: hasGroup ? '同组排名变化 →' : '同组排名变化 --', type: 'global' },
+      { name: '学习连续天数', value: `学习连续天数 ${myRelations.filter(r => r.progress > 0).length > 0 ? Math.min(myRelations.filter(r => r.progress > 0).length, 7) : 0}天`, type: 'global' },
+      { name: '课程完成率', value: `课程完成率 ${completionRate}%`, type: 'global' },
+      { name: '评价参与度', value: `评价参与度 ${reviewCount}条`, type: 'global' },
+    ];
+    for (const g of globalPool) {
+      if (selected.length >= 5) break;
+      if (!selected.find(s => s.name === g.name)) {
+        selected.push(g);
+      }
+    }
+
+    // 第4步：无待改进项时的特殊处理（重新选取）
+    if (!hasWeakness) {
+      // 已选中的重新按全局优先级排列
+    }
+
+    // 第5步：截取前5个
+    const trackMetrics = selected.slice(0, 5);
+    document.getElementById('ai-track-tags').innerHTML = trackMetrics.map(m => `<span class="ai-track-tag">${m.value}</span>`).join('');
     this.refreshIcons();
   }
 
-  getStrengthDesc(name) {
-    const map = {
-      '课堂互动': '课堂互动能力突出，善于运用提问和讨论激发学生参与',
-      '新课标解读': '对新课标理解深入，能够准确把握核心素养要求',
-      '信息化教学': '信息化工具使用熟练，融合教学能力较强',
-      '班级管理': '班级管理经验丰富，师生关系和谐',
-      '作业设计': '作业设计有层次，能有效巩固和拓展学习',
-      '教学研究': '具备较强的教研意识和反思能力',
-    };
-    return map[name] || '该维度表现良好，继续保持';
-  }
-
-  getWeaknessDesc(name) {
-    const map = {
-      '课堂互动': '课堂互动形式较为单一，小组合作学习组织不足',
-      '新课标解读': '对新课标理念理解停留在表面，缺乏系统性学习',
-      '信息化教学': '信息化工具使用停留在基础层面，创新应用不足',
-      '班级管理': '班级管理方法传统，应对突发事件能力有待提升',
-      '作业设计': '作业设计缺乏分层，评价反馈不够及时具体',
-      '教学研究': '教研参与度低，教学反思深度不够',
-    };
-    return map[name] || '该维度存在提升空间，建议针对性学习';
-  }
-
-  renderInsightRadar(dimensions) {
+  renderInsightRadar(dimensions, hasGroup) {
     const radarChart = echarts.init(document.getElementById('ai-insight-radar-chart'));
 
     // Generate peer average (mock: slightly lower than personal)
     const peerAvg = dimensions.map(d => Math.max(0, Math.min(100, d.score - Math.round(Math.random() * 10 + 5))));
 
+    const seriesData = [
+      {
+        value: dimensions.map(d => d.score),
+        name: '我的水平',
+        areaStyle: { color: 'rgba(200, 0, 12, 0.2)' },
+        lineStyle: { color: '#C8000C', width: 2 },
+        itemStyle: { color: '#C8000C' },
+      }
+    ];
+    const legendData = ['我的水平'];
+    if (hasGroup) {
+      seriesData.push({
+        value: peerAvg,
+        name: '同组平均',
+        lineStyle: { color: '#78716C', width: 2, type: 'dashed' },
+        itemStyle: { color: '#78716C' },
+        symbol: 'emptyCircle',
+        symbolSize: 6,
+      });
+      legendData.push('同组平均');
+    }
+
     radarChart.setOption({
       tooltip: { trigger: 'item' },
       legend: {
-        data: ['我的水平', '同组平均'],
+        data: legendData,
         bottom: 0,
         textStyle: { fontSize: 11, color: '#57534E' }
       },
@@ -2801,36 +2923,20 @@ class TeacherApp {
       },
       series: [{
         type: 'radar',
-        data: [
-          {
-            value: dimensions.map(d => d.score),
-            name: '我的水平',
-            areaStyle: { color: 'rgba(200, 0, 12, 0.2)' },
-            lineStyle: { color: '#C8000C', width: 2 },
-            itemStyle: { color: '#C8000C' },
-          },
-          {
-            value: peerAvg,
-            name: '同组平均',
-            lineStyle: { color: '#78716C', width: 2, type: 'dashed' },
-            itemStyle: { color: '#78716C' },
-            symbol: 'emptyCircle',
-            symbolSize: 6,
-          }
-        ],
+        data: seriesData,
       }],
     });
 
-    // Render legend with levels
+    // Render legend with levels (优秀≥80/良好≥60/待提升<60)
     const legendEl = document.getElementById('ai-radar-legend');
     legendEl.innerHTML = dimensions.map(d => {
       let level, levelClass;
-      if (d.score >= 70) { level = '优秀'; levelClass = 'excellent'; }
+      if (d.score >= 80) { level = '优秀'; levelClass = 'excellent'; }
       else if (d.score >= 60) { level = '良好'; levelClass = 'good'; }
       else { level = '待提升'; levelClass = 'warning'; }
       return `
         <div class="ai-radar-legend-item">
-          <div class="ai-radar-legend-color" style="background: ${d.score >= 70 ? '#16A34A' : d.score >= 60 ? '#D97706' : '#C8000C'}"></div>
+          <div class="ai-radar-legend-color" style="background: ${d.score >= 80 ? '#16A34A' : d.score >= 60 ? '#D97706' : '#C8000C'}"></div>
           <div class="ai-radar-legend-text">${d.name}</div>
           <div class="ai-radar-legend-score">${d.score}分</div>
           <div class="ai-radar-legend-level ai-overall-level ${levelClass}">${level}</div>
@@ -2894,8 +3000,9 @@ class TeacherApp {
     const completedCount = myRelations.filter(r => r.progress === 100).length;
     const totalHours = myRelations.reduce((sum, r) => sum + r.earnedHours, 0);
     const activityCount = myActivityRels.length;
-    const enrolledCount = myRelations.length;
-    const completionRate = enrolledCount > 0 ? Math.round((completedCount / enrolledCount) * 100) : 0;
+    // 课程完成率 = 已学课程数 / 学习过的课程数（progress>0）
+    const studiedCount = myRelations.filter(r => r.progress > 0).length;
+    const completionRate = studiedCount > 0 ? Math.round((completedCount / studiedCount) * 100) : 0;
     const totalMinutes = myRecords.reduce((sum, r) => sum + (r.duration || 0), 0);
 
     // Count reviews
@@ -2904,15 +3011,46 @@ class TeacherApp {
       reviewCount += reviews.filter(r => r.teacherId === teacher.id).length;
     });
 
-    // Streak calculation (mock: based on recent records)
-    const streakDays = myRecords.length > 0 ? Math.min(myRecords.length, 7) : 0;
+    // Streak calculation: count consecutive days from latest learnTime
+    let streakDays = 0;
+    if (myRecords.length > 0) {
+      const sortedDates = [...new Set(myRecords.map(r => r.learnTime.split(' ')[0]))].sort((a, b) => b.localeCompare(a));
+      const today = new Date().toISOString().slice(0, 10);
+      let checkDate = today;
+      // If today has no records, check from yesterday
+      if (sortedDates[0] !== today) {
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        if (sortedDates[0] !== yesterday) {
+          streakDays = 0;
+        } else {
+          checkDate = yesterday;
+        }
+      }
+      if (streakDays === 0 && sortedDates[0] === today) {
+        checkDate = today;
+      }
+      for (const d of sortedDates) {
+        if (d === checkDate) {
+          streakDays++;
+          const prev = new Date(checkDate);
+          prev.setDate(prev.getDate() - 1);
+          checkDate = prev.toISOString().slice(0, 10);
+        } else if (d < checkDate) {
+          break;
+        }
+      }
+    }
+
+    // 同组排名：基于同年级同学科教师能力维度综合评分计算
+    const hasGroupRank = teacher.grade && teacher.subject;
+    const rankDisplay = hasGroupRank ? (completedCount > 0 ? 'Top 28%' : '--') : '-';
 
     // Update Core Metrics
     const els = {
       'profile-total-courses': completedCount,
       'profile-total-hours': totalHours.toFixed(1),
       'profile-activity-count': activityCount,
-      'profile-rank': completedCount > 0 ? 'Top 28%' : '--',
+      'profile-rank': rankDisplay,
       'profile-streak-days': streakDays,
       'profile-total-minutes': totalMinutes,
       'profile-completion-rate': completionRate + '%',
@@ -2929,22 +3067,27 @@ class TeacherApp {
   }
 
   renderProfileCharts() {
-    // Active time distribution chart
+    // Active time distribution chart with time ranges
     const timeChart = echarts.init(document.getElementById('profile-active-time-chart'));
+    const timeRanges = ['早晨\n06:00-08:00', '上午\n08:00-12:00', '中午\n12:00-14:00', '下午\n14:00-18:00', '晚上\n18:00-22:00'];
+    const timeData = [15, 45, 20, 60, 80];
+    const maxTimeIdx = timeData.indexOf(Math.max(...timeData));
+    const peakTimeMap = ['06:00-08:00', '08:00-12:00', '12:00-14:00', '14:00-18:00', '18:00-22:00'];
+    const peakTimeLabel = ['早晨', '上午', '中午', '下午', '晚上'];
     timeChart.setOption({
-      grid: { top: 10, right: 10, bottom: 24, left: 36 },
-      xAxis: { type: 'category', data: ['早晨', '上午', '中午', '下午', '晚上'], axisLabel: { fontSize: 10 } },
-      yAxis: { type: 'value', axisLabel: { fontSize: 10 } },
+      grid: { top: 10, right: 10, bottom: 36, left: 36 },
+      xAxis: { type: 'category', data: timeRanges, axisLabel: { fontSize: 10 } },
+      yAxis: { type: 'value', axisLabel: { fontSize: 10 }, name: '分钟' },
       series: [{
         type: 'bar',
-        data: [15, 45, 20, 60, 80],
+        data: timeData,
         itemStyle: { color: '#C8000C', borderRadius: [4, 4, 0, 0] },
         barWidth: '50%'
       }]
     });
 
     const peakTimeEl = document.getElementById('profile-peak-time');
-    if (peakTimeEl) peakTimeEl.textContent = '学习高峰时段：晚上 19:00-21:00';
+    if (peakTimeEl) peakTimeEl.textContent = `学习高峰时段：${peakTimeLabel[maxTimeIdx]} ${peakTimeMap[maxTimeIdx]}`;
 
     // Weekly learning heatmap (simplified as bar chart)
     const weeklyChart = echarts.init(document.getElementById('profile-weekly-heatmap'));
@@ -3185,12 +3328,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (textarea) {
     textarea.addEventListener('input', () => {
       if (app) app.updateReviewCharCount();
-    });
-  }
-  const feedbackTextarea = document.getElementById('feedback-content');
-  if (feedbackTextarea) {
-    feedbackTextarea.addEventListener('input', () => {
-      if (app) app.updateFeedbackCharCount();
     });
   }
 });

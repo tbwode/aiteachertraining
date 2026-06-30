@@ -171,14 +171,14 @@ const ACTIVITY_DETAILS = {
 
 // 学习排名 Top10（课程学习排行榜）
 const STUDY_RANKINGS = [
-  { rank: 1, teacherId: 't2', name: '李老师', hours: 28.5 },
-  { rank: 2, teacherId: 't1', name: '张老师', hours: 24.0 },
-  { rank: 3, teacherId: 't4', name: '赵老师', hours: 22.5 },
-  { rank: 4, teacherId: 't7', name: '杨老师', hours: 20.0 },
-  { rank: 5, teacherId: 't3', name: '王老师', hours: 18.5 },
-  { rank: 6, teacherId: 't5', name: '刘老师', hours: 16.0 },
-  { rank: 7, teacherId: 't6', name: '陈老师', hours: 14.5 },
-  { rank: 8, teacherId: 't8', name: '周老师', hours: 12.0 },
-  { rank: 9, teacherId: 't9', name: '吴老师', hours: 10.5 },
-  { rank: 10, teacherId: 't10', name: '郑老师', hours: 9.0 }
+  { rank: 1, teacherId: 't2', name: '李老师', hours: 28.5, coursewareCount: 156 },
+  { rank: 2, teacherId: 't1', name: '张老师', hours: 24.0, coursewareCount: 142 },
+  { rank: 3, teacherId: 't4', name: '赵老师', hours: 22.5, coursewareCount: 138 },
+  { rank: 4, teacherId: 't7', name: '杨老师', hours: 20.0, coursewareCount: 125 },
+  { rank: 5, teacherId: 't3', name: '王老师', hours: 18.5, coursewareCount: 110 },
+  { rank: 6, teacherId: 't5', name: '刘老师', hours: 16.0, coursewareCount: 98 },
+  { rank: 7, teacherId: 't6', name: '陈老师', hours: 14.5, coursewareCount: 85 },
+  { rank: 8, teacherId: 't8', name: '周老师', hours: 12.0, coursewareCount: 72 },
+  { rank: 9, teacherId: 't9', name: '吴老师', hours: 10.5, coursewareCount: 60 },
+  { rank: 10, teacherId: 't10', name: '郑老师', hours: 9.0, coursewareCount: 48 }
 ];
