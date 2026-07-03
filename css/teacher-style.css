@@ -2327,6 +2327,45 @@ input[type="checkbox"]:disabled ~ span {
   color: var(--text-secondary);
 }
 
+.activity-countdown {
+  font-size: 13px;
+  font-weight: 600;
+  color: #C8000C;
+  letter-spacing: 0.3px;
+}
+
+.course-card-locked {
+  cursor: not-allowed;
+  position: relative;
+}
+
+.course-card-locked:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.course-card-locked .course-card-cover {
+  filter: grayscale(0.6) brightness(0.92);
+}
+
+.course-card-lock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(41, 37, 36, 0.45);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.course-card-lock span {
+  font-size: 22px;
+}
+
 /* Follow Button */
 .follow-btn {
   display: inline-flex;

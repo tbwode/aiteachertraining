@@ -226,6 +226,7 @@ class TeacherApp {
   // ==================== Routing ====================
 
   goTo(page, ...args) {
+    this.stopActivityCountdown();
     document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
     const target = document.getElementById('page-' + page);
     if (target) target.classList.add('active');
@@ -527,7 +528,10 @@ class TeacherApp {
       const statusMap = { ongoing: { label: '进行中', cls: 'tag-success' }, ended: { label: '已结束', cls: 'tag-default' }, upcoming: { label: '未开始', cls: 'tag-warning' } };
       const s = statusMap[act.status] || statusMap.upcoming;
       const courseCount = (MOCK_ACTIVITY_COURSES[act.id] || []).length;
-      const btnText = act.status === 'ended' ? '查看学习记录' : '去学习';
+      const btnText = act.status === 'ended' ? '查看学习记录' : (act.status === 'upcoming' ? '查看' : '去学习');
+      const countdownHtml = act.status === 'upcoming'
+        ? `<div class="activity-countdown" data-countdown="${act.startTime}">距开始 —</div>`
+        : '';
       return `
         <div class="activity-card">
           <img src="${act.cover}" class="activity-card-cover" alt="${act.name}">
@@ -542,6 +546,7 @@ class TeacherApp {
               <span>&#128218; ${courseCount} 门课程</span>
               ${act.hasHours ? `<span>&#9201; 已获得 ${act.earnedHours || 0} 学时</span>` : ''}
             </div>
+            ${countdownHtml}
             <div class="mt-3">
               <button class="btn btn-primary btn-sm" onclick="app.goToActivityDetail('${act.id}')">${btnText}</button>
             </div>
@@ -550,6 +555,7 @@ class TeacherApp {
       `;
     }).join('');
 
+    this.startActivityCountdown();
     this.renderPagination('activity-list-pagination', activities.length, this.activityPageSize, this.activityPage, (p) => {
       this.activityPage = p;
       this.renderActivityCards();
@@ -558,6 +564,42 @@ class TeacherApp {
 
   goToActivityDetail(activityId) {
     this.goTo('activity-detail', activityId);
+  }
+
+  formatCountdown(targetDateStr) {
+    const target = new Date(targetDateStr + 'T00:00:00').getTime();
+    const diff = target - Date.now();
+    if (diff <= 0) return null;
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    return `${days}天 ${pad(hours)}:${pad(mins)}:${pad(secs)}`;
+  }
+
+  startActivityCountdown() {
+    if (this.activityCountdownTimer) {
+      clearInterval(this.activityCountdownTimer);
+      this.activityCountdownTimer = null;
+    }
+    const els = document.querySelectorAll('.activity-countdown');
+    if (els.length === 0) return;
+    const update = () => {
+      document.querySelectorAll('.activity-countdown').forEach(el => {
+        const remain = this.formatCountdown(el.dataset.countdown);
+        el.textContent = remain ? `距开始 ${remain}` : '活动已开始';
+      });
+    };
+    update();
+    this.activityCountdownTimer = setInterval(update, 1000);
+  }
+
+  stopActivityCountdown() {
+    if (this.activityCountdownTimer) {
+      clearInterval(this.activityCountdownTimer);
+      this.activityCountdownTimer = null;
+    }
   }
 
   renderActivityDetail() {
@@ -680,6 +722,8 @@ class TeacherApp {
 
   renderActivityCourseList() {
     const courses = MOCK_ACTIVITY_COURSES[this.currentActivityId] || [];
+    const activity = MOCK_ACTIVITIES.find(a => a.id === this.currentActivityId);
+    const isUpcoming = activity && activity.status === 'upcoming';
     const myRelations = TEACHER_COURSE_RELATIONS[this.currentUser.id] || [];
     const statusFilter = document.getElementById('activity-course-filter-status')?.value || '';
     const keyword = document.getElementById('activity-course-search-input')?.value.trim().toLowerCase() || '';
@@ -718,15 +762,23 @@ class TeacherApp {
       const isCompleted = progress === 100;
       const statusTag = isCompleted ? '<span class="tag tag-success">已学</span>' : '<span class="tag tag-default">未学</span>';
       const hoursLabel = c.hours > 0 ? `<span class="tag tag-info">${c.hours} 学时</span>` : '';
+      const cardCls = isUpcoming ? 'course-card course-card-locked' : 'course-card';
+      const cardClick = isUpcoming
+        ? `app.toast('活动开始后才可进行学习', 'warning')`
+        : `app.fromActivityId = app.currentActivityId; app.goTo('course-detail', '${c.courseId}')`;
+      const lockOverlay = isUpcoming
+        ? `<div class="course-card-lock"><span>&#128274;</span>活动开始后可学习</div>`
+        : '';
 
       return `
-        <div class="course-card" onclick="app.fromActivityId = app.currentActivityId; app.goTo('course-detail', '${c.courseId}')">
+        <div class="${cardCls}" onclick="${cardClick}">
           <div style="position:relative;">
             <img src="${course?.cover || ''}" class="course-card-cover" alt="${c.name}">
             <div style="position:absolute;top:8px;left:8px;display:flex;gap:4px;">
               ${statusTag}
               ${hoursLabel}
             </div>
+            ${lockOverlay}
           </div>
           <div class="course-card-body">
             <div class="course-card-title">${c.name}</div>
@@ -879,7 +931,7 @@ class TeacherApp {
         <td><span class="tooltip-wrap">${a.progressText}<span class="tooltip-text">已学课程/活动课程总数</span></span></td>
         <td>
           <button class="btn btn-ghost btn-sm" onclick="app.openStudyReport('${a.activityId}')">查看学习报告</button>
-          <button class="btn btn-primary btn-sm" onclick="app.goTo('activity-detail', '${a.activityId}')">${a.status === 'ended' ? '查看学习记录' : '去学习'}</button>
+          <button class="btn btn-primary btn-sm" onclick="app.goTo('activity-detail', '${a.activityId}')">${a.status === 'ended' ? '查看学习记录' : (a.status === 'upcoming' ? '查看' : '去学习')}</button>
         </td>
       </tr>
     `).join('');
@@ -961,6 +1013,7 @@ class TeacherApp {
 
     tbody.innerHTML = courses.map((c, idx) => {
       const cr = myRelations.find(r => r.courseId === c.courseId);
+      const course = MOCK_COURSES.find(mc => mc.id === c.courseId);
       const isCompleted = cr && cr.progress === 100;
       const completeTime = isCompleted ? (cr.lastLearnTime || '-') : '-';
       const feedback = this.courseFeedbacks[c.courseId];
@@ -971,7 +1024,7 @@ class TeacherApp {
         <tr>
           <td>${idx + 1}</td>
           <td>${c.name}</td>
-          <td>${cr ? cr.earnedHours : 0}</td>
+          <td>${course?.sections || 0}</td>
           <td>${completeTime}</td>
           <td>${feedbackCell}</td>
         </tr>
@@ -987,12 +1040,13 @@ class TeacherApp {
     const myRelations = TEACHER_COURSE_RELATIONS[this.currentUser.id] || [];
     const records = courses.map((c, idx) => {
       const cr = myRelations.find(r => r.courseId === c.courseId);
+      const course = MOCK_COURSES.find(mc => mc.id === c.courseId);
       const isCompleted = cr && cr.progress === 100;
       const feedback = this.courseFeedbacks[c.courseId];
       return {
         '序号': idx + 1,
         '课程名称': c.name,
-        '获得学时': cr ? cr.earnedHours : 0,
+        '课件数': course?.sections || 0,
         '完成时间': isCompleted ? (cr.lastLearnTime || '-') : '-',
         '学习心得': feedback ? feedback.content : '-'
       };
