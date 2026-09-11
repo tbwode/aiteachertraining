@@ -1,0 +1,36 @@
+{
+  "brandTitle": "Teacher Workspace",
+  "account": "Account: {{value}}",
+  "userRole": "Teacher",
+  "roleSwitchLabel": "Switch Role",
+  "teacherPortal": "Teacher Portal",
+  "studentPortal": "Student Portal",
+  "adminPortal": "Admin Portal",
+  "profileCenter": "Profile Center",
+  "switchAccount": "Switch Account",
+  "logout": "Log Out",
+  "demoTeacher": "Demo Teacher",
+  "notificationButton": "Notifications",
+  "notificationPanelTitle": "Notification Center",
+  "notificationUnreadSummary": "{{count}} unread",
+  "notificationRefresh": "Refresh",
+  "notificationEmpty": "No notifications yet",
+  "notificationMarkRead": "Mark as read",
+  "notificationDefaultTitle": "System Notification",
+  "notificationLevels": {
+    "common": "Normal",
+    "important": "Important",
+    "emergency": "Urgent"
+  },
+  "notificationMarkAllRead": "Mark all read",
+  "notificationTypeLabels": {
+    "COURSE": "Course",
+    "COURSE_STUDY": "Course Study",
+    "AI_REPLY": "AI Reply",
+    "SYSTEM": "System",
+    "COURSE_DEADLINE": "Deadline",
+    "COURSE_UPDATE": "Course Update",
+    "STUDY_REMIND": "Study Reminder"
+  },
+  "notificationReading": "Processing..."
+}

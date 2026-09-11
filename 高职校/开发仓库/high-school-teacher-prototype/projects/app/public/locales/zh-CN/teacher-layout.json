@@ -1,0 +1,36 @@
+{
+  "brandTitle": "教师工作台",
+  "account": "账号：{{value}}",
+  "userRole": "教师",
+  "roleSwitchLabel": "切换身份",
+  "teacherPortal": "教师端",
+  "studentPortal": "学生端",
+  "adminPortal": "管理端",
+  "profileCenter": "个人中心",
+  "switchAccount": "切换账号",
+  "logout": "退出登录",
+  "demoTeacher": "演示教师",
+  "notificationButton": "消息通知",
+  "notificationPanelTitle": "通知中心",
+  "notificationUnreadSummary": "未读 {{count}} 条",
+  "notificationRefresh": "刷新",
+  "notificationEmpty": "暂无通知",
+  "notificationMarkRead": "标记已读",
+  "notificationDefaultTitle": "系统通知",
+  "notificationLevels": {
+    "common": "普通",
+    "important": "重要",
+    "emergency": "紧急"
+  },
+  "notificationMarkAllRead": "全部已读",
+  "notificationTypeLabels": {
+    "COURSE": "课程通知",
+    "COURSE_STUDY": "课程学习",
+    "AI_REPLY": "AI回复",
+    "SYSTEM": "系统公告",
+    "COURSE_DEADLINE": "课程截止",
+    "COURSE_UPDATE": "课程更新",
+    "STUDY_REMIND": "学习提醒"
+  },
+  "notificationReading": "处理中..."
+}

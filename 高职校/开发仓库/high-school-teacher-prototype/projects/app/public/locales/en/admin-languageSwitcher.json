@@ -1,0 +1,9 @@
+{
+  "label": "Language",
+  "ariaLabel": "Switch interface language",
+  "options": {
+    "zh-CN": "中文",
+    "en": "EN",
+    "zh-Hant": "繁體中文"
+  }
+}

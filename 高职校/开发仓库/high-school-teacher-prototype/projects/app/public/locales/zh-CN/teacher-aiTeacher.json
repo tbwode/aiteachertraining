@@ -1,0 +1,829 @@
+{
+  "home": {
+    "header": {
+      "title": "AI赋能教学 让教育更智能",
+      "welcome": "欢迎回来，{{name}}"
+    },
+    "metrics": {
+      "myCourses": "我的课程",
+      "avatars": "AI分身",
+      "todayInteractions": "今日互动",
+      "unitCourse": "门",
+      "unitAvatar": "位",
+      "unitInteraction": "次",
+      "markCourse": "课",
+      "markAvatar": "AI",
+      "markInteraction": "互"
+    },
+    "suggestions": {
+      "title": "AI智能建议",
+      "categories": {
+        "news": "前沿资讯",
+        "optimization": "课程优化",
+        "graph": "能力图谱"
+      },
+      "actions": {
+        "markAllRead": "全部标记已读",
+        "read": "已读",
+        "markRead": "标记已读",
+        "adopt": "采纳更新",
+        "adopted": "已采纳"
+      },
+      "toasts": {
+        "read": "已标记为已读",
+        "adopt": "已采纳更新",
+        "markAllRead": "前沿资讯已全部标记为已读"
+      },
+      "items": {
+        "news1": {
+          "title": "《人工智能在教育领域的最新应用》",
+          "description": "建议：可作为 Python 课程的拓展案例"
+        },
+        "news2": {
+          "title": "《高职教育改革新动态》",
+          "description": "建议：与本课程教学方向相关"
+        },
+        "optimization1": {
+          "title": "「Python基础」第 3 章知识点覆盖不完整",
+          "description": "建议：补充“异常处理”相关课件"
+        },
+        "graph1": {
+          "title": "「数据分析入门」能力图谱有更新",
+          "description": "新增知识点：数据可视化、报表生成"
+        }
+      }
+    },
+    "todos": {
+      "title": "今日待办",
+      "batchAction": "批量处理",
+      "allReminded": "全部已提醒",
+      "needsAttention": "{{count}}位学生需关注",
+      "table": {
+        "studentName": "学生姓名",
+        "className": "班级",
+        "course": "课程",
+        "progress": "进度",
+        "delayDays": "滞后天数",
+        "actions": "操作"
+      },
+      "actions": {
+        "view": "查看",
+        "remind": "提醒",
+        "reminded": "已提醒"
+      },
+      "toasts": {
+        "detailPending": "{{name}} 学情详情待接入",
+        "remindStudent": "已向 {{name}} 发送提醒",
+        "batchRemind": "批量提醒已发送，共 {{count}} 位学生"
+      },
+      "units": {
+        "days": "{{count}}天"
+      }
+    },
+    "avatars": {
+      "title": "我的课程与AI分身",
+      "create": "新建AI分身",
+      "tabs": {
+        "all": "全部",
+        "running": "运行中",
+        "pending": "未开始",
+        "expired": "已截止"
+      },
+      "status": {
+        "running": "AI教师运行中",
+        "pending": "未开始",
+        "expired": "已截止"
+      },
+      "overlayActions": {
+        "running": "取消发布",
+        "pending": "发布",
+        "expired": "重新发布"
+      },
+      "fields": {
+        "studentScale": "学生规模",
+        "todayInteractions": "今日互动",
+        "coverageClass": "覆盖班级",
+        "coverageMajor": "学员专业"
+      },
+      "actions": {
+        "enterClass": "进入课堂"
+      },
+      "empty": "当前筛选条件下暂无 AI 分身",
+      "toasts": {
+        "cancelPublish": "已取消发布",
+        "publish": "发布成功",
+        "republish": "已重新发布"
+      }
+    }
+  },
+  "avatar": {
+    "common": {
+      "courseType": {
+        "required": "必修",
+        "optional": "选修"
+      },
+      "status": {
+        "running": "AI教师运行中",
+        "pending": "未开始",
+        "expired": "已截止",
+        "normal": "正常",
+        "lagging": "滞后",
+        "completed": "已完成"
+      },
+      "coverage": {
+        "class": "覆盖班级",
+        "major": "学员专业",
+        "classAndMajor": "覆盖班级/专业",
+        "autoMajorAggregate": "按选课学员专业自动聚合"
+      },
+      "time": {
+        "range": "起止时间",
+        "start": "开始时间",
+        "end": "结束时间",
+        "to": "至",
+        "dateRange": "{{start}} 至 {{end}}"
+      },
+      "units": {
+        "students": "{{count}}人",
+        "hours": "{{count}} 学时",
+        "studyHours": "{{count}}小时",
+        "days": "{{count}}天",
+        "records": "共 {{count}} 条记录",
+        "knowledgeModules": "{{count}} 个知识模块",
+        "uploadedFiles": "已上传 {{count}}/{{max}} 个文件",
+        "maxFiles": "最多上传 {{count}} 个文件"
+      },
+      "actions": {
+        "cancel": "取消",
+        "confirm": "确认",
+        "close": "关闭",
+        "saveDraft": "保存草稿",
+        "publish": "发布",
+        "previous": "上一步",
+        "next": "下一步",
+        "upload": "上传文件",
+        "reupload": "重新上传",
+        "view": "查看",
+        "edit": "编辑",
+        "delete": "删除",
+        "export": "导出"
+      },
+      "fallback": {
+        "none": "--",
+        "unnamedCourse": "未命名课程",
+        "loading": "加载中..."
+      },
+      "fileTypes": {
+        "video": "视频",
+        "document": "文档",
+        "image": "图片",
+        "audio": "音频",
+        "file": "文件"
+      },
+      "quizMethods": {
+        "afterClassExercise": "课后习题",
+        "chapterTest": "章节测试",
+        "randomQuestionQuiz": "随机抽题测验",
+        "aiQaAssessment": "AI智能问答测评"
+      },
+      "reportDimensions": {
+        "learningProgress": "学习进度追踪",
+        "knowledgeMastery": "知识点掌握分析",
+        "abilityGrowth": "能力成长曲线",
+        "learningBehavior": "学习行为分析",
+        "peerComparison": "同伴对比分析"
+      },
+      "toasts": {
+        "fetchListFailed": "获取AI分身列表失败",
+        "fetchListFailedDesc": "请稍后重试",
+        "fetchDetailFailed": "获取AI分身详情失败",
+        "fetchDetailFailedDesc": "请稍后重试",
+        "createSuccess": "创建成功",
+        "createSuccessDesc": "AI分身已创建",
+        "createFailed": "创建AI分身失败",
+        "createFailedDesc": "请稍后重试",
+        "operationFailed": "操作失败",
+        "operationFailedDesc": "请稍后重试"
+      }
+    },
+    "create": {
+      "title": "新建AI分身",
+      "closeAriaLabel": "关闭创建向导",
+      "steps": {
+        "classConfig": "班级配置",
+        "teachingPath": "教学路径",
+        "knowledgeAggregation": "知识聚合"
+      },
+      "step1": {
+        "title": "分身配置",
+        "courseSelect": {
+          "label": "选择课程",
+          "placeholder": "请选择教学任务课程",
+          "helpText": "列表仅显示当前学期的教学任务课程",
+          "selectedInfo": "已选课程信息",
+          "courseName": "课程名称：",
+          "courseHours": "课时：{{hours}} 学时",
+          "courseType": "类型："
+        },
+        "courseImage": {
+          "label": "课程图片",
+          "alt": "课程图片",
+          "removeAriaLabel": "移除图片",
+          "reupload": "重新上传",
+          "uploadHint": "点击上传或拖拽图片至此处",
+          "uploadSpec": "建议尺寸 1280×720（16:9），支持 jpg/png，最大 5MB",
+          "uploadCoverAlt": "上传封面",
+          "aiCoverAlt": "AI生成封面",
+          "aiGenerateHint": "点击生成AI封面",
+          "aiGenerateSpec": "根据课程内容智能生成封面",
+          "aiGeneratedName": "AI 生成封面"
+        },
+        "attachmentConfig": {
+          "title": "附件图片的内容配置",
+          "weightsTitle": "配置教学目标权重",
+          "weights": {
+            "knowledge": "知识掌握",
+            "ability": "能力培养",
+            "quality": "素质提升"
+          },
+          "weightLevels": {
+            "knowledge": [
+              "基础认知",
+              "理解关联",
+              "迁移应用",
+              "综合创新"
+            ],
+            "ability": [
+              "模仿练习",
+              "独立操作",
+              "灵活变通",
+              "熟练创新"
+            ],
+            "quality": [
+              "好奇质疑",
+              "发散思维",
+              "批判构建",
+              "实践引领"
+            ]
+          },
+          "quizMethods": "配置测验方式",
+          "reportDimensions": "报告维度"
+        },
+        "coverage": {
+          "selectCourseFirst": "请先选择课程，系统将自动显示对应的班级或专业范围",
+          "optionalHint": "【选修课程】覆盖专业根据选课学生的专业自动聚合显示，无需选择",
+          "requiredHint": "【必修课程】选择班级：已自动过滤已创建 AI 分身的班级",
+          "allOccupied": "该课程下所有班级均已创建 AI 分身"
+        }
+      },
+      "step2": {
+        "syllabus": {
+          "title": "教学大纲",
+          "subtitle": "课程结构与知识点",
+          "uploadTitle": "上传教学大纲",
+          "uploadHint": "支持 PDF、Word 格式的教案或大纲文件，AI 将自动解析并生成标准化大纲",
+          "upload": "上传大纲",
+          "reupload": "重新上传大纲",
+          "parseSuccess": "教学大纲解析完成",
+          "recognizedFile": "已识别文件：{{name}}",
+          "chapters": "共{{count}}章",
+          "sections": "共{{count}}节",
+          "hours": "{{count}}学时"
+        },
+        "matching": {
+          "title": "知识匹配",
+          "subtitle": "上传课件资源进行智能分析",
+          "state": {
+            "matching": "分析中...",
+            "completed": "分析完成",
+            "uploaded": "已上传",
+            "pending": "等待上传"
+          },
+          "uploadHint": "点击上传课件资源",
+          "uploadSyllabusFirstHint": "请先上传教学大纲",
+          "waitForAnalysisHint": "请等待大纲分析完成",
+          "uploadSpec": "支持 PDF、Word、PPT、图片、视频格式，最多上传 {{count}} 个文件",
+          "continueUpload": "继续上传教学资源",
+          "start": "开始匹配",
+          "reMatch": "重新匹配",
+          "analysisTitle": "知识匹配分析",
+          "analysisHint": "请先上传教学大纲和课件资源，然后点击“开始匹配”按钮进行智能分析",
+          "checklist": {
+            "syllabus": "上传教学大纲",
+            "courseware": "上传课件资源",
+            "analysis": "生成匹配分析"
+          },
+          "overallScore": "整体匹配度",
+          "resultTitle": "课件与大纲匹配分析",
+          "summary": "共识别 {{total}} 个节，{{covered}} 个已覆盖，{{missing}} 个缺失",
+          "covered": "已覆盖",
+          "partial": "部分覆盖",
+          "uncovered": "未覆盖",
+          "missing": "缺失",
+          "contains": "课件包含：{{content}}",
+          "noResults": "暂无匹配分析结果",
+          "analyzingSyllabus": "AI 正在分析大纲",
+          "analyzingSyllabusDesc": "请稍候，分析完成后将显示课程结构",
+          "analyzing": {
+            "title": "AI 正在分析中...",
+            "subtitle": "正在匹配课件与教学大纲",
+            "description": "请稍候，分析完成后将显示匹配结果"
+          },
+          "uploadingCourseware": "正在上传课件",
+          "uploadingCoursewareDesc": "请稍候，上传完成后将自动解析",
+          "addFromWorkspace": "从创作空间添加",
+          "generalContent": "综合内容",
+          "uploadResourceModal": {
+            "title": "从创作空间中选择",
+            "currentLocation": "当前添加位置：",
+            "tabs": {
+              "aiCourse": "AI主讲课",
+              "digitalCourseware": "数字课件",
+              "resourceLibrary": "教学资源库",
+              "localUpload": "本地上传"
+            },
+            "searchPlaceholder": "搜索课件名称",
+            "noData": "暂无数据",
+            "selectFile": "选择文件",
+            "uploadHint": "点击上传视频、文档、图片、音频",
+            "uploadDescription": "视频：mp4, mov, avi, webm, mkv 最大2G\n文档：pdf, doc, docx, ppt, pptx 最大500M\n图片：jpg, jpeg, png, gif, webp, bmp 最大50M\n音频：mp3, wav, aac, ogg, flac, m4a 最大200M\n",
+            "selectedFile": "已选文件",
+            "uploading": "上传中...",
+            "cancel": "取消",
+            "confirmAdd": "确认添加",
+            "toasts": {
+              "fileTypeNotSupported": "不支持的文件格式",
+              "fileSizeExceeded": "文件大小超出限制",
+              "uploadFailed": "文件上传失败",
+              "waitForUpload": "请等待文件上传完成",
+              "noFilesToAdd": "没有可添加的文件"
+            },
+            "errors": {
+              "matchFailed": "上传结果匹配失败",
+              "uploadFailed": "上传失败"
+            }
+          },
+          "toasts": {
+            "uploadSyllabusFirst": "请先上传教学大纲",
+            "addMaterialsFirst": "请先补充分析资料",
+            "matchingCompleted": "知识匹配分析完成"
+          }
+        }
+      },
+      "step3": {
+        "title": "第三步：知识聚合",
+        "analysisRequired": "请先完成教学路径分析，才能查看资源匹配结果",
+        "allCovered": "✓ 所有章节知识点均已覆盖，无需补充资源",
+        "missingResources": {
+          "title": "缺失资源章节详情",
+          "missing": "完全缺失",
+          "partial": "部分缺失",
+          "missingPoints": "缺失：{{points}}"
+        },
+        "resources": {
+          "title": "系统推荐资源",
+          "source": "来源：学校课程资源库、平台课程课件资源",
+          "chapter": "章节：{{title}}",
+          "knowledgePoints": "知识点：{{points}}",
+          "doc": "教学文档（系统推荐）",
+          "video": "🎬 教学视频（系统推荐）",
+          "aiTitle": "AI拓展学习",
+          "chapterAndPoints": "章节与知识点",
+          "createdAt": "创建于 {{date}}",
+          "created": "已创建",
+          "editTextbookAriaLabel": "编辑教材",
+          "deleteTextbookAriaLabel": "删除教材",
+          "emptyTextbook": "暂无数字教材，点击下方按钮创建",
+          "textbookPlaceholder": "请输入数字教材名称",
+          "editTextbook": "编辑数字教材",
+          "createTextbook": "创建数字教材",
+          "deleteFileAriaLabel": "删除文件",
+          "noRecommendations": "暂无系统推荐资源，请手动链接教学资料",
+          "noDocuments": "暂无推荐文档",
+          "sourceFrom": "来源：{{source}}",
+          "analyzing": "AI 正在推荐资源",
+          "analyzingDesc": "请稍候，推荐完成后将显示系统推荐资源"
+        },
+        "resourceMatch": "第三步：资源匹配",
+        "coursewareMatch": "课件与大纲匹配分析",
+        "missingCount": "共识别 {{count}} 个缺失章节",
+        "status": {
+          "missing": "缺失"
+        },
+        "addedResources": "已添加资源",
+        "resourceCategories": {
+          "doc": "教学文档",
+          "video": "教学视频",
+          "image": "教学图片",
+          "audio": "教学音频"
+        },
+        "noRecommendations": "暂无推荐",
+        "addFromWorkspace": "从创作空间添加",
+        "allCoveredShort": "所有章节均已覆盖，无需补充资源"
+      },
+      "exitConfirm": {
+        "title": "确认退出",
+        "description": "当前未发布的内容将保留在本地草稿中，确认返回 AI 教师首页。",
+        "continueEditing": "继续编辑",
+        "saveAndExit": "暂存并退出"
+      },
+      "closeConfirm": {
+        "title": "确认关闭",
+        "description": "关闭后当前编辑的内容将不会保存，确认关闭吗？",
+        "cancel": "取消",
+        "confirm": "确认关闭"
+      },
+      "aiCoverModal": {
+        "title": "AI生成课程封面",
+        "courseNameLabel": "课程名称",
+        "courseNamePlaceholder": "请输入名称",
+        "themeLabel": "课程主题/风格（可选）",
+        "themePlaceholder": "例如：科技感、工程",
+        "styleLabel": "选择风格",
+        "cancel": "取消",
+        "generate": "生成封面",
+        "generating": "AI正在生成封面...",
+        "generateFailed": "生成失败",
+        "selectCover": "选择封面",
+        "cover1": "封面1",
+        "cover2": "封面2",
+        "cover3": "封面3",
+        "cover4": "封面4",
+        "useCover": "使用此封面",
+        "coverApplied": "已应用该封面",
+        "validation": {
+          "courseNameRequired": "请输入课程名称",
+          "courseRequired": "请先选择课程"
+        }
+      },
+      "toasts": {
+        "draftSaved": "AI分身创建草稿已保存",
+        "draftSavedAndExit": "草稿已保存",
+        "draftSavedAndExitDesc": "当前未发布的内容已保留在本地草稿中",
+        "pendingSaved": "草稿已保存",
+        "pendingSavedDesc": "AI分身草稿已保存成功",
+        "fillClassConfig": "请先完善班级配置",
+        "fillClassConfigDesc": "需要完成课程、图片、班级/专业与时间配置后才能继续",
+        "completeTeachingPath": "请完成教学路径分析",
+        "completeTeachingPathDesc": "需要上传教学大纲、课件资源并完成匹配分析",
+        "completeKnowledgeAggregation": "请先补齐知识聚合配置",
+        "completeKnowledgeAggregationDesc": "已勾选 AI 拓展学习的章节需要先创建数字教材",
+        "publishSuccess": "AI分身发布成功",
+        "savedAsPending": "AI分身已保存为未开始状态",
+        "loadCourseListFailed": "加载课程列表失败",
+        "loadCourseListFailedDesc": "已使用默认课程列表",
+        "imageUploadSuccess": "课程图片上传成功",
+        "imageUploadSuccessDesc": "已上传图片：{{name}}",
+        "uploadFailed": "上传失败",
+        "imageUploadFailedDesc": "课程图片上传失败，请重试",
+        "syllabusAnalysisComplete": "AI 分析完成",
+        "syllabusAnalysisCompleteDesc": "教学大纲分析成功",
+        "syllabusAnalysisFailed": "AI 分析失败",
+        "syllabusAnalysisFailedDesc": "文件已上传，但 AI 分析失败",
+        "syllabusUploadFailedDesc": "教学大纲上传失败，请重试",
+        "uploadSyllabusFirst": "请先上传教学大纲",
+        "waitForSyllabusAnalysis": "请等待大纲分析完成",
+        "waitForSyllabusAnalysisDesc": "大纲正在分析中，请稍候再上传课件资源",
+        "maxFilesReached": "最多上传 {{count}} 个文件",
+        "fileTypeNotSupported": "不支持的文件格式",
+        "fileTypeNotSupportedDesc": "仅支持 PDF、Word、PPT、视频文件",
+        "fileSizeExceeded": "文件大小超出限制",
+        "fileSizeExceededDoc": "文档文件最大支持 500MB",
+        "fileSizeExceededVideo": "视频文件最大支持 2GB",
+        "coursewareParseEmpty": "部分课件解析内容为空",
+        "coursewareParseEmptyDesc": "有 {{count}} 个文件的内容为空，可能影响匹配分析结果",
+        "parseResultEmpty": "解析结果为空",
+        "parseResultEmptyDesc": "未获取到解析内容",
+        "parseComplete": "解析完成",
+        "parseCompleteDesc": "课件资源解析成功",
+        "parseTriggerFailed": "解析触发失败",
+        "parseTriggerFailedDesc": "文件已上传，但解析触发失败",
+        "coursewareUploadFailedDesc": "课件上传失败，请重试",
+        "addMaterialsFirst": "请先补充分析资料",
+        "addMaterialsFirstDesc": "需要上传教学大纲和课件资源",
+        "missingSyllabusTree": "缺少大纲分析结果",
+        "missingSyllabusTreeDesc": "请重新上传教学大纲",
+        "missingCoursewareParse": "缺少课件解析结果",
+        "missingCoursewareParseDesc": "请重新上传课件资源",
+        "matchingInProgress": "AI 分析中",
+        "matchingInProgressDesc": "正在进行知识匹配分析...",
+        "matchingComplete": "知识匹配分析完成",
+        "matchingFailed": "分析失败",
+        "matchingFailedDesc": "知识匹配分析失败，请重试",
+        "missingMatchResult": "缺少匹配分析结果",
+        "missingMatchResultDesc": "请先完成知识匹配分析",
+        "resourceRecommendComplete": "资源推荐完成",
+        "resourceRecommendCompleteDesc": "已为 {{count}} 个章节推荐资源",
+        "allChaptersCovered": "所有章节已完全覆盖",
+        "allChaptersCoveredDesc": "所有章节知识点均已 100% 覆盖，无需推荐资源",
+        "resourceRecommendNoResults": "资源推荐完成",
+        "resourceRecommendNoResultsDesc": "暂无推荐资源，您可以手动链接教学资料",
+        "resourceRecommendFailed": "推荐失败",
+        "resourceRecommendFailedDesc": "资源推荐失败，请重试",
+        "enterTextbookName": "请输入数字教材名称",
+        "textbookUpdated": "数字教材已更新",
+        "textbookCreated": "数字教材创建成功",
+        "textbookDeleted": "数字教材已删除",
+        "userInfoError": "用户信息错误",
+        "userInfoErrorDesc": "未找到教师ID，请重新登录",
+        "selectCourse": "请选择课程",
+        "completeAnalysisFirst": "请先完成教学路径分析",
+        "creatingAvatar": "正在创建AI分身...",
+        "createSuccess": "AI分身创建成功！",
+        "createFailed": "创建失败",
+        "createFailedDesc": "创建AI分身失败，请重试"
+      }
+    },
+    "detail": {
+      "back": "返回AI教师",
+      "header": {
+        "semester": "学期：",
+        "coverageMajors": "覆盖专业：{{majors}}",
+        "coverageClasses": "覆盖班级：{{classes}}（共{{count}}个班）"
+      },
+      "tabs": {
+        "intro": "课程介绍",
+        "catalog": "课程目录",
+        "graph": "知识图谱",
+        "questionBank": "题库管理",
+        "quiz": "测验管理",
+        "training": "实训管理",
+        "courseSummary": "课程总结",
+        "students": "学生管理"
+      },
+      "intro": {
+        "title": "课程介绍"
+      },
+      "graph": {
+        "title": "知识图谱",
+        "coreCourse": "核心课程",
+        "summary": "掌握机械设计基本理论与工程实践技能",
+        "hint": "点击章节卡片可展开/收起知识点"
+      },
+      "catalog": {
+        "title": "课程目录",
+        "preview": "预览"
+      },
+      "students": {
+        "stats": {
+          "total": "学生总数",
+          "studying": "学习中",
+          "completed": "已完成",
+          "attention": "需要关注",
+          "unit": "人"
+        },
+        "listTitle": "学生列表",
+        "searchPlaceholder": "输入学生姓名",
+        "allClasses": "全部班级",
+        "table": {
+          "name": "姓名",
+          "className": "班级",
+          "progress": "学习进度",
+          "studyHours": "学习时长",
+          "lastStudy": "最后学习",
+          "status": "状态",
+          "actions": "操作"
+        },
+        "actions": {
+          "view": "查看",
+          "viewConversation": "查看对话",
+          "remind": "提醒",
+          "reminded": "已提醒",
+          "export": "导出",
+          "exporting": "导出中"
+        },
+        "pagination": {
+          "previous": "上一页",
+          "next": "下一页"
+        },
+        "toasts": {
+          "exportSuccess": "导出成功",
+          "exportSuccessDesc": "学生数据已导出",
+          "exportFailed": "导出失败",
+          "exportFailedDesc": "导出学生数据失败，请重试",
+          "missingAvatarId": "缺少AI分身ID",
+          "loadStudentsFailed": "加载失败",
+          "loadStudentsFailedDesc": "无法加载学生列表，请稍后重试",
+          "remindFailed": "提醒失败",
+          "remindFailedIncomplete": "学生信息不完整",
+          "remindFailedDesc": "发送提醒失败，请重试"
+        }
+      },
+      "studentDetailModal": {
+        "title": "学生学习详情",
+        "course": "课程：{{title}}",
+        "currentProgress": "当前进度",
+        "studyHours": "学习时长",
+        "lastStudy": "最后学习",
+        "studyStatus": "学习状态",
+        "laggingAnalysis": "滞后原因分析：",
+        "laggingReason1": "• 第2章学习进度较慢",
+        "laggingReason2": "• 连续多天未学习",
+        "sendReminder": "发送提醒"
+      },
+      "remindModal": {
+        "title": "发送学习提醒",
+        "confirm": "确定要向 {{name}} 发送学习提醒吗？",
+        "contentLabel": "提醒内容：",
+        "content": "同学你好，你的课程学习进度有所滞后，请及时安排学习时间，如有疑问可随时向AI教师提问。",
+        "confirmSend": "确认发送"
+      },
+      "conversationModal": {
+        "title": "{{name}} - AI教师助手对话记录",
+        "subtitle": "与AI教师助手\"{{courseName}}\"的对话历史",
+        "roleAi": "AI教师助手",
+        "empty": "暂无对话记录",
+        "loadFailed": "加载失败，请重试",
+        "retry": "重新加载",
+        "close": "关闭",
+        "expand": "展开",
+        "collapse": "收起"
+      },
+      "toasts": {
+        "reminderSent": "已向 {{name}} 发送学习提醒"
+      }
+    },
+    "edit": {
+      "back": "返回AI分身详情",
+      "alert": {
+        "currentStatus": "当前状态：",
+        "pendingEditable": "未开始 - 可修改所有内容",
+        "runningEditable": "运行中 - 可继续调整课程内容"
+      },
+      "tabs": {
+        "base": "基础信息",
+        "chapters": "课程目录",
+        "graph": "知识图谱"
+      },
+      "base": {
+        "title": "基础信息",
+        "courseName": "课程名称",
+        "courseNameHint": "课程名称与教学任务绑定，不可修改",
+        "courseImage": "课程图片",
+        "changeImage": "更换图片",
+        "invalidImageType": "请选择图片文件",
+        "imageTooLarge": "图片大小不能超过 5MB",
+        "imageUploadSuccess": "图片上传成功",
+        "imageUploadFailed": "图片上传失败，请重试",
+        "courseDescription": "课程介绍",
+        "requiredClassHint": "【必修】选择班级："
+      },
+      "chapters": {
+        "structure": "目录结构",
+        "addChapter": "添加章",
+        "addSection": "添加节",
+        "sectionDetail": "小节详情",
+        "currentSelected": "当前选中：{{title}}",
+        "placeholderTitle": "课件列表和上传功能待后续实现",
+        "placeholderDesc": "支持上传视频、PDF、图片等多种格式",
+        "selectSection": "请从左侧选择一个小节",
+        "knowledgePoints": "知识点",
+        "knowledgePointsCount": "{{count}}个",
+        "courseware": "课件",
+        "coursewareCount": "{{count}}个",
+        "uploadCourseware": "上传课件",
+        "noCourseware": "暂无课件，点击上传按钮添加",
+        "addFromWorkspace": "从创作空间中选择",
+        "editChapter": "编辑章节",
+        "editSection": "编辑小节",
+        "addChapterTitle": "添加章节",
+        "addSectionTitle": "添加小节",
+        "nameLabel": "名称",
+        "namePlaceholder": "请输入名称",
+        "deleteConfirm": "确认删除",
+        "deleteChapterMessage": "确定要删除该章节吗？",
+        "deleteSectionMessage": "确定要删除该小节吗？",
+        "deleteChapterWithSections": "该章节下存在小节，无法删除。请先删除所有小节后重试。",
+        "deleteChapterWithCourseware": "该章节下有课件，不可删除",
+        "deleteSectionWithCourseware": "该小节下存在课件，无法删除。请先删除所有课件后重试。",
+        "confirmDelete": "确认删除",
+        "deleteCoursewareMessage": "确定要删除该课件吗？",
+        "deleteCoursewareWithStudents": "该课件已有学生查看，删除后学生无法再次查看，是否确认删除？",
+        "coursewareDeleted": "课件已删除",
+        "previewCourseware": "预览课件",
+        "downloadCourseware": "下载",
+        "closeCourseware": "关闭",
+        "cannotPreview": "无法预览该文件",
+        "downloadFile": "下载文件",
+        "uploadCoursewareTitle": "上传课件",
+        "uploadLocation": "上传位置",
+        "selectFile": "选择文件",
+        "uploadHint": "点击上传或拖拽文件到此处",
+        "uploadSizeHint": "视频最大 2GB，文档最大 500MB\n图片最大 50MB，音频最大 200MB",
+        "supportedTypes": "支持的文件类型：",
+        "videoLabel": "视频",
+        "documentLabel": "文档",
+        "imageLabel": "图片",
+        "audioLabel": "音频",
+        "videoTypes": "mp4, mov, avi, webm, mkv",
+        "documentTypes": "pdf, doc, docx, ppt, pptx, xls, xlsx",
+        "imageTypes": "jpg, jpeg, png, gif, webp, bmp",
+        "audioTypes": "mp3, wav, aac, ogg, flac, m4a",
+        "selectedFile": "已选文件",
+        "confirmUpload": "确认上传",
+        "coursewareUploaded": "课件上传成功",
+        "coursewareUploadedDesc": "已上传文件：{{name}}",
+        "uploadFailed": "上传失败",
+        "uploadFailedDesc": "课件上传失败，请重试",
+        "fileTypeNotSupported": "文件类型不支持",
+        "fileTypeNotSupportedDesc": "请上传视频、文档、图片或音频文件",
+        "fileTooLarge": "文件过大",
+        "fileTooLargeDesc": "该类型文件最大支持 {{size}}MB",
+        "selectFileFirst": "请选择要上传的文件",
+        "selectSectionFirst": "请先选择小节",
+        "enterName": "请输入名称",
+        "cannotDownload": "无法下载",
+        "fileUrlNotAvailable": "文件URL不可用",
+        "videoNotSupported": "您的浏览器不支持视频播放",
+        "audioNotSupported": "您的浏览器不支持音频播放",
+        "previewAriaLabel": "预览",
+        "downloadAriaLabel": "下载",
+        "deleteAriaLabel": "删除",
+        "editAriaLabel": "编辑",
+        "addSectionAriaLabel": "添加节",
+        "units": {
+          "count": "{{count}}个"
+        }
+      },
+      "graph": {
+        "title": "知识图谱思维导图",
+        "hint": "点击节点可展开/收起该节点的子节点",
+        "expandAll": "展开全部",
+        "collapseAll": "收起全部",
+        "noData": "暂无知识图谱数据",
+        "noDataHint": "暂无章节数据，请先添加课程章节",
+        "chapterCount": "{{count}} 章",
+        "sectionCount": "{{count}} 节",
+        "knowledgeCount": "{{count}} 个知识点",
+        "nodeDetail": {
+          "selectHint": "点击节点查看详情",
+          "selectHintDesc": "在图谱中点击任意节点，右侧将展示该节点的详细信息",
+          "properties": "基础属性",
+          "statistics": "关系统计",
+          "relatedNodes": "关联节点",
+          "nodeId": "ID",
+          "nodeDepth": "层级",
+          "inDegree": "入度",
+          "outDegree": "出度",
+          "totalDegree": "总关联",
+          "upstream": "上游节点",
+          "downstream": "下游节点",
+          "noRelated": "暂无关联节点"
+        },
+        "nodeName": "节点名称",
+        "nodeType": "节点类型",
+        "nodeLocation": "所属位置",
+        "childrenCount": "子节点数量",
+        "childrenCountValue": "{{count}} 个子节点",
+        "childrenCountHint": "点击图谱中的节点可展开查看详情",
+        "nodeTypes": {
+          "course": "课程",
+          "chapter": "章",
+          "section": "节",
+          "knowledge": "知识点",
+          "unknown": "未知"
+        },
+        "layouts": {
+          "force": "力导向",
+          "circular": "环形",
+          "dagre": "分层"
+        },
+        "filters": {
+          "entityType": "实体类型",
+          "relationType": "关系类型"
+        },
+        "actions": {
+          "resetZoom": "缩放重置",
+          "exportImage": "导出图片",
+          "autoLayout": "自动整理"
+        },
+        "searchPlaceholder": "搜索节点...",
+        "treeTitle": "课程目录",
+        "layoutsTitle": "布局方式",
+        "actionsTitle": "操作"
+      },
+      "actions": {
+        "save": "保存修改"
+      },
+      "saveConfirmModal": {
+        "title": "以下课件已有学生学习过，确认删除？",
+        "studentCount": "（{{count}} 名学生学习过）",
+        "hint": "删除后，学生端将无法再查看这些课件，但既有学习记录会保留以供统计追溯。"
+      },
+      "toasts": {
+        "saveSuccess": "保存成功",
+        "saveSuccessDesc": "AI分身信息已更新",
+        "saveFailed": "保存失败",
+        "saveFailedDesc": "保存AI分身失败，请重试",
+        "noData": "数据加载失败",
+        "fillRequired": "请填写必填项",
+        "fillRequiredDesc": "请填写开始时间和结束时间",
+        "invalidDateRange": "日期范围无效",
+        "invalidDateRangeDesc": "开始时间不能晚于结束时间",
+        "infoUpdated": "{{name}} 信息已更新",
+        "loadFailed": "加载失败",
+        "loadFailedDesc": "无法加载AI分身详情，请稍后重试"
+      }
+    }
+  }
+}

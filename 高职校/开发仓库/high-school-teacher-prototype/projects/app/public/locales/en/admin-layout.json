@@ -1,0 +1,20 @@
+{
+  "brandTitle": "Admin Workspace",
+  "account": "Account: {{value}}",
+  "userRole": "System Admin",
+  "roleSwitchLabel": "Switch Role",
+  "teacherPortal": "Teacher Portal",
+  "studentPortal": "Student Portal",
+  "adminPortal": "Admin Portal",
+  "profileCenter": "Profile Center",
+  "logout": "Log Out",
+  "demoAdmin": "System Admin",
+  "notificationButton": "Notifications",
+  "headerEyebrow": "Teaching management prototype preview",
+  "headerTitle": "Admin information architecture",
+  "versionBadge": "v1.0 Prototype",
+  "collapseSection": "Collapse {{value}} submenu",
+  "expandSection": "Expand {{value}} submenu",
+  "collapseSidebar": "Collapse menu",
+  "expandSidebar": "Expand menu"
+}

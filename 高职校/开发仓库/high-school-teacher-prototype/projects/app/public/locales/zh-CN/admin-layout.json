@@ -1,0 +1,19 @@
+{
+  "brandTitle": "管理工作台",
+  "account": "账号：{{value}}",
+  "userRole": "系统管理员",
+  "roleSwitchLabel": "切换身份",
+  "teacherPortal": "教师端",
+  "studentPortal": "学生端",
+  "adminPortal": "管理端",
+  "logout": "退出登录",
+  "demoAdmin": "系统管理员",
+  "notificationButton": "消息通知",
+  "headerEyebrow": "教学管理模块原型预览",
+  "headerTitle": "Admin 信息架构骨架",
+  "versionBadge": "v1.0 原型框架",
+  "collapseSection": "收起{{value}}子菜单",
+  "expandSection": "展开{{value}}子菜单",
+  "collapseSidebar": "收起菜单",
+  "expandSidebar": "展开菜单"
+}

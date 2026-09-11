@@ -1,0 +1,12 @@
+{
+  "platformTitle": "高职校教学平台",
+  "teacherLogin": "教师端登录",
+  "username": "用户名",
+  "usernamePlaceholder": "请输入用户名",
+  "password": "密码",
+  "passwordPlaceholder": "请输入密码",
+  "submit": "登录",
+  "missingCredentials": "请输入用户名和密码",
+  "loginSuccess": "登录成功",
+  "demoHint": "演示环境下输入任意用户名和密码即可进入教师端"
+}

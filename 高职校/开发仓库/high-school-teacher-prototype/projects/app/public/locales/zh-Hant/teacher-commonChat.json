@@ -1,0 +1,147 @@
+{
+  "header": {
+    "back_home": "返回首頁"
+  },
+  "history": {
+    "new_chat": "新建對話",
+    "title": "歷史對話",
+    "today": "今天",
+    "yesterday": "昨天",
+    "day_before_yesterday": "前天"
+  },
+  "input": {
+    "placeholder": "請輸入您的問題",
+    "placeholder_ai_lecture": "請輸入您要創建的課件主題、目標對象、互動形式",
+    "aria_voice": "語音輸入",
+    "aria_upload": "附件",
+    "aria_send": "發送"
+  },
+  "quick_actions": {
+    "before_class": "課前-",
+    "home": "首頁",
+    "create_course": "創建AI教師",
+    "create_material": "做數字課件",
+    "create_ai_lecture": "做AI主講課",
+    "create_ai_lecture_student": "AI主講課",
+    "ask_progress": "問學情",
+    "learning_portrait": "學習畫像"
+  },
+  "portrait": {
+    "status_review": "複習",
+    "status_continue": "繼續",
+    "student_id_label": "學號",
+    "major_label": "專業",
+    "update_portrait": "更新我的畫像",
+    "in_progress_courses": "在修課程",
+    "completed_courses": "已學完",
+    "total_hours": "累計學習時長",
+    "course_progress": "各課程學習進度",
+    "ability_radar": "能力對比雷達圖",
+    "my_ability": "我的當前能力",
+    "career_analysis": "專業就業方向解析",
+    "improvement_plan": "我的提升計劃",
+    "unit_course": "門",
+    "unit_hour": "小時",
+    "no_data": "暫無數據",
+    "target_position": "目標崗位",
+    "target_requirement": "目標崗位要求",
+    "training_requirement": "學校人培要求",
+    "ability_diagnosis": "崗位能力診斷",
+    "gap_current": "當前",
+    "gap_target": "目標",
+    "gap_to_improve": "待提升",
+    "gap_reached": "已達標",
+    "improvement_plan_courses": "推薦選修課程",
+    "improvement_plan_books": "推薦書單",
+    "go_study": "去學習",
+    "join_study": "加入學習",
+    "not_available": "暫未上架",
+    "career_loading": "正在生成職業診斷...",
+    "career_error": "職業診斷服務暫未開放",
+    "category_beginner": "入門",
+    "category_advanced": "進階",
+    "category_practice": "實戰",
+    "major_analysis_title": "專業分析與建議"
+  },
+  "error": {
+    "fetch_portrait_failed": "獲取學習畫像失敗，請稍後重試",
+    "update_portrait_failed": "更新畫像失敗，請稍後重試",
+    "no_student_info": "未獲取到學生信息，請重新登錄"
+  },
+  "loading": {
+    "thinking": "正在思考中..."
+  },
+  "action": {
+    "go": "點擊前往",
+    "view_portrait_title": "你的學習畫像已生成並推送到前端啦！裡面包含了你的能力雷達圖、專業分析、就業方向建議和個人提升計劃，快去看看吧～",
+    "view_portrait_label": "查看畫像"
+  },
+  "toast": {
+    "new_chat_welcome": "歡迎進入AI主講課，您可以通過輸入問題或上傳文件與我交流"
+  },
+  "outline": {
+    "title": "課程大綱",
+    "scene_count": "共 {{count}} 個場景",
+    "total_duration": "預計 {{minutes}} 分鐘",
+    "scene_type_label": "場景類型",
+    "scene_type": {
+      "slide": "演示",
+      "interactive": "互動",
+      "quiz": "測驗",
+      "pbl": "PBL"
+    },
+    "scene_title": "場景標題",
+    "scene_description": "場景描述",
+    "teaching_objective": "教學目標",
+    "key_points": "關鍵點（每行一個）",
+    "estimated_duration": "預計時長（秒）",
+    "difficulty_label": "難度",
+    "question_type_label": "題型",
+    "question_count_label": "題目數量",
+    "question_type": {
+      "single": "單選",
+      "multiple": "多選",
+      "text": "文字輸入"
+    },
+    "difficulty": {
+      "easy": "簡單",
+      "medium": "中等",
+      "hard": "困難"
+    },
+    "confirm_generate": "確認並生成課程",
+    "delete_aria": "刪除場景"
+  },
+  "studentLearning": {
+    "title": "學員學情",
+    "student_id": "學號",
+    "course_progress_title": "課程學習進度",
+    "ai_qa_title": "AI 問答情況",
+    "suggestion_title": "學習建議",
+    "student_not_found": "未找到該學員的學習記錄",
+    "qa_total_sessions": "對話話題數",
+    "qa_total_messages": "訊息數",
+    "qa_last_active": "最近活躍",
+    "qa_activity_high": "活躍",
+    "qa_activity_medium": "一般",
+    "qa_activity_low": "不活躍",
+    "qa_recent": "最近問答",
+    "status_normal": "正常",
+    "status_lagging": "滯後",
+    "status_completed": "已完成",
+    "status_not_started": "未開始",
+    "study_hours_unit": "h",
+    "load_failed": "載入失敗",
+    "retry": "重試",
+    "refresh": "刷新重新載入",
+    "no_suggestion": "暫無 AI 建議",
+    "loading_courses": "正在載入學習進度...",
+    "loading_conversation": "正在載入問答記錄...",
+    "qa_sessions": "對話次數",
+    "qa_rounds": "對話輪數",
+    "qa_keywords": "高頻詞雲",
+    "analysis_title": "學情發展優劣勢剖析",
+    "analysis_strengths": "優勢",
+    "analysis_weaknesses": "劣勢",
+    "keywords_empty": "暫無足夠問答數據生成詞雲"
+  }
+}

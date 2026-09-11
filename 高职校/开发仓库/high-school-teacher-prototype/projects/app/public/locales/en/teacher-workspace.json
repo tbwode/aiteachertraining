@@ -1,0 +1,84 @@
+{
+  "greeting": {
+    "morning": "Good morning",
+    "forenoon": "Good morning",
+    "noon": "Good noon",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening"
+  },
+  "tabs": {
+    "teaching_content": "Teaching",
+    "overview": "Overview",
+    "ai_news": "AI News"
+  },
+  "teaching_content": {
+    "title": "Teaching Content",
+    "subtitle": "{{name}}, you have {{count}} course(s) to teach",
+    "subtitle_short": "You have {{count}} course(s) to teach",
+    "hours_suffix": "hours",
+    "selected": "Selected",
+    "start_class": "Start Class",
+    "empty": "No teaching tasks this semester"
+  },
+  "overview": {
+    "title": "Teaching Overview",
+    "status_subtitle": "Student progress: {{label}}",
+    "metrics": {
+      "total": "Total Students",
+      "studying": "Studying",
+      "normal": "On Track",
+      "lagging": "Lagging"
+    },
+    "overall_progress": "Overall Progress",
+    "empty": "No teaching tasks this semester"
+  },
+  "ai_news": {
+    "title": "AI News",
+    "subtitle": "Recent news about \"{{course}}\"",
+    "view_more": "View More →",
+    "empty": "No news yet",
+    "empty_course": "No news for this course"
+  },
+  "ai_news_list": {
+    "title": "AI News",
+    "mark_all_read": "Mark All as Read",
+    "marking": "Marking...",
+    "unread_count": "{{count}} unread",
+    "empty_hint": "No AI news for this course yet. Check back later."
+  },
+  "news_detail": {
+    "tag": "AI News",
+    "content_label": "Content:",
+    "related_course": "Related Course:",
+    "publish_time": "Published:",
+    "cancel": "Cancel",
+    "mark_read": "Mark as Read",
+    "read": "Read"
+  },
+  "chat_dock": {
+    "quick_actions": {
+      "chat": "Chat",
+      "before_class": "Before class-",
+      "open_course": "Create AI Teacher",
+      "make_courseware": "Make Courseware",
+      "make_ai_main": "Make AI Class",
+      "ask_progress": "Ask Progress"
+    },
+    "placeholder": "Please enter your question",
+    "send": "Send",
+    "upload": "Attach",
+    "upload_limit_count": "You can upload at most 5 files",
+    "upload_limit_type": "Unsupported file type. Please upload pdf, doc, xls, ppt, txt, md or image files",
+    "upload_limit_size": "File {{fileName}} exceeds size limit (100MB per file)",
+    "voice": "Voice",
+    "voice_cancel": "Cancel recording",
+    "voice_finish": "Finish and transcribe",
+    "voice_transcribing": "Transcribing…"
+  },
+  "toasts": {
+    "coming_soon": "Coming soon",
+    "marked_read": "Marked as read",
+    "marked_all_read": "All marked as read",
+    "mark_read_failed": "Operation failed, please retry"
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "roles": {
+    "title": "Role management",
+    "add": "Add role",
+    "search": {
+      "label": "Role name",
+      "placeholder": "Enter role name"
+    },
+    "table": {
+      "name": "Role name",
+      "scope": "Permission scope",
+      "description": "Description",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "No role data",
+      "subtitle": "Please click the button in the upper right corner to add a role."
+    },
+    "modal": {
+      "createTitle": "Add role",
+      "editTitle": "Edit role",
+      "close": "Close"
+    },
+    "steps": {
+      "basic": "Basic info",
+      "permission": "Permissions",
+      "data": "Data access"
+    },
+    "form": {
+      "name": "Role name",
+      "namePlaceholder": "Enter role name",
+      "info": "Description",
+      "infoPlaceholder": "Enter description",
+      "permission": "Permission",
+      "allPermissions": "All permissions",
+      "allPermissionsTooltip": "If checked, this role will automatically have all functional permissions, including any new permissions added in the future.",
+      "allData": "All data",
+      "includeSubDept": "Include sub-departments",
+      "classPermission": "Class access:",
+      "subjectPermission": "Subject access:",
+      "deptPermission": "Department access:"
+    },
+    "validation": {
+      "nameRequired": "Please enter role name",
+      "nameMaxLength": "Maximum 20 characters",
+      "infoRequired": "Please enter description",
+      "infoMaxLength": "Maximum 100 characters",
+      "permissionRequired": "Please select permissions",
+      "dataPermissionRequired": "Please complete data access selection",
+      "roleIdRequired": "Role ID does not exist"
+    },
+    "options": {
+      "selectAll": "Select all",
+      "cancel": "Cancel",
+      "allGrades": "All grades",
+      "myGrade": "My grade",
+      "myClass": "My class",
+      "myClassroom": "My classroom",
+      "allSubjects": "All subjects",
+      "mySubject": "My subject",
+      "allDepts": "All departments",
+      "myDept": "My department",
+      "myData": "My data only"
+    },
+    "delete": {
+      "title": "Delete confirmation",
+      "content": "After deletion, the role will be removed from the list. If the role is already in use, it cannot be deleted."
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "enableTitle": "Enable confirmation",
+      "disableTitle": "Disable confirmation",
+      "enableContent": "After enabling, the role will be restored for use. Continue?",
+      "disableContent": "After disabling, the role will no longer be available for use, but existing data will not be affected. Continue?"
+    },
+    "actions": {
+      "reset": "Reset",
+      "search": "Search",
+      "edit": "Edit",
+      "enable": "Enable",
+      "disable": "Disable",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "confirmDelete": "Confirm delete",
+      "confirmEnable": "Confirm enable",
+      "confirmDisable": "Confirm disable",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "pagination": {
+      "total": "Total {{total}} records",
+      "pageInfo": "Page {{current}} / {{total}}",
+      "prev": "Previous",
+      "next": "Next",
+      "pageSize": "{{size}} / page",
+      "jumpTo": "Jump to",
+      "page": "page"
+    },
+    "messages": {
+      "loadFailed": "Failed to load",
+      "loadDetailFailed": "Failed to load role details",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete",
+      "operationSuccess": "Operation successful",
+      "operationFailed": "Operation failed",
+      "createFailed": "Failed to create role",
+      "updateFailed": "Failed to update role",
+      "savePermissionFailed": "Failed to save permissions",
+      "saveDataPermissionFailed": "Failed to save data access"
+    },
+    "loading": "Loading..."
+  },
+  "organization": {
+    "title": "Organization info",
+    "orgName": "Organization name",
+    "orgStructure": "Organization structure",
+    "addSubDept": "Add sub-department",
+    "placeholder": {
+      "deptName": "Enter department name",
+      "orgName": "Enter organization name"
+    },
+    "editNameModal": {
+      "title": "Edit organization name"
+    },
+    "deleteModal": {
+      "title": "Delete confirmation",
+      "content": "This will also delete all sub-departments. Members will be moved to the parent department.",
+      "confirm": "Are you sure you want to delete department \"{{name}}\"?"
+    },
+    "actions": {
+      "edit": "Edit",
+      "save": "Save",
+      "delete": "Delete",
+      "confirmDelete": "Confirm delete",
+      "cancel": "Cancel"
+    },
+    "messages": {
+      "loadTenantFailed": "Failed to load organization info",
+      "loadDeptFailed": "Failed to load department list",
+      "nameRequired": "Organization name is required",
+      "nameMaxLength": "Organization name limited to 30 characters",
+      "tenantNotLoaded": "Tenant info not loaded",
+      "updateNameSuccess": "Organization name updated",
+      "updateNameFailed": "Failed to update organization name",
+      "deptNameRequired": "Department name is required",
+      "deptNameLength": "Department name must be 2-20 characters",
+      "addDeptSuccess": "Department added",
+      "addDeptFailed": "Failed to add department",
+      "editDeptSuccess": "Department updated",
+      "editDeptFailed": "Failed to update department",
+      "deleteDeptSuccess": "Department deleted",
+      "deleteDeptFailed": "Failed to delete department",
+      "dragParentToChild": "Cannot move parent department to child department",
+      "moveToChild": "Moved \"{{name}}\" as sub-department of \"{{parent}}\"",
+      "sortSuccess": "Sorted successfully",
+      "sortFailed": "Failed to sort"
+    }
+  },
+  "configuration": {
+    "fields": {
+      "platformName": "Platform Name",
+      "domain": "Domain",
+      "domainSuffix": ".huayuntiantu.com",
+      "domainHint": "For more domain requirements, please contact the delivery operations team"
+    },
+    "placeholder": {
+      "platformName": "Enter platform name",
+      "domain": "Enter custom content"
+    },
+    "imageFields": {
+      "avatar": "Logo",
+      "fullNameImg": "Full Name Image",
+      "sidebarImg": "Login Cover",
+      "backgroundImg": "Login Background",
+      "functionBackgroundImg": "Function Page Background",
+      "homepageBackgroundImg": "Homepage Background"
+    },
+    "upload": {
+      "imageOnly": "Please upload an image file",
+      "sizeLimit": "Image size cannot exceed 10MB",
+      "success": "Upload successful",
+      "failed": "Upload failed",
+      "replace": "Replace",
+      "clickToUpload": "Click to upload",
+      "uploading": "Uploading..."
+    },
+    "image": {
+      "alt": "Image"
+    },
+    "actions": {
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "save": "Save Changes"
+    },
+    "validation": {
+      "fullNameRequired": "Please enter platform name",
+      "fullNameLength": "Platform name requires 2-50 characters",
+      "domainRequired": "Please enter domain",
+      "domainLength": "Domain requires 3-50 characters"
+    },
+    "messages": {
+      "loadFailed": "Failed to load data",
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Failed to save"
+    }
+  },
+  "dateRangePicker": {
+    "placeholder": "Select date",
+    "end": "End",
+    "quickSelect": "Quick Select",
+    "yearMonth": "{{year}}-{{month}}",
+    "clear": "Clear",
+    "confirm": "Confirm",
+    "selectStartDate": "Select start date",
+    "selectEndDate": "Select end date",
+    "weekDays": {
+      "0": "Sun",
+      "1": "Mon",
+      "2": "Tue",
+      "3": "Wed",
+      "4": "Thu",
+      "5": "Fri",
+      "6": "Sat"
+    },
+    "shortcuts": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "last7Days": "Last 7 days",
+      "last30Days": "Last 30 days",
+      "thisMonth": "This month",
+      "lastMonth": "Last month"
+    },
+    "to": "to"
+  }
+}

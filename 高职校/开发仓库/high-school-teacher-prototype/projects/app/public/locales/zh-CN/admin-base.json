@@ -1,0 +1,238 @@
+{
+  "roles": {
+    "title": "角色管理",
+    "add": "新增角色",
+    "search": {
+      "label": "角色名称",
+      "placeholder": "请输入角色名称"
+    },
+    "table": {
+      "name": "角色名称",
+      "scope": "权限范围",
+      "description": "角色说明",
+      "status": "状态",
+      "actions": "操作"
+    },
+    "empty": {
+      "title": "暂无角色数据",
+      "subtitle": "请点击右上角添加角色。"
+    },
+    "modal": {
+      "createTitle": "新增角色",
+      "editTitle": "编辑角色",
+      "close": "关闭"
+    },
+    "steps": {
+      "basic": "基础信息",
+      "permission": "功能权限",
+      "data": "数据权限"
+    },
+    "form": {
+      "name": "角色名称",
+      "namePlaceholder": "请输入角色名称",
+      "info": "角色说明",
+      "infoPlaceholder": "请输入角色说明",
+      "permission": "权限",
+      "allPermissions": "全部权限",
+      "allPermissionsTooltip": "勾选此项，该模板将自动拥有所有功能权限，包括未来新增的任何权限，无需再次配置。",
+      "allData": "所有数据",
+      "includeSubDept": "包含子部门",
+      "classPermission": "班级权限：",
+      "subjectPermission": "学科权限：",
+      "deptPermission": "部门权限："
+    },
+    "validation": {
+      "nameRequired": "请输入角色名称",
+      "nameMaxLength": "最多输入不超过20个字符",
+      "infoRequired": "请输入角色说明",
+      "infoMaxLength": "最多输入不超过100个字符",
+      "permissionRequired": "请选择功能权限",
+      "dataPermissionRequired": "请完整选择数据权限",
+      "roleIdRequired": "角色ID不存在"
+    },
+    "options": {
+      "selectAll": "全选",
+      "cancel": "取消",
+      "allGrades": "全部学段",
+      "myGrade": "我所在的学段",
+      "myClass": "我所在的年级",
+      "myClassroom": "我所在的班级",
+      "allSubjects": "全部学科",
+      "mySubject": "我任教的学科",
+      "allDepts": "全部部门",
+      "myDept": "我所在的部门",
+      "myData": "我自己的数据"
+    },
+    "delete": {
+      "title": "删除提示",
+      "content": "删除后，该角色将从列表删除。如该角色已被使用，则无法删除。"
+    },
+    "status": {
+      "enabled": "启用",
+      "disabled": "禁用",
+      "enableTitle": "启用确认",
+      "disableTitle": "禁用确认",
+      "enableContent": "启用后，该角色将恢复使用，是否继续？",
+      "disableContent": "禁用后，该角色将不再支持被使用，但不影响存量数据的使用，是否继续？"
+    },
+    "actions": {
+      "reset": "重置",
+      "search": "查询",
+      "edit": "编辑",
+      "enable": "启用",
+      "disable": "禁用",
+      "delete": "删除",
+      "cancel": "取消",
+      "confirm": "确定",
+      "confirmDelete": "确认删除",
+      "confirmEnable": "确认启用",
+      "confirmDisable": "确认禁用",
+      "prev": "上一步",
+      "next": "下一步"
+    },
+    "pagination": {
+      "total": "共 {{total}} 条记录",
+      "pageInfo": "第 {{current}} 页 / 共 {{total}} 页",
+      "prev": "上一页",
+      "next": "下一页",
+      "pageSize": "{{size}} 条/页",
+      "jumpTo": "跳至",
+      "page": "页"
+    },
+    "messages": {
+      "loadFailed": "加载失败",
+      "loadDetailFailed": "加载角色详情失败",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除失败",
+      "operationSuccess": "操作成功",
+      "operationFailed": "操作失败",
+      "createFailed": "创建角色失败",
+      "updateFailed": "更新角色失败",
+      "savePermissionFailed": "保存功能权限失败",
+      "saveDataPermissionFailed": "保存数据权限失败"
+    },
+    "loading": "加载中..."
+  },
+  "configuration": {
+    "fields": {
+      "platformName": "平台名称",
+      "domain": "域名",
+      "domainSuffix": ".huayuntiantu.com",
+      "domainHint": "如您对域名有更多其他诉求,可联系交付运营团队"
+    },
+    "placeholder": {
+      "platformName": "请输入平台名称",
+      "domain": "请输入定制内容"
+    },
+    "imageFields": {
+      "avatar": "徽标",
+      "fullNameImg": "全称图片",
+      "sidebarImg": "登录封面",
+      "backgroundImg": "登录背景",
+      "functionBackgroundImg": "功能页背景",
+      "homepageBackgroundImg": "首页背景"
+    },
+    "upload": {
+      "imageOnly": "请上传图片文件",
+      "sizeLimit": "图片大小不能超过10MB",
+      "success": "上传成功",
+      "failed": "上传失败",
+      "replace": "更换",
+      "clickToUpload": "点击上传",
+      "uploading": "上传中..."
+    },
+    "image": {
+      "alt": "图片"
+    },
+    "actions": {
+      "edit": "编辑",
+      "cancel": "撤销",
+      "save": "保存修改"
+    },
+    "validation": {
+      "fullNameRequired": "请输入平台名称",
+      "fullNameLength": "平台名称需要2-50个字符",
+      "domainRequired": "请输入域名",
+      "domainLength": "域名需要3-50个字符"
+    },
+    "messages": {
+      "loadFailed": "加载数据失败",
+      "saveSuccess": "保存成功",
+      "saveFailed": "保存失败"
+    }
+  },
+  "organization": {
+    "title": "组织信息",
+    "orgName": "组织名称",
+    "orgStructure": "组织架构",
+    "addSubDept": "添加子部门",
+    "placeholder": {
+      "deptName": "请输入部门名称",
+      "orgName": "请输入组织名称"
+    },
+    "editNameModal": {
+      "title": "编辑组织名称"
+    },
+    "deleteModal": {
+      "title": "删除提示",
+      "content": "此操作会一并删除所有子部门，部门内成员将归属于当前部门的上级部门。",
+      "confirm": "确定要删除部门「{{name}}」吗？"
+    },
+    "actions": {
+      "edit": "编辑",
+      "save": "保存",
+      "delete": "删除",
+      "confirmDelete": "确定删除",
+      "cancel": "取消"
+    },
+    "messages": {
+      "loadTenantFailed": "加载组织信息失败",
+      "loadDeptFailed": "加载部门列表失败",
+      "nameRequired": "组织名称不能为空",
+      "nameMaxLength": "组织名称限制30字符",
+      "tenantNotLoaded": "租户信息未加载",
+      "updateNameSuccess": "组织名称修改成功",
+      "updateNameFailed": "组织名称修改失败",
+      "deptNameRequired": "部门名称不能为空",
+      "deptNameLength": "部门名称限制（2-20字符）",
+      "addDeptSuccess": "添加部门成功",
+      "addDeptFailed": "添加部门失败",
+      "editDeptSuccess": "编辑部门成功",
+      "editDeptFailed": "编辑部门失败",
+      "deleteDeptSuccess": "删除部门成功",
+      "deleteDeptFailed": "删除部门失败",
+      "dragParentToChild": "不能将父部门移动到子部门内",
+      "moveToChild": "已将「{{name}}」移动为「{{parent}}」的子部门",
+      "sortSuccess": "排序成功",
+      "sortFailed": "排序失败"
+    }
+  },
+  "dateRangePicker": {
+    "placeholder": "选择日期",
+    "end": "结束",
+    "quickSelect": "快捷选择",
+    "yearMonth": "{{year}}年{{month}}月",
+    "clear": "清空",
+    "confirm": "确定",
+    "selectStartDate": "请选择开始日期",
+    "selectEndDate": "请选择结束日期",
+    "weekDays": {
+      "0": "日",
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六"
+    },
+    "shortcuts": {
+      "today": "今天",
+      "yesterday": "昨天",
+      "last7Days": "最近7天",
+      "last30Days": "最近30天",
+      "thisMonth": "本月",
+      "lastMonth": "上月"
+    },
+    "to": "至"
+  }
+}

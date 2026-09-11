@@ -1,0 +1,747 @@
+{
+  "common": {
+    "breadcrumbRoot": "Teaching Management",
+    "optional": "Optional",
+    "close": "Close",
+    "dash": "-",
+    "error": {
+      "retry": "Please try again later"
+    }
+  },
+  "metadata": {
+    "defaultTitle": "Teaching Management | {{portal}}",
+    "titleTemplate": "{{module}} | {{portal}}",
+    "defaultDescription": "Teaching management module page."
+  },
+  "modulePage": {
+    "heroSuffix": " This page acts as the receiving scaffold for the module, ready for filters, data tables, detail drawers, import dialogs, and API integration.",
+    "backHome": "Back to Admin Home",
+    "toTeacher": "Open Teacher Portal",
+    "structure": {
+      "title": "Suggested page structure",
+      "filters": "Top filter area: keyword, status, and business filters such as major, grade, and semester.",
+      "list": "Core list area: main table view, pagination, batch actions, and export entry.",
+      "editor": "Editing layer: create/edit dialogs, detail drawers, and status toggles.",
+      "bulk": "Bulk operations: import templates, export results, and exception feedback."
+    },
+    "positioning": {
+      "title": "Module positioning",
+      "category": "Category: {{value}}",
+      "route": "Route: {{value}}",
+      "status": "Status: already included in the unified admin navigation and homepage entry."
+    }
+  },
+  "majors": {
+    "hero": {
+      "title": "Major Management",
+      "description": "Rebuild the prototype page with Chakra UI, including filters, list, dialogs, and delete guard behavior."
+    },
+    "actions": {
+      "create": "Create Major",
+      "reset": "Reset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirmDelete": "Confirm Delete"
+    },
+    "filters": {
+      "title": "Filters",
+      "categoryPlaceholder": "Category",
+      "statusPlaceholder": "Status",
+      "searchPlaceholder": "Search by major code or name"
+    },
+    "table": {
+      "code": "Major Code",
+      "name": "Major Name",
+      "category": "Category",
+      "duration": "Duration (Years)",
+      "durationValue": "{{value}} years",
+      "status": "Status",
+      "classCount": "Class Count",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "total": "Total {{value}} records",
+      "pageInfo": "Page {{page}} / {{total}}",
+      "prev": "Previous page",
+      "next": "Next page"
+    },
+    "form": {
+      "code": "Major Code",
+      "codePlaceholder": "Enter major code",
+      "name": "Major Name",
+      "namePlaceholder": "Enter major name",
+      "category": "Category",
+      "categoryPlaceholder": "Select category",
+      "duration": "Duration (Years)",
+      "durationPlaceholder": "Select duration",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter a description...",
+      "status": "Status"
+    },
+    "modal": {
+      "createTitle": "Create Major",
+      "editTitle": "Edit Major"
+    },
+    "delete": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+      "blockedTitle": "Deletion blocked",
+      "blockedDescription": "This major still has related classes. Remove those classes before deleting it."
+    },
+    "empty": {
+      "title": "No majors match the current filters",
+      "description": "Try adjusting the filters and search keywords."
+    },
+    "messages": {
+      "validationTitle": "Required fields are missing",
+      "validationDescription": "Major name, category, and duration are required.",
+      "nameLengthError": "Major name must be between 2 and 50 characters",
+      "codeFormatError": "Invalid major code format, must match DL-XXX format",
+      "codeDuplicateError": "Major code already exists, please use a unique code",
+      "createdTitle": "Major created successfully",
+      "updatedTitle": "Major updated successfully",
+      "deletedTitle": "Major deleted successfully"
+    }
+  },
+  "courses": {
+    "hero": {
+      "title": "Course Management",
+      "description": "Rebuild the prototype page with Chakra UI, including filters, list, dialogs, and teaching-task warning behavior."
+    },
+    "actions": {
+      "create": "Create Course",
+      "reset": "Reset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirmDelete": "Confirm Delete"
+    },
+    "filters": {
+      "typePlaceholder": "All Types",
+      "majorPlaceholder": "All Majors",
+      "statusPlaceholder": "All Statuses",
+      "searchPlaceholder": "Search by course code or name"
+    },
+    "table": {
+      "code": "Course Code",
+      "name": "Course Name",
+      "type": "Course Type",
+      "major": "Major",
+      "hours": "Class Hours",
+      "hoursValue": "{{value}} hours",
+      "status": "Status",
+      "actions": "Actions",
+      "noMajor": "All majors"
+    },
+    "type": {
+      "required": "Required",
+      "elective": "Elective"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "pagination": {
+      "total": "Total {{value}} records",
+      "pageInfo": "Page {{page}} / {{total}}",
+      "prev": "Previous page",
+      "next": "Next page"
+    },
+    "form": {
+      "code": "Course Code",
+      "name": "Course Name",
+      "namePlaceholder": "Enter course name",
+      "codePlaceholder": "Enter course code",
+      "type": "Course Type",
+      "major": "Major",
+      "majorPlaceholder": "Select major",
+      "hours": "Class Hours",
+      "hoursPlaceholder": "Enter class hours",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter a description...",
+      "status": "Status"
+    },
+    "modal": {
+      "createTitle": "Create Course",
+      "editTitle": "Edit Course"
+    },
+    "delete": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+      "inUseTitle": "Course is used in teaching tasks",
+      "inUseDescription": "\"{{name}}\" is already linked to teaching tasks. Deleting it may affect related schedules and task data. Continue?",
+      "inUseHint": "Before continuing, make sure the related teaching tasks have been adjusted as needed."
+    },
+    "empty": {
+      "title": "No courses match the current filters",
+      "description": "Try adjusting the filters and search keywords."
+    },
+    "messages": {
+      "validationTitle": "Required fields are missing",
+      "validationDescription": "Course name, course type, and class hours are required.",
+      "nameLengthError": "Course name must be between 2 and 100 characters and cannot be all whitespace",
+      "codeFormatError": "Course code must match KC-{序号} format",
+      "codeDuplicateError": "Course code already exists, please use a unique code",
+      "hoursRangeError": "Class hours must be an integer between 1 and 200",
+      "createdTitle": "Course created successfully",
+      "updatedTitle": "Course updated successfully",
+      "deletedTitle": "Course deleted successfully"
+    }
+  },
+  "tasks": {
+    "hero": {
+      "title": "Teaching Task Management",
+      "description": "Rebuild the prototype page with Chakra UI, including task filters, list, dialogs, and status progression actions."
+    },
+    "actions": {
+      "create": "Create Task",
+      "reset": "Reset",
+      "start": "Start",
+      "complete": "Complete",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirmDelete": "Confirm Delete"
+    },
+    "filters": {
+      "semesterPlaceholder": "All Semesters",
+      "teacherPlaceholder": "All Teachers",
+      "coursePlaceholder": "All Courses",
+      "typePlaceholder": "All Types",
+      "searchPlaceholder": "Search by task name or code"
+    },
+    "table": {
+      "code": "Task Code",
+      "name": "Task Name",
+      "teacher": "Teacher",
+      "course": "Course",
+      "classOrType": "Class / Type",
+      "semester": "Semester",
+      "status": "Status",
+      "actions": "Actions",
+      "noClass": "Elective Course"
+    },
+    "type": {
+      "required": "Required",
+      "elective": "Elective"
+    },
+    "status": {
+      "notStarted": "Not Started",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    },
+    "pagination": {
+      "total": "Total {{value}} records",
+      "pageInfo": "Page {{page}} / {{total}}",
+      "prev": "Previous page",
+      "next": "Next page"
+    },
+    "form": {
+      "code": "Task Code",
+      "codePlaceholder": "Enter task code (e.g., RW-2024-0001)",
+      "name": "Task Name",
+      "namePlaceholder": "Enter task name",
+      "teacher": "Teacher",
+      "teacherPlaceholder": "Select teacher",
+      "course": "Course",
+      "coursePlaceholder": "Select course",
+      "courseType": "Course Type",
+      "courseTypePlaceholder": "Select a course first",
+      "className": "Class",
+      "classNamePlaceholder": "Select a class",
+      "semester": "Semester",
+      "semesterPlaceholder": "Select semester",
+      "status": "Status"
+    },
+    "modal": {
+      "createTitle": "Create Teaching Task",
+      "editTitle": "Edit Teaching Task"
+    },
+    "delete": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete teaching task \"{{name}}\"? This action cannot be undone."
+    },
+    "empty": {
+      "title": "No teaching tasks match the current filters",
+      "description": "Try adjusting the filters and search keywords."
+    },
+    "messages": {
+      "validationTitle": "Required fields are missing",
+      "validationDescription": "Task name, teacher, course, and semester are required.",
+      "codeFormatError": "Invalid task code format, must match RW-{YYYY}-{XXXX} format",
+      "codeDuplicateError": "Task code already exists, please use a unique code",
+      "createdTitle": "Task created successfully",
+      "updatedTitle": "Task updated successfully",
+      "deletedTitle": "Task deleted successfully",
+      "startedTitle": "Task started successfully",
+      "completedTitle": "Task completed successfully"
+    }
+  },
+  "classes": {
+    "hero": {
+      "title": "Class Management",
+      "description": "Manage classes with filtering, listing, modals and deletion restrictions."
+    },
+    "actions": {
+      "create": "Create Class",
+      "reset": "Reset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirmDelete": "Confirm Delete"
+    },
+    "filters": {
+      "categoryPlaceholder": "Category",
+      "majorPlaceholder": "Major",
+      "gradePlaceholder": "Grade",
+      "statusPlaceholder": "Status",
+      "allCategories": "All Categories",
+      "allMajors": "All Majors",
+      "allGrades": "All Grades",
+      "allStatuses": "All Statuses"
+    },
+    "table": {
+      "index": "Index",
+      "name": "Class Name",
+      "code": "Class Code",
+      "category": "Category",
+      "major": "Major",
+      "grade": "Grade",
+      "teacher": "Teacher",
+      "studentCount": "Students",
+      "status": "Status",
+      "actions": "Actions",
+      "studentUnit": " students"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "pagination": {
+      "total": "Total {{value}} records",
+      "pageInfo": "Page {{page}} / {{total}}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "form": {
+      "name": "Class Name",
+      "namePlaceholder": "Enter class name",
+      "category": "Category",
+      "categoryPlaceholder": "Select category",
+      "major": "Major",
+      "majorPlaceholder": "Select major",
+      "grade": "Grade",
+      "gradePlaceholder": "Select grade",
+      "teacher": "Teacher",
+      "teacherPlaceholder": "Select teacher (optional)",
+      "status": "Status"
+    },
+    "modal": {
+      "createTitle": "Create Class",
+      "editTitle": "Edit Class"
+    },
+    "delete": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete class \"{{name}}\"? This action cannot be undone.",
+      "blockedTitle": "Cannot Delete",
+      "blockedDescription": "This class has students. Please remove students first.",
+      "confirmDescription": "This action cannot be undone. Please proceed with caution.",
+      "confirm": "Are you sure you want to delete {{name}}?",
+      "hasStudents": "This class has {{count}} students and cannot be deleted"
+    },
+    "empty": {
+      "title": "No classes found",
+      "description": "Please adjust your search criteria and try again."
+    },
+    "messages": {
+      "validationTitle": "Required fields missing",
+      "validationDescription": "Class name, category, major and grade are required.",
+      "nameRequiredError": "Class name is required",
+      "createdTitle": "Class created successfully",
+      "updatedTitle": "Class updated successfully",
+      "deletedTitle": "Class deleted successfully",
+      "loadListError": "Failed to load class list",
+      "loadCategoriesError": "Failed to load categories",
+      "loadMajorsError": "Failed to load majors",
+      "loadGradesError": "Failed to load grades",
+      "loadTeachersError": "Failed to load teachers",
+      "loadDetailError": "Failed to load class details",
+      "operationError": "Operation failed",
+      "deleteError": "Delete failed",
+      "search": "Search",
+      "hasStudents": "This class has {count} students"
+    },
+    "options": {
+      "all": "All",
+      "selectCategoryFirst": "Please select category first",
+      "loading": "Loading...",
+      "select": "Please select",
+      "autoGenerated": "Auto-generated"
+    },
+    "statusOptions": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "statusLabels": {
+      "active": "Active",
+      "graduated": "Graduated"
+    },
+    "loading": "Loading..."
+  },
+  "semesters": {
+    "hero": {
+      "title": "Semester Management",
+      "description": "Manage semester information including create, edit, delete and set current semester."
+    },
+    "actions": {
+      "create": "Add Semester",
+      "reset": "Reset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirmDelete": "Confirm Delete",
+      "confirm": "Confirm",
+      "setCurrent": "Set as Current"
+    },
+    "table": {
+      "name": "Semester Name",
+      "year": "Academic Year",
+      "type": "Semester",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "isCurrent": "Current",
+      "actions": "Actions",
+      "firstSemester": "First Semester",
+      "secondSemester": "Second Semester"
+    },
+    "form": {
+      "name": "Semester Name",
+      "namePlaceholder": "e.g. 2024-2025 First Semester",
+      "year": "Academic Year",
+      "yearPlaceholder": "e.g. 2024-2025",
+      "type": "Semester",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "isCurrent": "Set as Current Semester",
+      "startDatePlaceholder": "Please select start date",
+      "endDatePlaceholder": "Please select end date"
+    },
+    "modal": {
+      "createTitle": "Add Semester",
+      "editTitle": "Edit Semester",
+      "setCurrentTitle": "Set as Current Semester"
+    },
+    "delete": {
+      "title": "Confirm Deletion",
+      "description": "Are you sure you want to delete semester \"{{name}}\"? This action cannot be undone.",
+      "confirmDescription": "This action cannot be undone. Please proceed with caution.",
+      "currentCannotDelete": "Current semester cannot be deleted"
+    },
+    "setCurrent": {
+      "confirmMessage": "Are you sure you want to set \"{{name}}\" as the current semester?"
+    },
+    "empty": {
+      "title": "No semester data",
+      "description": "Please click the button in the top right to add a semester."
+    },
+    "pagination": {
+      "total": "Total {{total}} records",
+      "pageInfo": "Page {{page}} / {{totalPages}}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "messages": {
+      "nameRequired": "Please enter semester name",
+      "yearRequired": "Please enter academic year",
+      "startDateRequired": "Please select start date",
+      "endDateRequired": "Please select end date",
+      "loadListError": "Failed to load semester list",
+      "setCurrentSuccess": "Set as current semester",
+      "setCurrentDescription": "{{name}} has been set as the current semester",
+      "operationError": "Operation failed",
+      "createdTitle": "Semester added successfully",
+      "updatedTitle": "Semester updated successfully",
+      "deletedTitle": "Semester deleted successfully",
+      "deleteError": "Delete failed",
+      "currentCannotDeleteTitle": "Current semester cannot be deleted"
+    },
+    "status": {
+      "current": "Current Semester"
+    },
+    "loading": "Loading...",
+    "totalCount": "Total {{total}} semesters"
+  },
+  "students": {
+    "hero": {
+      "title": "Student Management",
+      "description": "Manage student information including create, edit, delete and batch import."
+    },
+    "actions": {
+      "create": "Create Student",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "confirmDelete": "Confirm Delete",
+      "batchImport": "Batch Import",
+      "downloadTemplate": "Download Template",
+      "selectFile": "Select File",
+      "confirmImport": "Confirm Import"
+    },
+    "filters": {
+      "allClasses": "All Classes",
+      "allMajors": "All Majors",
+      "allGrades": "All Grades",
+      "allStatuses": "All Statuses",
+      "searchPlaceholder": "Search by code or name",
+      "gradeSuffix": " Grade"
+    },
+    "table": {
+      "code": "Student Code",
+      "name": "Name",
+      "gender": "Gender",
+      "className": "Class",
+      "major": "Major",
+      "status": "Status",
+      "phone": "Phone",
+      "actions": "Actions"
+    },
+    "pagination": {
+      "total": "Total {{total}} records",
+      "pageInfo": "Page {{page}} / {{totalPages}}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "form": {
+      "code": "Student Code",
+      "codePlaceholder": "Enter student code",
+      "name": "Name",
+      "namePlaceholder": "Enter name",
+      "gender": "Gender",
+      "enrollmentDate": "Enrollment Date",
+      "major": "Major",
+      "majorPlaceholder": "Select major",
+      "className": "Class",
+      "classPlaceholder": "Select class",
+      "selectMajorFirst": "Please select major first",
+      "status": "Status",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter phone number",
+      "idCard": "ID Card",
+      "idCardPlaceholder": "Enter ID card number",
+      "enrollmentDatePlaceholder": "Select enrollment date"
+    },
+    "gender": {
+      "secret": "Secret",
+      "male": "Male",
+      "female": "Female"
+    },
+    "status": {
+      "active": "Active",
+      "graduated": "Graduated",
+      "suspended": "Suspended"
+    },
+    "modal": {
+      "createTitle": "Create Student",
+      "editTitle": "Edit Student",
+      "importTitle": "Upload File"
+    },
+    "import": {
+      "step1": "Download template and enter student information",
+      "step2": "Upload completed spreadsheet file",
+      "warning": "Do not close or refresh page during import",
+      "fileSize": "{{size}} KB",
+      "deleteFile": "Delete file",
+      "importing": "Importing",
+      "templateFilename": "Student_Import_Template.xlsx"
+    },
+    "delete": {
+      "title": "Are you sure you want to delete student {{name}}?",
+      "warning": "This action cannot be undone. Please proceed with caution."
+    },
+    "messages": {
+      "loadListError": "Failed to load student list",
+      "loadMajorsError": "Failed to load majors",
+      "loadGradesError": "Failed to load grades",
+      "codeRequired": "Please enter student code",
+      "nameRequired": "Please enter name",
+      "majorRequired": "Please select major",
+      "classRequired": "Please select class",
+      "phoneInvalid": "Please enter a valid phone number",
+      "idCardInvalid": "Please enter a valid ID card number",
+      "createdTitle": "Student created successfully",
+      "updatedTitle": "Student updated successfully",
+      "deletedTitle": "Student deleted successfully",
+      "createError": "Create failed",
+      "updateError": "Update failed",
+      "deleteError": "Delete failed",
+      "importSuccess": "Import successful",
+      "importFailed": "Import failed",
+      "importFailedCheck": "Import failed, please check error messages",
+      "importFormatError": "Upload format error",
+      "importFormatDesc": "Please upload an Excel file",
+      "selectFileFirst": "Please select a file to import",
+      "downloadTemplateSuccess": "Template downloaded successfully",
+      "downloadTemplateError": "Failed to download template"
+    },
+    "loading": "Loading...",
+    "empty": {
+      "title": "No student data available",
+      "description": "Please click the button in the upper right corner to add a student."
+    }
+  },
+  "teachers": {
+    "hero": {
+      "title": "Teacher Management",
+      "description": "Manage teacher information including create, edit, delete and batch import."
+    },
+    "actions": {
+      "create": "Create Teacher",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "close": "Close",
+      "confirmDelete": "Delete",
+      "batchImport": "Batch Import",
+      "downloadTemplate": "Download Template",
+      "selectFile": "Select File",
+      "confirmImport": "Confirm Import"
+    },
+    "headerActions": {
+      "onlyAdmin": "Admins Only"
+    },
+    "filters": {
+      "allUserTypes": "All User Types",
+      "allStatuses": "All Statuses",
+      "searchPlaceholder": "Search by code or name",
+      "clearFilter": "Clear filter"
+    },
+    "table": {
+      "code": "Teacher Code",
+      "name": "Name",
+      "gender": "Gender",
+      "phone": "Phone",
+      "dept": "Department",
+      "type": "User Type",
+      "title": "Title",
+      "roles": "Roles",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "pagination": {
+      "total": "Total {{total}} records",
+      "pageInfo": "Page {{page}} / {{totalPages}}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "form": {
+      "code": "Teacher Code",
+      "codePlaceholder": "Auto-generated if empty",
+      "codeHint": "Format: JS-0001, auto-generated if empty",
+      "name": "Name",
+      "namePlaceholder": "Enter name",
+      "gender": "Gender",
+      "genderPlaceholder": "Please select",
+      "male": "Male",
+      "female": "Female",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter phone number",
+      "dept": "Department",
+      "deptPlaceholder": "Select department",
+      "type": "User Type",
+      "teacher": "Teacher",
+      "staff": "Staff",
+      "title": "Title",
+      "titlePlaceholder": "Select title (optional)",
+      "status": "Status",
+      "email": "Email",
+      "emailPlaceholder": "Enter email",
+      "loginAccount": "Login Account",
+      "accountStatus": "Account Status",
+      "roles": "Roles (Optional)",
+      "rolesHint": "Multiple selection allowed, no permissions if none selected"
+    },
+    "titles": {
+      "professor": "Professor",
+      "associateProfessor": "Associate Professor",
+      "lecturer": "Lecturer",
+      "seniorLecturer": "Senior Lecturer",
+      "assistant": "Assistant",
+      "assistantLecturer": "Assistant Lecturer"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "accountStatus": {
+      "active": "Activated",
+      "inactive": "Inactive",
+      "disabled": "Disabled"
+    },
+    "modal": {
+      "createTitle": "Create Teacher",
+      "editTitle": "Edit Teacher",
+      "deleteTitle": "Confirm Delete",
+      "importTitle": "Upload File",
+      "detailTitle": "Teacher Details"
+    },
+    "detail": {
+      "basicInfo": "Basic Information",
+      "accountInfo": "Account Information",
+      "loginAccount": "Login Account",
+      "accountStatus": "Account Status",
+      "activationTime": "Activation Time"
+    },
+    "import": {
+      "step1": "Download template and enter teacher information",
+      "step2": "Upload completed spreadsheet file",
+      "warning": "Do not close or refresh page during import",
+      "fileSize": "{{size}} KB",
+      "emptyDept": "No department data",
+      "templateFilename": "Teacher_Import_Template.xlsx"
+    },
+    "delete": {
+      "description": "Are you sure you want to delete teacher {{name}}? This action cannot be undone."
+    },
+    "messages": {
+      "loadListError": "Failed to load teacher list",
+      "loadDetailError": "Failed to load details, please try again",
+      "loadRolesError": "Failed to load roles",
+      "loadDeptsError": "Failed to load departments",
+      "nameRequired": "Please enter name",
+      "genderRequired": "Please select gender",
+      "phoneRequired": "Please enter phone number",
+      "phoneInvalid": "Invalid phone number format",
+      "deptRequired": "Please select department",
+      "statusRequired": "Please select status",
+      "createdTitle": "Teacher created successfully",
+      "updatedTitle": "Teacher updated successfully",
+      "deletedTitle": "Teacher deleted successfully",
+      "deleteError": "Delete failed",
+      "importSuccess": "Import successful",
+      "importFormatError": "Upload format error",
+      "importFormatDesc": "Please upload an Excel file",
+      "selectFileFirst": "Please select a file to import",
+      "downloadTemplateSuccess": "Template downloaded successfully",
+      "downloadTemplateError": "Failed to download template",
+      "operationError": "Operation failed"
+    },
+    "loading": "Loading...",
+    "empty": {
+      "title": "No teacher data available",
+      "description": "Please click the button in the upper right corner to add a teacher."
+    }
+  }
+}

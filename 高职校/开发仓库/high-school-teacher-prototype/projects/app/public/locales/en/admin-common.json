@@ -1,0 +1,16 @@
+{
+  "categories": {
+    "baseData": "Base Data",
+    "personnel": "People",
+    "content": "Content",
+    "core": "Core"
+  },
+  "pagination": {
+    "total": "Total {{total}} records",
+    "prev": "Previous",
+    "next": "Next",
+    "pageSize": "{{size}} / page",
+    "jumpTo": "Jump to",
+    "page": "page"
+  }
+}

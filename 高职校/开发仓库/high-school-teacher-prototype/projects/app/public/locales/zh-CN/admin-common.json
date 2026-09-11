@@ -1,0 +1,16 @@
+{
+  "categories": {
+    "baseData": "基础数据",
+    "personnel": "人员管理",
+    "content": "内容管理",
+    "core": "核心功能"
+  },
+  "pagination": {
+    "total": "共 {{total}} 条记录",
+    "prev": "上一页",
+    "next": "下一页",
+    "pageSize": "{{size}} 条/页",
+    "jumpTo": "跳至",
+    "page": "页"
+  }
+}

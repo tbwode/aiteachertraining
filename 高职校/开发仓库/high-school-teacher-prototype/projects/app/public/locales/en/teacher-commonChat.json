@@ -1,0 +1,151 @@
+{
+  "header": {
+    "back_home": "Back to Home"
+  },
+  "history": {
+    "new_chat": "New Chat",
+    "title": "History",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "day_before_yesterday": "2 Days Ago"
+  },
+  "input": {
+    "placeholder": "Please enter your question",
+    "placeholder_ai_lecture": "Please enter the courseware theme, target audience, and interaction form",
+    "aria_voice": "Voice input",
+    "aria_upload": "Attachment",
+    "aria_send": "Send"
+  },
+  "quick_actions": {
+    "before_class": "Before Class-",
+    "home": "Home",
+    "create_course": "Create AI Teacher",
+    "create_material": "Create Material",
+    "create_ai_lecture": "AI Lecture",
+    "create_ai_lecture_student": "AI Lecture",
+    "ask_progress": "Ask Progress",
+    "learning_portrait": "Learning Portrait"
+  },
+  "portrait": {
+    "status_review": "Review",
+    "status_continue": "Continue",
+    "student_id_label": "Student ID",
+    "major_label": "Major",
+    "update_portrait": "Update My Portrait",
+    "in_progress_courses": "In Progress",
+    "completed_courses": "Completed",
+    "total_hours": "Total Hours",
+    "course_progress": "Course Progress",
+    "ability_radar": "Ability Radar",
+    "my_ability": "My Current Ability",
+    "career_analysis": "Career Analysis",
+    "improvement_plan": "Improvement Plan",
+    "unit_course": "",
+    "unit_hour": "h",
+    "no_data": "No data",
+    "target_position": "Target Position",
+    "target_requirement": "Position Requirements",
+    "training_requirement": "Training Plan Requirements",
+    "ability_diagnosis": "Ability Diagnosis",
+    "gap_current": "Current",
+    "gap_target": "Target",
+    "gap_to_improve": "To improve",
+    "gap_reached": "Reached",
+    "improvement_plan_courses": "Recommended Elective Courses",
+    "improvement_plan_books": "Recommended Books",
+    "go_study": "Study",
+    "join_study": "Enroll",
+    "not_available": "Not Available",
+    "career_loading": "Generating career diagnosis...",
+    "career_error": "Career diagnosis service unavailable",
+    "category_beginner": "Beginner",
+    "category_advanced": "Advanced",
+    "category_practice": "Practice",
+    "major_analysis_title": "Major Analysis & Suggestions"
+  },
+  "error": {
+    "fetch_portrait_failed": "Failed to fetch portrait, please try again later",
+    "update_portrait_failed": "Failed to update portrait, please try again later",
+    "no_student_info": "Student info not found, please log in again"
+  },
+  "loading": {
+    "thinking": "Thinking..."
+  },
+  "action": {
+    "go": "Go",
+    "view_portrait_title": "Your learning portrait has been generated! It includes your ability radar chart, major analysis, career suggestions, and personal improvement plan. Check it out now!",
+    "view_portrait_label": "View Portrait"
+  },
+  "toast": {
+    "new_chat_welcome": "Welcome to the AI main lecture. You can communicate with me by typing questions or uploading files."
+  },
+  "course_type": {
+    "required": "Required",
+    "elective": "Elective"
+  },
+  "outline": {
+    "title": "Course Outline",
+    "scene_count": "{{count}} Scenes",
+    "total_duration": "~{{minutes}} min",
+    "scene_type_label": "Scene Type",
+    "scene_type": {
+      "slide": "Slide",
+      "interactive": "Interactive",
+      "quiz": "Quiz",
+      "pbl": "PBL"
+    },
+    "scene_title": "Scene Title",
+    "scene_description": "Scene Description",
+    "teaching_objective": "Teaching Objective",
+    "key_points": "Key Points (one per line)",
+    "estimated_duration": "Estimated Duration (seconds)",
+    "difficulty_label": "Difficulty",
+    "question_type_label": "Question Type",
+    "question_count_label": "Question Count",
+    "question_type": {
+      "single": "Single Choice",
+      "multiple": "Multiple Choice",
+      "text": "Text Input"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "confirm_generate": "Confirm & Generate Course",
+    "delete_aria": "Delete Scene"
+  },
+  "studentLearning": {
+    "title": "Student Learning",
+    "student_id": "Student ID",
+    "course_progress_title": "Course Progress",
+    "ai_qa_title": "AI Q&A",
+    "suggestion_title": "Learning Suggestions",
+    "student_not_found": "No learning records found for this student",
+    "qa_total_sessions": "Sessions",
+    "qa_total_messages": "Messages",
+    "qa_last_active": "Last Active",
+    "qa_activity_high": "Active",
+    "qa_activity_medium": "Moderate",
+    "qa_activity_low": "Inactive",
+    "qa_recent": "Recent Q&A",
+    "status_normal": "Normal",
+    "status_lagging": "Lagging",
+    "status_completed": "Completed",
+    "status_not_started": "Not Started",
+    "study_hours_unit": "h",
+    "load_failed": "Load Failed",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "no_suggestion": "No AI suggestions",
+    "loading_courses": "Loading progress...",
+    "loading_conversation": "Loading Q&A...",
+    "qa_sessions": "Sessions",
+    "qa_rounds": "Rounds",
+    "qa_keywords": "Keyword Cloud",
+    "analysis_title": "Strengths & Weaknesses",
+    "analysis_strengths": "Strengths",
+    "analysis_weaknesses": "Weaknesses",
+    "keywords_empty": "Not enough Q&A data for keyword cloud"
+  }
+}

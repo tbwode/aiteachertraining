@@ -1,0 +1,822 @@
+{
+  "home": {
+    "header": {
+      "title": "AI賦能教學 讓教育更智能",
+      "welcome": "歡迎回來，{{name}}"
+    },
+    "metrics": {
+      "myCourses": "我的課程",
+      "avatars": "AI分身",
+      "todayInteractions": "今日互動",
+      "unitCourse": "門",
+      "unitAvatar": "位",
+      "unitInteraction": "次",
+      "markCourse": "課",
+      "markAvatar": "AI",
+      "markInteraction": "互"
+    },
+    "suggestions": {
+      "title": "AI智能建議",
+      "categories": {
+        "news": "前沿資訊",
+        "optimization": "課程優化",
+        "graph": "能力圖譜"
+      },
+      "actions": {
+        "markAllRead": "全部標記已讀",
+        "read": "已讀",
+        "markRead": "標記已讀",
+        "adopt": "採納更新",
+        "adopted": "已採納"
+      },
+      "toasts": {
+        "read": "已標記為已讀",
+        "adopt": "已採納更新",
+        "markAllRead": "前沿資訊已全部標記為已讀"
+      },
+      "items": {
+        "news1": {
+          "title": "《人工智能在教育領域的最新應用》",
+          "description": "建議：可作為 Python 課程的拓展案例"
+        },
+        "news2": {
+          "title": "《高職教育改革新動態》",
+          "description": "建議：與本課程教學方向相關"
+        },
+        "optimization1": {
+          "title": "「Python基礎」第 3 章知識點覆蓋不完整",
+          "description": "建議：補充「異常處理」相關課件"
+        },
+        "graph1": {
+          "title": "「數據分析入門」能力圖譜有更新",
+          "description": "新增知識點：數據可視化、報表生成"
+        }
+      }
+    },
+    "todos": {
+      "title": "今日待辦",
+      "batchAction": "批量處理",
+      "allReminded": "全部已提醒",
+      "needsAttention": "{{count}}位學生需關注",
+      "table": {
+        "studentName": "學生姓名",
+        "className": "班級",
+        "course": "課程",
+        "progress": "進度",
+        "delayDays": "滯後天數",
+        "actions": "操作"
+      },
+      "actions": {
+        "view": "查看",
+        "remind": "提醒",
+        "reminded": "已提醒"
+      },
+      "toasts": {
+        "detailPending": "{{name}} 學情詳情待接入",
+        "remindStudent": "已向 {{name}} 發送提醒",
+        "batchRemind": "批量提醒已發送，共 {{count}} 位學生"
+      },
+      "units": {
+        "days": "{{count}}天"
+      }
+    },
+    "avatars": {
+      "title": "我的課程與AI分身",
+      "create": "新建AI分身",
+      "tabs": {
+        "all": "全部",
+        "running": "運行中",
+        "pending": "未開始",
+        "expired": "已截止"
+      },
+      "status": {
+        "running": "AI教師運行中",
+        "pending": "未開始",
+        "expired": "已截止"
+      },
+      "overlayActions": {
+        "running": "取消發布",
+        "pending": "發布",
+        "expired": "重新發布"
+      },
+      "fields": {
+        "studentScale": "學生規模",
+        "todayInteractions": "今日互動",
+        "coverageClass": "覆蓋班級",
+        "coverageMajor": "學員專業"
+      },
+      "actions": {
+        "enterClass": "進入課堂"
+      },
+      "empty": "當前篩選條件下暫無 AI 分身",
+      "toasts": {
+        "cancelPublish": "已取消發布",
+        "publish": "發布成功",
+        "republish": "已重新發布"
+      }
+    }
+  },
+  "avatar": {
+    "common": {
+      "courseType": {
+        "required": "必修",
+        "optional": "選修"
+      },
+      "status": {
+        "running": "AI教師運行中",
+        "pending": "未開始",
+        "expired": "已截止",
+        "normal": "正常",
+        "lagging": "滯後",
+        "completed": "已完成"
+      },
+      "coverage": {
+        "class": "覆蓋班級",
+        "major": "學員專業",
+        "classAndMajor": "覆蓋班級/專業",
+        "autoMajorAggregate": "按選課學員專業自動聚合"
+      },
+      "time": {
+        "range": "起止時間",
+        "start": "開始時間",
+        "end": "結束時間",
+        "to": "至",
+        "dateRange": "{{start}} 至 {{end}}"
+      },
+      "units": {
+        "students": "{{count}}人",
+        "hours": "{{count}} 學時",
+        "studyHours": "{{count}}小時",
+        "days": "{{count}}天",
+        "records": "共 {{count}} 條記錄",
+        "knowledgeModules": "{{count}} 個知識模塊",
+        "uploadedFiles": "已上傳 {{count}}/{{max}} 個文件",
+        "maxFiles": "最多上傳 {{count}} 個文件"
+      },
+      "actions": {
+        "cancel": "取消",
+        "confirm": "確認",
+        "close": "關閉",
+        "saveDraft": "保存草稿",
+        "publish": "發布",
+        "previous": "上一步",
+        "next": "下一步",
+        "upload": "上傳文件",
+        "reupload": "重新上傳",
+        "view": "查看",
+        "edit": "編輯",
+        "delete": "刪除",
+        "export": "導出"
+      },
+      "fallback": {
+        "none": "--",
+        "unnamedCourse": "未命名課程",
+        "loading": "加載中..."
+      },
+      "fileTypes": {
+        "video": "視頻",
+        "document": "文檔",
+        "image": "圖片",
+        "audio": "音頻",
+        "file": "文件"
+      },
+      "quizMethods": {
+        "afterClassExercise": "課後習題",
+        "chapterTest": "章節測試",
+        "randomQuestionQuiz": "隨機抽題測驗",
+        "aiQaAssessment": "AI智能問答測評"
+      },
+      "reportDimensions": {
+        "learningProgress": "學習進度追蹤",
+        "knowledgeMastery": "知識點掌握分析",
+        "abilityGrowth": "能力成長曲線",
+        "learningBehavior": "學習行為分析",
+        "peerComparison": "同伴對比分析"
+      },
+      "toasts": {
+        "fetchListFailed": "獲取AI分身列表失敗",
+        "fetchListFailedDesc": "請稍後重試",
+        "fetchDetailFailed": "獲取AI分身詳情失敗",
+        "fetchDetailFailedDesc": "請稍後重試",
+        "createSuccess": "創建成功",
+        "createSuccessDesc": "AI分身已創建",
+        "createFailed": "創建AI分身失敗",
+        "createFailedDesc": "請稍後重試",
+        "operationFailed": "操作失敗",
+        "operationFailedDesc": "請稍後重試"
+      }
+    },
+    "create": {
+      "title": "新建AI分身",
+      "closeAriaLabel": "關閉創建嚮導",
+      "steps": {
+        "classConfig": "班級配置",
+        "teachingPath": "教學路徑",
+        "knowledgeAggregation": "知識聚合"
+      },
+      "step1": {
+        "title": "分身配置",
+        "courseSelect": {
+          "label": "選擇課程",
+          "placeholder": "請選擇教學任務課程",
+          "helpText": "列表僅顯示當前學期的教學任務課程",
+          "selectedInfo": "已選課程信息",
+          "courseName": "課程名稱：",
+          "courseHours": "課時：{{hours}} 學時",
+          "courseType": "類型："
+        },
+        "courseImage": {
+          "label": "課程圖片",
+          "alt": "課程圖片",
+          "removeAriaLabel": "移除圖片",
+          "reupload": "重新上傳",
+          "uploadHint": "點擊上傳或拖拽圖片至此處",
+          "uploadSpec": "建議尺寸 1280×720（16:9），支持 jpg/png，最大 5MB",
+          "aiGenerateHint": "點擊生成AI封面",
+          "aiGenerateSpec": "根據課程內容智能生成封面",
+          "aiGeneratedName": "AI 生成封面"
+        },
+        "attachmentConfig": {
+          "title": "附件圖片的內容配置",
+          "weightsTitle": "配置教學目標權重",
+          "weights": {
+            "knowledge": "知識掌握",
+            "ability": "能力培養",
+            "quality": "素質提升"
+          },
+          "weightLevels": {
+            "knowledge": [
+              "基礎認知",
+              "理解關聯",
+              "遷移應用",
+              "綜合創新"
+            ],
+            "ability": [
+              "模仿練習",
+              "獨立操作",
+              "靈活變通",
+              "熟練創新"
+            ],
+            "quality": [
+              "好奇質疑",
+              "發散思維",
+              "批判構建",
+              "實踐引領"
+            ]
+          },
+          "quizMethods": "配置測驗方式",
+          "reportDimensions": "報告維度"
+        },
+        "coverage": {
+          "selectCourseFirst": "請先選擇課程，系統將自動顯示對應的班級或專業範圍",
+          "optionalHint": "【選修課程】覆蓋專業根據選課學生的專業自動聚合顯示，無需選擇",
+          "requiredHint": "【必修課程】選擇班級：已自動過濾已創建 AI 分身的班級",
+          "allOccupied": "該課程下所有班級均已創建 AI 分身"
+        }
+      },
+      "step2": {
+        "syllabus": {
+          "title": "教學大綱",
+          "subtitle": "課程結構與知識點",
+          "uploadTitle": "上傳教學大綱",
+          "uploadHint": "支持 PDF、Word 格式的教案或大綱文件，AI 將自動解析並生成標準化大綱",
+          "upload": "上傳大綱",
+          "reupload": "重新上傳大綱",
+          "parseSuccess": "教學大綱解析完成",
+          "recognizedFile": "已識別文件：{{name}}",
+          "chapters": "共{{count}}章",
+          "sections": "共{{count}}節",
+          "hours": "{{count}}學時"
+        },
+        "matching": {
+          "title": "知識匹配",
+          "subtitle": "上傳課件資源進行智能分析",
+          "state": {
+            "matching": "分析中...",
+            "completed": "分析完成",
+            "uploaded": "已上傳",
+            "pending": "等待上傳"
+          },
+          "uploadHint": "點擊上傳課件資源",
+          "uploadSyllabusFirstHint": "請先上傳教學大綱",
+          "waitForAnalysisHint": "請等待大綱分析完成",
+          "uploadSpec": "支持 PDF、Word、PPT、圖片、影片格式，最多上傳 {{count}} 個文件",
+          "continueUpload": "繼續上傳教學資源",
+          "start": "開始匹配",
+          "reMatch": "重新匹配",
+          "analysisTitle": "知識匹配分析",
+          "analysisHint": "請先上傳教學大綱和課件資源，然後點擊「開始匹配」按鈕進行智能分析",
+          "checklist": {
+            "syllabus": "上傳教學大綱",
+            "courseware": "上傳課件資源",
+            "analysis": "生成匹配分析"
+          },
+          "overallScore": "整體匹配度",
+          "resultTitle": "課件與大綱匹配分析",
+          "summary": "共識別 {{total}} 個節，{{covered}} 個已覆蓋，{{missing}} 個缺失",
+          "covered": "已覆蓋",
+          "partial": "部分覆蓋",
+          "uncovered": "未覆蓋",
+          "missing": "缺失",
+          "contains": "課件包含：{{content}}",
+          "noResults": "暫無匹配分析結果",
+          "analyzingSyllabus": "AI 正在分析大綱",
+          "analyzingSyllabusDesc": "請稍候，分析完成後將顯示課程結構",
+          "analyzing": {
+            "title": "AI 正在分析中...",
+            "subtitle": "正在匹配課件與教學大綱",
+            "description": "請稍候，分析完成後將顯示匹配結果"
+          },
+          "uploadingCourseware": "正在上傳課件",
+          "uploadingCoursewareDesc": "請稍候，上傳完成後將自動解析",
+          "addFromWorkspace": "從創作空間添加",
+          "generalContent": "綜合內容",
+          "uploadResourceModal": {
+            "title": "從創作空間中選擇",
+            "currentLocation": "當前添加位置：",
+            "tabs": {
+              "aiCourse": "AI主講課",
+              "digitalCourseware": "數字課件",
+              "resourceLibrary": "教學資源庫",
+              "localUpload": "本地上傳"
+            },
+            "searchPlaceholder": "搜索課件名稱",
+            "noData": "暫無數據",
+            "selectFile": "選擇文件",
+            "uploadHint": "點擊上傳視頻、文檔、圖片、音頻",
+            "uploadDescription": "視頻：mp4, mov, avi, webm, mkv 最大2G\n文檔：pdf, doc, docx, ppt, pptx 最大500M\n圖片：jpg, jpeg, png, gif, webp, bmp 最大50M\n音頻：mp3, wav, aac, ogg, flac, m4a 最大200M\n",
+            "selectedFile": "已選文件",
+            "uploading": "上傳中...",
+            "cancel": "取消",
+            "confirmAdd": "確認添加",
+            "toasts": {
+              "fileTypeNotSupported": "不支援的檔案格式",
+              "fileSizeExceeded": "檔案大小超出限制",
+              "uploadFailed": "檔案上傳失敗",
+              "waitForUpload": "請等待檔案上傳完成",
+              "noFilesToAdd": "沒有可添加的檔案"
+            },
+            "errors": {
+              "matchFailed": "上傳結果匹配失敗",
+              "uploadFailed": "上傳失敗"
+            }
+          },
+          "toasts": {
+            "uploadSyllabusFirst": "請先上傳教學大綱",
+            "addMaterialsFirst": "請先補充分析資料",
+            "matchingCompleted": "知識匹配分析完成"
+          }
+        }
+      },
+      "step3": {
+        "title": "第三步：知識聚合",
+        "analysisRequired": "請先完成教學路徑分析，才能查看資源匹配結果",
+        "allCovered": "✓ 所有章節知識點均已覆蓋，無需補充資源",
+        "missingResources": {
+          "title": "缺失資源章節詳情",
+          "missing": "完全缺失",
+          "partial": "部分缺失",
+          "missingPoints": "缺失：{{points}}"
+        },
+        "resources": {
+          "title": "系統推薦資源",
+          "source": "來源：學校課程資源庫、平台課程課件資源",
+          "chapter": "章節：{{title}}",
+          "knowledgePoints": "知識點：{{points}}",
+          "doc": "教學文檔（系統推薦）",
+          "video": "🎬 教學視頻（系統推薦）",
+          "aiTitle": "AI拓展學習",
+          "chapterAndPoints": "章節與知識點",
+          "createdAt": "創建於 {{date}}",
+          "created": "已創建",
+          "editTextbookAriaLabel": "編輯教材",
+          "deleteTextbookAriaLabel": "刪除教材",
+          "emptyTextbook": "暫無數字教材，點擊下方按鈕創建",
+          "textbookPlaceholder": "請輸入數字教材名稱",
+          "editTextbook": "編輯數字教材",
+          "createTextbook": "創建數字教材",
+          "deleteFileAriaLabel": "刪除文件",
+          "noRecommendations": "暫無系統推薦資源，請手動鏈接教學資料",
+          "noDocuments": "暫無推薦文檔",
+          "sourceFrom": "來源：{{source}}",
+          "analyzing": "AI 正在推薦資源",
+          "analyzingDesc": "請稍候，推薦完成後將顯示系統推薦資源"
+        },
+        "resourceMatch": "第三步：資源匹配",
+        "coursewareMatch": "課件與大綱匹配分析",
+        "missingCount": "共識別 {{count}} 個缺失章節",
+        "status": {
+          "missing": "缺失"
+        },
+        "addedResources": "已添加資源",
+        "resourceCategories": {
+          "doc": "教學文檔",
+          "video": "教學視頻",
+          "image": "教學圖片",
+          "audio": "教學音頻"
+        },
+        "noRecommendations": "暫無推薦",
+        "addFromWorkspace": "從創作空間添加",
+        "allCoveredShort": "所有章節均已覆蓋，無需補充資源"
+      },
+      "exitConfirm": {
+        "title": "確認退出",
+        "description": "當前未發布的內容將保留在本地草稿中，確認返回 AI 教師首頁。",
+        "continueEditing": "繼續編輯",
+        "saveAndExit": "暫存並退出"
+      },
+      "closeConfirm": {
+        "title": "確認關閉",
+        "description": "關閉後當前編輯的內容將不會保存，確認關閉嗎？",
+        "cancel": "取消",
+        "confirm": "確認關閉"
+      },
+      "aiCoverModal": {
+        "title": "AI生成課程封面",
+        "courseNameLabel": "課程名稱",
+        "courseNamePlaceholder": "請輸入名稱",
+        "themeLabel": "課程主題/風格（可選）",
+        "themePlaceholder": "例如：科技感、工程",
+        "styleLabel": "選擇風格",
+        "cancel": "取消",
+        "generate": "生成封面",
+        "generating": "AI正在生成封面...",
+        "generateFailed": "生成失敗",
+        "selectCover": "選擇封面",
+        "cover1": "封面1",
+        "cover2": "封面2",
+        "cover3": "封面3",
+        "cover4": "封面4",
+        "useCover": "使用此封面",
+        "coverApplied": "已应用该封面",
+        "validation": {
+          "courseNameRequired": "請輸入課程名稱",
+          "courseRequired": "請先選擇課程"
+        }
+      },
+      "toasts": {
+        "draftSaved": "AI分身創建草稿已保存",
+        "draftSavedAndExit": "草稿已保存",
+        "draftSavedAndExitDesc": "當前未發布的內容已保留在本地草稿中",
+        "pendingSaved": "草稿已保存",
+        "pendingSavedDesc": "AI分身草稿已保存成功",
+        "fillClassConfig": "請先完善班級配置",
+        "fillClassConfigDesc": "需要完成課程、圖片、班級/專業與時間配置後才能繼續",
+        "completeTeachingPath": "請完成教學路徑分析",
+        "completeTeachingPathDesc": "需要上傳教學大綱、課件資源並完成匹配分析",
+        "completeKnowledgeAggregation": "請先補齊知識聚合配置",
+        "completeKnowledgeAggregationDesc": "已勾選 AI 拓展學習的章節需要先創建數字教材",
+        "publishSuccess": "AI分身發布成功",
+        "savedAsPending": "AI分身已保存為未開始狀態",
+        "loadCourseListFailed": "加載課程列表失敗",
+        "loadCourseListFailedDesc": "已使用默認課程列表",
+        "imageUploadSuccess": "課程圖片上傳成功",
+        "imageUploadSuccessDesc": "已上傳圖片：{{name}}",
+        "uploadFailed": "上傳失敗",
+        "imageUploadFailedDesc": "課程圖片上傳失敗，請重試",
+        "syllabusAnalysisComplete": "AI 分析完成",
+        "syllabusAnalysisCompleteDesc": "教學大綱分析成功",
+        "syllabusAnalysisFailed": "AI 分析失敗",
+        "syllabusAnalysisFailedDesc": "文件已上傳，但 AI 分析失敗",
+        "syllabusUploadFailedDesc": "教學大綱上傳失敗，請重試",
+        "uploadSyllabusFirst": "請先上傳教學大綱",
+        "waitForSyllabusAnalysis": "請等待大綱分析完成",
+        "waitForSyllabusAnalysisDesc": "大綱正在分析中，請稍候再上傳課件資源",
+        "maxFilesReached": "最多上傳 {{count}} 個文件",
+        "fileTypeNotSupported": "不支援的檔案格式",
+        "fileTypeNotSupportedDesc": "僅支援 PDF、Word、PPT、影片檔案",
+        "fileSizeExceeded": "檔案大小超出限制",
+        "fileSizeExceededDoc": "文件檔案最大支援 500MB",
+        "fileSizeExceededVideo": "影片檔案最大支援 2GB",
+        "coursewareParseEmpty": "部分課件解析內容為空",
+        "coursewareParseEmptyDesc": "有 {{count}} 個文件的內容為空，可能影響匹配分析結果",
+        "parseResultEmpty": "解析結果為空",
+        "parseResultEmptyDesc": "未獲取到解析內容",
+        "parseComplete": "解析完成",
+        "parseCompleteDesc": "課件資源解析成功",
+        "parseTriggerFailed": "解析觸發失敗",
+        "parseTriggerFailedDesc": "文件已上傳，但解析觸發失敗",
+        "coursewareUploadFailedDesc": "課件上傳失敗，請重試",
+        "addMaterialsFirst": "請先補充分析資料",
+        "addMaterialsFirstDesc": "需要上傳教學大綱和課件資源",
+        "missingSyllabusTree": "缺少大綱分析結果",
+        "missingSyllabusTreeDesc": "請重新上傳教學大綱",
+        "missingCoursewareParse": "缺少課件解析結果",
+        "missingCoursewareParseDesc": "請重新上傳課件資源",
+        "matchingInProgress": "AI 分析中",
+        "matchingInProgressDesc": "正在進行知識匹配分析...",
+        "matchingComplete": "知識匹配分析完成",
+        "matchingFailed": "分析失敗",
+        "matchingFailedDesc": "知識匹配分析失敗，請重試",
+        "missingMatchResult": "缺少匹配分析結果",
+        "missingMatchResultDesc": "請先完成知識匹配分析",
+        "resourceRecommendComplete": "資源推薦完成",
+        "resourceRecommendCompleteDesc": "已為 {{count}} 個章節推薦資源",
+        "allChaptersCovered": "所有章節已完全覆蓋",
+        "allChaptersCoveredDesc": "所有章節知識點均已 100% 覆蓋，無需推薦資源",
+        "resourceRecommendNoResults": "資源推薦完成",
+        "resourceRecommendNoResultsDesc": "暫無推薦資源，您可以手動鏈接教學資料",
+        "resourceRecommendFailed": "推薦失敗",
+        "resourceRecommendFailedDesc": "資源推薦失敗，請重試",
+        "enterTextbookName": "請輸入數字教材名稱",
+        "textbookUpdated": "數字教材已更新",
+        "textbookCreated": "數字教材創建成功",
+        "textbookDeleted": "數字教材已刪除",
+        "userInfoError": "用戶信息錯誤",
+        "userInfoErrorDesc": "未找到教師ID，請重新登錄",
+        "selectCourse": "請選擇課程",
+        "completeAnalysisFirst": "請先完成教學路徑分析",
+        "creatingAvatar": "正在創建AI分身...",
+        "createSuccess": "AI分身創建成功！",
+        "createFailed": "創建失敗",
+        "createFailedDesc": "創建AI分身失敗，請重試"
+      }
+    },
+    "detail": {
+      "back": "返回AI教師",
+      "header": {
+        "semester": "學期：",
+        "coverageMajors": "覆蓋專業：{{majors}}",
+        "coverageClasses": "覆蓋班級：{{classes}}（共{{count}}個班）"
+      },
+      "tabs": {
+        "intro": "課程介紹",
+        "catalog": "課程目錄",
+        "graph": "知識圖譜",
+        "questionBank": "題庫管理",
+        "quiz": "測驗管理",
+        "training": "實訓管理",
+        "courseSummary": "課程總結",
+        "students": "學生管理"
+      },
+      "intro": {
+        "title": "課程介紹"
+      },
+      "graph": {
+        "title": "知識圖譜",
+        "coreCourse": "核心課程",
+        "summary": "掌握機械設計基本理論與工程實踐技能",
+        "hint": "點擊章節卡片可展開/收起知識點"
+      },
+      "catalog": {
+        "title": "課程目錄",
+        "preview": "預覽"
+      },
+      "students": {
+        "stats": {
+          "total": "學生總數",
+          "studying": "學習中",
+          "completed": "已完成",
+          "attention": "需要關注",
+          "unit": "人"
+        },
+        "listTitle": "學生列表",
+        "searchPlaceholder": "搜索學生姓名或學號",
+        "allClasses": "全部班級",
+        "table": {
+          "name": "姓名",
+          "className": "班級",
+          "progress": "學習進度",
+          "studyHours": "學習時長",
+          "lastStudy": "最後學習",
+          "status": "狀態",
+          "actions": "操作"
+        },
+        "actions": {
+          "view": "查看",
+          "viewConversation": "查看對話",
+          "remind": "提醒",
+          "reminded": "已提醒",
+          "export": "導出",
+          "exporting": "導出中"
+        },
+        "pagination": {
+          "previous": "上一頁",
+          "next": "下一頁"
+        },
+        "toasts": {
+          "exportSuccess": "導出成功",
+          "exportSuccessDesc": "學生數據已導出",
+          "exportFailed": "導出失敗",
+          "exportFailedDesc": "導出學生數據失敗，請重試",
+          "missingAvatarId": "缺少AI分身ID",
+          "loadStudentsFailed": "加載失敗",
+          "loadStudentsFailedDesc": "無法加載學生列表，請稍後重試",
+          "remindFailed": "提醒失敗",
+          "remindFailedIncomplete": "學生信息不完整",
+          "remindFailedDesc": "發送提醒失敗，請重試"
+        }
+      },
+      "studentDetailModal": {
+        "title": "學生學習詳情",
+        "course": "課程：{{title}}",
+        "currentProgress": "當前進度",
+        "studyHours": "學習時長",
+        "lastStudy": "最後學習",
+        "studyStatus": "學習狀態",
+        "laggingAnalysis": "滯後原因分析：",
+        "laggingReason1": "• 第2章學習進度較慢",
+        "laggingReason2": "• 連續多天未學習",
+        "sendReminder": "發送提醒"
+      },
+      "remindModal": {
+        "title": "發送學習提醒",
+        "confirm": "確定要向 {{name}} 發送學習提醒嗎？",
+        "contentLabel": "提醒內容：",
+        "content": "同學你好，你的課程學習進度有所滯後，請及時安排學習時間，如有疑問可隨時向AI教師提問。",
+        "confirmSend": "確認發送"
+      },
+      "conversationModal": {
+        "title": "{{name}} – {{avatarName}}對話記錄",
+        "subtitle": "與AI教師助手\"{{courseName}}\"的對話歷史",
+        "roleAi": "AI教師助手",
+        "empty": "暫無對話記錄",
+        "loadFailed": "加載失敗，請重試",
+        "retry": "重新加載",
+        "close": "關閉",
+        "expand": "展開",
+        "collapse": "收起"
+      },
+      "toasts": {
+        "reminderSent": "已向 {{name}} 發送學習提醒"
+      }
+    },
+    "edit": {
+      "back": "返回AI分身詳情",
+      "alert": {
+        "currentStatus": "當前狀態：",
+        "pendingEditable": "未開始 - 可修改所有內容",
+        "runningEditable": "運行中 - 可繼續調整課程內容"
+      },
+      "tabs": {
+        "base": "基礎信息",
+        "chapters": "課程目錄",
+        "graph": "知識圖譜"
+      },
+      "base": {
+        "title": "基礎信息",
+        "courseName": "課程名稱",
+        "courseNameHint": "課程名稱與教學任務綁定，不可修改",
+        "courseImage": "課程圖片",
+        "changeImage": "更換圖片",
+        "invalidImageType": "請選擇圖片文件",
+        "imageTooLarge": "圖片大小不能超過 5MB",
+        "imageUploadSuccess": "圖片上傳成功",
+        "imageUploadFailed": "圖片上傳失敗，請重試",
+        "courseDescription": "課程介紹",
+        "requiredClassHint": "【必修】選擇班級："
+      },
+      "chapters": {
+        "structure": "目錄結構",
+        "addChapter": "添加章",
+        "addSection": "添加節",
+        "sectionDetail": "小節詳情",
+        "currentSelected": "當前選中：{{title}}",
+        "placeholderTitle": "課件列表和上傳功能待後續實現",
+        "placeholderDesc": "支持上傳視頻、PDF、圖片等多種格式",
+        "selectSection": "請從左側選擇一個小節",
+        "knowledgePoints": "知識點",
+        "knowledgePointsCount": "{{count}}個",
+        "courseware": "課件",
+        "coursewareCount": "{{count}}個",
+        "uploadCourseware": "上傳課件",
+        "noCourseware": "暫無課件，點擊上傳按鈕添加",
+        "addFromWorkspace": "從創作空間中選擇",
+        "editChapter": "編輯章節",
+        "editSection": "編輯小節",
+        "addChapterTitle": "添加章節",
+        "addSectionTitle": "添加小節",
+        "nameLabel": "名稱",
+        "namePlaceholder": "請輸入名稱",
+        "deleteConfirm": "確認刪除",
+        "deleteChapterMessage": "確定要刪除該章節嗎？",
+        "deleteSectionMessage": "確定要刪除該小節嗎？",
+        "deleteChapterWithSections": "該章節下存在小節，無法刪除。請先刪除所有小節後重試。",
+        "deleteChapterWithCourseware": "該章節下有課件，不可刪除",
+        "deleteSectionWithCourseware": "該小節下存在課件，無法刪除。請先刪除所有課件後重試。",
+        "confirmDelete": "確認刪除",
+        "deleteCoursewareMessage": "確定要刪除該課件嗎？",
+        "deleteCoursewareWithStudents": "該課件已有學生查看，刪除後學生無法再次查看，是否確認刪除？",
+        "coursewareDeleted": "課件已刪除",
+        "previewCourseware": "預覽課件",
+        "downloadCourseware": "下載",
+        "closeCourseware": "關閉",
+        "cannotPreview": "無法預覽該文件",
+        "downloadFile": "下載文件",
+        "uploadCoursewareTitle": "上傳課件",
+        "uploadLocation": "上傳位置",
+        "selectFile": "選擇文件",
+        "uploadHint": "點擊上傳或拖拽文件到此處",
+        "uploadSizeHint": "視頻最大 2GB，文檔最大 500MB\n圖片最大 50MB，音頻最大 200MB",
+        "supportedTypes": "支持的文件類型：",
+        "videoLabel": "視頻",
+        "documentLabel": "文檔",
+        "imageLabel": "圖片",
+        "audioLabel": "音頻",
+        "videoTypes": "mp4, mov, avi, webm, mkv",
+        "documentTypes": "pdf, doc, docx, ppt, pptx, xls, xlsx",
+        "imageTypes": "jpg, jpeg, png, gif, webp, bmp",
+        "audioTypes": "mp3, wav, aac, ogg, flac, m4a",
+        "selectedFile": "已選文件",
+        "confirmUpload": "確認上傳",
+        "coursewareUploaded": "課件上傳成功",
+        "coursewareUploadedDesc": "已上傳文件：{{name}}",
+        "uploadFailed": "上傳失敗",
+        "uploadFailedDesc": "課件上傳失敗，請重試",
+        "fileTypeNotSupported": "文件類型不支持",
+        "fileTypeNotSupportedDesc": "請上傳視頻、文檔、圖片或音頻文件",
+        "fileTooLarge": "文件過大",
+        "fileTooLargeDesc": "該類型文件最大支持 {{size}}MB",
+        "selectFileFirst": "請選擇要上傳的文件",
+        "selectSectionFirst": "請先選擇小節",
+        "enterName": "請輸入名稱",
+        "cannotDownload": "無法下載",
+        "fileUrlNotAvailable": "文件URL不可用",
+        "videoNotSupported": "您的瀏覽器不支持視頻播放",
+        "audioNotSupported": "您的瀏覽器不支持音頻播放",
+        "previewAriaLabel": "預覽",
+        "downloadAriaLabel": "下載",
+        "deleteAriaLabel": "刪除",
+        "editAriaLabel": "編輯",
+        "addSectionAriaLabel": "添加節",
+        "units": {
+          "count": "{{count}}個"
+        }
+      },
+      "graph": {
+        "title": "知識圖譜思維導圖",
+        "hint": "點擊節點可展開/收起該節點的子節點",
+        "expandAll": "展開全部",
+        "collapseAll": "收起全部",
+        "noData": "暫無知識圖譜數據",
+        "noDataHint": "暫無章節數據，請先添加課程章節",
+        "chapterCount": "{{count}} 章",
+        "sectionCount": "{{count}} 節",
+        "knowledgeCount": "{{count}} 個知識點",
+        "nodeDetail": {
+          "selectHint": "點擊節點查看詳情",
+          "selectHintDesc": "在圖譜中點擊任意節點，右側將展示該節點的詳細信息",
+          "properties": "基礎屬性",
+          "statistics": "關係統計",
+          "relatedNodes": "關聯節點",
+          "nodeId": "ID",
+          "nodeDepth": "層級",
+          "inDegree": "入度",
+          "outDegree": "出度",
+          "totalDegree": "總關聯",
+          "upstream": "上游節點",
+          "downstream": "下游節點",
+          "noRelated": "暫無關聯節點"
+        },
+        "nodeName": "節點名稱",
+        "nodeType": "節點類型",
+        "nodeLocation": "所屬位置",
+        "childrenCount": "子節點數量",
+        "childrenCountValue": "{{count}} 個子節點",
+        "childrenCountHint": "點擊圖譜中的節點可展開查看詳情",
+        "nodeTypes": {
+          "course": "課程",
+          "chapter": "章",
+          "section": "節",
+          "knowledge": "知識點",
+          "unknown": "未知"
+        },
+        "layouts": {
+          "force": "力導向",
+          "circular": "環形",
+          "dagre": "分層"
+        },
+        "filters": {
+          "entityType": "實體類型",
+          "relationType": "關係類型"
+        },
+        "actions": {
+          "resetZoom": "縮放重置",
+          "exportImage": "導出圖片",
+          "autoLayout": "自動整理"
+        },
+        "searchPlaceholder": "搜索節點...",
+        "treeTitle": "課程目錄",
+        "layoutsTitle": "佈局方式",
+        "actionsTitle": "操作"
+      },
+      "actions": {
+        "save": "保存修改"
+      },
+      "toasts": {
+        "saveSuccess": "保存成功",
+        "saveSuccessDesc": "AI分身信息已更新",
+        "saveFailed": "保存失敗",
+        "saveFailedDesc": "保存AI分身失敗，請重試",
+        "noData": "數據加載失敗",
+        "fillRequired": "請填寫必填項",
+        "fillRequiredDesc": "請填寫開始時間和結束時間",
+        "invalidDateRange": "日期範圍無效",
+        "invalidDateRangeDesc": "開始時間不能晚於結束時間",
+        "infoUpdated": "{{name}} 信息已更新",
+        "loadFailed": "加載失敗",
+        "loadFailedDesc": "無法加載AI分身詳情，請稍後重試"
+      }
+    }
+  }
+}

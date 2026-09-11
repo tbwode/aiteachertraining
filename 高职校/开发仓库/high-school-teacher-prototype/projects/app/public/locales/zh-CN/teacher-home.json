@@ -1,0 +1,137 @@
+{
+  "page_title": "AI赋能教学 让教育更智能",
+  "welcome_hi": "HI!",
+  "welcome_back": "欢迎回来 {{name}}",
+  "teacher_default_name": "老师",
+  "hero": {
+    "eyebrow": "{{name}} · AI 教师分身中心",
+    "title": "让每门课程都有一位",
+    "title_accent": "7×24 在线的 AI 教师",
+    "description": "基于课程知识、教学资源与任务目标构建专属分身，持续支持学生答疑、实训指导与学情洞察。",
+    "view_avatars": "查看我的分身",
+    "running": "运行稳定",
+    "on_duty": "AI 教师值守中",
+    "always_online": "随时响应学生问题"
+  },
+  "insights": {
+    "title": "今日教学洞察",
+    "description": "聚合 AI 建议与学情预警，快速处理待办事项",
+    "loading": "正在同步数据",
+    "updated": "数据已更新"
+  },
+  "metrics": {
+    "my_courses": "我的课程",
+    "courses_suffix": "门",
+    "courses_mark": "课",
+    "ai_avatars": "AI分身",
+    "avatars_suffix": "位",
+    "avatars_mark": "AI",
+    "today_interactions": "今日互动",
+    "interactions_suffix": "次",
+    "interactions_mark": "互"
+  },
+  "sections": {
+    "ai_suggestions": "AI智能建议",
+    "today_todos": "学情预警",
+    "my_courses_and_avatars": "我的课程与AI分身"
+  },
+  "actions": {
+    "create_avatar": "新建AI分身"
+  },
+  "ai_suggestions": {
+    "tabs": {
+      "news": "前沿资讯",
+      "optimization": "课程优化",
+      "knowledge_graph": "能力图谱"
+    },
+    "mark_all_read": "全部标记已读",
+    "mark_read": "标记已读",
+    "read": "已读",
+    "adopt": "采纳更新",
+    "adopted": "已采纳",
+    "view_details": "查看详情",
+    "apply_now": "立即应用",
+    "empty_news": "暂无前沿资讯",
+    "empty_optimization": "暂无优化建议",
+    "empty_graph": "暂无知识图谱建议"
+  },
+  "student_todos": {
+    "needs_attention": "{{count}}位学生需关注",
+    "all_reminded": "全部已提醒",
+    "batch_process": "批量处理",
+    "remind": "提醒",
+    "reminded": "已提醒",
+    "view": "查看",
+    "empty": "暂无待办事项",
+    "table": {
+      "student_name": "学生姓名",
+      "class": "班级",
+      "course": "课程",
+      "progress": "进度",
+      "delay_days": "滞后天数",
+      "actions": "操作"
+    },
+    "delay_unit": "天"
+  },
+  "avatar_list": {
+    "description": "统一管理课程分身的发布状态、覆盖班级与互动效果",
+    "filter_label": "按分身状态筛选",
+    "course_avatar": "课程 AI 教师分身",
+    "more_actions": "{{title}} 更多操作",
+    "edit_named": "编辑 {{title}}",
+    "tabs": {
+      "all": "全部",
+      "running": "运行中",
+      "pending": "未开始",
+      "expired": "已截止"
+    },
+    "student_scale": "学生规模",
+    "today_interactions": "今日互动",
+    "coverage_label": "覆盖班级",
+    "enter_classroom": "进入课堂",
+    "publish": "发布",
+    "unpublish": "取消发布",
+    "edit": "编辑",
+    "view_details": "查看详情",
+    "delete": "删除",
+    "empty": "当前筛选条件下暂无 AI 分身"
+  },
+  "student_detail": {
+    "title": "学生详情",
+    "course": "课程：{{title}}",
+    "current_progress": "当前进度",
+    "study_hours": "学习时长",
+    "last_study": "最后学习",
+    "lagging_analysis": "滞后原因分析",
+    "send_reminder": "发送提醒",
+    "close": "关闭",
+    "reminded": "已提醒"
+  },
+  "remind_modal": {
+    "title": "发送学习提醒",
+    "confirm_message": "确定要向 {{name}} 发送学习提醒吗？",
+    "content_label": "提醒内容：",
+    "content_text": "同学你好，你的课程学习进度有所滞后，请及时安排学习时间，如有疑问可随时向AI教师提问。",
+    "send_button": "发送提醒",
+    "cancel_button": "取消"
+  },
+  "delete_modal": {
+    "title": "确认删除",
+    "message": "确定要删除「{{title}}」吗？删除后无法恢复。",
+    "cancel": "取消",
+    "confirm": "确认删除"
+  },
+  "cancel_publish_modal": {
+    "title": "确认取消发布",
+    "message": "确定要取消发布「{{title}}」吗？取消后学生将无法访问该课程。",
+    "cancel": "取消",
+    "confirm": "确认取消发布"
+  },
+  "toasts": {
+    "adopted": "已采纳更新",
+    "markedAsRead": "已标记为已读",
+    "allNewsMarkedAsRead": "前沿资讯已全部标记为已读",
+    "operationFailed": "操作失败",
+    "operationFailedDesc": "请稍后重试"
+  }
+}

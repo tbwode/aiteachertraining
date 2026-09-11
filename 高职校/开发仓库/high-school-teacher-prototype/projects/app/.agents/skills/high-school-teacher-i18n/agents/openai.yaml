@@ -1,0 +1,4 @@
+interface:
+  display_name: "High School Teacher i18n"
+  short_description: "Add and wire project-specific i18n for teacher and pages routes"
+  default_prompt: "Use this skill to internationalize one or more files in the high-school-teacher frontend. Resolve the provided file path, choose the correct route family (src/app/teacher or src/pages), extract hard-coded UI strings into translation keys, update the correct locale JSON files, register any new namespace only when necessary, and validate the change with the smallest practical checks."

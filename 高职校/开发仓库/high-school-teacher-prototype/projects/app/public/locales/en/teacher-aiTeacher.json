@@ -1,0 +1,817 @@
+{
+  "home": {
+    "header": {
+      "title": "AI-powered teaching for smarter education",
+      "welcome": "Welcome back, {{name}}"
+    },
+    "metrics": {
+      "myCourses": "My Courses",
+      "avatars": "AI Avatars",
+      "todayInteractions": "Today's Interactions",
+      "unitCourse": "courses",
+      "unitAvatar": "avatars",
+      "unitInteraction": "times",
+      "markCourse": "CRS",
+      "markAvatar": "AI",
+      "markInteraction": "INT"
+    },
+    "suggestions": {
+      "title": "AI Suggestions",
+      "categories": {
+        "news": "Industry Updates",
+        "optimization": "Course Optimization",
+        "graph": "Competency Graph"
+      },
+      "actions": {
+        "markAllRead": "Mark all as read",
+        "read": "Read",
+        "markRead": "Mark as read",
+        "adopt": "Adopt update",
+        "adopted": "Adopted"
+      },
+      "toasts": {
+        "read": "Marked as read",
+        "adopt": "Update adopted",
+        "markAllRead": "All industry updates have been marked as read"
+      },
+      "items": {
+        "news1": {
+          "title": "Latest applications of AI in education",
+          "description": "Suggestion: use it as an extension case for the Python course"
+        },
+        "news2": {
+          "title": "New trends in vocational education reform",
+          "description": "Suggestion: relevant to this course's teaching direction"
+        },
+        "optimization1": {
+          "title": "Chapter 3 of \"Python Basics\" has incomplete knowledge coverage",
+          "description": "Suggestion: add courseware on exception handling"
+        },
+        "graph1": {
+          "title": "The competency graph for \"Introduction to Data Analysis\" has been updated",
+          "description": "New knowledge points: data visualization and report generation"
+        }
+      }
+    },
+    "todos": {
+      "title": "Today's Tasks",
+      "batchAction": "Batch Process",
+      "allReminded": "All students reminded",
+      "needsAttention": "{{count}} students need attention",
+      "table": {
+        "studentName": "Student Name",
+        "className": "Class",
+        "course": "Course",
+        "progress": "Progress",
+        "delayDays": "Days Behind",
+        "actions": "Actions"
+      },
+      "actions": {
+        "view": "View",
+        "remind": "Remind",
+        "reminded": "Reminded"
+      },
+      "toasts": {
+        "detailPending": "Student learning details for {{name}} are pending integration",
+        "remindStudent": "Reminder sent to {{name}}",
+        "batchRemind": "Batch reminders sent to {{count}} students"
+      },
+      "units": {
+        "days": "{{count}} days"
+      }
+    },
+    "avatars": {
+      "title": "My Courses and AI Avatars",
+      "create": "Create AI Avatar",
+      "tabs": {
+        "all": "All",
+        "running": "Running",
+        "pending": "Not Started",
+        "expired": "Ended"
+      },
+      "status": {
+        "running": "AI Teacher Running",
+        "pending": "Not Started",
+        "expired": "Ended"
+      },
+      "overlayActions": {
+        "running": "Unpublish",
+        "pending": "Publish",
+        "expired": "Republish"
+      },
+      "fields": {
+        "studentScale": "Student Scale",
+        "todayInteractions": "Today's Interactions",
+        "coverageClass": "Covered Classes",
+        "coverageMajor": "Covered Majors"
+      },
+      "actions": {
+        "enterClass": "Enter Class"
+      },
+      "empty": "No AI avatars under the current filter",
+      "toasts": {
+        "cancelPublish": "Unpublished",
+        "publish": "Published successfully",
+        "republish": "Republished"
+      }
+    }
+  },
+  "avatar": {
+    "common": {
+      "courseType": {
+        "required": "Required",
+        "optional": "Elective"
+      },
+      "status": {
+        "running": "AI Teacher Running",
+        "pending": "Not Started",
+        "expired": "Ended",
+        "normal": "Normal",
+        "lagging": "Lagging",
+        "completed": "Completed"
+      },
+      "coverage": {
+        "class": "Covered Classes",
+        "major": "Covered Majors",
+        "classAndMajor": "Covered Classes/Majors",
+        "autoMajorAggregate": "Automatically aggregated from enrolled students' majors"
+      },
+      "time": {
+        "range": "Start and End Time",
+        "start": "Start Time",
+        "end": "End Time",
+        "to": "to",
+        "dateRange": "{{start}} to {{end}}"
+      },
+      "units": {
+        "students": "{{count}} students",
+        "hours": "{{count}} hours",
+        "studyHours": "{{count}} hours",
+        "days": "{{count}} days",
+        "records": "{{count}} records in total",
+        "knowledgeModules": "{{count}} knowledge modules",
+        "uploadedFiles": "Uploaded {{count}}/{{max}} files",
+        "maxFiles": "Upload up to {{count}} files"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "close": "Close",
+        "saveDraft": "Save Draft",
+        "publish": "Publish",
+        "previous": "Previous",
+        "next": "Next",
+        "upload": "Upload File",
+        "reupload": "Re-upload",
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete",
+        "export": "Export"
+      },
+      "fallback": {
+        "none": "--",
+        "unnamedCourse": "Untitled Course",
+        "loading": "Loading..."
+      },
+      "quizMethods": {
+        "afterClassExercise": "After-class Exercises",
+        "chapterTest": "Chapter Test",
+        "randomQuestionQuiz": "Random Question Quiz",
+        "aiQaAssessment": "AI Q&A Assessment"
+      },
+      "reportDimensions": {
+        "learningProgress": "Learning Progress Tracking",
+        "knowledgeMastery": "Knowledge Mastery Analysis",
+        "abilityGrowth": "Ability Growth Curve",
+        "learningBehavior": "Learning Behavior Analysis",
+        "peerComparison": "Peer Comparison Analysis"
+      },
+      "toasts": {
+        "fetchListFailed": "Failed to fetch AI avatar list",
+        "fetchListFailedDesc": "Please try again later",
+        "fetchDetailFailed": "Failed to fetch AI avatar details",
+        "fetchDetailFailedDesc": "Please try again later",
+        "createSuccess": "Created successfully",
+        "createSuccessDesc": "AI avatar has been created",
+        "createFailed": "Failed to create AI avatar",
+        "createFailedDesc": "Please try again later",
+        "operationFailed": "Operation failed",
+        "operationFailedDesc": "Please try again later"
+      }
+    },
+    "create": {
+      "title": "Create AI Avatar",
+      "closeAriaLabel": "Close creation wizard",
+      "steps": {
+        "classConfig": "Class Setup",
+        "teachingPath": "Teaching Path",
+        "knowledgeAggregation": "Knowledge Aggregation"
+      },
+      "step1": {
+        "title": "Avatar Setup",
+        "courseSelect": {
+          "label": "Select Course",
+          "placeholder": "Please select a teaching task course",
+          "helpText": "The list only shows courses from the current semester's teaching tasks",
+          "selectedInfo": "Selected Course Information",
+          "courseName": "Course Name:",
+          "courseHours": "Hours: {{hours}}",
+          "courseType": "Type:"
+        },
+        "courseImage": {
+          "label": "Course Image",
+          "alt": "Course image",
+          "removeAriaLabel": "Remove image",
+          "reupload": "Re-upload",
+          "uploadHint": "Click to upload or drag an image here",
+          "uploadSpec": "Recommended size 1280×720 (16:9), supports jpg/png, max 5MB",
+          "uploadCoverAlt": "Upload cover",
+          "aiCoverAlt": "AI generated cover",
+          "aiGenerateHint": "Generate AI Cover",
+          "aiGenerateSpec": "Generate cover based on course content",
+          "aiGeneratedName": "AI Generated Cover"
+        },
+        "attachmentConfig": {
+          "title": "Attachment Image Content Settings",
+          "weightsTitle": "Configure Teaching Objective Weights",
+          "weights": {
+            "knowledge": "Knowledge Mastery",
+            "ability": "Ability Development",
+            "quality": "Quality Improvement"
+          },
+          "weightLevels": {
+            "knowledge": [
+              "Basic Understanding",
+              "Comprehension",
+              "Application",
+              "Innovation"
+            ],
+            "ability": [
+              "Imitation",
+              "Independent",
+              "Flexible",
+              "Proficient"
+            ],
+            "quality": [
+              "Curiosity",
+              "Divergent Thinking",
+              "Critical Building",
+              "Practice Leading"
+            ]
+          },
+          "quizMethods": "Configure Quiz Methods",
+          "reportDimensions": "Report Dimensions"
+        },
+        "coverage": {
+          "selectCourseFirst": "Please select a course first. The system will automatically show the corresponding class or major scope",
+          "optionalHint": "[Elective] Covered majors are automatically aggregated from enrolled students' majors, with no manual selection required",
+          "requiredHint": "[Required] Select classes: classes that already have AI avatars have been filtered out automatically",
+          "allOccupied": "All classes under this course already have AI avatars"
+        }
+      },
+      "step2": {
+        "syllabus": {
+          "title": "Syllabus",
+          "subtitle": "Course Structure and Knowledge Points",
+          "uploadTitle": "Upload Syllabus",
+          "uploadHint": "Supports PDF and Word teaching plans or syllabus files. AI will automatically parse and generate a standardized syllabus",
+          "upload": "Upload Syllabus",
+          "reupload": "Re-upload Syllabus",
+          "parseSuccess": "Syllabus parsed successfully",
+          "recognizedFile": "Recognized file: {{name}}",
+          "chapters": "{{count}} chapters",
+          "sections": "{{count}} sections",
+          "hours": "{{count}} hours"
+        },
+        "matching": {
+          "title": "Knowledge Matching",
+          "subtitle": "Upload courseware for intelligent analysis",
+          "state": {
+            "matching": "Analyzing...",
+            "completed": "Analysis Complete",
+            "uploaded": "Uploaded",
+            "pending": "Waiting for Upload"
+          },
+          "uploadHint": "Click to upload courseware",
+          "uploadSyllabusFirstHint": "Please upload the syllabus first",
+          "waitForAnalysisHint": "Please wait for syllabus analysis to complete",
+          "uploadSpec": "Supports PDF, Word, PPT, image, and video formats, up to {{count}} files",
+          "continueUpload": "Continue Uploading Teaching Resources",
+          "start": "Start Matching",
+          "reMatch": "Re-match",
+          "analysisTitle": "Knowledge Matching Analysis",
+          "analysisHint": "Please upload the syllabus and courseware first, then click \"Start Matching\" for intelligent analysis",
+          "checklist": {
+            "syllabus": "Upload Syllabus",
+            "courseware": "Upload Courseware",
+            "analysis": "Generate Matching Analysis"
+          },
+          "overallScore": "Overall Match Rate",
+          "resultTitle": "Courseware and Syllabus Matching Analysis",
+          "summary": "{{total}} sections identified: {{covered}} covered, {{missing}} missing",
+          "covered": "Covered",
+          "partial": "Partially Covered",
+          "uncovered": "Uncovered",
+          "missing": "Missing",
+          "contains": "Included in courseware: {{content}}",
+          "noResults": "No matching analysis results",
+          "analyzingSyllabus": "AI is analyzing the syllabus",
+          "analyzingSyllabusDesc": "Please wait, the course structure will be displayed after analysis",
+          "analyzing": {
+            "title": "AI is analyzing...",
+            "subtitle": "Matching courseware with syllabus",
+            "description": "Please wait, matching results will be displayed after analysis"
+          },
+          "uploadingCourseware": "Uploading courseware",
+          "uploadingCoursewareDesc": "Please wait, it will be parsed automatically after upload",
+          "addFromWorkspace": "Add from Workspace",
+          "generalContent": "General Content",
+          "uploadResourceModal": {
+            "title": "Add from Workspace",
+            "currentLocation": "Current location: ",
+            "tabs": {
+              "aiCourse": "AI Lecture",
+              "digitalCourseware": "Digital Courseware",
+              "resourceLibrary": "Teaching Resource Library",
+              "localUpload": "Local Upload"
+            },
+            "searchPlaceholder": "Search courseware name",
+            "noData": "No data",
+            "selectFile": "Select File",
+            "uploadHint": "Click to upload video, document, image, or audio",
+            "uploadDescription": "Video: mp4, mov, avi, webm, mkv max 2G\nDocument: pdf, doc, docx, ppt, pptx max 500M\nImage: jpg, jpeg, png, gif, webp, bmp max 50M\nAudio: mp3, wav, aac, ogg, flac, m4a max 200M\n",
+            "selectedFile": "Selected file",
+            "uploading": "Uploading...",
+            "cancel": "Cancel",
+            "confirmAdd": "Confirm Add",
+            "toasts": {
+              "fileTypeNotSupported": "Unsupported file format",
+              "fileSizeExceeded": "File size exceeds limit",
+              "uploadFailed": "File upload failed",
+              "waitForUpload": "Please wait for file upload to complete",
+              "noFilesToAdd": "No files to add"
+            },
+            "errors": {
+              "matchFailed": "Upload result match failed",
+              "uploadFailed": "Upload failed"
+            }
+          },
+          "toasts": {
+            "uploadSyllabusFirst": "Please upload the syllabus first",
+            "addMaterialsFirst": "Please add analysis materials first",
+            "matchingCompleted": "Knowledge matching analysis completed"
+          }
+        }
+      },
+      "step3": {
+        "title": "Step 3: Knowledge Aggregation",
+        "analysisRequired": "Please complete the teaching path analysis first to view resource matching results",
+        "allCovered": "✓ All chapter knowledge points are covered, no additional resources needed",
+        "missingResources": {
+          "title": "Missing Resource Chapter Details",
+          "missing": "Completely Missing",
+          "partial": "Partially Missing",
+          "missingPoints": "Missing: {{points}}"
+        },
+        "resources": {
+          "title": "System Recommended Resources",
+          "source": "Source: school course resources and platform courseware resources",
+          "chapter": "Chapter: {{title}}",
+          "knowledgePoints": "Knowledge points: {{points}}",
+          "doc": "Teaching Documents (System Recommended)",
+          "video": "🎬 Teaching Videos (System Recommended)",
+          "aiTitle": "AI Extended Learning",
+          "chapterAndPoints": "Chapter and Knowledge Points",
+          "createdAt": "Created on {{date}}",
+          "created": "Created",
+          "editTextbookAriaLabel": "Edit textbook",
+          "deleteTextbookAriaLabel": "Delete textbook",
+          "emptyTextbook": "No digital textbook yet. Click the button below to create one",
+          "textbookPlaceholder": "Please enter a digital textbook name",
+          "editTextbook": "Edit Digital Textbook",
+          "createTextbook": "Create Digital Textbook",
+          "deleteFileAriaLabel": "Delete file",
+          "noRecommendations": "No system recommended resources available, please manually link teaching materials",
+          "noDocuments": "No recommended documents",
+          "sourceFrom": "Source: {{source}}",
+          "analyzing": "AI is recommending resources",
+          "analyzingDesc": "Please wait, system recommended resources will be displayed after completion"
+        },
+        "resourceMatch": "Step 3: Resource Matching",
+        "coursewareMatch": "Courseware and Syllabus Matching Analysis",
+        "missingCount": "{{count}} missing chapters identified",
+        "status": {
+          "missing": "Missing"
+        },
+        "addedResources": "Added Resources",
+        "resourceCategories": {
+          "doc": "Teaching Documents",
+          "video": "Teaching Videos",
+          "image": "Teaching Images",
+          "audio": "Teaching Audio"
+        },
+        "noRecommendations": "No recommendations",
+        "addFromWorkspace": "Add from Workspace",
+        "allCoveredShort": "All chapters are covered, no additional resources needed"
+      },
+      "exitConfirm": {
+        "title": "Confirm Exit",
+        "description": "Unpublished content will be kept in the local draft. Confirm to return to the AI Teacher home page.",
+        "continueEditing": "Continue Editing",
+        "saveAndExit": "Save and Exit"
+      },
+      "closeConfirm": {
+        "title": "Confirm Close",
+        "description": "Current edits will not be saved after closing. Are you sure you want to close?",
+        "cancel": "Cancel",
+        "confirm": "Confirm Close"
+      },
+      "aiCoverModal": {
+        "title": "AI Generate Course Cover",
+        "courseNameLabel": "Course Name",
+        "courseNamePlaceholder": "Enter course name",
+        "themeLabel": "Course Theme/Style (Optional)",
+        "themePlaceholder": "e.g. Tech, Engineering",
+        "styleLabel": "Select Style",
+        "cancel": "Cancel",
+        "generate": "Generate Cover",
+        "generating": "AI is generating the cover...",
+        "generateFailed": "Generation failed",
+        "selectCover": "Select Cover",
+        "cover1": "Cover 1",
+        "cover2": "Cover 2",
+        "cover3": "Cover 3",
+        "cover4": "Cover 4",
+        "useCover": "Use This Cover",
+        "validation": {
+          "courseNameRequired": "Please enter the course name",
+          "courseRequired": "Please select a course first"
+        }
+      },
+      "toasts": {
+        "draftSaved": "AI avatar creation draft saved",
+        "draftSavedAndExit": "Draft saved",
+        "draftSavedAndExitDesc": "Unpublished content has been kept in the local draft",
+        "pendingSaved": "Draft saved",
+        "pendingSavedDesc": "AI avatar draft saved successfully",
+        "fillClassConfig": "Please complete the class setup first",
+        "fillClassConfigDesc": "You must complete the course, image, class/major, and schedule settings before continuing",
+        "completeTeachingPath": "Please complete the teaching path analysis",
+        "completeTeachingPathDesc": "You must upload the syllabus, courseware, and finish the matching analysis",
+        "completeKnowledgeAggregation": "Please complete the knowledge aggregation setup first",
+        "completeKnowledgeAggregationDesc": "Chapters selected for AI extended learning must have digital textbooks created first",
+        "publishSuccess": "AI avatar published successfully",
+        "savedAsPending": "AI avatar saved as not started",
+        "loadCourseListFailed": "Failed to load course list",
+        "loadCourseListFailedDesc": "Using default course list",
+        "imageUploadSuccess": "Course image uploaded successfully",
+        "imageUploadSuccessDesc": "Uploaded image: {{name}}",
+        "uploadFailed": "Upload failed",
+        "imageUploadFailedDesc": "Failed to upload course image, please try again",
+        "syllabusAnalysisComplete": "AI analysis complete",
+        "syllabusAnalysisCompleteDesc": "Syllabus analysis successful",
+        "syllabusAnalysisFailed": "AI analysis failed",
+        "syllabusAnalysisFailedDesc": "File uploaded, but AI analysis failed",
+        "syllabusUploadFailedDesc": "Failed to upload syllabus, please try again",
+        "uploadSyllabusFirst": "Please upload the syllabus first",
+        "waitForSyllabusAnalysis": "Please wait for syllabus analysis to complete",
+        "waitForSyllabusAnalysisDesc": "Syllabus is being analyzed, please wait before uploading courseware",
+        "maxFilesReached": "Maximum {{count}} files allowed",
+        "fileTypeNotSupported": "Unsupported file format",
+        "fileTypeNotSupportedDesc": "Only PDF, Word, PPT, and video files are supported",
+        "fileSizeExceeded": "File size exceeds limit",
+        "fileSizeExceededDoc": "Document files must be within 500MB",
+        "fileSizeExceededVideo": "Video files must be within 2GB",
+        "coursewareParseEmpty": "Some courseware parsing results are empty",
+        "coursewareParseEmptyDesc": "{{count}} files have empty content, which may affect matching analysis",
+        "parseResultEmpty": "Parse result is empty",
+        "parseResultEmptyDesc": "No parsing content obtained",
+        "parseComplete": "Parsing complete",
+        "parseCompleteDesc": "Courseware resources parsed successfully",
+        "parseTriggerFailed": "Parse trigger failed",
+        "parseTriggerFailedDesc": "File uploaded, but parsing trigger failed",
+        "coursewareUploadFailedDesc": "Failed to upload courseware, please try again",
+        "addMaterialsFirst": "Please add analysis materials first",
+        "addMaterialsFirstDesc": "You need to upload syllabus and courseware resources",
+        "missingSyllabusTree": "Missing syllabus analysis result",
+        "missingSyllabusTreeDesc": "Please re-upload the syllabus",
+        "missingCoursewareParse": "Missing courseware parse result",
+        "missingCoursewareParseDesc": "Please re-upload courseware resources",
+        "matchingInProgress": "AI analyzing",
+        "matchingInProgressDesc": "Knowledge matching analysis in progress...",
+        "matchingComplete": "Knowledge matching analysis complete",
+        "matchingFailed": "Analysis failed",
+        "matchingFailedDesc": "Knowledge matching analysis failed, please try again",
+        "missingMatchResult": "Missing matching analysis result",
+        "missingMatchResultDesc": "Please complete knowledge matching analysis first",
+        "resourceRecommendComplete": "Resource recommendation complete",
+        "resourceRecommendCompleteDesc": "Resources recommended for {{count}} chapters",
+        "allChaptersCovered": "All chapters fully covered",
+        "allChaptersCoveredDesc": "All chapter knowledge points are 100% covered, no resource recommendations needed",
+        "resourceRecommendNoResults": "Resource recommendation complete",
+        "resourceRecommendNoResultsDesc": "No recommended resources available, you can manually link teaching materials",
+        "resourceRecommendFailed": "Recommendation failed",
+        "resourceRecommendFailedDesc": "Resource recommendation failed, please try again",
+        "enterTextbookName": "Please enter a digital textbook name",
+        "textbookUpdated": "Digital textbook updated",
+        "textbookCreated": "Digital textbook created successfully",
+        "textbookDeleted": "Digital textbook deleted",
+        "userInfoError": "User information error",
+        "userInfoErrorDesc": "Teacher ID not found, please log in again",
+        "selectCourse": "Please select a course",
+        "completeAnalysisFirst": "Please complete the teaching path analysis first",
+        "creatingAvatar": "Creating AI avatar...",
+        "createSuccess": "AI avatar created successfully!",
+        "createFailed": "Creation failed",
+        "createFailedDesc": "Failed to create AI avatar, please try again"
+      }
+    },
+    "detail": {
+      "back": "Back to AI Teacher",
+      "header": {
+        "semester": "Semester:",
+        "coverageMajors": "Covered majors: {{majors}}",
+        "coverageClasses": "Covered classes: {{classes}} ({{count}} classes in total)"
+      },
+      "tabs": {
+        "intro": "Course Overview",
+        "catalog": "Course Catalog",
+        "graph": "Knowledge Graph",
+        "questionBank": "Question Bank",
+        "quiz": "Quizzes",
+        "training": "Practical Training",
+        "courseSummary": "Course Summary",
+        "students": "Student Management"
+      },
+      "intro": {
+        "title": "Course Overview"
+      },
+      "graph": {
+        "title": "Knowledge Graph",
+        "coreCourse": "Core Course",
+        "summary": "Master the fundamentals of mechanical design and engineering practice skills",
+        "hint": "Click chapter cards to expand/collapse knowledge points"
+      },
+      "catalog": {
+        "title": "Course Catalog",
+        "preview": "Preview"
+      },
+      "students": {
+        "stats": {
+          "total": "Total Students",
+          "studying": "In Progress",
+          "completed": "Completed",
+          "attention": "Need Attention",
+          "unit": "students"
+        },
+        "listTitle": "Student List",
+        "searchPlaceholder": "Search student name or ID",
+        "allClasses": "All Classes",
+        "table": {
+          "name": "Name",
+          "className": "Class",
+          "progress": "Learning Progress",
+          "studyHours": "Study Hours",
+          "lastStudy": "Last Study",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "actions": {
+          "view": "View",
+          "viewConversation": "View Conversation",
+          "remind": "Remind",
+          "reminded": "Reminded",
+          "export": "Export",
+          "exporting": "Exporting"
+        },
+        "pagination": {
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "toasts": {
+          "exportSuccess": "Export Successful",
+          "exportSuccessDesc": "Student data has been exported",
+          "exportFailed": "Export Failed",
+          "exportFailedDesc": "Failed to export student data, please try again",
+          "missingAvatarId": "Missing AI avatar ID",
+          "loadStudentsFailed": "Load failed",
+          "loadStudentsFailedDesc": "Unable to load student list, please try again later",
+          "remindFailed": "Reminder failed",
+          "remindFailedIncomplete": "Student information incomplete",
+          "remindFailedDesc": "Failed to send reminder, please try again"
+        }
+      },
+      "studentDetailModal": {
+        "title": "Student Learning Details",
+        "course": "Course: {{title}}",
+        "currentProgress": "Current Progress",
+        "studyHours": "Study Hours",
+        "lastStudy": "Last Study",
+        "studyStatus": "Learning Status",
+        "laggingAnalysis": "Lagging Analysis:",
+        "laggingReason1": "• Slow progress in Chapter 2",
+        "laggingReason2": "• No study activity for multiple consecutive days",
+        "sendReminder": "Send Reminder"
+      },
+      "remindModal": {
+        "title": "Send Learning Reminder",
+        "confirm": "Are you sure you want to send a learning reminder to {{name}}?",
+        "contentLabel": "Reminder Content:",
+        "content": "Hello, your course learning progress is behind schedule. Please arrange your study time promptly. If you have any questions, feel free to ask the AI teacher.",
+        "confirmSend": "Send Now"
+      },
+      "conversationModal": {
+        "title": "{{name}} – {{avatarName}} Conversation History",
+        "subtitle": "Conversation history with AI Teacher Assistant \"{{courseName}}\"",
+        "roleAi": "AI Teacher Assistant",
+        "empty": "No conversation records",
+        "loadFailed": "Failed to load, please retry",
+        "retry": "Reload",
+        "close": "Close",
+        "expand": "Expand",
+        "collapse": "Collapse"
+      },
+      "toasts": {
+        "reminderSent": "Learning reminder sent to {{name}}"
+      }
+    },
+    "edit": {
+      "back": "Back to AI Avatar Details",
+      "alert": {
+        "currentStatus": "Current status:",
+        "pendingEditable": "Not started - all content can be modified",
+        "runningEditable": "Running - course content can still be adjusted"
+      },
+      "tabs": {
+        "base": "Basic Info",
+        "chapters": "Course Catalog",
+        "graph": "Knowledge Graph"
+      },
+      "base": {
+        "title": "Basic Info",
+        "courseName": "Course Name",
+        "courseNameHint": "The course name is bound to the teaching task and cannot be changed",
+        "courseImage": "Course Image",
+        "changeImage": "Change Image",
+        "courseDescription": "Course Description",
+        "requiredClassHint": "[Required] Select classes:"
+      },
+      "chapters": {
+        "structure": "Catalog Structure",
+        "addChapter": "Add Chapter",
+        "addSection": "Add Section",
+        "sectionDetail": "Section Details",
+        "currentSelected": "Currently selected: {{title}}",
+        "placeholderTitle": "Courseware list and upload functionality will be implemented later",
+        "placeholderDesc": "Supports videos, PDFs, images, and other file formats",
+        "selectSection": "Please select a section from the left",
+        "knowledgePoints": "Knowledge Points",
+        "knowledgePointsCount": "{{count}}",
+        "courseware": "Courseware",
+        "coursewareCount": "{{count}}",
+        "uploadCourseware": "Upload Courseware",
+        "noCourseware": "No courseware yet, click upload button to add",
+        "addFromWorkspace": "Select from Workspace",
+        "editChapter": "Edit Chapter",
+        "editSection": "Edit Section",
+        "addChapterTitle": "Add Chapter",
+        "addSectionTitle": "Add Section",
+        "nameLabel": "Name",
+        "namePlaceholder": "Please enter a name",
+        "deleteConfirm": "Confirm Delete",
+        "deleteChapterMessage": "Are you sure you want to delete this chapter?",
+        "deleteSectionMessage": "Are you sure you want to delete this section?",
+        "deleteChapterWithSections": "This chapter contains sections and cannot be deleted. Please delete all sections first.",
+        "deleteChapterWithCourseware": "This chapter contains courseware and cannot be deleted.",
+        "deleteSectionWithCourseware": "This section contains courseware and cannot be deleted. Please delete all courseware first.",
+        "confirmDelete": "Confirm Delete",
+        "deleteCoursewareMessage": "Are you sure you want to delete this courseware?",
+        "deleteCoursewareWithStudents": "This courseware has been viewed by students. After deletion, students will no longer be able to view it. Are you sure you want to delete it?",
+        "coursewareDeleted": "Courseware deleted",
+        "previewCourseware": "Preview Courseware",
+        "downloadCourseware": "Download",
+        "closeCourseware": "Close",
+        "cannotPreview": "Cannot preview this file",
+        "downloadFile": "Download File",
+        "uploadCoursewareTitle": "Upload Courseware",
+        "uploadLocation": "Upload Location",
+        "selectFile": "Select File",
+        "uploadHint": "Click to upload or drag file here",
+        "uploadSizeHint": "Video max 2GB, Document max 500MB\nImage max 50MB, Audio max 200MB",
+        "supportedTypes": "Supported File Types:",
+        "videoLabel": "Video",
+        "documentLabel": "Document",
+        "imageLabel": "Image",
+        "audioLabel": "Audio",
+        "videoTypes": "mp4, mov, avi, webm, mkv",
+        "documentTypes": "pdf, doc, docx, ppt, pptx, xls, xlsx",
+        "imageTypes": "jpg, jpeg, png, gif, webp, bmp",
+        "audioTypes": "mp3, wav, aac, ogg, flac, m4a",
+        "selectedFile": "Selected File",
+        "confirmUpload": "Confirm Upload",
+        "coursewareUploaded": "Courseware uploaded successfully",
+        "coursewareUploadedDesc": "Uploaded file: {{name}}",
+        "uploadFailed": "Upload failed",
+        "uploadFailedDesc": "Failed to upload courseware, please try again",
+        "fileTypeNotSupported": "File type not supported",
+        "fileTypeNotSupportedDesc": "Please upload video, document, image or audio files",
+        "fileTooLarge": "File too large",
+        "fileTooLargeDesc": "Maximum file size for this type is {{size}}MB",
+        "selectFileFirst": "Please select a file to upload",
+        "selectSectionFirst": "Please select a section first",
+        "enterName": "Please enter a name",
+        "cannotDownload": "Cannot download",
+        "fileUrlNotAvailable": "File URL not available",
+        "videoNotSupported": "Your browser does not support video playback",
+        "audioNotSupported": "Your browser does not support audio playback",
+        "previewAriaLabel": "Preview",
+        "downloadAriaLabel": "Download",
+        "deleteAriaLabel": "Delete",
+        "editAriaLabel": "Edit",
+        "addSectionAriaLabel": "Add section",
+        "units": {
+          "count": "{{count}}"
+        }
+      },
+      "graph": {
+        "title": "Knowledge Graph Mind Map",
+        "hint": "Click a node to expand/collapse its child nodes",
+        "expandAll": "Expand All",
+        "collapseAll": "Collapse All",
+        "noData": "No knowledge graph data available",
+        "noDataHint": "No chapter data yet. Please add course chapters first.",
+        "chapterCount": "{{count}} Chapters",
+        "sectionCount": "{{count}} Sections",
+        "knowledgeCount": "{{count}} Knowledge Points",
+        "nodeDetail": {
+          "selectHint": "Click a node to view details",
+          "selectHintDesc": "Click any node in the graph to see its detailed information",
+          "properties": "Properties",
+          "statistics": "Statistics",
+          "relatedNodes": "Related Nodes",
+          "nodeId": "ID",
+          "nodeDepth": "Depth",
+          "inDegree": "In-Degree",
+          "outDegree": "Out-Degree",
+          "totalDegree": "Total Links",
+          "upstream": "Upstream Nodes",
+          "downstream": "Downstream Nodes",
+          "noRelated": "No related nodes"
+        },
+        "nodeName": "Node Name",
+        "nodeType": "Node Type",
+        "nodeLocation": "Location",
+        "childrenCount": "Children Count",
+        "childrenCountValue": "{{count}} child nodes",
+        "childrenCountHint": "Click nodes in the graph to expand and view details",
+        "nodeTypes": {
+          "course": "Course",
+          "chapter": "Chapter",
+          "section": "Section",
+          "knowledge": "Knowledge Point",
+          "unknown": "Unknown"
+        },
+        "layouts": {
+          "force": "Force-Directed",
+          "circular": "Circular",
+          "dagre": "Hierarchical"
+        },
+        "filters": {
+          "entityType": "Entity Type",
+          "relationType": "Relation Type"
+        },
+        "actions": {
+          "resetZoom": "Reset Zoom",
+          "exportImage": "Export Image",
+          "autoLayout": "Auto Layout"
+        },
+        "searchPlaceholder": "Search nodes...",
+        "treeTitle": "Course Catalog",
+        "layoutsTitle": "Layout",
+        "actionsTitle": "Actions"
+      },
+      "actions": {
+        "save": "Save Changes"
+      },
+      "saveConfirmModal": {
+        "title": "Some courseware has been studied by students. Confirm deletion?",
+        "studentCount": "({{count}} students have studied)",
+        "hint": "After deletion, students will no longer be able to view these courseware, but existing learning records will be retained for statistical traceability."
+      },
+      "toasts": {
+        "saveSuccess": "Saved successfully",
+        "saveSuccessDesc": "AI avatar information has been updated",
+        "saveFailed": "Save failed",
+        "saveFailedDesc": "Failed to save AI avatar, please try again",
+        "noData": "Data load failed",
+        "fillRequired": "Please fill in required fields",
+        "fillRequiredDesc": "Please fill in start time and end time",
+        "invalidDateRange": "Invalid date range",
+        "invalidDateRangeDesc": "Start time cannot be later than end time",
+        "infoUpdated": "{{name}} information has been updated",
+        "loadFailed": "Load failed",
+        "loadFailedDesc": "Unable to load AI avatar details, please try again later"
+      }
+    }
+  }
+}

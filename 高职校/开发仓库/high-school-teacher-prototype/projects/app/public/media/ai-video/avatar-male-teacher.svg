@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DCEAFF"/>
+      <stop offset="1" stop-color="#B9D4FA"/>
+    </linearGradient>
+    <linearGradient id="mbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B5CB8"/>
+      <stop offset="1" stop-color="#1E4390"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="60" fill="url(#mbg)"/>
+  <!-- 脖子 -->
+  <rect x="54" y="66" width="12" height="12" rx="4" fill="#EDB98A"/>
+  <!-- 身体（西装） -->
+  <path d="M60 76c-16 0-27 9-29 24-1 6-1 12-1 20h60c0-8 0-14-1-20-2-15-13-24-29-24z" fill="url(#mbody)"/>
+  <!-- 衬衫与领带 -->
+  <path d="M60 76l-9 9 9 12 9-12z" fill="#FFFFFF"/>
+  <path d="M60 82l-3 4 3 14 3-14z" fill="#C8000B"/>
+  <path d="M55.5 80.5L60 84l4.5-3.5L60 78z" fill="#A80009"/>
+  <!-- 脸部 -->
+  <ellipse cx="60" cy="50" rx="17" ry="19" fill="#F5C99B"/>
+  <!-- 短发 -->
+  <path d="M43 47c-1-13 7-21 17-21s18 8 17 21c-2-7-4-10-6-11 0 2-1 3-2 4-1-3-4-5-9-5s-9 2-10 5c-1-1-2-2-2-4-2 1-4 4-5 11z" fill="#2E2620"/>
+  <!-- 眼睛 -->
+  <ellipse cx="52.5" cy="52" rx="2.4" ry="3" fill="#2B211A"/>
+  <ellipse cx="67.5" cy="52" rx="2.4" ry="3" fill="#2B211A"/>
+  <circle cx="53.4" cy="50.8" r="0.9" fill="#FFFFFF"/>
+  <circle cx="68.4" cy="50.8" r="0.9" fill="#FFFFFF"/>
+  <!-- 眉毛 -->
+  <path d="M47.5 46c2-1.4 4.6-1.5 6.6-0.4" stroke="#2E2620" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <path d="M65.9 45.6c2-1.1 4.6-1 6.6 0.4" stroke="#2E2620" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <!-- 眼镜 -->
+  <circle cx="52.5" cy="52.5" r="6.2" stroke="#43536B" stroke-width="1.6" fill="none"/>
+  <circle cx="67.5" cy="52.5" r="6.2" stroke="#43536B" stroke-width="1.6" fill="none"/>
+  <path d="M58.7 52.5h2.6" stroke="#43536B" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M46.3 52l-3.8-1.5M73.7 52l3.8-1.5" stroke="#43536B" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- 微笑 -->
+  <path d="M55 61c1.6 1.8 3.4 2.7 5 2.7s3.4-0.9 5-2.7" stroke="#B5714B" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <!-- 耳 -->
+  <ellipse cx="43" cy="52" rx="3" ry="4.5" fill="#F5C99B"/>
+  <ellipse cx="77" cy="52" rx="3" ry="4.5" fill="#F5C99B"/>
+</svg>

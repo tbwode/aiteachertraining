@@ -1,0 +1,169 @@
+{
+  "news": {
+    "title": "资讯管理",
+    "type": {
+      "notice": "通知公告",
+      "news": "新闻动态",
+      "policy": "政策落实",
+      "teaching": "教学动态",
+      "exchange": "对外交流",
+      "achievement": "师生成果",
+      "honor": "学校荣誉"
+    },
+    "level": {
+      "school": "学校",
+      "group": "集团"
+    },
+    "status": {
+      "published": "已发布",
+      "unpublished": "未发布"
+    },
+    "table": {
+      "title": "资讯标题",
+      "level": "归属",
+      "creator": "创建人",
+      "type": "资讯类型",
+      "status": "资讯状态",
+      "createTime": "创建时间",
+      "updateTime": "更新时间",
+      "publishTime": "发布时间",
+      "actions": "操作"
+    },
+    "actions": {
+      "drafts": "草稿箱",
+      "add": "新增资讯",
+      "edit": "编辑",
+      "publish": "发布",
+      "unpublish": "取消发布",
+      "top": "置顶",
+      "untop": "取消置顶",
+      "delete": "删除",
+      "cancel": "取消",
+      "confirmDelete": "确认删除",
+      "confirmPublish": "确认发布",
+      "confirmUnpublish": "确认取消发布",
+      "confirmTop": "确认置顶",
+      "confirmUntop": "确认取消置顶"
+    },
+    "pagination": {
+      "total": "共 {{total}} 条记录",
+      "prev": "上一页",
+      "next": "下一页",
+      "pageInfo": "第 {{page}} 页 / 共 {{totalPages}} 页"
+    },
+    "modal": {
+      "deleteTitle": "删除提示",
+      "deleteConfirm": "删除后无法恢复，您确定要删除吗？",
+      "publishTitle": "发布提示",
+      "publishConfirm": "确认发布该资讯吗？",
+      "unpublishTitle": "取消发布提示",
+      "unpublishConfirm": "确认取消发布该资讯吗？",
+      "topTitle": "置顶提示",
+      "topConfirm": "确认置顶该资讯吗？",
+      "untopTitle": "取消置顶提示",
+      "untopConfirm": "确认取消置顶该资讯吗？"
+    },
+    "messages": {
+      "loadFailed": "加载数据失败",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除失败",
+      "publishSuccess": "发布成功",
+      "unpublishSuccess": "取消发布成功",
+      "topSuccess": "置顶成功",
+      "untopSuccess": "取消置顶成功",
+      "operationFailed": "操作失败"
+    },
+    "loading": "加载中...",
+    "empty": {
+      "title": "暂无资讯数据",
+      "description": "请点击右上角新增资讯。"
+    },
+    "search": {
+      "selectType": "请选择资讯类型",
+      "selectStatus": "请选择状态",
+      "createTime": "创建时间",
+      "updateTime": "更新时间",
+      "publishTime": "发布时间",
+      "placeholder": "搜索标题或创建人",
+      "reset": "重置",
+      "search": "搜索",
+      "draft": "草稿"
+    },
+    "drafts": {
+      "back": "返回",
+      "title": "资讯草稿箱",
+      "table": {
+        "title": "资讯草稿标题",
+        "type": "资讯类型",
+        "createTime": "创建时间",
+        "updateTime": "更新时间",
+        "actions": "操作"
+      },
+      "empty": "暂无草稿",
+      "edit": "编辑",
+      "delete": "删除",
+      "modal": {
+        "deleteTitle": "删除提示",
+        "deleteConfirm": "删除当前资源不可恢复，确定删除当前资源吗？",
+        "cancel": "取消",
+        "confirmDelete": "确认删除"
+      },
+      "messages": {
+        "loadFailed": "加载草稿失败",
+        "deleteSuccess": "删除成功",
+        "deleteFailed": "删除失败"
+      }
+    },
+    "edit": {
+      "back": "返回",
+      "title": {
+        "add": "新增资讯",
+        "edit": "编辑资讯"
+      },
+      "form": {
+        "title": "资讯标题",
+        "titlePlaceholder": "请输入资讯标题",
+        "type": "资讯类型",
+        "typePlaceholder": "请选择资讯类型",
+        "cover": "封面图",
+        "coverUpload": "点击上传",
+        "coverUploading": "上传中 {{progress}}%",
+        "introduction": "简介",
+        "introductionPlaceholder": "请输入20-100字左右的简介",
+        "dept": "发布方",
+        "deptPlaceholder": "请选择发布方",
+        "mode": "模式",
+        "modeInternal": "站内查看内容",
+        "modeExternal": "跳转站外链接",
+        "content": "资讯内容",
+        "contentPlaceholder": "请输入资讯内容",
+        "sourceUrl": "原文链接",
+        "sourceUrlPlaceholder": "请输入原文链接",
+        "noDeptData": "暂无部门数据"
+      },
+      "validation": {
+        "titleRequired": "请输入资讯标题",
+        "titleMaxLength": "标题不能超过50个字符",
+        "typeRequired": "请选择资讯类型",
+        "introductionRequired": "请输入简介",
+        "introductionMaxLength": "简介不能超过100个字符",
+        "deptRequired": "请选择发布方",
+        "contentRequired": "请输入资讯内容",
+        "sourceUrlRequired": "请输入原文链接"
+      },
+      "actions": {
+        "saveDraft": "保存草稿",
+        "publish": "确认发布"
+      },
+      "messages": {
+        "loadDetailFailed": "加载资讯详情失败",
+        "uploadImageOnly": "请上传图片文件",
+        "uploadSizeLimit": "图片大小不能超过 5MB",
+        "uploadSuccess": "上传成功",
+        "uploadFailed": "上传失败",
+        "saveFailed": "保存失败",
+        "publishFailed": "发布失败"
+      }
+    }
+  }
+}

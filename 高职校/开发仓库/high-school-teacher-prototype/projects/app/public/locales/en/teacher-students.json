@@ -1,0 +1,4 @@
+{
+  "title": "Student Management",
+  "description": "This page is reserved for student rosters, learning alerts, and individual follow-up workflows, all managed under the teacher-side `(layoutPage)` route group."
+}
