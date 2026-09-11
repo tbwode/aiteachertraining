@@ -1,0 +1,169 @@
+{
+  "news": {
+    "title": "News Management",
+    "type": {
+      "notice": "Notice",
+      "news": "News",
+      "policy": "Policy",
+      "teaching": "Teaching",
+      "exchange": "Exchange",
+      "achievement": "Achievement",
+      "honor": "Honor"
+    },
+    "level": {
+      "school": "School",
+      "group": "Group"
+    },
+    "status": {
+      "published": "Published",
+      "unpublished": "Unpublished"
+    },
+    "table": {
+      "title": "Title",
+      "level": "Level",
+      "creator": "Creator",
+      "type": "Type",
+      "status": "Status",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "publishTime": "Publish Time",
+      "actions": "Actions"
+    },
+    "actions": {
+      "drafts": "Drafts",
+      "add": "Add News",
+      "edit": "Edit",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "top": "Top",
+      "untop": "Untop",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "confirmDelete": "Confirm Delete",
+      "confirmPublish": "Confirm Publish",
+      "confirmUnpublish": "Confirm Unpublish",
+      "confirmTop": "Confirm Top",
+      "confirmUntop": "Confirm Untop"
+    },
+    "pagination": {
+      "total": "Total {{total}} records",
+      "prev": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{page}} / {{totalPages}}"
+    },
+    "modal": {
+      "deleteTitle": "Delete Confirmation",
+      "deleteConfirm": "This action cannot be undone. Are you sure you want to delete?",
+      "publishTitle": "Publish Confirmation",
+      "publishConfirm": "Are you sure you want to publish this news?",
+      "unpublishTitle": "Unpublish Confirmation",
+      "unpublishConfirm": "Are you sure you want to unpublish this news?",
+      "topTitle": "Top Confirmation",
+      "topConfirm": "Are you sure you want to top this news?",
+      "untopTitle": "Untop Confirmation",
+      "untopConfirm": "Are you sure you want to untop this news?"
+    },
+    "messages": {
+      "loadFailed": "Failed to load data",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete",
+      "publishSuccess": "Published successfully",
+      "unpublishSuccess": "Unpublished successfully",
+      "topSuccess": "Topped successfully",
+      "untopSuccess": "Untopped successfully",
+      "operationFailed": "Operation failed"
+    },
+    "loading": "Loading...",
+    "empty": {
+      "title": "No news data",
+      "description": "Please click the button in the upper right corner to add news."
+    },
+    "search": {
+      "selectType": "Select news type",
+      "selectStatus": "Select status",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "publishTime": "Publish Time",
+      "placeholder": "Search title or creator",
+      "reset": "Reset",
+      "search": "Search",
+      "draft": "Draft"
+    },
+    "drafts": {
+      "back": "Back",
+      "title": "News Drafts",
+      "table": {
+        "title": "Draft Title",
+        "type": "Type",
+        "createTime": "Create Time",
+        "updateTime": "Update Time",
+        "actions": "Actions"
+      },
+      "empty": "No drafts",
+      "edit": "Edit",
+      "delete": "Delete",
+      "modal": {
+        "deleteTitle": "Delete Confirmation",
+        "deleteConfirm": "This action cannot be undone. Are you sure you want to delete this resource?",
+        "cancel": "Cancel",
+        "confirmDelete": "Confirm Delete"
+      },
+      "messages": {
+        "loadFailed": "Failed to load drafts",
+        "deleteSuccess": "Deleted successfully",
+        "deleteFailed": "Failed to delete"
+      }
+    },
+    "edit": {
+      "back": "Back",
+      "title": {
+        "add": "Add News",
+        "edit": "Edit News"
+      },
+      "form": {
+        "title": "Title",
+        "titlePlaceholder": "Enter news title",
+        "type": "Type",
+        "typePlaceholder": "Select news type",
+        "cover": "Cover Image",
+        "coverUpload": "Click to upload",
+        "coverUploading": "Uploading {{progress}}%",
+        "introduction": "Introduction",
+        "introductionPlaceholder": "Enter 20-100 characters introduction",
+        "dept": "Publisher",
+        "deptPlaceholder": "Select publisher",
+        "mode": "Mode",
+        "modeInternal": "Internal Content",
+        "modeExternal": "External Link",
+        "content": "Content",
+        "contentPlaceholder": "Enter news content",
+        "sourceUrl": "Source URL",
+        "sourceUrlPlaceholder": "Enter source URL",
+        "noDeptData": "No department data"
+      },
+      "validation": {
+        "titleRequired": "Please enter title",
+        "titleMaxLength": "Title cannot exceed 50 characters",
+        "typeRequired": "Please select type",
+        "introductionRequired": "Please enter introduction",
+        "introductionMaxLength": "Introduction cannot exceed 100 characters",
+        "deptRequired": "Please select publisher",
+        "contentRequired": "Please enter content",
+        "sourceUrlRequired": "Please enter source URL"
+      },
+      "actions": {
+        "saveDraft": "Save Draft",
+        "publish": "Publish"
+      },
+      "messages": {
+        "loadDetailFailed": "Failed to load news details",
+        "uploadImageOnly": "Please upload image file",
+        "uploadSizeLimit": "Image size cannot exceed 5MB",
+        "uploadSuccess": "Upload successful",
+        "uploadFailed": "Upload failed",
+        "saveFailed": "Save failed",
+        "publishFailed": "Publish failed"
+      }
+    }
+  }
+}

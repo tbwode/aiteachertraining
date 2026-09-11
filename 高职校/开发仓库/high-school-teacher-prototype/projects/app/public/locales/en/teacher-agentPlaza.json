@@ -1,0 +1,21 @@
+{
+  "title": "Agent Plaza",
+  "description": "Discover AI assistants to make teaching more efficient",
+  "searchPlaceholder": "Search agents...",
+  "statLabels": {
+    "agents": "Agents",
+    "scenes": "Scenes"
+  },
+  "subSceneLabel": "Sub-scene:",
+  "currentFilterLabel": "Current filter:",
+  "resultCount": "{{count}} agents",
+  "reset": "Reset",
+  "actions": {
+    "use": "Use",
+    "useUserCount": " users"
+  },
+  "sceneLabels": {
+    "all": "All"
+  },
+  "empty": "No agents available"
+}

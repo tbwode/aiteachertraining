@@ -1,0 +1,777 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close"
+  },
+  "home": {
+    "title": "AI Video Course",
+    "subtitle": "Type an idea and let AI generate a lecture video for you",
+    "modeTitle": "Choose a generation mode",
+    "mode": {
+      "text": {
+        "title": "Text to Video",
+        "desc": "Enter a prompt to generate a complete video"
+      },
+      "ppt": {
+        "title": "PPT/Doc to Video",
+        "desc": "Upload PPT or document files, auto-split pages and generate a lecture video"
+      },
+      "images": {
+        "title": "Images to Video",
+        "desc": "Upload multiple images; AI writes copy and voiceover"
+      },
+      "template": {
+        "title": "Template Video",
+        "desc": "Create from a blank canvas or an education template"
+      }
+    },
+    "comingSoon": "Coming soon",
+    "comingSoonTip": "This feature is coming soon. Stay tuned",
+    "plaza": {
+      "title": "Template Plaza",
+      "desc": "Categorized templates for courseware, marketing and science videos — replace text to generate"
+    },
+    "project": {
+      "title": "My Projects",
+      "count": "{{count}} projects",
+      "empty": "No video projects yet",
+      "emptyDesc": "Pick a generation mode above to create your first AI video",
+      "create": "Create now",
+      "continue": "Continue editing",
+      "preview": "Preview",
+      "edit": "Edit",
+      "more": "More actions",
+      "duplicate": "Duplicate",
+      "rename": "Rename",
+      "renameTitle": "Rename project",
+      "renamePlaceholder": "Enter project name",
+      "renameSuccess": "Renamed",
+      "delete": "Delete",
+      "status": {
+        "draft": "Editing",
+        "queued": "Queued",
+        "generating": "Generating",
+        "success": "Completed",
+        "failed": "Failed"
+      },
+      "modeLabel": {
+        "text": "Text to Video",
+        "ppt": "PPT to Video",
+        "template": "Template Video",
+        "images": "Images to Video"
+      },
+      "duplicateSuccess": "Project duplicated",
+      "deleteSuccess": "Project deleted",
+      "deleteTitle": "Delete project",
+      "deleteMessage": "Delete project \"{{title}}\"? This cannot be undone.",
+      "confirmDelete": "Delete",
+      "generating": "Generating",
+      "queuePosition": "Queued (#{{value}})"
+    }
+  },
+  "create": {
+    "back": "Back",
+    "title": "Text to Video",
+    "subtitle": "Enter a script or topic; AI breaks it down into a storyboard",
+    "promptExamplesLabel": "Try an example:",
+    "examples": {
+      "example1": {
+        "topic": "Gaussian Elimination: Principles and Step-by-Step Walkthrough",
+        "notes": "Style: minimalist courseware; Audience: first-year vocational college students (foundational math); Key points: augmented matrix setup, step-by-step elimination demo, back-substitution and worked example"
+      },
+      "example2": {
+        "topic": "CNC milling practical training: workpiece clamping and tool setting",
+        "notes": "Style: realistic; Audience: CNC machining trainees; Key points: clamping steps, tool-setting essentials, safety notes"
+      },
+      "example3": {
+        "topic": "E-commerce livestreaming workshop: opening lines and retention tactics",
+        "notes": "Style: knowledge talk; Audience: e-commerce majors; Key points: opening script templates, retention tactics, real case demos"
+      }
+    },
+    "paramsTitle": "Advanced options",
+    "ratio": "Aspect ratio",
+    "ratioOption": {
+      "16_9": "Landscape (16:9)",
+      "9_16": "Portrait (9:16)",
+      "1_1": "Square (1:1)"
+    },
+    "duration": "Target duration",
+    "durationOption": {
+      "smart": "Smart match",
+      "compact": "Compact",
+      "balanced": "Balanced",
+      "relaxed": "Relaxed",
+      "special": "Feature"
+    },
+    "style": "Video style",
+    "styleOption": {
+      "realistic": "Realistic",
+      "anime": "Anime",
+      "tech": "Tech",
+      "simpleCourseware": "Minimal courseware",
+      "corporate": "Corporate promo",
+      "documentary": "Documentary",
+      "knowledgeTalk": "Knowledge talk",
+      "flashCut": "Flash cut"
+    },
+    "voice": "Voiceover",
+    "voiceOption": {
+      "femaleClear": "Female · Clear",
+      "femaleGentle": "Female · Gentle",
+      "maleDeep": "Male · Deep",
+      "maleEnergetic": "Male · Energetic"
+    },
+    "speed": "Speed",
+    "speedUnit": "{{value}}x",
+    "bgm": "Background music",
+    "bgmOption": {
+      "none": "No BGM",
+      "freePiano": "Free · Soft piano",
+      "freeLight": "Free · Upbeat melody",
+      "vipEpic": "VIP · Epic score"
+    },
+    "vipTag": "VIP",
+    "submit": "Generate storyboard",
+    "submitting": "Generating…",
+    "tooShortTitle": "Prompt too short",
+    "tooShortMessage": "Add style preferences, target audience and key points so AI can generate a better storyboard.",
+    "tooShortConfirm": "Generate anyway",
+    "moderationMessage": "Content violates platform rules. Please adjust and try again",
+    "createFailed": "Creation failed, please try again later",
+    "topicLabel": "Video topic",
+    "topicPlaceholder": "Enter the topic of the video you want to generate…",
+    "notesLabel": "Additional notes",
+    "notesOptional": "(optional)",
+    "notesPlaceholder": "Additional notes (optional): style preferences, target audience, key points…",
+    "recommendTag": "Recommended",
+    "durationDesc": {
+      "smart": "AI decides",
+      "compact": "~30s-1min",
+      "balanced": "~1-3min",
+      "relaxed": "~3-5min",
+      "special": "5min+"
+    },
+    "styleByRatioTip": "Style templates adapt to the selected ratio"
+  },
+  "storyboard": {
+    "title": "Storyboard",
+    "subtitle": "AI generated a storyboard preview. Review and edit before rendering",
+    "shot": "Shot {{index}}",
+    "sceneLabel": "Visual design",
+    "narrationLabel": "Shot script",
+    "durationLabel": "Duration (s)",
+    "regenerateShot": "Regenerate image",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "deleteShot": "Delete",
+    "addShot": "Add shot",
+    "regenerateAll": "Regenerate all",
+    "regenerateAllTitle": "Regenerate all",
+    "regenerateAllMessage": "This resets all shots and your edits will be lost. Continue?",
+    "totalDuration": "Total {{value}}s",
+    "generate": "Generate video",
+    "shotDeleted": "Shot deleted",
+    "shotAdded": "Shot added",
+    "shotRegenerated": "Image regenerated",
+    "storyboardRegenerated": "Storyboard regenerated",
+    "empty": "No shots yet. Click \"Add shot\" below",
+    "moderationMessage": "Content violates platform rules. Please adjust and try again",
+    "titleLabel": "Shot title",
+    "notesLabel": "Production notes",
+    "generatingTip": "AI is generating shots one by one…",
+    "generatingShot": "Generating shot {{index}}…",
+    "generatingProgress": "{{current}}/{{total}} shots generated"
+  },
+  "task": {
+    "queuedTitle": "In queue",
+    "queuedDesc": "Queuing now, {{count}} tasks ahead of you",
+    "generatingTitle": "Generating video",
+    "generatingDesc": "Rendering your video. Please keep this page open",
+    "progress": "Overall progress",
+    "stage": {
+      "script": "Parsing script",
+      "visuals": "Generating visuals",
+      "voice": "Synthesizing voice",
+      "subtitle": "Creating subtitles",
+      "render": "Rendering video",
+      "ppt": {
+        "script": "Matching scripts",
+        "visuals": "Rendering PPT layout",
+        "voice": "Lip-syncing avatar",
+        "subtitle": "Mixing audio & video",
+        "render": "Transcoding & exporting"
+      }
+    },
+    "failedTitle": "Video generation failed",
+    "failReason": {
+      "timeout": "Generation timed out. Try again, possibly with a shorter duration",
+      "moderation": "Content flagged as risky. Please revise the copy and retry",
+      "busy": "Server busy. Please try again later"
+    },
+    "backToEdit": "Back to storyboard",
+    "retry": "Retry"
+  },
+  "preview": {
+    "title": "Video preview",
+    "subtitle": "Your video is ready. Play it or download",
+    "backToEdit": "Back to storyboard",
+    "backToEditTitle": "Back to storyboard",
+    "backToEditMessage": "Going back discards the generated video and you will need to regenerate. Continue?",
+    "subtitleList": "Subtitles",
+    "export": "Export",
+    "resolution": "Resolution",
+    "resolutionOption": {
+      "720p": "720P HD",
+      "1080p": "1080P Full HD",
+      "4k": "4K Ultra HD"
+    },
+    "free": "Free",
+    "vipOnly": "VIP only",
+    "watermarkTip": "Free exports include a platform watermark; VIP exports are watermark-free",
+    "format": "Format: MP4",
+    "download": "Download",
+    "downloadStarted": "Download started",
+    "notExportable": "Video is not ready yet and cannot be exported"
+  },
+  "workspace": {
+    "back": "Back to list",
+    "notFound": "Project not found or deleted"
+  },
+  "studio": {
+    "headerTip": "Fine-tune subtitles, audio, clips, trimming and intro/outro — changes save instantly",
+    "tabs": {
+      "subtitle": "Subtitles",
+      "audio": "Audio",
+      "trim": "Trim",
+      "introOutro": "Intro/Outro"
+    },
+    "subtitle": {
+      "styleTitle": "Subtitle style",
+      "fontSize": "Font size",
+      "size": {
+        "small": "S",
+        "medium": "M",
+        "large": "L"
+      },
+      "color": "Color",
+      "autoBreak": "Auto sentence break",
+      "autoBreakTip": "Split long sentences at punctuation",
+      "listTitle": "Subtitle text",
+      "editTip": "Changes save instantly"
+    },
+    "audio": {
+      "voice": "Voiceover",
+      "voiceVolume": "Voice volume",
+      "bgmVolume": "BGM volume",
+      "tip": "Audio changes take effect after the voiceover is re-synthesized"
+    },
+    "clip": {
+      "title": "Shot media",
+      "uploadTip": "Images / videos, ≤3MB each",
+      "regenerate": "Regenerate",
+      "upload": "Upload",
+      "restore": "Restore AI image",
+      "customTag": "Custom",
+      "tooLarge": "File exceeds 3MB. Please compress and retry"
+    },
+    "trim": {
+      "rangeLabel": "Keep range (trim head/tail)",
+      "total": "Total {{value}}s",
+      "start": "From {{value}}s",
+      "end": "To {{value}}s",
+      "tip": "Only head/tail trimming is supported; applied on export"
+    },
+    "introOutro": {
+      "introTitle": "Intro template",
+      "outroTitle": "Outro template",
+      "template": {
+        "none": "None",
+        "schoolBadge": "School badge",
+        "minimalText": "Minimal text",
+        "courseTitle": "Course cover"
+      },
+      "durationTip": "Intro / outro each add {{value}}s to the total duration"
+    },
+    "saved": "Saved",
+    "undo": "Undo",
+    "redo": "Redo",
+    "topbar": {
+      "save": "Save",
+      "saved": "Saved",
+      "export": "Export video"
+    },
+    "sidebar": {
+      "title": "Shots",
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "seconds": "{{value}}s",
+      "expandItem": "Expand shot",
+      "collapseItem": "Collapse shot"
+    },
+    "rail": {
+      "aiEdit": "AI Edit",
+      "script": "Script",
+      "digitalHuman": "Avatar",
+      "voice": "Voice",
+      "music": "Music",
+      "clip": "Media",
+      "trim": "Trim",
+      "introOutro": "Intro/Outro"
+    },
+    "timeline": {
+      "video": "Video",
+      "script": "Script",
+      "music": "Music",
+      "digitalHuman": "Avatar",
+      "comingSoon": "Coming soon",
+      "noBgm": "No background music",
+      "intro": "Intro",
+      "outro": "Outro",
+      "label": "Timeline"
+    },
+    "exportModal": {
+      "title": "Export video"
+    },
+    "aiEdit": {
+      "regenerateStoryboard": "Regenerate script",
+      "regenerateStoryboardDesc": "AI rewrites the whole storyboard",
+      "done": "Done",
+      "currentShot": "Current shot",
+      "noShot": "Select a shot on the left to optimize it with quick commands or chat.",
+      "quickCommands": "Quick commands",
+      "cmd": {
+        "pacing": "Optimize pacing",
+        "enrich": "Enrich details",
+        "simplify": "Simplify"
+      },
+      "chat": {
+        "title": "AI agent chat",
+        "placeholder": "Type a request, e.g. \"simplify this shot's script\"…",
+        "send": "Send",
+        "thinking": "Thinking…",
+        "replyPacing": "Pacing optimized: shot duration adjusted to {duration}s with smooth ease-in/out transitions.",
+        "replyEnrich": "Details enriched: added formula close-ups, key highlights, and common-mistake reminders.",
+        "replySimplify": "Content simplified: script kept to the core point and visuals focused on key steps.",
+        "replyFallback": "I can optimize the current shot: pacing, richer details, or simplify. Try the quick commands above, or tell me what you need.",
+        "replyNoShot": "Please select a shot on the left first, then I can optimize it."
+      },
+      "globalActions": "Global actions",
+      "close": "Close"
+    },
+    "canvas": {
+      "subtitle": "Subtitles",
+      "subtitleSettings": "Subtitle settings",
+      "subtitleOff": "Turn off subtitles",
+      "aiMark": "AI mark",
+      "badgePosition": "Badge position",
+      "position": {
+        "topRight": "Top right",
+        "topLeft": "Top left",
+        "bottomRight": "Bottom right",
+        "bottomLeft": "Bottom left"
+      }
+    },
+    "player": {
+      "aiBadge": "AI generated"
+    },
+    "digitalHuman": {
+      "enable": "Enable digital human presenter",
+      "avatarTitle": "Choose a presenter",
+      "avatar": {
+        "femaleTeacher": "Ms. Lin",
+        "maleTeacher": "Mr. Chen",
+        "bailuwei": "Bai Luwei",
+        "xiayouyou": "Xia Youyou",
+        "luyumo": "Lu Yumo",
+        "chenzhiyue": "Chen Zhiyue",
+        "wenyicheng": "Wen Yicheng",
+        "yunshu": "Yun Shu",
+        "baishihan": "Bai Shihan",
+        "linwanqing": "Lin Wanqing",
+        "wenyanshu": "Wen Yanshu"
+      },
+      "avatarDesc": {
+        "femaleTeacher": "Warm and detailed — great for explainer lessons",
+        "maleTeacher": "Calm and professional — great for theory walkthroughs"
+      },
+      "tip": "The presenter follows each shot’s narration. Drag, resize or remove it on the canvas — changes can apply to all clips or this clip only.",
+      "disabled": "Digital human disabled",
+      "modeTitle": "Display mode",
+      "mode": {
+        "halfBody": "Half body",
+        "fullBody": "Full body",
+        "floatingAvatar": "Floating avatar"
+      },
+      "current": "Current presenter",
+      "category": {
+        "realistic": "Realistic",
+        "cartoon": "Cartoon"
+      },
+      "searchPlaceholder": "Search presenters",
+      "filter": "Filter",
+      "canvas": {
+        "remove": "Remove presenter",
+        "move": "Drag to move",
+        "adjusted": {
+          "position": "Presenter position adjusted",
+          "size": "Presenter size adjusted",
+          "removed": "Presenter removed"
+        },
+        "syncAsk": "— Sync to other clips?",
+        "syncAll": "Sync to all clips",
+        "thisShot": "This clip only",
+        "applied": {
+          "all": "Applied to all pages",
+          "shot": "Applied to this page"
+        },
+        "switchToShot": "This page only",
+        "switchToAll": "Apply to all pages",
+        "undo": "Undo",
+        "removedCurrent": "Presenter removed on this clip",
+        "restoreShot": "Restore"
+      },
+      "restore": "Restore presenter for this clip",
+      "reEnable": "Re-enable",
+      "emptySearch": "No matching presenters"
+    },
+    "script": {
+      "currentVoice": "Current voice",
+      "speed": "Speed",
+      "audition": "Preview",
+      "auditioning": "Playing…",
+      "voiceTip": "Change voice and speed in the Voice panel",
+      "currentScript": "Current shot script",
+      "noShot": "Select a shot on the left to edit its script and preview"
+    }
+  },
+  "ppt": {
+    "title": "PPT/Document to Video",
+    "subtitle": "Upload a courseware file and let AI parse it into a digital-human narrated video",
+    "steps": {
+      "upload": "Upload",
+      "params": "Parameters",
+      "preview": "Preview & Edit"
+    },
+    "next": "Next",
+    "prev": "Back",
+    "generate": "Generate Voiceover",
+    "creating": "Creating project…",
+    "createFailed": "Failed to create, please try again",
+    "upload": {
+      "dropTitle": "Click to select or drag a file here",
+      "hint": "Supports PPT / Word / PDF, up to 100MB per file, one file at a time",
+      "demoLink": "No file handy? Try the sample courseware",
+      "reupload": "Upload again",
+      "stateUploading": "Uploading",
+      "stateValidating": "Validating",
+      "stateSuccess": "Uploaded",
+      "stateFailed": "Upload failed",
+      "errorFormat": "Unsupported format. Please upload a PPT / Word / PDF file",
+      "errorIntegrity": "Failed to parse the file. Please check whether it is encrypted or corrupted",
+      "errorModeration": "The file contains prohibited content and has been blocked",
+      "fileName": "File name",
+      "fileSize": "File size",
+      "oversizeTitle": "File exceeds the current plan limit",
+      "oversizeDesc": "This file is {{size}}MB, exceeding the free plan limit. Upgrade to upload larger courseware:",
+      "oversizeFree": "Free: ≤100MB per file",
+      "oversizeVip": "Member: ≤500MB per file",
+      "oversizeUpgrade": "Upgrade",
+      "oversizeCancel": "Choose again",
+      "upgradeTip": "Membership upgrade entry is a demo placeholder",
+      "multiTip": "Only 1 file per upload; the first file was selected"
+    },
+    "parse": {
+      "parsing": "Parsing the file, please wait…",
+      "stageStructure": "Splitting page structure",
+      "stageText": "Extracting text content",
+      "stageVisual": "Analyzing visual assets",
+      "stageAnimation": "Detecting animations",
+      "stageLayout": "Recording layout info",
+      "done": "Parsing complete: {{count}} valid pages",
+      "blankFiltered": "{{count}} blank page(s) auto-filtered, no empty shots will be created",
+      "aiEnrich": "AI-enriched narration",
+      "ruleNote": "Parsing preserves the original PPT layout, colors and fonts as much as possible",
+      "pagePrefix": "Page {{index}}",
+      "points": "{{count}} key points",
+      "words": "{{count}} chars",
+      "hasVisual": "Has visuals",
+      "hasAnimation": "Has animation",
+      "blank": "Blank page",
+      "filtered": "Filtered",
+      "type": {
+        "cover": "Cover",
+        "toc": "Contents",
+        "content": "Content",
+        "chart": "Chart",
+        "ending": "Closing"
+      }
+    },
+    "params": {
+      "generalTitle": "General parameters",
+      "pptTitle": "PPT-specific parameters",
+      "ratio": "Aspect ratio",
+      "ratioTip": "16:9 by default, the courseware standard",
+      "voice": "Voice",
+      "speed": "Speed",
+      "speedUnit": "{{value}}x",
+      "emotion": "Emotion",
+      "emotionOption": {
+        "calm": "Calm",
+        "warm": "Warm",
+        "energetic": "Energetic"
+      },
+      "subtitle": "Subtitles",
+      "subtitleOn": "On",
+      "subtitleOff": "Off",
+      "bgm": "Background music",
+      "resolution": "Resolution",
+      "resolution720": "720P HD",
+      "resolution1080": "1080P FHD",
+      "watermark": "Watermark",
+      "watermarkTip": "Follows membership permissions",
+      "vipTag": "VIP",
+      "vipLockedTip": "Available after upgrade",
+      "pageDuration": "Per-page duration",
+      "pageDurationOption": {
+        "auto": "Auto",
+        "3": "3s",
+        "5": "5s",
+        "8": "8s",
+        "custom": "Custom"
+      },
+      "pageDurationAutoTip": "Duration is allocated by word count per page",
+      "customDurationUnit": "s/page",
+      "transition": "Page transition",
+      "transitionOption": {
+        "none": "None",
+        "smooth": "Smooth",
+        "fade": "Fade",
+        "original": "Original PPT animation"
+      },
+      "transitionVipTip": "Members can restore original PPT animations",
+      "scriptMode": "Script style",
+      "scriptModeOption": {
+        "concise": "Concise",
+        "detailed": "Detailed teaching",
+        "formal": "Formal report",
+        "minimal": "Minimal subtitles"
+      },
+      "scriptModeTip": "Narration styles for teaching or reporting scenarios",
+      "transitionGap": "Transition gap",
+      "transitionGapTip": "Gap between pages for smoother playback",
+      "template": "Choose a template",
+      "templateTip": "Click a template thumbnail to preview",
+      "templateDesc": {
+        "simpleCourseware": "Clean courseware style, content first",
+        "realistic": "Realistic scenes for immersive teaching",
+        "corporate": "Business look for formal presentations",
+        "documentary": "Documentary narrative with atmosphere"
+      },
+      "previewTemplate": "Preview",
+      "useTemplate": "Use this template",
+      "voiceTip": "You can audition and change the voice on the preview page",
+      "scriptModeDesc": {
+        "concise": "Key points only, concise and efficient",
+        "detailed": "Full explanation with background and cases",
+        "formal": "Formal wording for presentations",
+        "minimal": "Title-only subtitles, no voiceover"
+      }
+    },
+    "digitalHuman": {
+      "enable": "Enable digital human narration",
+      "defaultTip": "On by default: half-body floating, transparent background, bottom-right position without covering key content",
+      "avatar": "Avatar",
+      "smartAvoid": "Smart avoidance of key content",
+      "smartAvoidTip": "Detects titles, body text and chart areas so the avatar avoids key content",
+      "perPage": "Per-page narration",
+      "perPageTip": "Enable narration on all pages, or turn it off per page to mix plain pages with narrated ones",
+      "flipLink": "Page-turn sync: the avatar transitions smoothly between pages without flicker",
+      "all": "Enable all",
+      "none": "Disable all"
+    },
+    "editor": {
+      "back": "Parameters",
+      "autosave": "Autosave",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "preview": "Preview",
+      "generateVideo": "Generate Video",
+      "segments": "Segments",
+      "generating": "Generating voiceover scripts ({{done}}/{{total}})",
+      "stopGenerate": "Stop",
+      "resumeGenerate": "Resume",
+      "scriptPending": "Pending",
+      "scriptGenerating": "Generating…",
+      "toggleProgress": "Smart progress bar",
+      "playSegment": "Play segment",
+      "rail": {
+        "template": "Template",
+        "layout": "Layout",
+        "digitalHuman": "Avatar",
+        "voice": "Voice",
+        "text": "Text",
+        "material": "Assets",
+        "background": "Backdrop",
+        "music": "Music"
+      },
+      "comingSoon": "Coming soon, stay tuned",
+      "bgm": "Background music",
+      "optimize": "Polish script",
+      "optimizedTip": "Script polished in \"{{mode}}\" mode",
+      "charCount": "Chars: {{count}}/2000",
+      "estimated": "Est. duration: {{seconds}}s",
+      "audition": "Listen",
+      "auditionStop": "Stop",
+      "auditionUnsupported": "Speech audition is not supported in this browser",
+      "scriptPlaceholder": "Edit the voiceover script once generated",
+      "previewTitle": "Full preview",
+      "pageOf": "Page {{index}} / {{total}}",
+      "currentShotDh": "Avatar on this page",
+      "speed": "Speed",
+      "submitFailed": "Failed to submit the render task, please retry",
+      "templateApplied": "Template switched",
+      "addSegment": "Add segment",
+      "segmentAdded": "Segment added",
+      "segmentDeleted": "Segment deleted",
+      "lastSegmentTip": "Keep at least 1 segment",
+      "newSegmentTitle": "New segment",
+      "deleteSegment": "Delete segment",
+      "layoutOption": {
+        "leftDh": "Left slide - Side presenter",
+        "centerNone": "Centered - No avatar",
+        "fullNone": "Fullscreen - No avatar",
+        "fullDh": "Fullscreen - Side presenter",
+        "fullAvatar": "Fullscreen - Presenter cam",
+        "centerAvatar": "Centered - Presenter cam"
+      },
+      "text": {
+        "addTextBox": "Add text box",
+        "defaultText": "New text",
+        "content": "Content",
+        "empty": "No text boxes yet. Click the button above to add one.",
+        "font": "Font",
+        "fontOption": {
+          "sans": "Default",
+          "serif": "Serif",
+          "kai": "Kai",
+          "yuanti": "Rounded"
+        },
+        "size": "Size",
+        "color": "Color",
+        "opacity": "Opacity",
+        "deleteText": "Delete text box",
+        "sizeUp": "Increase size",
+        "sizeDown": "Decrease size",
+        "customColor": "Custom color",
+        "alignH": "Horizontal align",
+        "alignV": "Vertical align",
+        "alignLeft": "Align left",
+        "alignCenter": "Align center",
+        "alignRight": "Align right",
+        "alignTop": "Align top",
+        "alignMiddle": "Align middle",
+        "alignBottom": "Align bottom",
+        "enterAnimation": "Enter animation",
+        "exitAnimation": "Exit animation",
+        "enterAnimOption": {
+          "none": "None",
+          "fadeIn": "Fade in",
+          "slideInRight": "Slide in right",
+          "slideInLeft": "Slide in left",
+          "slideInUp": "Slide in up",
+          "slideInDown": "Slide in down"
+        },
+        "exitAnimOption": {
+          "none": "None",
+          "fadeOut": "Fade out",
+          "slideOutRight": "Slide out right",
+          "slideOutLeft": "Slide out left",
+          "slideOutUp": "Slide out up",
+          "slideOutDown": "Slide out down"
+        },
+        "resizeHandle": "Resize"
+      },
+      "undo": "Undo",
+      "redo": "Redo",
+      "material": {
+        "upload": "Upload image / video",
+        "uploadTip": "Images and videos supported, ≤10MB per file",
+        "empty": "No materials yet. Upload one above.",
+        "addToCanvas": "Add to canvas",
+        "deleteMaterial": "Delete material",
+        "deleteOverlay": "Delete material",
+        "overlayLabel": "Media overlay",
+        "typeTip": "Only image or video files are supported",
+        "oversizeTip": "File exceeds 10MB. Please compress and retry.",
+        "uploadedTip": "Material uploaded",
+        "addedTip": "Added to canvas. Drag to move or resize.",
+        "canvasTip": "Once added: drag to move, drag the handle to resize, click to delete"
+      },
+      "background": {
+        "system": "System backgrounds",
+        "custom": "Custom background",
+        "upload": "Upload local image",
+        "replace": "Replace",
+        "remove": "Remove",
+        "typeTip": "Only image files are supported",
+        "oversizeTip": "Image exceeds 10MB. Please compress and retry.",
+        "tip": "Background applies to all segments. Click the selected preset again to follow the template.",
+        "preset": {
+          "skyBlue": "Sky blue",
+          "mint": "Mint",
+          "lavender": "Lavender",
+          "peach": "Peach",
+          "lightGray": "Light gray",
+          "deepBlue": "Deep blue",
+          "forest": "Forest",
+          "sunset": "Sunset"
+        }
+      },
+      "highlightSelection": "Highlight",
+      "highlightSetTip": "Highlight set",
+      "highlightRemoveTip": "Highlight removed",
+      "audioSynthesizing": "Synthesizing audio…",
+      "progress": {
+        "title": "Smart progress bar",
+        "show": "Show",
+        "generate": "Auto-generate",
+        "generateTip": "Chapters generated from segment content",
+        "addChapter": "Add title",
+        "editTitle": "Click to edit title",
+        "deleteChapter": "Delete title",
+        "resizeTip": "Click a title to edit; drag chapter boundaries to resize (drag fully to merge)",
+        "untitled": "Untitled"
+      },
+      "previewTip": "Static avatar in preview; animated avatar in the final video",
+      "previewTipDismiss": "Don't show again",
+      "audioLoading": "Loading audio…",
+      "prevShot": "Previous segment",
+      "nextShot": "Next segment",
+      "play": "Play",
+      "pause": "Pause",
+      "render": {
+        "title": "Render settings",
+        "videoName": "Video name",
+        "resolution": "Resolution",
+        "resOption": {
+          "1080p": "1080P FHD",
+          "720p": "720P HD",
+          "480p": "480P SD"
+        },
+        "quality": "Quality",
+        "qualityOption": {
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low"
+        },
+        "frameRate": "Frame rate",
+        "estSize": "Est. size",
+        "estDuration": "Duration",
+        "estCost": "Est. time",
+        "confirm": "Start rendering"
+      },
+      "backToList": "Back to list"
+    }
+  }
+}

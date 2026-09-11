@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "Admin Home",
+    "title": "The first layer of the teaching management admin architecture is in place",
+    "description": "Based on the admin prototype, the portal is now split into a unified sidebar, top identity area, homepage overview, and teaching management sub-routes. You can continue building real business pages on top of this structure instead of starting from scattered entry points.",
+    "primaryAction": "Open Teaching Tasks",
+    "secondaryAction": "Back to Teacher Portal"
+  },
+  "overview": {
+    "title": "Overview",
+    "description": "Stabilize the extensible admin shell first, then fill in filters, tables, and dialogs."
+  },
+  "highlights": {
+    "title": "Architecture Highlights",
+    "description": "These are not marketing bullets. They are the parts that actually make follow-up development easier.",
+    "items": {
+      "architecture": {
+        "title": "Unified information architecture",
+        "description": "Sidebar entries, homepage cards, and child pages are all driven by one config source, avoiding mismatches when modules are added later."
+      },
+      "domains": {
+        "title": "Domain-based expansion",
+        "description": "Teaching management is separated under `/admin/teaching/*` first, while base data, content, and AI applications can be added in parallel later."
+      },
+      "placeholders": {
+        "title": "Delivery-oriented placeholders",
+        "description": "Each teaching module already has an accessible entry page ready to receive filters, tables, dialogs, and API integration."
+      }
+    }
+  },
+  "modules": {
+    "title": "Teaching Management Modules",
+    "description": "All 8 core modules are already available under `/admin/teaching/*`, so each entry can now evolve into a real page with forms and tables.",
+    "viewModule": "Open Module",
+    "cards": {
+      "majors": {
+        "title": "Major Management",
+        "description": "Manage school majors and their relationships with courses."
+      },
+      "grades": {
+        "title": "Grade Management",
+        "description": "Maintain grade structures with custom naming and deletion rules."
+      },
+      "classes": {
+        "title": "Class Management",
+        "description": "Maintain class information, generated codes, and links to majors and grades."
+      },
+      "semesters": {
+        "title": "Semester Management",
+        "description": "Set semester ranges, current semester markers, and active status."
+      },
+      "students": {
+        "title": "Student Management",
+        "description": "Manage student records with batch import and student ID rules."
+      },
+      "teachers": {
+        "title": "Teacher Management",
+        "description": "Manage teacher records, employee code rules, and teaching relations."
+      },
+      "courses": {
+        "title": "Course Management",
+        "description": "Manage course information, categories, credits, and major applicability."
+      },
+      "tasks": {
+        "title": "Teaching Task Management",
+        "description": "Assign teaching tasks across teachers, courses, classes, and semesters."
+      }
+    }
+  }
+}

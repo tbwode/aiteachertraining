@@ -1,0 +1,84 @@
+{
+  "greeting": {
+    "morning": "早上好",
+    "forenoon": "上午好",
+    "noon": "中午好",
+    "afternoon": "下午好",
+    "evening": "晚上好"
+  },
+  "tabs": {
+    "teaching_content": "授课内容",
+    "overview": "教学概况",
+    "ai_news": "AI前沿资讯"
+  },
+  "teaching_content": {
+    "title": "授课内容",
+    "subtitle": "{{name}} 老师,你有 {{count}} 门课程需要授课",
+    "subtitle_short": "你有 {{count}} 门课程需要授课",
+    "hours_suffix": "课时",
+    "selected": "已选",
+    "start_class": "立即上课",
+    "empty": "暂无授课课程"
+  },
+  "overview": {
+    "title": "教学概况",
+    "status_subtitle": "学生学习进度{{label}}",
+    "metrics": {
+      "total": "学生总人数",
+      "studying": "学习人数",
+      "normal": "进度正常人数",
+      "lagging": "滞后人数"
+    },
+    "overall_progress": "学生整体学习进度",
+    "empty": "暂无授课课程"
+  },
+  "ai_news": {
+    "title": "AI前沿资讯",
+    "subtitle": "最近发生了很多与《{{course}}》课程相关的新闻",
+    "view_more": "查看更多AI资讯 →",
+    "empty": "暂无前沿资讯",
+    "empty_course": "该课程暂无前沿资讯"
+  },
+  "ai_news_list": {
+    "title": "AI前沿资讯",
+    "mark_all_read": "全部标为已读",
+    "marking": "正在标记...",
+    "unread_count": "共 {{count}} 条未读",
+    "empty_hint": "这门课暂时还没有相关的 AI 资讯，过段时间再来看看"
+  },
+  "news_detail": {
+    "tag": "AI前沿资讯",
+    "content_label": "详细内容:",
+    "related_course": "关联课程:",
+    "publish_time": "发布时间:",
+    "cancel": "取消",
+    "mark_read": "标记已读",
+    "read": "已读"
+  },
+  "chat_dock": {
+    "quick_actions": {
+      "chat": "对话",
+      "before_class": "课前-",
+      "open_course": "创建AI教师",
+      "make_courseware": "做数字课件",
+      "make_ai_main": "做AI主讲课",
+      "ask_progress": "问学情"
+    },
+    "placeholder": "请输入您的问题",
+    "send": "发送",
+    "upload": "附件",
+    "upload_limit_count": "最多只能上传5个文件",
+    "upload_limit_type": "不支持该文件类型，请上传pdf、doc、xls、ppt、txt、md、图片等格式",
+    "upload_limit_size": "文件{{fileName}}超过大小限制（单个文件限100MB）",
+    "voice": "语音输入",
+    "voice_cancel": "取消录音",
+    "voice_finish": "完成并转写",
+    "voice_transcribing": "识别中…"
+  },
+  "toasts": {
+    "coming_soon": "敬请期待",
+    "marked_read": "已标记为已读",
+    "marked_all_read": "已全部标为已读",
+    "mark_read_failed": "操作失败,请稍后重试"
+  }
+}

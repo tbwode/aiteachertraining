@@ -1,0 +1,151 @@
+{
+  "header": {
+    "back_home": "返回首页"
+  },
+  "history": {
+    "new_chat": "新建对话",
+    "title": "历史对话",
+    "today": "今天",
+    "yesterday": "昨天",
+    "day_before_yesterday": "前天"
+  },
+  "input": {
+    "placeholder": "请输入您的问题",
+    "placeholder_ai_lecture": "请输入您要创建的课件主题、目标对象、互动形式",
+    "aria_voice": "语音输入",
+    "aria_upload": "附件",
+    "aria_send": "发送"
+  },
+  "quick_actions": {
+    "before_class": "课前-",
+    "home": "首页",
+    "create_course": "创建AI教师",
+    "create_material": "做数字课件",
+    "create_ai_lecture": "做AI主讲课",
+    "create_ai_lecture_student": "AI主讲课",
+    "ask_progress": "问学情",
+    "learning_portrait": "学习画像"
+  },
+  "portrait": {
+    "status_review": "复习",
+    "status_continue": "继续",
+    "student_id_label": "学号",
+    "major_label": "专业",
+    "update_portrait": "更新我的画像",
+    "in_progress_courses": "在修课程",
+    "completed_courses": "已学完",
+    "total_hours": "累计学习时长",
+    "course_progress": "各课程学习进度",
+    "ability_radar": "能力对比雷达图",
+    "my_ability": "我的当前能力",
+    "career_analysis": "专业就业方向解析",
+    "improvement_plan": "我的提升计划",
+    "unit_course": "门",
+    "unit_hour": "小时",
+    "no_data": "暂无数据",
+    "target_position": "目标岗位",
+    "target_requirement": "目标岗位要求",
+    "training_requirement": "学校人培要求",
+    "ability_diagnosis": "岗位能力诊断",
+    "gap_current": "当前",
+    "gap_target": "目标",
+    "gap_to_improve": "待提升",
+    "gap_reached": "已达标",
+    "improvement_plan_courses": "推荐选修课程",
+    "improvement_plan_books": "推荐书单",
+    "go_study": "去学习",
+    "join_study": "加入学习",
+    "not_available": "暂未上架",
+    "career_loading": "正在生成职业诊断...",
+    "career_error": "职业诊断服务暂未开放",
+    "category_beginner": "入门",
+    "category_advanced": "进阶",
+    "category_practice": "实战",
+    "major_analysis_title": "专业分析与建议"
+  },
+  "error": {
+    "fetch_portrait_failed": "获取学习画像失败，请稍后重试",
+    "update_portrait_failed": "更新画像失败，请稍后重试",
+    "no_student_info": "未获取到学生信息，请重新登录"
+  },
+  "loading": {
+    "thinking": "正在思考中..."
+  },
+  "action": {
+    "go": "点击前往",
+    "view_portrait_title": "你的学习画像已生成并推送到前端啦！里面包含了你的能力雷达图、专业分析、就业方向建议和个人提升计划，快去看看吧～",
+    "view_portrait_label": "查看画像"
+  },
+  "toast": {
+    "new_chat_welcome": "欢迎进入AI主讲课，您可以通过输入问题或上传文件与我交流"
+  },
+  "course_type": {
+    "required": "必修",
+    "elective": "选修"
+  },
+  "outline": {
+    "title": "课程大纲",
+    "scene_count": "共 {{count}} 个场景",
+    "total_duration": "预计 {{minutes}} 分钟",
+    "scene_type_label": "场景类型",
+    "scene_type": {
+      "slide": "演示",
+      "interactive": "互动",
+      "quiz": "测验",
+      "pbl": "PBL"
+    },
+    "scene_title": "场景标题",
+    "scene_description": "场景描述",
+    "teaching_objective": "教学目标",
+    "key_points": "关键点（每行一个）",
+    "estimated_duration": "预计时长（秒）",
+    "difficulty_label": "难度",
+    "question_type_label": "题型",
+    "question_count_label": "题目数量",
+    "question_type": {
+      "single": "单选",
+      "multiple": "多选",
+      "text": "文字输入"
+    },
+    "difficulty": {
+      "easy": "简单",
+      "medium": "中等",
+      "hard": "困难"
+    },
+    "confirm_generate": "确认并生成课程",
+    "delete_aria": "删除场景"
+  },
+  "studentLearning": {
+    "title": "学员学情",
+    "student_id": "学号",
+    "course_progress_title": "课程学习进度",
+    "ai_qa_title": "AI 问答情况",
+    "suggestion_title": "学习建议",
+    "student_not_found": "未找到该学员的学习记录",
+    "qa_total_sessions": "对话话题数",
+    "qa_total_messages": "消息数",
+    "qa_last_active": "最近活跃",
+    "qa_activity_high": "活跃",
+    "qa_activity_medium": "一般",
+    "qa_activity_low": "不活跃",
+    "qa_recent": "最近问答",
+    "status_normal": "正常",
+    "status_lagging": "滞后",
+    "status_completed": "已完成",
+    "status_not_started": "未开始",
+    "study_hours_unit": "h",
+    "load_failed": "加载失败",
+    "retry": "重试",
+    "refresh": "刷新重新加载",
+    "no_suggestion": "暂无 AI 建议",
+    "loading_courses": "正在加载学习进度...",
+    "loading_conversation": "正在加载问答记录...",
+    "qa_sessions": "会话次数",
+    "qa_rounds": "对话轮数",
+    "qa_keywords": "高频词云",
+    "analysis_title": "学情发展优劣势剖析",
+    "analysis_strengths": "优势",
+    "analysis_weaknesses": "劣势",
+    "keywords_empty": "暂无足够问答数据生成词云"
+  }
+}

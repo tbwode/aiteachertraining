@@ -1,0 +1,12 @@
+{
+  "platformTitle": "Vocational Teaching Platform",
+  "teacherLogin": "Teacher Login",
+  "username": "Username",
+  "usernamePlaceholder": "Enter your username",
+  "password": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "submit": "Sign In",
+  "missingCredentials": "Please enter both username and password.",
+  "loginSuccess": "Signed in successfully.",
+  "demoHint": "In the demo environment, any username and password will let you enter the teacher portal."
+}

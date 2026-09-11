@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ai-course-fast.huayuntiantu.com/api/:path*"
+    },
+    {
+      "source": "/huayun-ai/:path*",
+      "destination": "https://high-school-01.huayungpt.com/huayun-ai/:path*"
+    },
+    {
+      "source": "/ai-notice/:path*",
+      "destination": "https://high-school-01.huayungpt.com/ai-notice/:path*"
+    },
+    {
+      "source": "/ai-university/:path*",
+      "destination": "https://high-school-01.huayungpt.com/ai-university/:path*"
+    },
+    {
+      "source": "/huayun-tool/:path*",
+      "destination": "https://high-school-01.huayungpt.com/huayun-tool/:path*"
+    }
+  ]
+}

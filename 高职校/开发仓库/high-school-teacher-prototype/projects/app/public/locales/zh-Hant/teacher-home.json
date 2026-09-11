@@ -1,0 +1,122 @@
+{
+  "page_title": "AI賦能教學 讓教育更智能",
+  "welcome_hi": "HI!",
+  "welcome_back": "歡迎回來 {{name}}",
+  "teacher_default_name": "老師",
+  "hero": {
+    "eyebrow": "{{name}} · AI 教師分身中心",
+    "title": "讓每門課程都有一位",
+    "title_accent": "7×24 在線的 AI 教師",
+    "description": "基於課程知識、教學資源與任務目標構建專屬分身，持續支持學生答疑、實訓指導與學情洞察。",
+    "view_avatars": "查看我的分身",
+    "running": "運行穩定",
+    "on_duty": "AI 教師值守中",
+    "always_online": "隨時響應學生問題"
+  },
+  "insights": {
+    "title": "今日教學洞察",
+    "description": "聚合 AI 建議與學情預警，快速處理待辦事項",
+    "loading": "正在同步數據",
+    "updated": "數據已更新"
+  },
+  "metrics": {
+    "my_courses": "我的課程",
+    "courses_suffix": "門",
+    "courses_mark": "課",
+    "ai_avatars": "AI分身",
+    "avatars_suffix": "位",
+    "avatars_mark": "AI",
+    "today_interactions": "今日互動",
+    "interactions_suffix": "次",
+    "interactions_mark": "互"
+  },
+  "sections": {
+    "ai_suggestions": "AI智能建議",
+    "today_todos": "学情预警",
+    "my_courses_and_avatars": "我的課程與AI分身"
+  },
+  "actions": {
+    "create_avatar": "新建AI分身"
+  },
+  "ai_suggestions": {
+    "tabs": {
+      "news": "前沿資訊",
+      "optimization": "課程優化",
+      "knowledge_graph": "能力圖譜"
+    },
+    "mark_all_read": "全部標記已讀",
+    "mark_read": "標記已讀",
+    "read": "已讀",
+    "adopt": "採納更新",
+    "adopted": "已採納",
+    "view_details": "查看詳情",
+    "apply_now": "立即應用",
+    "empty_news": "暫無前沿資訊",
+    "empty_optimization": "暫無優化建議",
+    "empty_graph": "暫無知識圖譜建議"
+  },
+  "student_todos": {
+    "needs_attention": "{{count}}位學生需關注",
+    "all_reminded": "全部已提醒",
+    "batch_process": "批量處理",
+    "remind": "提醒",
+    "reminded": "已提醒",
+    "view": "查看",
+    "empty": "暫無待辦事項",
+    "table": {
+      "student_name": "學生姓名",
+      "class": "班級",
+      "course": "課程",
+      "progress": "進度",
+      "delay_days": "滯後天數",
+      "actions": "操作"
+    },
+    "delay_unit": "天"
+  },
+  "avatar_list": {
+    "description": "統一管理課程分身的發布狀態、覆蓋班級與互動效果",
+    "filter_label": "按分身狀態篩選",
+    "course_avatar": "課程 AI 教師分身",
+    "more_actions": "{{title}} 更多操作",
+    "edit_named": "編輯 {{title}}",
+    "tabs": {
+      "all": "全部",
+      "running": "運行中",
+      "pending": "待發布",
+      "expired": "已過期"
+    },
+    "student_scale": "學生規模",
+    "today_interactions": "今日互動",
+    "coverage_label": "覆蓋班級",
+    "enter_classroom": "進入課堂",
+    "publish": "發布",
+    "unpublish": "取消發布",
+    "edit": "編輯",
+    "view_details": "查看詳情",
+    "delete": "刪除",
+    "empty": "當前篩選條件下暫無 AI 分身"
+  },
+  "delete_modal": {
+    "title": "確認刪除",
+    "message": "確定要刪除「{{title}}」嗎？刪除後無法恢復。",
+    "cancel": "取消",
+    "confirm": "確認刪除"
+  },
+  "cancel_publish_modal": {
+    "title": "確認取消發布",
+    "message": "確定要取消發布「{{title}}」嗎？取消後學生將無法訪問該課程。",
+    "cancel": "取消",
+    "confirm": "確認取消發布"
+  },
+  "student_detail": {
+    "title": "學生詳情",
+    "course": "課程：{{title}}",
+    "current_progress": "當前進度",
+    "study_hours": "學習時長",
+    "last_study": "最後學習",
+    "lagging_analysis": "滯後原因分析",
+    "send_reminder": "發送提醒",
+    "close": "關閉",
+    "reminded": "已提醒"
+  }
+}

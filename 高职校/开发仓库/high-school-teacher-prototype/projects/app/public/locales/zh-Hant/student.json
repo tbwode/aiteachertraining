@@ -1,0 +1,888 @@
+{
+  "agents": {
+    "actions": {
+      "use": "使用"
+    },
+    "useUserCount": "人使用",
+    "cards": {
+      "code-review": {
+        "description": "检查代码质量，提供优化建议和最佳实践",
+        "name": "代码Review助手",
+        "usageCount": "2.3k使用"
+      },
+      "lab-designer": {
+        "description": "辅助设计实验方案，分析实验数据",
+        "name": "实验设计助手",
+        "usageCount": "987使用"
+      },
+      "notes-organizer": {
+        "description": "自动整理课堂笔记，生成思维导图和知识框架",
+        "name": "智能笔记整理",
+        "usageCount": "2.1k使用"
+      },
+      "project-manager": {
+        "description": "协助规划项目进度，分配任务和资源",
+        "name": "项目管理助手",
+        "usageCount": "1.1k使用"
+      },
+      "qa-assistant": {
+        "description": "解答课程疑难问题，提供详细的知识点讲解和例题分析",
+        "name": "学习问答助手",
+        "usageCount": "1.2k使用"
+      },
+      "simulation-assistant": {
+        "description": "提供虚拟仿真环境，模拟真实工作场景",
+        "name": "仿真模拟助手",
+        "usageCount": "756使用"
+      },
+      "study-planner": {
+        "description": "根据课程安排和目标，制定个性化学习计划",
+        "name": "学习计划制定",
+        "usageCount": "856使用"
+      },
+      "translation-helper": {
+        "description": "专业学术翻译，支持多语言互译和术语解释",
+        "name": "文献翻译助手",
+        "usageCount": "1.5k使用"
+      }
+    },
+    "currentFilterLabel": "当前筛选:",
+    "description": "探索AI智能体，让学习更高效、更有趣",
+    "reset": "重置",
+    "resultCount": "共 {{count}} 个智能体",
+    "sceneLabels": {
+      "all": "全部",
+      "campus": "校园生活",
+      "career": "职业发展",
+      "exam": "考试测评",
+      "practice": "实践实训",
+      "study": "学习辅助"
+    },
+    "searchPlaceholder": "搜索智能体...",
+    "statLabels": {
+      "agents": "智能体",
+      "scenes": "大场景",
+      "usage": "使用次数"
+    },
+    "subSceneLabel": "子场景:",
+    "subSceneLabels": {
+      "campus": {
+        "activities": "活动",
+        "all": "全部",
+        "clubs": "社团"
+      },
+      "career": {
+        "all": "全部",
+        "interview": "面试",
+        "resume": "简历"
+      },
+      "exam": {
+        "all": "全部",
+        "assessment": "测评",
+        "drills": "刷题"
+      },
+      "practice": {
+        "all": "全部",
+        "coding": "编程",
+        "lab": "实验",
+        "project": "项目",
+        "simulation": "仿真"
+      },
+      "study": {
+        "all": "全部",
+        "notes": "笔记",
+        "planning": "规划",
+        "qa": "问答",
+        "translation": "翻译"
+      }
+    },
+    "empty": "暂无智能体",
+    "title": "智能体广场"
+  },
+  "aiTeacher": {
+    "actions": {
+      "continue": "继续学习",
+      "locked": "{{date}}开课",
+      "review": "复习回顾"
+    },
+    "config": {
+      "actions": {
+        "cancel": "取消",
+        "confirm": "保存配置"
+      },
+      "description": "配置将应用到你的所有 AI 教师课程。",
+      "learningPaceOptions": {
+        "deepDive": {
+          "description": "深入理解，触类旁通。",
+          "label": "深度探索"
+        },
+        "fast": {
+          "description": "直击要点，快速掌握核心。",
+          "label": "快速高效"
+        },
+        "steady": {
+          "description": "稳扎稳打，夯实基础。",
+          "label": "循序渐进"
+        }
+      },
+      "preferenceOptions": {
+        "analogy": {
+          "description": "通过类比帮助迁移理解。",
+          "label": "举一反三"
+        },
+        "article": {
+          "description": "适合快速浏览和复习。",
+          "label": "图文课程"
+        },
+        "audio": {
+          "description": "便于碎片时间学习。",
+          "label": "音频讲解"
+        },
+        "caseStudy": {
+          "description": "结合真实案例解释知识点。",
+          "label": "案例驱动"
+        },
+        "code": {
+          "description": "结合示例理解技术细节。",
+          "label": "代码示例"
+        },
+        "corrective": {
+          "description": "发现问题立即指出并给出改进建议。",
+          "label": "及时纠正"
+        },
+        "dialogue": {
+          "description": "通过追问帮助你主动思考。",
+          "label": "对话式提问"
+        },
+        "encouraging": {
+          "description": "先肯定优点，再提示改进方向。",
+          "label": "鼓励为主"
+        },
+        "interactive": {
+          "description": "边学边练，强化记忆。",
+          "label": "交互练习"
+        },
+        "project": {
+          "description": "通过完整任务串联知识应用。",
+          "label": "实战项目"
+        },
+        "stepByStep": {
+          "description": "按学习节奏逐步拆解知识点。",
+          "label": "分步骤讲解"
+        },
+        "summary": {
+          "description": "每轮学习后给出重点回顾。",
+          "label": "总结归纳"
+        },
+        "video": {
+          "description": "通过动态演示理解操作过程。",
+          "label": "视频演示"
+        },
+        "visual": {
+          "description": "使用图示和结构化方式说明概念。",
+          "label": "可视化展示"
+        }
+      },
+      "sections": {
+        "contentFormat": "5. 课件类型偏好",
+        "depth": "2. 讲解深度",
+        "feedbackStyle": "6. 反馈方式偏好",
+        "interaction": "3. 互动频率",
+        "learningPace": "7. 学习节奏",
+        "style": "1. 教学语气风格",
+        "teachingMethod": "4. 讲解方式偏好"
+      },
+      "sliderRange": {
+        "brief": "简明扼要",
+        "deep": "深入透彻",
+        "direct": "直接回答",
+        "interactive": "频繁互动"
+      },
+      "sliderScale": {
+        "balanced": "适中",
+        "brief": "简洁",
+        "deep": "深入",
+        "detailed": "偏深",
+        "high": "多",
+        "lean": "偏简",
+        "less": "较少",
+        "low": "少",
+        "more": "较多"
+      },
+      "styleOptions": {
+        "funny": {
+          "description": "生动有趣，用轻松方式讲解。",
+          "label": "幽默风趣"
+        },
+        "gentle": {
+          "description": "耐心细致，像朋友一样鼓励你。",
+          "label": "温和友善"
+        },
+        "inspiring": {
+          "description": "充满激情，激发你的学习动力。",
+          "label": "激励鼓舞"
+        },
+        "professional": {
+          "description": "逻辑清晰，注重知识体系构建。",
+          "label": "严谨专业"
+        }
+      },
+      "title": "配置AI教师风格"
+    },
+    "courseMeta": {
+      "majorLine": "{{major}}",
+      "studentCount": "{{count}}人"
+    },
+    "courses": {
+      "items": {
+        "database": {
+          "title": "数据库原理"
+        },
+        "java-programming": {
+          "title": "Java程序设计"
+        },
+        "network-basic": {
+          "title": "计算机网络基础"
+        },
+        "python-basic": {
+          "title": "Python基础编程"
+        },
+        "web-frontend": {
+          "title": "Web前端开发"
+        }
+      }
+    },
+    "explore": {
+      "action": "探索更多AI教师",
+      "description": "发现更多优质选修课程，拓展你的知识边界。",
+      "empty": "暂无符合条件的课程",
+      "title": "探索更多AI教师"
+    },
+    "hero": {
+      "configButton": "配置AI教师风格",
+      "description": "为你定制的智能学习伙伴，随时解答疑惑、辅导学习。",
+      "searchPlaceholder": "搜索AI教师或课程...",
+      "title": "专属AI教师"
+    },
+    "majors": {
+      "computerApplication": "电子信息 - 计算机应用技术",
+      "networkTechnology": "电子信息 - 网络技术",
+      "softwareTechnology": "电子信息 - 软件技术"
+    },
+    "metrics": {
+      "interactionCount": {
+        "label": "互动次数",
+        "tone": "orange"
+      },
+      "studyDuration": {
+        "label": "学习时长",
+        "tone": "gold"
+      },
+      "teacherCount": {
+        "label": "AI教师",
+        "tone": "brand"
+      }
+    },
+    "status": {
+      "completed": "已完成",
+      "learning": "学习中",
+      "locked": "待解锁"
+    },
+    "myCourses": {
+      "count": "{{count}}門",
+      "title": "我的課程"
+    },
+    "tabs": {
+      "all": "全部课程",
+      "optional": "本学期选修",
+      "required": "本学期必修"
+    },
+    "teachers": {
+      "teacherChen": "陈老师",
+      "teacherLi": "李老师",
+      "teacherLiu": "刘老师",
+      "teacherWang": "王老师",
+      "teacherZhang": "张老师"
+    }
+  },
+  "auth": {
+    "demoHint": "测试账号：任意用户名/密码即可登录",
+    "loginFailed": "登录失败",
+    "loginFailedDescription": "请检查用户名和密码",
+    "loginSuccess": "登录成功",
+    "missingCredentials": "请输入用户名和密码",
+    "password": "密码",
+    "passwordPlaceholder": "请输入密码",
+    "platformTitle": "高职校学习平台",
+    "studentLogin": "学生端登录",
+    "submit": "登录",
+    "submitting": "登录中",
+    "username": "用户名",
+    "usernamePlaceholder": "请输入用户名"
+  },
+  "common": {
+    "loading": "加载中..."
+  },
+  "coursePlaza": {
+    "actions": {
+      "continueStudy": "继续学习",
+      "joinLearning": "加入学习",
+      "joined": "已加入"
+    },
+    "badges": {
+      "enrolled": "已选修"
+    },
+    "courses": {
+      "cyber-security": {
+        "teacher": "钱老师",
+        "title": "网络安全基础"
+      },
+      "data-analysis": {
+        "teacher": "赵老师",
+        "title": "数据分析与可视化"
+      },
+      "linux": {
+        "teacher": "孙老师",
+        "title": "Linux操作系统"
+      },
+      "ml": {
+        "teacher": "周老师",
+        "title": "机器学习入门"
+      },
+      "mobile-dev": {
+        "teacher": "吴老师",
+        "title": "移动应用开发"
+      },
+      "qa": {
+        "teacher": "郑老师",
+        "title": "软件测试技术"
+      }
+    },
+    "description": "发现优质课程，开启你的学习之旅",
+    "electiveTitle": "選課中心",
+    "fallbacks": {
+      "unnamedCategory": "未命名大类",
+      "unnamedMajor": "未命名專業",
+      "unnamedSemester": "未命名學期"
+    },
+    "feedback": {
+      "empty": "暫無符合條件的課程",
+      "joinError": "加入學習失敗",
+      "joinSuccess": "加入學習成功",
+      "loadError": "取得課程廣場列表失敗",
+      "loading": "正在載入課程列表...",
+      "missingStudent": "未取得學生身份資訊",
+      "noDataAlt": "暫無資料",
+      "processing": "處理中",
+      "retry": "重新載入"
+    },
+    "filters": {
+      "allCategory": "全部大類",
+      "allMajor": "全部專業",
+      "allSemester": "全部學期",
+      "categoryOptions": {
+        "all": "全部大类",
+        "electronics": "电子信息",
+        "finance": "财经商贸",
+        "mechanical": "机械制造"
+      },
+      "majorOptions": {
+        "all": "全部专业",
+        "artificialIntelligence": "人工智能",
+        "computerApplication": "计算机应用技术",
+        "mobileDevelopment": "移动开发",
+        "networkTechnology": "网络技术",
+        "softwareTechnology": "软件技术"
+      },
+      "sortOptions": {
+        "latest": "最新发布",
+        "recommended": "推荐排序",
+        "students": "学习人数"
+      },
+      "sortRecommended": "推薦排序",
+      "termOptions": {
+        "all": "全部学期",
+        "fall2023": "2023秋季",
+        "fall2024": "2024秋季",
+        "spring2024": "2024春季"
+      }
+    },
+    "labels": {
+      "studentCount": "{{value}}人"
+    },
+    "pagination": {
+      "next": "下一頁",
+      "previous": "上一頁"
+    },
+    "resetFilters": "重置筛选",
+    "resultCount": "共找到 {{count}} 门课程",
+    "searchPlaceholder": "搜索课程名称...",
+    "sortLabel": "排序：",
+    "title": "课程广场"
+  },
+  "dashboard": {
+    "actions": {
+      "continue": "继续",
+      "review": "复习"
+    },
+    "courseProgress": {
+      "database": {
+        "title": "数据库原理"
+      },
+      "network-basic": {
+        "title": "计算机网络基础"
+      },
+      "python-basic": {
+        "title": "Python基础编程"
+      },
+      "web-frontend": {
+        "title": "Web前端开发"
+      }
+    },
+    "metrics": {
+      "completed": {
+        "label": "已完成",
+        "unit": "门"
+      },
+      "learning": {
+        "label": "在修课程",
+        "unit": "门"
+      },
+      "total": {
+        "label": "累计学习",
+        "unit": "小时"
+      },
+      "weekly": {
+        "label": "本周学习",
+        "unit": "小时"
+      }
+    },
+    "sections": {
+      "courseProgress": "各课程学习进度",
+      "timeDistribution": "学习时段分布",
+      "trend": "学习强度趋势"
+    },
+    "studyTrend": {
+      "friday": "周五",
+      "monday": "周一",
+      "saturday": "周六",
+      "sunday": "周日",
+      "thursday": "周四",
+      "tuesday": "周二",
+      "wednesday": "周三"
+    },
+    "timeDistribution": {
+      "afternoon": "下午(12-18点)",
+      "evening": "晚上(18-22点)",
+      "lateNight": "深夜(22-24点)",
+      "morning": "上午(8-12点)"
+    },
+    "timeRange": {
+      "currentWeek": "本周",
+      "last30Days": "近30天",
+      "last7Days": "近7天"
+    },
+    "title": "学情看板"
+  },
+  "home": {
+    "title": "学生首页",
+    "greeting": {
+      "morning": "早上好，{{name}}同學",
+      "forenoon": "上午好，{{name}}同學",
+      "noon": "中午好，{{name}}同學",
+      "afternoon": "下午好，{{name}}同學",
+      "evening": "晚上好，{{name}}同學"
+    },
+    "todo": {
+      "title": "今日待辦",
+      "subtitle": "今日 你有 {{count}} 项待办!",
+      "viewAll": "查看全部 {{count}} 项待办",
+      "expandAll": "展开全部{{count}}个待办",
+      "collapseAll": "收起全部{{count}}个待办",
+      "detailTitle": "待辦詳情"
+    },
+    "news": {
+      "title": "前沿资讯",
+      "subtitle": "今日 专业相关最新前沿资讯!",
+      "viewAll": "查看今日全部资讯",
+      "modalTitle": "今日前沿资讯",
+      "closeAria": "关闭弹窗",
+      "totalCount": "共 {{count}} 条",
+      "markAllRead": "全部标记已读",
+      "markRead": "已读",
+      "alreadyRead": "已读",
+      "detailContentLabel": "詳細內容：",
+      "relatedCourse": "關聯課程",
+      "publishTime": "發布時間",
+      "cancel": "取消"
+    },
+    "ability": {
+      "title": "我的畫像",
+      "subtitle": "你的畫像已生成!",
+      "radarName": "能力雷達圖",
+      "viewDetail": "查看我的學習畫像",
+      "target_requirement": "目標崗位要求",
+      "training_requirement": "人培要求",
+      "my_ability": "我的能力"
+    },
+    "todoCard": {
+      "read": "已讀",
+      "unread": "未讀",
+      "remindTime": "提醒時間"
+    },
+    "todoDetail": {
+      "courseLabel": "課程",
+      "currentProgress": "當前進度",
+      "studyDuration": "學習時長",
+      "lastStudy": "最後學習",
+      "lagAnalysis": "滯後原因分析",
+      "systemNotify": "系統通知",
+      "teacherRemind": "老師提醒",
+      "progressSuffix": "課程當前學習進度為 0%...",
+      "noData": "暫無資料",
+      "durationFallback": "0小時",
+      "lastStudyFallback": "未學習"
+    },
+    "chat": {
+      "tabDialogue": "对话",
+      "tabAiTeacher": "AI主讲课",
+      "tabLearning": "学习画像",
+      "placeholder": "請輸入您的問題",
+      "voice": "语音输入",
+      "voice_cancel": "取消录音",
+      "voice_finish": "完成并转写",
+      "voice_transcribing": "识别中…",
+      "comingSoon": "敬请期待",
+      "attachment": "附件",
+      "send": "发送"
+    }
+  },
+  "languageSwitcher": {
+    "ariaLabel": "切换界面语言",
+    "label": "语言",
+    "options": {
+      "en": "EN",
+      "zh-CN": "簡中",
+      "zh-Hant": "繁體中文"
+    }
+  },
+  "layout": {
+    "account": "账号：{{value}}",
+    "brandTitle": "学习平台",
+    "demoStudent": "学生",
+    "logout": "退出登录",
+    "nav": {
+      "agents": "智能体广场",
+      "aiAgentCreation": "AI智能體創作",
+      "aiCreationSpace": "AI創作空間",
+      "aiDigitalCourse": "AI數字課",
+      "aiMainCourse": "AI主講課",
+      "aiTeacher": "AI教师",
+      "coursePlaza": "课程广场",
+      "home": "工作台",
+      "zhihuiSpace": "智汇空间",
+      "zhique": "知雀"
+    },
+    "notificationButton": "消息通知",
+    "profile": "个人中心",
+    "roleSwitchLabel": "当前身份",
+    "studentPortal": "学生端",
+    "teacherPortal": "教师端",
+    "adminPortal": "管理端",
+    "userRole": "学生身份"
+  },
+  "noticeList": {
+    "title": "訊息中心",
+    "markAllRead": "全部標記為已讀",
+    "filterAll": "全部",
+    "filterUnread": "未讀",
+    "resultCount": "共 {{count}} 條",
+    "loadError": "取得通知列表失敗",
+    "retry": "重新載入",
+    "markRead": "標記已讀",
+    "reading": "處理中...",
+    "startStudy": "開始學習",
+    "viewDetailText": "查看詳情",
+    "defaultTitle": "系統通知",
+    "viewDetail": "查看詳情 →",
+    "pagination": {
+      "previous": "上一頁",
+      "next": "下一頁"
+    },
+    "typeLabels": {
+      "HOMEWORK": "作業通知",
+      "RESOURCE": "資源通知",
+      "STUDENT_HOMEWORK": "學生端作業通知",
+      "APP_CENTER": "應用中心通知",
+      "APP_CENTER_NEWS": "應用中心上新通知",
+      "RESOURCE_NEWS": "資源廣場上新通知",
+      "GROUP": "群組空間通知",
+      "WORKSHEET": "學習單通知",
+      "TEAM": "小組通知",
+      "COURSE": "學習提醒"
+    },
+    "moduleLabels": {
+      "HOMEWORK_DEADLINE": "作業截止時間通知",
+      "HOMEWORK_SUBMIT": "學生提交作業通知",
+      "AI_CORRECTION_PROGRESS": "AI批改進度通知",
+      "AI_CORRECTION_COMPLETE": "AI批改完成通知",
+      "STUDENT_CORRECTION_SUBMIT": "學生訂正提交通知",
+      "STUDENT_CORRECTION_COMPLETE": "學生訂正完成通知",
+      "RESOURCE_REJECTION": "資源駁回通知",
+      "STUDENT_HOMEWORK_PUBLISHED": "作業發布通知",
+      "STUDENT_HOMEWORK_SUBMITTED": "作業提交提醒",
+      "STUDENT_HOMEWORK_REVIEWED": "批改完成通知",
+      "STUDENT_HOMEWORK_OVERDUE": "逾期未提交提醒",
+      "SHARE_APP_INVITE": "智能應用分享通知",
+      "STUDENT_HOMEWORK_UPDATE_SU": "作業提交時間變更提醒",
+      "RESOURCE_REVIEW_NO_PASS": "資源審核未通過通知",
+      "APP_CENTER_NEWS": "應用中心上新通知",
+      "RESOURCE_NEWS": "資源廣場上新通知",
+      "GROUP_EXTERNAL_APPLICATION_RI": "群組加入申請未通過通知",
+      "GROUP_EXTERNAL_APPLICATION_AI": "群組加入申請通過通知",
+      "GROUP_RESOURCE_REMOVED": "群組資源移出通知",
+      "GROUP_EXTERNAL_APPLICATION_TK": "審核校外成員申請通知",
+      "SUTDENT_WORKSHEET_PUBLISHED": "學習單發布通知",
+      "SUTDENT_WORKSHEET_STRUCTURE": "學習單階段解鎖通知",
+      "SUTDENT_WORKSHEET_TASK_LATE": "學習單任務逾期通知",
+      "SUTDENT_WORKSHEET_TASK_24LA1": "學習單任務即將過期通知",
+      "SUTDENT_WORKSHEET_TASK_URGE": "任務催交通知",
+      "SUTDENT_WORKSHEET_TASK_CORR": "任務確認完成通知",
+      "SUTDENT_WORKSHEET_TASK_REOR": "任務打回訂正通知",
+      "SUTDENT_TEAM_JOIN": "加入小組通知",
+      "SUTDENT_TEAM_LEADER": "成為組長通知",
+      "SUTDENT_TEAM_CORRECTION": "小組批改任務通知",
+      "AI_ADMINISTRATION_NOTICE": "行政通知",
+      "STUDY_REMIND": "課程學習提醒",
+      "SELECT_SUCCESS": "選修成功"
+    }
+  },
+  "passwordForm": {
+    "actions": {
+      "cancel": "取消",
+      "submit": "确认修改",
+      "submitting": "提交中..."
+    },
+    "aria": {
+      "closeDialog": "关闭弹窗",
+      "hidePassword": "隐藏密码",
+      "showPassword": "显示密码"
+    },
+    "feedback": {
+      "error": "密码修改失败，请稍后重试",
+      "success": "密码修改成功"
+    },
+    "fields": {
+      "confirmPassword": {
+        "label": "确认密码",
+        "placeholder": "请再次输入新密码"
+      },
+      "currentPassword": {
+        "label": "原密码",
+        "placeholder": "请输入原密码"
+      },
+      "newPassword": {
+        "label": "新密码",
+        "placeholder": "8-20位，包含字母和数字"
+      }
+    },
+    "tip": "密码长度 8-20 位，包含字母和数字",
+    "title": "修改密码",
+    "validation": {
+      "incomplete": "请完整填写密码信息",
+      "minLength": "新密码至少 8 位",
+      "mismatch": "两次输入的新密码不一致"
+    }
+  },
+  "profile": {
+    "actions": {
+      "reset": "取消",
+      "save": "保存修改",
+      "saving": "保存中..."
+    },
+    "avatar": {
+      "changeAriaLabel": "更换头像",
+      "invalidType": "僅支援上傳 JPG 或 PNG 格式圖片",
+      "maxSizeError": "頭像圖片大小不能超過 2MB",
+      "supportText": "支持 jpg/png 格式，最大 2MB",
+      "updateError": "頭像更新失敗，請稍後重試",
+      "updateSuccess": "頭像更新成功"
+    },
+    "feedback": {
+      "loadError": "個人資料載入失敗，請稍後重試",
+      "saveError": "保存失败，请稍后重试",
+      "saveSuccess": "信息保存成功"
+    },
+    "fields": {
+      "className": "班级",
+      "email": "邮箱",
+      "major": "专业",
+      "nickname": "昵称",
+      "phone": "绑定手机",
+      "realName": "姓名",
+      "studentId": "学号"
+    },
+    "sections": {
+      "basicInfo": "基本信息",
+      "contactInfo": "账号信息"
+    }
+  },
+  "studentCourseDetail": {
+    "aiChat": {
+      "answerIntro": "列表(list)和元组(tuple)的主要区别：",
+      "answerPoints": {
+        "mutable": "列表是可变的，元组是不可变的。",
+        "performance": "元组比列表更轻量，性能通常更好。",
+        "syntax": "列表用 [] 定义，元组用 () 定义。"
+      },
+      "placeholder": "输入你的问题...",
+      "question": "Python 的列表和元组有什么区别？",
+      "subtitle": "随时解答你的学习疑问",
+      "title": "AI教师助手",
+      "welcome": "你好！我是你的AI学习助手，有什么可以帮你的吗？"
+    },
+    "back": "返回課程廣場",
+    "catalog": {
+      "chapter1": {
+        "tip": "📚 知识点：环境搭建、变量类型、基本语法",
+        "title": "第一章：Python基础概念"
+      },
+      "chapter2": {
+        "tip": "📚 知识点：条件语句、循环语句、跳转语句",
+        "title": "第二章：流程控制"
+      },
+      "chapter3": {
+        "tip": "📚 知识点：函数定义、参数传递、模块导入",
+        "title": "第三章：函数与模块"
+      },
+      "chapter4": {
+        "tip": "📚 知识点：类与对象、继承、多态",
+        "title": "第四章：面向对象编程"
+      },
+      "lesson11": "1.1 Python简介与环境搭建",
+      "lesson12": "1.2 变量与数据类型",
+      "lesson13": "1.3 基本运算符与表达式",
+      "lesson21": "2.1 条件语句if-else",
+      "lesson22": "2.2 循环语句for和while",
+      "lesson31": "3.1 函数的定义与调用",
+      "lesson32": "3.2 模块与包",
+      "lesson41": "4.1 类与对象基础",
+      "lesson42": "4.2 继承与多态",
+      "total": "共 {{total}} 节课程"
+    },
+    "course": {
+      "action": "继续学习",
+      "duration": "{{duration}}学时",
+      "introduction": "本课程是计算机专业的入门基础课程，主要介绍 Python 编程语言的基本概念、语法规则和程序设计方法。通过本课程的学习，学生将掌握 Python 的基本语法、数据类型、控制结构、函数和面向对象编程等核心知识，为后续的软件开发课程打下坚实基础。",
+      "majorLine": "{{major}}",
+      "progress": "学习进度",
+      "title": "Python基础编程"
+    },
+    "knowledgeMap": {
+      "chapter1": {
+        "chapterLabel": "第一章",
+        "description": "Python概述与环境搭建基础",
+        "title": "基础概念"
+      },
+      "chapter2": {
+        "chapterLabel": "第二章",
+        "description": "基本类型与复合类型详解",
+        "title": "数据类型"
+      },
+      "chapter3": {
+        "chapterLabel": "第三章",
+        "description": "条件语句与循环语句",
+        "title": "控制流程"
+      },
+      "coreDescription": "从入门到精通，掌握 Python 编程核心技能。",
+      "coreLabel": "核心课程",
+      "tip": "点击章卡片可展开或收起知识点。"
+    },
+    "nodes": {
+      "dataTypes": "数据类型",
+      "environment": "环境搭建",
+      "forLoop": "for循环",
+      "ifStatement": "if语句",
+      "listTuple": "列表与元组",
+      "numeric": "数字类型",
+      "string": "字符串类型",
+      "variables": "变量定义",
+      "whileLoop": "while循环"
+    },
+    "sections": {
+      "catalog": "课程目录",
+      "introduction": "课程介绍",
+      "knowledgeMap": "知识图谱",
+      "section": "节"
+    },
+    "tabs": {
+      "catalog": "课程目录",
+      "intro": "课程介绍"
+    },
+    "tags": {
+      "control": "控制",
+      "flow": "流程",
+      "overview": "概述",
+      "programmingBasics": "编程基础",
+      "python": "Python",
+      "setup": "安装",
+      "structures": "数据结构",
+      "types": "类型"
+    }
+  },
+  "studentStudy": {
+    "actions": {
+      "next": "下一节",
+      "previous": "上一节"
+    },
+    "back": "返回",
+    "catalog": {
+      "chapter1": {
+        "tip": "📚 知识点：环境搭建、变量类型、基本语法",
+        "title": "第一章：Python基础概念"
+      },
+      "chapter2": {
+        "tip": "📚 知识点：条件语句、循环语句、跳转语句",
+        "title": "第二章：流程控制"
+      },
+      "progress": "当前进度",
+      "title": "课程目录"
+    },
+    "chat": {
+      "online": "在线",
+      "placeholder": "输入你的问题...",
+      "title": "AI教师助手",
+      "welcome": "你好！我是你的AI学习助手，在学习这节课的过程中有任何问题都可以问我哦！"
+    },
+    "courseTitle": "Python基础编程",
+    "knowledgePoints": {
+      "arithmetic": "算术运算符",
+      "assignment": "赋值运算符",
+      "comparison": "比较运算符",
+      "expression": "表达式求值"
+    },
+    "knowledgeTitle": "本节课件知识点",
+    "lessonMeta": "第一章 · 第3节",
+    "lessonTitle": "1.3 基本运算符与表达式"
+  },
+  "studentChat": {
+    "welcomeText": "你好！我是你的AI学习助手，在学习这节课的过程中有任何问题都可以问我哦！",
+    "courseWelcomeText": "你好！我是你的AI学习助手，有什么可以帮你的吗？",
+    "aiTeacherTitle": "AI教師",
+    "aiTeacherSubtitle": "隨時解答你的學習疑問",
+    "historyDialog": {
+      "title": "歷史對話",
+      "subtitle": "點擊對話記錄繼續交流",
+      "newChat": "新建對話",
+      "loading": "加載中...",
+      "empty": "暫無歷史對話",
+      "messageCount": "{{count}}條對話",
+      "today": "今天 {{time}}",
+      "yesterday": "昨天 {{time}}"
+    },
+    "saveSuccess": "保存對話成功",
+    "saveError": "保存對話失敗",
+    "loadHistoryError": "獲取歷史對話失敗",
+    "inputPlaceholder": "輸入你的問題..."
+  }
+}

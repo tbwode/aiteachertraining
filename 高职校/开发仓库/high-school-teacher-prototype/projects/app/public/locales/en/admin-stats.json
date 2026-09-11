@@ -1,0 +1,10 @@
+{
+  "teachingModules": "Teaching Modules",
+  "topLevelNavigation": "Top-level Sections",
+  "availablePages": "Reachable Pages",
+  "coverage": "Coverage",
+  "teachingModulesHint": "Focus on completing the teaching management main flow first",
+  "topLevelNavigationHint": "Ready for more admin domains later",
+  "availablePagesHint": "Homepage plus 8 teaching child pages",
+  "coverageHint": "Aligned with the current prototype information architecture"
+}

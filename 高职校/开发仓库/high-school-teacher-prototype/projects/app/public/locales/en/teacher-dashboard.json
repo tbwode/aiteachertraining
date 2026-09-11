@@ -1,0 +1,27 @@
+{
+  "title": "Teaching Dashboard",
+  "description": "A quick view of upcoming teaching tasks, assignment status, and student alerts.",
+  "todoTitle": "Today's Tasks",
+  "summary": {
+    "weeklyCourses": {
+      "label": "Weekly Classes",
+      "value": "{{value}} sessions",
+      "helpText": "2 more than last week"
+    },
+    "pendingAssignments": {
+      "label": "Pending Grading",
+      "value": "{{value}} items",
+      "helpText": "Recommended to finish today"
+    },
+    "focusStudents": {
+      "label": "Priority Students",
+      "value": "{{value}} students",
+      "helpText": "Learning activity has declined for 3 consecutive days"
+    }
+  },
+  "todos": {
+    "gradeHomework": "Finish grading homework for Class 2, Grade 10",
+    "confirmOpenClass": "Confirm the public lesson schedule for Friday",
+    "followUpAlerts": "Follow up with students flagged by learning alerts"
+  }
+}

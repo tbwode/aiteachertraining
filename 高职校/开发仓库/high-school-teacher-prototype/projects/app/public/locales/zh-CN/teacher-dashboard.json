@@ -1,0 +1,27 @@
+{
+  "title": "教学看板",
+  "description": "汇总近期教学任务、作业状态和学生预警信息。",
+  "todoTitle": "今日待办",
+  "summary": {
+    "weeklyCourses": {
+      "label": "本周课程",
+      "value": "{{value}} 节",
+      "helpText": "较上周增加 2 节"
+    },
+    "pendingAssignments": {
+      "label": "待批作业",
+      "value": "{{value}} 份",
+      "helpText": "建议今天内处理完成"
+    },
+    "focusStudents": {
+      "label": "重点学生",
+      "value": "{{value}} 人",
+      "helpText": "连续 3 天学习活跃度下降"
+    }
+  },
+  "todos": {
+    "gradeHomework": "完成高一(2)班作业批改",
+    "confirmOpenClass": "确认周五公开课安排",
+    "followUpAlerts": "回访学习预警学生"
+  }
+}

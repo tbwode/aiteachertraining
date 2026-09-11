@@ -1,0 +1,21 @@
+{
+  "title": "智能体广场",
+  "description": "发现AI助手，让教学更高效。展示平台官方和学校上线的智能体",
+  "searchPlaceholder": "搜索智能体...",
+  "statLabels": {
+    "agents": "智能体",
+    "scenes": "大场景"
+  },
+  "subSceneLabel": "子场景：",
+  "currentFilterLabel": "当前筛选：",
+  "resultCount": "共 {{count}} 个智能体",
+  "reset": "重置",
+  "actions": {
+    "use": "使用",
+    "useUserCount": "人使用"
+  },
+  "sceneLabels": {
+    "all": "全部"
+  },
+  "empty": "暂无智能体"
+}

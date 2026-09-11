@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "eyebrow": "Admin Home",
+    "title": "教学管理后台架构已经起好第一层骨架",
+    "description": "参考 admin 原型，当前已经将管理端拆成统一侧边导航、顶部身份区、首页总览和教学管理子路由。后续可以在这套结构上继续补业务页面，而不是从零散入口开始拼。",
+    "primaryAction": "进入教学任务管理",
+    "secondaryAction": "返回教师端"
+  },
+  "overview": {
+    "title": "整体概览",
+    "description": "先把可扩展的后台壳子搭稳，再往里填筛选、表格和弹窗。"
+  },
+  "highlights": {
+    "title": "架构亮点",
+    "description": "这部分不是展示页文案，而是后续继续开发时真正会省事的结构。",
+    "items": {
+      "architecture": {
+        "title": "统一信息架构",
+        "description": "侧边栏、首页卡片和子页面均由同一份配置驱动，后续新增模块不会出现导航与页面信息不一致的问题。"
+      },
+      "domains": {
+        "title": "按业务域扩展",
+        "description": "先将教学管理独立为 `/admin/teaching/*`，后续基础数据、内容管理、智能应用管理可以平行接入。"
+      },
+      "placeholders": {
+        "title": "面向落地的占位页",
+        "description": "每个教学模块都已经具备可访问的入口页，用来承接表格、筛选、弹窗和后续接口联调。"
+      }
+    }
+  },
+  "modules": {
+    "title": "教学管理模块",
+    "description": "8 个核心模块已经铺到 `/admin/teaching/*`，现在每个入口都能访问，适合继续逐页落表单和表格。",
+    "viewModule": "查看模块",
+    "cards": {
+      "majors": {
+        "title": "专业管理",
+        "description": "管理学校专业信息，支持专业与课程关联。"
+      },
+      "grades": {
+        "title": "年级管理",
+        "description": "维护年级体系，支持自定义年级名称和删除限制。"
+      },
+      "classes": {
+        "title": "班级管理",
+        "description": "班级信息维护，自动编码生成，关联专业和年级。"
+      },
+      "semesters": {
+        "title": "学期管理",
+        "description": "学期设置、当前学期标记与时间范围管理。"
+      },
+      "students": {
+        "title": "学生管理",
+        "description": "学生信息管理，支持批量导入与学号规则配置。"
+      },
+      "teachers": {
+        "title": "教师管理",
+        "description": "教师信息管理、工号规则和任教关系维护。"
+      },
+      "courses": {
+        "title": "课程管理",
+        "description": "课程信息维护，支持课程分类、学分与适用专业。"
+      },
+      "tasks": {
+        "title": "教学任务管理",
+        "description": "教学任务分配，关联教师、课程、班级和学期。"
+      }
+    }
+  }
+}

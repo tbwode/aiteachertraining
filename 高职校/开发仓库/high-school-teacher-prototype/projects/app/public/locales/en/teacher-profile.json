@@ -1,0 +1,594 @@
+{
+  "sidebar": {
+    "teachingCenter": "Teaching Center",
+    "accountSettings": "Account Settings"
+  },
+  "tabs": {
+    "overview": {
+      "label": "Overview",
+      "description": "Quick view of class learning status"
+    },
+    "allResources": {
+      "label": "All Resources",
+      "description": "View all teaching resources"
+    },
+    "myResources": {
+      "label": "My Resources",
+      "description": "View my resources"
+    },
+    "basicInfo": {
+      "label": "Basic Info",
+      "description": "View and maintain personal profile"
+    },
+    "password": {
+      "label": "Password",
+      "description": "Update your sign-in password"
+    }
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "confirmChange": "Confirm"
+  },
+  "feedback": {
+    "loading": "Loading profile...",
+    "loadError": "Failed to load profile. Please try again later.",
+    "saveSuccess": "Profile updated successfully",
+    "saveError": "Failed to save profile. Please try again later.",
+    "missingTeacherIdForDetail": "Teacher ID is missing. Unable to fetch teacher details.",
+    "missingTeacherIdForUpdate": "Teacher ID is missing. Unable to update teacher information."
+  },
+  "avatar": {
+    "invalidType": "Only JPG and PNG images are supported",
+    "maxSizeError": "Image size must be less than 2MB",
+    "uploadMissingUrl": "Upload succeeded but no avatar URL was returned",
+    "updateSuccess": "Avatar updated successfully",
+    "updateError": "Failed to update avatar. Please try again later."
+  },
+  "basicInfo": {
+    "avatar": {
+      "helperText": "Supports JPG/PNG, up to 2MB"
+    },
+    "readonlySectionTitle": "Basic Information (Read Only)",
+    "contactSectionTitle": "Account Information",
+    "securitySectionTitle": "Security Settings",
+    "fields": {
+      "teacherNo": "Teacher No.",
+      "name": "Name",
+      "department": "Department",
+      "phone": "Phone",
+      "email": "Email",
+      "wechat": "WeChat"
+    },
+    "security": {
+      "passwordTitle": "Account Password",
+      "passwordDescription": "Updating your password regularly helps keep your account secure.",
+      "changePassword": "Change Password"
+    }
+  },
+  "password": {
+    "title": "Change Password",
+    "fields": {
+      "oldPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "oldPassword": "Enter your current password",
+      "newPassword": "8-20 characters, letters and numbers",
+      "confirmPassword": "Re-enter your new password"
+    },
+    "hints": {
+      "newPassword": "Use 8-20 characters and include both letters and numbers"
+    },
+    "validation": {
+      "oldPasswordRequired": "Please enter your current password",
+      "newPasswordRequired": "Please enter a new password",
+      "newPasswordMinLength": "Your new password must be at least 8 characters long",
+      "confirmPasswordRequired": "Please confirm your new password",
+      "passwordMismatch": "The new passwords do not match"
+    },
+    "feedback": {
+      "success": "Password changed successfully",
+      "error": "Failed to change password. Please try again later."
+    }
+  },
+  "changePhone": {
+    "modalTitle": "Change Phone Number",
+    "changeButton": "Change Phone",
+    "verifyOld": {
+      "description": "To ensure account security, please verify your original phone number",
+      "sendTarget": "Verification code will be sent to: {{phone}}",
+      "codeLabel": "Enter verification code",
+      "codePlaceholder": "Enter verification code",
+      "sendCode": "Get Code",
+      "resendCode": "{{seconds}}s",
+      "nextStep": "Next"
+    },
+    "inputNew": {
+      "newPhoneLabel": "Enter new phone number",
+      "newPhonePlaceholder": "Enter new phone number",
+      "codeLabel": "Enter verification code",
+      "codePlaceholder": "Enter verification code",
+      "sendCode": "Get Code",
+      "resendCode": "{{seconds}}s",
+      "confirm": "Confirm Change"
+    },
+    "validation": {
+      "phoneRequired": "Please enter phone number",
+      "phoneFormat": "Invalid phone number format",
+      "codeRequired": "Please enter verification code",
+      "codeFormat": "Invalid verification code format, please enter 6 digits",
+      "sendCodeFirst": "Please get the verification code first"
+    },
+    "feedback": {
+      "sendSuccess": "Verification code sent",
+      "sendError": "Failed to send verification code",
+      "changeSuccess": "Phone number changed successfully",
+      "changeError": "Failed to change phone number"
+    }
+  },
+  "wechat": {
+    "bound": "Bound",
+    "unbound": "Not bound",
+    "bind": "Bind WeChat",
+    "unbind": "Unbind",
+    "bindModalTitle": "Bind WeChat",
+    "scanTip": "Please scan the QR code with WeChat to bind",
+    "bindSuccess": "WeChat bound successfully",
+    "unbindSuccess": "Unbound successfully",
+    "unbindError": "Failed to unbind. Please try again later.",
+    "unbindConfirmTitle": "Confirm Unbind",
+    "unbindConfirmContent": "You will not be able to log in with WeChat after unbinding.\nAre you sure you want to unbind?",
+    "bindTimeout": "Binding timed out. Please try again.",
+    "loadQRError": "Failed to load QR code",
+    "retry": "Retry",
+    "qrAlt": "WeChat binding QR code"
+  },
+  "myResources": {
+    "title": "My Resources",
+    "description": "Manage your uploaded teaching resources",
+    "filters": {
+      "allMajors": "All Majors",
+      "allCourses": "All Courses",
+      "allTypes": "All Types",
+      "allFormats": "All Formats",
+      "allStatuses": "All Statuses",
+      "placeholder": {
+        "major": "Search or select major",
+        "course": "Search or select course",
+        "dateRange": "YYYY/MM/DD - YYYY/MM/DD",
+        "search": "Search resource name..."
+      },
+      "formatOptions": {
+        "pdf": "PDF",
+        "word": "Word",
+        "ppt": "PPT",
+        "video": "Audio & Video",
+        "zip": "Zip",
+        "html": "Digital Courseware",
+        "link": "AI Lecture"
+      },
+      "statusOptions": {
+        "published": "Published",
+        "unpublished": "Unpublished"
+      }
+    },
+    "actions": {
+      "drafts": "Drafts",
+      "upload": "Upload Resource",
+      "query": "Search",
+      "reset": "Reset",
+      "batchDelete": "Batch Delete",
+      "batchDownload": "Batch Download",
+      "cancelSelection": "Cancel Selection"
+    },
+    "table": {
+      "columns": {
+        "fileName": "File Name",
+        "ownership": "Ownership",
+        "uploader": "Uploader",
+        "fileSize": "File Size",
+        "resourceType": "Resource Type",
+        "status": "Status",
+        "shareScope": "Share Scope",
+        "actions": "Actions"
+      },
+      "selected": "{{count}} items selected"
+    },
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "unpublished": "Unpublished"
+    },
+    "ownership": {
+      "personal": "Personal",
+      "school": "School"
+    },
+    "shareScope": {
+      "personal": "Personal",
+      "schoolwide": "Schoolwide"
+    },
+    "modal": {
+      "publishTitle": "Confirm Publish",
+      "unpublishTitle": "Confirm Unpublish",
+      "deleteTitle": "Confirm Delete",
+      "publishConfirm": "Are you sure you want to publish \"{{name}}\"? Other teachers will be able to view this resource.",
+      "unpublishConfirm": "Are you sure you want to unpublish \"{{name}}\"? Other teachers will no longer be able to view this resource.",
+      "deleteConfirm": "Are you sure you want to delete resource \"{{name}}\"? This action cannot be undone.",
+      "shareTitle": "Resource Sharing Management",
+      "shareSchoolLibrary": "Share to School Library",
+      "shareDescription": "Resource will be visible to all members of the uploader's school",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "save": "Save",
+      "close": "Close",
+      "edit": "Edit",
+      "moreActions": "More Actions"
+    },
+    "menu": {
+      "preview": "Preview",
+      "download": "Download",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "shareManage": "Sharing Management",
+      "delete": "Delete"
+    },
+    "feedback": {
+      "loadError": "Failed to load list",
+      "publishSuccess": "Resource published successfully",
+      "unpublishSuccess": "Resource unpublished successfully",
+      "deleteSuccess": "Resource deleted successfully",
+      "saveSuccess": "Sharing scope updated",
+      "batchDeleteSuccess": "Batch delete successful",
+      "batchDownloadSuccess": "Batch download successful",
+      "downloadStarted": "Download started",
+      "downloadLinkError": "Failed to get download link",
+      "downloadError": "Download failed, please try again later",
+      "zipNotPreviewable": "Zip files cannot be previewed",
+      "detailError": "Failed to get resource details",
+      "loading": "Loading...",
+      "noData": "No data",
+      "processing": "Processing...",
+      "deleting": "Deleting...",
+      "saving": "Saving..."
+    },
+    "pagination": {
+      "total": "{{total}} records in total",
+      "pageInfo": "Page {{page}} / {{totalPages}}"
+    },
+    "draftBox": {
+      "title": "Drafts",
+      "tip": "Drafts box saves up to 20 drafts",
+      "loading": "Loading...",
+      "emptyTitle": "No drafts",
+      "emptyDescription": "The drafts box is currently empty",
+      "savedAt": "Saved at",
+      "fileSize": "File size",
+      "notUploaded": "Not uploaded",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "deleteConfirmTitle": "Confirm Delete",
+      "deleteConfirmContent": "Are you sure you want to delete draft \"{{name}}\"?",
+      "deleteSuccess": "Draft deleted successfully",
+      "deleteError": "Delete failed, please try again",
+      "loadError": "Failed to load drafts",
+      "detailError": "Failed to get resource details",
+      "deleting": "Deleting...",
+      "confirm": "Confirm"
+    },
+    "preview": {
+      "title": "Preview Resource",
+      "close": "Close",
+      "videoPreview": "Video Preview",
+      "audioPreview": "Audio Preview",
+      "docPreview": "Document Preview",
+      "pptPreview": "PPT Preview",
+      "loading": "Loading preview...",
+      "zipNotPreviewable": "Zip files cannot be previewed",
+      "zipPreview": "Zip Preview",
+      "zipFileList": "File List",
+      "zipFileCount": "{{count}} files",
+      "zipDecompressing": "Decompressing...",
+      "zipDecompressError": "Decompression failed, please try again later",
+      "zipNoFileKey": "Failed to get file information",
+      "zipEmpty": "The zip file is empty",
+      "selectFileToPreview": "Please select a file from the left to preview",
+      "loadError": "Failed to load preview content",
+      "retry": "Please try again later",
+      "noPreview": "No preview available",
+      "noPreviewDesc": "This resource has no previewable content",
+      "videoNotSupported": "Your browser does not support video playback",
+      "audioNotSupported": "Your browser does not support audio playback"
+    },
+    "edit": {
+      "title": "Edit Resource",
+      "close": "Close",
+      "resourceFile": "Resource File",
+      "deleteFile": "Delete File",
+      "replaceFileTip": "Delete the original file to upload a new one. The original file will be replaced after saving.",
+      "uploadNewFile": "Click or drag file here to upload",
+      "fileSupport": "Supports PDF, Word, PPT, video, zip, etc.",
+      "resourceName": "Resource Name",
+      "resourceNamePlaceholder": "Enter resource name",
+      "selectMajor": "Select Major",
+      "majorPlaceholder": "Select major",
+      "selectCourse": "Select Course",
+      "coursePlaceholder": "Select course",
+      "courseDisabled": "Please select a major first",
+      "resourceType": "Resource Type",
+      "resourceTypePlaceholder": "Select type",
+      "shareScope": "Share Scope",
+      "schoolwide": "Schoolwide",
+      "personal": "Personal Only",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter resource description (optional)",
+      "cancel": "Cancel",
+      "saveChanges": "Save Changes",
+      "uploading": "Uploading...",
+      "saving": "Saving...",
+      "validation": {
+        "resourceNameRequired": "Please enter resource name",
+        "majorRequired": "Please select a major",
+        "courseRequired": "Please select a course",
+        "resourceTypeRequired": "Please select a resource type",
+        "fileRequired": "Please wait for file upload to complete",
+        "unsupportedFormat": "Unsupported file format. Please upload Word, PPT, PDF, archive, HTML, or audio/video files.",
+        "fileTooLarge": "File too large. Max 2GB for video, 500MB for other files."
+      },
+      "feedback": {
+        "saveSuccess": "Changes saved successfully",
+        "error": "Save failed, please try again",
+        "uploadFileSuccess": "File uploaded successfully",
+        "uploadFileError": "File upload failed"
+      }
+    },
+    "upload": {
+      "title": "Upload Resource",
+      "editTitle": "Edit Draft",
+      "close": "Close",
+      "selectFile": "Select File",
+      "uploaded": "Uploaded",
+      "dragTip": "Drag file here, or ",
+      "clickUpload": "click to upload",
+      "fileSupport": "Supports PDF, Word, PPT, video, zip, etc. Max 2GB for video, 500MB for others",
+      "uploading": "Uploading...",
+      "uploadSuccess": "Upload successful",
+      "uploadFileSuccess": "File uploaded successfully",
+      "uploadFileError": "File upload failed",
+      "resourceName": "Resource Name",
+      "resourceNamePlaceholder": "Enter resource name",
+      "selectMajor": "Select Major",
+      "majorPlaceholder": "Select major",
+      "selectCourse": "Select Course",
+      "coursePlaceholder": "Select course",
+      "courseDisabled": "Please select a major first",
+      "resourceType": "Resource Type",
+      "resourceTypePlaceholder": "Select type",
+      "shareScope": "Share Scope",
+      "schoolwide": "Schoolwide",
+      "personal": "Personal Only",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter resource description (optional)",
+      "required": "Required",
+      "saveDraft": "Save to Drafts",
+      "confirmUpload": "Confirm Upload",
+      "saving": "Saving...",
+      "submitting": "Submitting...",
+      "validation": {
+        "resourceNameRequired": "Please enter resource name",
+        "majorRequired": "Please select a major",
+        "courseRequired": "Please select a course",
+        "resourceTypeRequired": "Please select a resource type",
+        "fileRequired": "Please wait for file upload to complete",
+        "unsupportedFormat": "Unsupported file format. Please upload Word, PPT, PDF, archive, HTML, or audio/video files.",
+        "fileTooLarge": "File too large. Max 2GB for video, 500MB for other files."
+      },
+      "feedback": {
+        "publishDraftSuccess": "Draft published successfully",
+        "uploadSuccess": "Resource uploaded successfully",
+        "saveDraftSuccess": "Draft saved successfully",
+        "error": "Upload failed, please try again",
+        "saveDraftError": "Failed to save draft, please try again"
+      }
+    },
+    "empty": {
+      "title": "No teaching resources",
+      "description": "No resources found under current filters, please adjust your search criteria"
+    }
+  },
+  "allResources": {
+    "title": "All Resources",
+    "description": "View all shared teaching resources",
+    "filters": {
+      "allMajors": "All Majors",
+      "allCourses": "All Courses",
+      "allTypes": "All Types",
+      "allFormats": "All Formats",
+      "allSources": "All Sources",
+      "allUploaders": "All Uploaders",
+      "placeholder": {
+        "major": "Search or select major",
+        "course": "Search or select course",
+        "uploader": "Search or select uploader",
+        "dateRange": "YYYY/MM/DD - YYYY/MM/DD",
+        "search": "Search resource name..."
+      },
+      "formatOptions": {
+        "pdf": "PDF",
+        "word": "Word",
+        "ppt": "PPT",
+        "video": "Audio & Video",
+        "zip": "Zip",
+        "html": "Digital Courseware",
+        "link": "AI Lecture"
+      },
+      "sourceOptions": {
+        "teacher": "Teacher Upload",
+        "school": "School Resource Library",
+        "ai": "AI Resource Library"
+      }
+    },
+    "actions": {
+      "query": "Search",
+      "reset": "Reset",
+      "batchDownload": "Batch Download",
+      "cancelSelection": "Cancel Selection",
+      "preview": "Preview",
+      "download": "Download"
+    },
+    "table": {
+      "columns": {
+        "fileName": "File Name",
+        "ownership": "Ownership",
+        "uploader": "Uploader",
+        "fileSize": "File Size",
+        "resourceType": "Resource Type",
+        "shareScope": "Share Scope",
+        "actions": "Actions"
+      },
+      "selected": "{{count}} items selected"
+    },
+    "ownership": {
+      "personal": "Personal",
+      "school": "School"
+    },
+    "shareScope": {
+      "personal": "Personal",
+      "schoolwide": "Schoolwide"
+    },
+    "pagination": {
+      "total": "{{total}} records in total",
+      "pageInfo": "Page {{page}} / {{totalPages}}"
+    },
+    "feedback": {
+      "loadError": "Failed to load list",
+      "batchDownloadSuccess": "Batch download successful",
+      "batchDownloadError": "Batch download failed",
+      "downloadStarted": "Download started",
+      "downloadLinkError": "Failed to get download link",
+      "downloadError": "Download failed, please try again later",
+      "zipNotPreviewable": "Zip files cannot be previewed",
+      "loading": "Loading...",
+      "noData": "No data"
+    },
+    "empty": {
+      "title": "No teaching resources",
+      "description": "No resources found under current filters, please adjust your search criteria"
+    }
+  },
+  "overview": {
+    "title": "School Overview",
+    "description": "A quick view of class learning progress",
+    "export": "Export Excel",
+    "exportCompact": "Export Excel",
+    "progressDistributionTitle": "Class Learning Progress Distribution",
+    "activityTrendTitle": "Learning Activity Trend",
+    "studentDetailsTitle": "Student Learning Details",
+    "filters": {
+      "allClasses": "All Classes",
+      "classOption1": "CS 2401",
+      "classOption2": "CS 2402",
+      "classOption3": "SE 2401",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month",
+      "thisSemester": "This Semester"
+    },
+    "metrics": {
+      "0": {
+        "label": "Students",
+        "suffix": ""
+      },
+      "1": {
+        "label": "Average Progress",
+        "suffix": "%"
+      },
+      "2": {
+        "label": "Active Students",
+        "suffix": ""
+      },
+      "3": {
+        "label": "Students at Risk",
+        "suffix": ""
+      }
+    },
+    "progressDistribution": {
+      "0": {
+        "className": "CS2401"
+      },
+      "1": {
+        "className": "CS2402"
+      },
+      "2": {
+        "className": "SE2401"
+      },
+      "3": {
+        "className": "SE2402"
+      }
+    },
+    "activityTrend": {
+      "0": {
+        "label": "Mon"
+      },
+      "1": {
+        "label": "Tue"
+      },
+      "2": {
+        "label": "Wed"
+      },
+      "3": {
+        "label": "Thu"
+      },
+      "4": {
+        "label": "Fri"
+      },
+      "5": {
+        "label": "Sat"
+      },
+      "6": {
+        "label": "Sun"
+      }
+    },
+    "activityLevels": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "table": {
+      "columns": {
+        "studentName": "Student Name",
+        "className": "Class",
+        "course": "Course",
+        "progress": "Progress",
+        "activity": "Activity",
+        "actions": "Actions"
+      },
+      "actions": {
+        "detail": "Details"
+      }
+    },
+    "studentDetails": {
+      "0": {
+        "className": "CS2401",
+        "course": "Chinese"
+      },
+      "1": {
+        "className": "CS2401",
+        "course": "Chinese"
+      },
+      "2": {
+        "className": "CS2402",
+        "course": "Chinese"
+      },
+      "3": {
+        "className": "CS2401",
+        "course": "Chinese"
+      }
+    },
+    "feedback": {
+      "exportCreated": "Export task created",
+      "detailOpened": "Opened learning details for {{name}}"
+    }
+  }
+}

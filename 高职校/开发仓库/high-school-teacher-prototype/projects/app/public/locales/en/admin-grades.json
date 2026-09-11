@@ -1,0 +1,72 @@
+{
+  "page": {
+    "title": "Grade Management",
+    "description": "Manage school grade information including grade names, class counts, and student counts."
+  },
+  "actions": {
+    "create": "Create Grade",
+    "reset": "Reset",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "confirmDelete": "Confirm Delete"
+  },
+  "filters": {
+    "searchPlaceholder": "Search by grade name..."
+  },
+  "table": {
+    "index": "Index",
+    "name": "Grade Name",
+    "classCount": "Class Count",
+    "studentCount": "Student Count",
+    "updatedTime": "Updated Time",
+    "remark": "Remark",
+    "actions": "Actions"
+  },
+  "pagination": {
+    "total": "Total {{value}} records",
+    "totalGrades": "Total {{value}} grades",
+    "pageInfo": "Page {{page}} / {{total}}",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "form": {
+    "name": "Grade Name",
+    "namePlaceholder": "Enter grade name",
+    "remark": "Remark",
+    "remarkPlaceholder": "Enter remark...",
+    "sort": "Sort",
+    "sortPlaceholder": "Enter sort value",
+    "sortHint": "Smaller numbers appear first. Valid range: 0-9999"
+  },
+  "modal": {
+    "createTitle": "Create Grade",
+    "editTitle": "Edit Grade"
+  },
+  "delete": {
+    "title": "Confirm Deletion",
+    "description": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+    "blockedTitle": "Cannot Delete",
+    "blockedDescription": "This grade has {{count}} associated classes. Please delete those classes first.",
+    "notice": "This action cannot be recovered. Please proceed carefully."
+  },
+  "empty": {
+    "title": "No grade data found",
+    "description": "Please adjust your search criteria and try again."
+  },
+  "states": {
+    "loading": "Loading..."
+  },
+  "messages": {
+    "validationTitle": "Required fields missing",
+    "validationDescription": "Grade name is required.",
+    "nameRequired": "Grade name is required.",
+    "loadFailed": "Failed to load data",
+    "operateFailed": "Operation failed",
+    "deleteFailed": "Delete failed",
+    "createdTitle": "Grade created successfully",
+    "updatedTitle": "Grade updated successfully",
+    "deletedTitle": "Grade deleted successfully"
+  }
+}

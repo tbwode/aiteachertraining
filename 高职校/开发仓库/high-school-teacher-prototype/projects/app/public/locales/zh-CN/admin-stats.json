@@ -1,0 +1,10 @@
+{
+  "teachingModules": "教学模块",
+  "topLevelNavigation": "一级导航",
+  "availablePages": "可进入页面",
+  "coverage": "覆盖率",
+  "teachingModulesHint": "先完成教学管理主链路",
+  "topLevelNavigationHint": "支持继续扩展后台域",
+  "availablePagesHint": "首页 + 8 个教学子页",
+  "coverageHint": "对齐当前原型信息架构"
+}

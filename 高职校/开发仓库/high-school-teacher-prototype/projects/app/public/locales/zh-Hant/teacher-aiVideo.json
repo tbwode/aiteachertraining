@@ -1,0 +1,777 @@
+{
+  "common": {
+    "cancel": "取消",
+    "confirm": "確定",
+    "close": "關閉"
+  },
+  "home": {
+    "title": "AI視頻課",
+    "subtitle": "輸入創意，AI 幫你生成講課視頻",
+    "modeTitle": "選擇生成模式",
+    "mode": {
+      "text": {
+        "title": "文本生成視頻",
+        "desc": "輸入提示詞直接生成完整視頻"
+      },
+      "ppt": {
+        "title": "PPT/文檔轉視頻",
+        "desc": "上傳 PPT/文檔文件，自動拆分頁，生成講課視頻"
+      },
+      "images": {
+        "title": "圖片轉視頻",
+        "desc": "上傳多張圖片，AI 配旁白、動效與字幕生成視頻"
+      },
+      "template": {
+        "title": "範本視頻",
+        "desc": "從空白畫布或教學範本快速創建視頻"
+      }
+    },
+    "comingSoon": "即將上線",
+    "comingSoonTip": "該功能即將上線，敬請期待",
+    "plaza": {
+      "title": "模板廣場",
+      "desc": "教育課件、營銷宣傳、科普短視頻等分類模板，替換文字一鍵生成視頻"
+    },
+    "project": {
+      "title": "我的項目",
+      "count": "共 {{count}} 個項目",
+      "empty": "還沒有視頻項目",
+      "emptyDesc": "從上方選擇一種生成模式，開始創作你的第一個 AI 視頻",
+      "create": "立即創建",
+      "continue": "繼續編輯",
+      "preview": "預覽",
+      "edit": "編輯",
+      "more": "更多操作",
+      "duplicate": "複製項目",
+      "rename": "重新命名",
+      "renameTitle": "重新命名項目",
+      "renamePlaceholder": "請輸入項目名稱",
+      "renameSuccess": "已重新命名",
+      "delete": "刪除",
+      "status": {
+        "draft": "編輯中",
+        "queued": "排隊中",
+        "generating": "生成中",
+        "success": "已完成",
+        "failed": "生成失敗"
+      },
+      "modeLabel": {
+        "text": "文本生成",
+        "ppt": "PPT 轉視頻",
+        "template": "範本視頻",
+        "images": "圖片轉視頻"
+      },
+      "duplicateSuccess": "項目已複製",
+      "deleteSuccess": "項目已刪除",
+      "deleteTitle": "刪除項目",
+      "deleteMessage": "確定刪除項目「{{title}}」嗎？刪除後不可恢復。",
+      "confirmDelete": "確認刪除",
+      "generating": "正在生成中",
+      "queuePosition": "排隊中（第 {{value}} 位）"
+    }
+  },
+  "create": {
+    "back": "返回",
+    "title": "文本生成視頻",
+    "subtitle": "輸入腳本或主題描述，AI 自動拆解生成分鏡腳本",
+    "promptExamplesLabel": "試試示例：",
+    "examples": {
+      "example1": {
+        "topic": "Gauss消去法原理與步驟講解",
+        "notes": "風格偏好：簡約課件風；目標受眾：高職一年級學生（公共數學基礎課）；重點要素：增廣矩陣寫法、消元過程分步演示、回代求解與例題解析"
+      },
+      "example2": {
+        "topic": "數控銑床加工實訓：工件裝夾與對刀規範",
+        "notes": "風格偏好：寫實風；目標受眾：數控加工專業實訓學員；重點要素：裝夾步驟、對刀操作要點、安全注意事項"
+      },
+      "example3": {
+        "topic": "電商直播實訓課：開場話術與留人技巧",
+        "notes": "風格偏好：知識口播；目標受眾：電子商務專業學生；重點要素：開場話術模板、留人互動技巧、真實案例演示"
+      }
+    },
+    "paramsTitle": "高級參數",
+    "ratio": "視頻比例",
+    "ratioOption": {
+      "16_9": "橫屏（16:9）",
+      "9_16": "豎屏（9:16）",
+      "1_1": "方形（1:1）"
+    },
+    "duration": "目標時長",
+    "durationOption": {
+      "smart": "智能匹配",
+      "compact": "緊湊",
+      "balanced": "均衡",
+      "relaxed": "從容",
+      "special": "專題"
+    },
+    "style": "視頻風格",
+    "styleOption": {
+      "realistic": "寫實",
+      "anime": "動漫",
+      "tech": "科技風",
+      "simpleCourseware": "簡約課件",
+      "corporate": "企業宣傳片",
+      "documentary": "紀錄片",
+      "knowledgeTalk": "知識口播",
+      "flashCut": "快閃卡點"
+    },
+    "voice": "配音音色",
+    "voiceOption": {
+      "femaleClear": "女聲·清亮",
+      "femaleGentle": "女聲·溫柔",
+      "maleDeep": "男聲·渾厚",
+      "maleEnergetic": "男聲·活力"
+    },
+    "speed": "語速",
+    "speedUnit": "{{value}}x",
+    "bgm": "背景音樂",
+    "bgmOption": {
+      "none": "無 BGM",
+      "freePiano": "免費·鋼琴輕音樂",
+      "freeLight": "免費·明快旋律",
+      "vipEpic": "會員·史詩配樂"
+    },
+    "vipTag": "會員",
+    "submit": "生成分鏡腳本",
+    "submitting": "生成中…",
+    "tooShortTitle": "提示詞內容過少",
+    "tooShortMessage": "建議補充風格偏好、目標受眾、重點要素等描述，以便 AI 生成更貼合的分鏡腳本。",
+    "tooShortConfirm": "仍要生成",
+    "moderationMessage": "內容不符合平台規範，請調整描述後重新生成",
+    "createFailed": "創建失敗，請稍後重試",
+    "topicLabel": "視頻主題",
+    "topicPlaceholder": "輸入您想要生成視頻的主題…",
+    "notesLabel": "補充說明",
+    "notesOptional": "（選填）",
+    "notesPlaceholder": "補充說明（選填）：風格偏好、目標受眾、重點要素等…",
+    "recommendTag": "推薦",
+    "durationDesc": {
+      "smart": "AI 按需匹配",
+      "compact": "約 30 秒-1 分鐘",
+      "balanced": "約 1-3 分鐘",
+      "relaxed": "約 3-5 分鐘",
+      "special": "5 分鐘以上"
+    },
+    "styleByRatioTip": "不同比例展示對應的主題風格模板"
+  },
+  "storyboard": {
+    "title": "分鏡腳本",
+    "subtitle": "AI 已生成分鏡預覽，修改確認後再生成視頻",
+    "shot": "分鏡 {{index}}",
+    "sceneLabel": "畫面設計",
+    "narrationLabel": "分鏡講稿",
+    "durationLabel": "時長（秒）",
+    "regenerateShot": "重生成畫面",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "deleteShot": "刪除",
+    "addShot": "新增分鏡",
+    "regenerateAll": "全部重生成腳本",
+    "regenerateAllTitle": "全部重生成",
+    "regenerateAllMessage": "將重置當前全部分鏡內容，已修改的內容會丟失，確定繼續嗎？",
+    "totalDuration": "合計時長 {{value}}s",
+    "generate": "生成視頻",
+    "shotDeleted": "分鏡已刪除",
+    "shotAdded": "已新增分鏡",
+    "shotRegenerated": "畫面已重新生成",
+    "storyboardRegenerated": "腳本已重新生成",
+    "empty": "暫無分鏡，點擊下方「新增分鏡」手動添加",
+    "moderationMessage": "內容不符合平台規範，請調整描述後重新生成",
+    "titleLabel": "分鏡標題",
+    "notesLabel": "製作細節",
+    "generatingTip": "AI 正在逐條生成分鏡，請稍候…",
+    "generatingShot": "正在生成第 {{index}} 個分鏡…",
+    "generatingProgress": "已生成 {{current}}/{{total}} 個分鏡"
+  },
+  "task": {
+    "queuedTitle": "正在排隊",
+    "queuedDesc": "正在排隊，當前還有 {{count}} 個任務，請稍候",
+    "generatingTitle": "正在生成視頻",
+    "generatingDesc": "正在渲染視頻，請勿關閉頁面",
+    "progress": "整體進度",
+    "stage": {
+      "script": "腳本解析",
+      "visuals": "生成畫面素材",
+      "voice": "合成配音",
+      "subtitle": "生成字幕",
+      "render": "視頻渲染",
+      "ppt": {
+        "script": "腳本匹配中",
+        "visuals": "PPT版式渲染中",
+        "voice": "數位人唇形適配中",
+        "subtitle": "音視頻合成中",
+        "render": "轉碼匯出中"
+      }
+    },
+    "failedTitle": "視頻生成失敗",
+    "failReason": {
+      "timeout": "生成超時，請重新嘗試，可以適當縮短視頻時長",
+      "moderation": "內容存在風險，請修改文案後重試",
+      "busy": "服務器繁忙，請稍後重試"
+    },
+    "backToEdit": "返回編輯分鏡",
+    "retry": "重新生成"
+  },
+  "preview": {
+    "title": "視頻預覽",
+    "subtitle": "成片已生成，可播放預覽或下載",
+    "backToEdit": "返回編輯分鏡",
+    "backToEditTitle": "返回編輯分鏡",
+    "backToEditMessage": "返回編輯將清除當前已生成的成片，需要重新生成，確定繼續嗎？",
+    "subtitleList": "字幕內容",
+    "export": "導出下載",
+    "resolution": "分辨率",
+    "resolutionOption": {
+      "720p": "720P 高清",
+      "1080p": "1080P 全高清",
+      "4k": "4K 超清"
+    },
+    "free": "免費",
+    "vipOnly": "會員專享",
+    "watermarkTip": "免費版本導出視頻帶平台水印，會員無水印",
+    "format": "格式：MP4",
+    "download": "下載到本地",
+    "downloadStarted": "開始下載",
+    "notExportable": "視頻尚未生成完成，暫不能導出"
+  },
+  "workspace": {
+    "back": "返回列表",
+    "notFound": "項目不存在或已被刪除"
+  },
+  "studio": {
+    "headerTip": "支持字幕、音頻、鏡頭、裁剪與片頭片尾的二次編輯，修改即時保存",
+    "tabs": {
+      "subtitle": "字幕",
+      "audio": "音頻",
+      "trim": "裁剪",
+      "introOutro": "片頭片尾"
+    },
+    "subtitle": {
+      "styleTitle": "字幕樣式",
+      "fontSize": "字體大小",
+      "size": {
+        "small": "小",
+        "medium": "中",
+        "large": "大"
+      },
+      "color": "字體顏色",
+      "autoBreak": "自動斷句字幕",
+      "autoBreakTip": "按標點自動拆分長句，逐句展示",
+      "listTitle": "字幕文本",
+      "editTip": "修改即時保存"
+    },
+    "audio": {
+      "voice": "配音音色",
+      "voiceVolume": "人聲音量",
+      "bgmVolume": "BGM 音量",
+      "tip": "音頻調整將在重新合成配音後生效"
+    },
+    "clip": {
+      "title": "鏡頭素材",
+      "uploadTip": "支持圖片 / 視頻，單個 ≤3MB",
+      "regenerate": "AI 重生成",
+      "upload": "上傳素材",
+      "restore": "恢復 AI 畫面",
+      "customTag": "自定義",
+      "tooLarge": "文件超過 3MB，請壓縮後重試"
+    },
+    "trim": {
+      "rangeLabel": "保留區間（裁剪首尾）",
+      "total": "成片總時長 {{value}}s",
+      "start": "起 {{value}}s",
+      "end": "止 {{value}}s",
+      "tip": "僅支持裁剪首尾片段，導出時生效"
+    },
+    "introOutro": {
+      "introTitle": "片頭模板",
+      "outroTitle": "片尾模板",
+      "template": {
+        "none": "無",
+        "schoolBadge": "校徽校訓",
+        "minimalText": "極簡文字",
+        "courseTitle": "課程封面"
+      },
+      "durationTip": "片頭 / 片尾各占 {{value}}s，計入成片總時長"
+    },
+    "saved": "已保存",
+    "undo": "撤銷",
+    "redo": "恢復",
+    "topbar": {
+      "save": "保存",
+      "saved": "已保存",
+      "export": "導出視頻"
+    },
+    "sidebar": {
+      "title": "分鏡",
+      "collapse": "收起",
+      "expand": "展開",
+      "seconds": "{{value}}s",
+      "expandItem": "展開分鏡",
+      "collapseItem": "收起分鏡"
+    },
+    "rail": {
+      "aiEdit": "AI編輯",
+      "script": "講稿",
+      "digitalHuman": "數字人",
+      "voice": "音色",
+      "music": "音樂",
+      "clip": "素材",
+      "trim": "裁剪",
+      "introOutro": "片頭片尾"
+    },
+    "timeline": {
+      "video": "視頻",
+      "script": "講稿",
+      "music": "音樂",
+      "digitalHuman": "數字人",
+      "comingSoon": "即將上線",
+      "noBgm": "無背景音樂",
+      "intro": "片頭",
+      "outro": "片尾",
+      "label": "時間軸"
+    },
+    "exportModal": {
+      "title": "導出視頻"
+    },
+    "aiEdit": {
+      "regenerateStoryboard": "全部重生成腳本",
+      "regenerateStoryboardDesc": "AI 重新拆解主題，重置全部分鏡",
+      "done": "已完成",
+      "currentShot": "當前分鏡",
+      "noShot": "在左側選擇一個分鏡後，即可通過快捷指令或對話優化該分鏡",
+      "quickCommands": "快捷指令",
+      "cmd": {
+        "pacing": "優化動畫節奏",
+        "enrich": "豐富細節",
+        "simplify": "精簡內容"
+      },
+      "chat": {
+        "title": "智能體對話",
+        "placeholder": "輸入優化指令，如「精簡這一鏡的講稿」…",
+        "send": "發送",
+        "thinking": "正在思考…",
+        "replyPacing": "已完成「優化動畫節奏」：單鏡時長調整為 {duration}s，畫面隨講解重點緩入緩出，節奏更順滑。",
+        "replyEnrich": "已完成「豐富細節」：補充關鍵公式特寫、重點高亮與易錯點提醒，講解更細緻。",
+        "replySimplify": "已完成「精簡內容」：講稿保留核心講解，畫面聚焦關鍵步驟，更簡潔清晰。",
+        "replyFallback": "我可以對當前分鏡執行：優化動畫節奏、豐富細節、精簡內容。試試點擊上方快捷指令，或直接告訴我你的需求。",
+        "replyNoShot": "請先在左側選擇一個分鏡，我再對它進行優化。"
+      },
+      "globalActions": "全局操作",
+      "close": "關閉"
+    },
+    "canvas": {
+      "subtitle": "字幕",
+      "subtitleSettings": "字幕設置",
+      "subtitleOff": "關閉字幕",
+      "aiMark": "AI 標識",
+      "badgePosition": "標識位置",
+      "position": {
+        "topRight": "右上",
+        "topLeft": "左上",
+        "bottomRight": "右下",
+        "bottomLeft": "左下"
+      }
+    },
+    "player": {
+      "aiBadge": "AI 生成"
+    },
+    "digitalHuman": {
+      "enable": "啟用數字人講解",
+      "avatarTitle": "選擇數字人形象",
+      "avatar": {
+        "femaleTeacher": "林老師",
+        "maleTeacher": "陳老師",
+        "bailuwei": "白露薇",
+        "xiayouyou": "夏悠悠",
+        "luyumo": "陸語茉",
+        "chenzhiyue": "陳知悅",
+        "wenyicheng": "溫亦澄",
+        "yunshu": "雲舒",
+        "baishihan": "白詩涵",
+        "linwanqing": "林婉清",
+        "wenyanshu": "溫言舒"
+      },
+      "avatarDesc": {
+        "femaleTeacher": "親和細緻，適合知識講解類課程",
+        "maleTeacher": "沉穩專業，適合原理推演類課程"
+      },
+      "tip": "數字人將跟隨當前分鏡講稿逐段講解；畫面上可拖拽移動、縮放或關閉，調整支持同步到所有片段或僅此片段。",
+      "disabled": "未啟用數字人",
+      "modeTitle": "展示模式",
+      "mode": {
+        "halfBody": "半身出鏡",
+        "fullBody": "全身出鏡",
+        "floatingAvatar": "懸浮頭像"
+      },
+      "current": "當前數字人",
+      "category": {
+        "realistic": "寫實",
+        "cartoon": "卡通"
+      },
+      "searchPlaceholder": "搜索數字人",
+      "filter": "篩選",
+      "canvas": {
+        "remove": "關閉數字人",
+        "move": "拖拽移動",
+        "adjusted": {
+          "position": "數字人位置已調整",
+          "size": "數字人大小已調整",
+          "removed": "數字人已刪除"
+        },
+        "syncAsk": "— 同步到其他片段？",
+        "syncAll": "同步到所有片段",
+        "thisShot": "僅此片段",
+        "applied": {
+          "all": "已套用所有頁面",
+          "shot": "已套用目前頁面"
+        },
+        "switchToShot": "改為目前頁面",
+        "switchToAll": "改為所有頁面",
+        "undo": "復原",
+        "removedCurrent": "目前分鏡已刪除數字人",
+        "restoreShot": "復原"
+      },
+      "restore": "恢復本分鏡數字人",
+      "reEnable": "重新啟用",
+      "emptySearch": "未找到匹配的數字人"
+    },
+    "script": {
+      "currentVoice": "當前音色",
+      "speed": "語速",
+      "audition": "試聽",
+      "auditioning": "試聽中…",
+      "voiceTip": "在「音色」面板更換音色與語速",
+      "currentScript": "當前分鏡講稿",
+      "noShot": "先在左側選擇一個分鏡，即可編輯講稿並試聽"
+    }
+  },
+  "ppt": {
+    "title": "PPT/文件轉影片",
+    "subtitle": "上傳課件檔案，AI 自動解析並生成數位人講解影片",
+    "steps": {
+      "upload": "上傳文件",
+      "params": "參數配置",
+      "preview": "預覽編輯"
+    },
+    "next": "下一步",
+    "prev": "上一步",
+    "generate": "生成口播稿",
+    "creating": "正在建立專案…",
+    "createFailed": "建立失敗，請稍後重試",
+    "upload": {
+      "dropTitle": "點擊選擇或拖曳檔案到此處上傳",
+      "hint": "支援 PPT / Word / PDF 格式，單檔 ≤100MB，單次僅支援上傳 1 個檔案",
+      "demoLink": "沒有課件檔案？使用示例課件體驗",
+      "reupload": "重新上傳",
+      "stateUploading": "上傳中",
+      "stateValidating": "文件校驗中",
+      "stateSuccess": "上傳成功",
+      "stateFailed": "上傳失敗",
+      "errorFormat": "檔案格式不支援，請上傳 PPT / Word / PDF 檔案",
+      "errorIntegrity": "文件解析失敗，請檢查文件是否加密、損壞",
+      "errorModeration": "檔案包含違規內容，已被攔截，請更換檔案",
+      "fileName": "檔案名稱",
+      "fileSize": "檔案大小",
+      "oversizeTitle": "檔案大小超出目前權限限制",
+      "oversizeDesc": "目前檔案 {{size}}MB，已超出免費版上傳限制，升級會員可上傳更大的課件檔案：",
+      "oversizeFree": "免費版：單檔 ≤100MB",
+      "oversizeVip": "會員版：單檔 ≤500MB",
+      "oversizeUpgrade": "升級會員",
+      "oversizeCancel": "重新選擇",
+      "upgradeTip": "會員升級入口為演示佔位",
+      "multiTip": "單次僅支援上傳 1 個檔案，已自動選取第一個檔案"
+    },
+    "parse": {
+      "parsing": "正在智能解析檔案，請稍候…",
+      "stageStructure": "逐頁拆分頁面結構",
+      "stageText": "提取文本內容",
+      "stageVisual": "分析視覺素材",
+      "stageAnimation": "識別動畫資訊",
+      "stageLayout": "記錄版式資訊",
+      "done": "解析完成：共 {{count}} 頁有效內容",
+      "blankFiltered": "已自動過濾 {{count}} 頁空白頁，不生成無效鏡頭",
+      "aiEnrich": "AI 自動補充講解",
+      "ruleNote": "解析優先保留原始 PPT 版式、配色、字體，最大程度還原課件樣式",
+      "pagePrefix": "第 {{index}} 頁",
+      "points": "{{count}} 個要點",
+      "words": "{{count}} 字",
+      "hasVisual": "含視覺素材",
+      "hasAnimation": "含動畫",
+      "blank": "空白頁",
+      "filtered": "已過濾",
+      "type": {
+        "cover": "封面頁",
+        "toc": "目錄頁",
+        "content": "內容頁",
+        "chart": "圖表頁",
+        "ending": "結尾頁"
+      }
+    },
+    "params": {
+      "generalTitle": "通用基礎參數",
+      "pptTitle": "PPT 專屬參數",
+      "ratio": "影片比例",
+      "ratioTip": "預設 16:9 課件標準比例",
+      "voice": "配音音色",
+      "speed": "語速",
+      "speedUnit": "{{value}}x",
+      "emotion": "情感模式",
+      "emotionOption": {
+        "calm": "平靜",
+        "warm": "親和",
+        "energetic": "激昂"
+      },
+      "subtitle": "字幕展示",
+      "subtitleOn": "開",
+      "subtitleOff": "關",
+      "bgm": "背景音樂",
+      "resolution": "解析度",
+      "resolution720": "720P 高清",
+      "resolution1080": "1080P 超清",
+      "watermark": "浮水印開關",
+      "watermarkTip": "跟隨會員權限",
+      "vipTag": "會員",
+      "vipLockedTip": "升級會員後可用",
+      "pageDuration": "單頁停留時長",
+      "pageDurationOption": {
+        "auto": "自動適配",
+        "3": "3s",
+        "5": "5s",
+        "8": "8s",
+        "custom": "自訂"
+      },
+      "pageDurationAutoTip": "根據頁面字數動態分配時長，文字越多停留越久",
+      "customDurationUnit": "秒/頁",
+      "transition": "翻頁動畫效果",
+      "transitionOption": {
+        "none": "無動畫",
+        "smooth": "平滑翻頁",
+        "fade": "淡入淡出",
+        "original": "還原PPT原動畫"
+      },
+      "transitionVipTip": "會員支援還原原始 PPT 高級動畫",
+      "scriptMode": "講解腳本模式",
+      "scriptModeOption": {
+        "concise": "精簡講解",
+        "detailed": "詳細授課",
+        "formal": "正式匯報",
+        "minimal": "極簡字幕"
+      },
+      "scriptModeTip": "適配講課、匯報等不同場景的旁白風格",
+      "transitionGap": "頁面過渡間隙",
+      "transitionGapTip": "設置每頁翻頁間隔，提升影片流暢度",
+      "template": "選擇模板",
+      "templateTip": "點擊模板縮圖可預覽效果",
+      "templateDesc": {
+        "simpleCourseware": "清爽課件風，突出知識主體",
+        "realistic": "真實場景質感，沉浸式講解",
+        "corporate": "商務質感，適合正式匯報場景",
+        "documentary": "紀實敘事風，氛圍感強"
+      },
+      "previewTemplate": "預覽",
+      "useTemplate": "使用此模板",
+      "voiceTip": "生成口播稿後可在預覽編輯頁試聽與更換",
+      "scriptModeDesc": {
+        "concise": "提煉核心要點，講解簡潔高效",
+        "detailed": "逐頁展開講解，補充背景與案例",
+        "formal": "措辭正式規範，適合匯報場景",
+        "minimal": "僅保留標題式字幕，無口播旁白"
+      }
+    },
+    "digitalHuman": {
+      "enable": "開啟數位人播報",
+      "defaultTip": "預設開啟：半身懸浮 + 透明背景 + 右下角站位，不遮擋 PPT 核心內容",
+      "avatar": "數位人形象",
+      "smartAvoid": "智能避讓核心內容區",
+      "smartAvoidTip": "自動識別 PPT 標題、正文、圖表區域，數位人懸浮位置避開核心內容區",
+      "perPage": "逐頁播報開關",
+      "perPageTip": "支援全部頁面數位人播報，或手動關閉單頁數位人，實現純頁面展示 + 數位人講解混搭",
+      "flipLink": "翻頁聯動：翻頁過程中數位人平滑過渡，無閃爍、突兀消失",
+      "all": "全部開啟",
+      "none": "全部關閉"
+    },
+    "editor": {
+      "back": "參數配置",
+      "autosave": "自動保存",
+      "saving": "保存中…",
+      "saved": "已保存",
+      "preview": "預覽",
+      "generateVideo": "生成視頻",
+      "segments": "片段",
+      "generating": "視頻口播稿生成中（{{done}}/{{total}}）",
+      "stopGenerate": "停止生成",
+      "resumeGenerate": "繼續生成",
+      "scriptPending": "待生成",
+      "scriptGenerating": "生成中…",
+      "toggleProgress": "智能進度條",
+      "playSegment": "播放片段",
+      "rail": {
+        "template": "模板",
+        "layout": "佈局",
+        "digitalHuman": "數字人",
+        "voice": "聲音",
+        "text": "文字",
+        "material": "素材",
+        "background": "背景",
+        "music": "背景音"
+      },
+      "comingSoon": "該功能即將上線，敬請期待",
+      "bgm": "背景音樂",
+      "optimize": "優化文稿",
+      "optimizedTip": "已按「{{mode}}」優化當前口播稿",
+      "charCount": "字：{{count}}/2000",
+      "estimated": "預估時間：{{seconds}} 秒",
+      "audition": "試聽",
+      "auditionStop": "停止",
+      "auditionUnsupported": "當前瀏覽器不支持語音試聽",
+      "scriptPlaceholder": "口播稿生成後可在此編輯",
+      "previewTitle": "全局預覽",
+      "pageOf": "第 {{index}} / {{total}} 頁",
+      "currentShotDh": "當前頁數字人播報",
+      "speed": "語速",
+      "submitFailed": "提交生成任務失敗，請稍後重試",
+      "templateApplied": "已切換模板",
+      "addSegment": "新增片段",
+      "segmentAdded": "已新增片段",
+      "segmentDeleted": "片段已刪除",
+      "lastSegmentTip": "至少保留 1 個片段",
+      "newSegmentTitle": "新增片段",
+      "deleteSegment": "刪除片段",
+      "layoutOption": {
+        "leftDh": "左課件-講師側立",
+        "centerNone": "居中課件-無數字人",
+        "fullNone": "全屏課件-無數字人",
+        "fullDh": "全屏課件-講師側立",
+        "fullAvatar": "全屏課件-講師鏡頭",
+        "centerAvatar": "居中課件-講師鏡頭"
+      },
+      "text": {
+        "addTextBox": "添加文本框",
+        "defaultText": "新建文本",
+        "content": "文本內容",
+        "empty": "暫無文本框，點擊上方按鈕添加",
+        "font": "字體",
+        "fontOption": {
+          "sans": "默認",
+          "serif": "宋體",
+          "kai": "楷體",
+          "yuanti": "圓體"
+        },
+        "size": "字號",
+        "color": "顏色",
+        "opacity": "透明度",
+        "deleteText": "刪除文本框",
+        "sizeUp": "增大字號",
+        "sizeDown": "減小字號",
+        "customColor": "自定義顏色",
+        "alignH": "水平對齊",
+        "alignV": "垂直對齊",
+        "alignLeft": "左對齊",
+        "alignCenter": "水平居中",
+        "alignRight": "右對齊",
+        "alignTop": "頂端對齊",
+        "alignMiddle": "垂直居中",
+        "alignBottom": "底端對齊",
+        "enterAnimation": "進場動畫",
+        "exitAnimation": "出場動畫",
+        "enterAnimOption": {
+          "none": "無動效",
+          "fadeIn": "淡入",
+          "slideInRight": "向右滑入",
+          "slideInLeft": "向左滑入",
+          "slideInUp": "向上滑入",
+          "slideInDown": "向下滑入"
+        },
+        "exitAnimOption": {
+          "none": "無動效",
+          "fadeOut": "淡出",
+          "slideOutRight": "向右滑出",
+          "slideOutLeft": "向左滑出",
+          "slideOutUp": "向上滑出",
+          "slideOutDown": "向下滑出"
+        },
+        "resizeHandle": "調整大小"
+      },
+      "undo": "撤銷",
+      "redo": "恢復",
+      "material": {
+        "upload": "上傳圖片 / 視頻",
+        "uploadTip": "支持圖片、視頻格式，單文件 ≤10MB",
+        "empty": "暫無素材，點擊上方按鈕上傳",
+        "addToCanvas": "添加到畫布",
+        "deleteMaterial": "刪除素材",
+        "deleteOverlay": "刪除素材",
+        "overlayLabel": "媒體素材",
+        "typeTip": "僅支持圖片或視頻文件",
+        "oversizeTip": "文件超過 10MB，請壓縮後重試",
+        "uploadedTip": "素材已上傳",
+        "addedTip": "已添加到畫布，可拖拽調整位置與大小",
+        "canvasTip": "添加後可拖拽移動位置、拖動手柄調整大小、點擊刪除"
+      },
+      "background": {
+        "system": "系統背景",
+        "custom": "自定義背景",
+        "upload": "本地上傳背景圖",
+        "replace": "替換",
+        "remove": "移除",
+        "typeTip": "僅支持圖片文件",
+        "oversizeTip": "圖片超過 10MB，請壓縮後重試",
+        "tip": "背景作用於全部片段畫布；再次點擊選中的預設可恢復跟隨模板",
+        "preset": {
+          "skyBlue": "晴空藍",
+          "mint": "薄荷綠",
+          "lavender": "薰衣草紫",
+          "peach": "蜜桃橙",
+          "lightGray": "淺灰",
+          "deepBlue": "深藍",
+          "forest": "森林綠",
+          "sunset": "晚霞紫"
+        }
+      },
+      "highlightSelection": "字幕高亮",
+      "highlightSetTip": "已設置字幕高亮",
+      "highlightRemoveTip": "已取消高亮",
+      "audioSynthesizing": "音頻合成中…",
+      "progress": {
+        "title": "智能進度條",
+        "show": "顯示",
+        "generate": "智能生成進度",
+        "generateTip": "已按片段內容智能劃分進度",
+        "addChapter": "添加標題",
+        "editTitle": "點擊修改標題",
+        "deleteChapter": "刪除標題",
+        "resizeTip": "點擊標題可修改；拖動章節邊界可調整包含的片段數（拖到底可合併分段）",
+        "untitled": "未命名"
+      },
+      "previewTip": "預覽時為靜態數字人，生成視頻後展現動態效果",
+      "previewTipDismiss": "不再提示",
+      "audioLoading": "音頻加載中…",
+      "prevShot": "上一片段",
+      "nextShot": "下一片段",
+      "play": "播放",
+      "pause": "暫停",
+      "render": {
+        "title": "合成設置",
+        "videoName": "視頻名稱",
+        "resolution": "分辨率",
+        "resOption": {
+          "1080p": "1080P 超清",
+          "720p": "720P 高清",
+          "480p": "480P 標清"
+        },
+        "quality": "畫面質量",
+        "qualityOption": {
+          "high": "高",
+          "medium": "中",
+          "low": "低"
+        },
+        "frameRate": "幀率",
+        "estSize": "預估大小",
+        "estDuration": "視頻時長",
+        "estCost": "預計耗時",
+        "confirm": "開始生成"
+      },
+      "backToList": "返回列表"
+    }
+  }
+}

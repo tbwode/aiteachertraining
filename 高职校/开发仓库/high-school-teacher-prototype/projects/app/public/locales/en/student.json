@@ -1,0 +1,948 @@
+{
+  "agents": {
+    "actions": {
+      "use": "Use"
+    },
+    "useUserCount": " users",
+    "cards": {
+      "code-review": {
+        "description": "Checks code quality and suggests practical improvements",
+        "name": "Code Review Assistant",
+        "usageCount": "2.3k uses"
+      },
+      "lab-designer": {
+        "description": "Helps draft experiment plans and interpret results",
+        "name": "Experiment Design Assistant",
+        "usageCount": "987 uses"
+      },
+      "notes-organizer": {
+        "description": "Turns class notes into structured mind maps and knowledge outlines",
+        "name": "Smart Notes Organizer",
+        "usageCount": "2.1k uses"
+      },
+      "project-manager": {
+        "description": "Supports project planning, task breakdown, and resource coordination",
+        "name": "Project Manager Assistant",
+        "usageCount": "1.1k uses"
+      },
+      "qa-assistant": {
+        "description": "Explains difficult course concepts with step-by-step examples",
+        "name": "Study Q&A Assistant",
+        "usageCount": "1.2k uses"
+      },
+      "simulation-assistant": {
+        "description": "Provides virtual simulation workflows for real-world scenarios",
+        "name": "Simulation Assistant",
+        "usageCount": "756 uses"
+      },
+      "study-planner": {
+        "description": "Creates personalized study plans from your courses and goals",
+        "name": "Study Plan Builder",
+        "usageCount": "856 uses"
+      },
+      "translation-helper": {
+        "description": "Offers academic translation with bilingual terminology explanations",
+        "name": "Paper Translation Helper",
+        "usageCount": "1.5k uses"
+      }
+    },
+    "currentFilterLabel": "Current filter:",
+    "description": "Explore AI agents that make learning more efficient and engaging",
+    "reset": "Reset",
+    "resultCount": "{{count}} agents",
+    "sceneLabels": {
+      "all": "All",
+      "campus": "Campus Life",
+      "career": "Career Growth",
+      "exam": "Exam Prep",
+      "practice": "Hands-on Practice",
+      "study": "Study Support"
+    },
+    "searchPlaceholder": "Search agents...",
+    "statLabels": {
+      "agents": "Agents",
+      "scenes": "Scenes",
+      "usage": "Usage"
+    },
+    "subSceneLabel": "Sub-scene:",
+    "subSceneLabels": {
+      "campus": {
+        "activities": "Activities",
+        "all": "All",
+        "clubs": "Clubs"
+      },
+      "career": {
+        "all": "All",
+        "interview": "Interview",
+        "resume": "Resume"
+      },
+      "exam": {
+        "all": "All",
+        "assessment": "Assessment",
+        "drills": "Drills"
+      },
+      "practice": {
+        "all": "All",
+        "coding": "Coding",
+        "lab": "Lab",
+        "project": "Project",
+        "simulation": "Simulation"
+      },
+      "study": {
+        "all": "All",
+        "notes": "Notes",
+        "planning": "Planning",
+        "qa": "Q&A",
+        "translation": "Translation"
+      }
+    },
+    "empty": "No agents yet",
+    "title": "Agent Plaza"
+  },
+  "aiTeacher": {
+    "actions": {
+      "continue": "Continue Learning",
+      "locked": "Starts on {{date}}",
+      "review": "Review"
+    },
+    "config": {
+      "actions": {
+        "cancel": "Cancel",
+        "confirm": "Save settings"
+      },
+      "description": "These preferences will apply to all of your AI-tutor courses.",
+      "learningPaceOptions": {
+        "deepDive": {
+          "description": "Pursue deeper understanding and broader transfer.",
+          "label": "Deep exploration"
+        },
+        "fast": {
+          "description": "Focus on essentials and grasp the core quickly.",
+          "label": "Fast and efficient"
+        },
+        "steady": {
+          "description": "Build fundamentals step by step.",
+          "label": "Steady progression"
+        }
+      },
+      "preferenceOptions": {
+        "analogy": {
+          "description": "Connect new ideas with familiar examples.",
+          "label": "Analogy and transfer"
+        },
+        "article": {
+          "description": "Good for quick review and scanning.",
+          "label": "Text and graphics"
+        },
+        "audio": {
+          "description": "Useful for fragmented study sessions.",
+          "label": "Audio explanation"
+        },
+        "caseStudy": {
+          "description": "Explain concepts through realistic examples.",
+          "label": "Case-driven learning"
+        },
+        "code": {
+          "description": "Learn technical details from runnable samples.",
+          "label": "Code examples"
+        },
+        "corrective": {
+          "description": "Point out issues quickly and suggest improvements.",
+          "label": "Immediate correction"
+        },
+        "dialogue": {
+          "description": "Use guided questions to help you think actively.",
+          "label": "Dialogue-based questions"
+        },
+        "encouraging": {
+          "description": "Affirm strengths before pointing out improvements.",
+          "label": "Encouragement first"
+        },
+        "interactive": {
+          "description": "Reinforce memory while learning.",
+          "label": "Interactive practice"
+        },
+        "project": {
+          "description": "Connect knowledge through end-to-end tasks.",
+          "label": "Hands-on projects"
+        },
+        "stepByStep": {
+          "description": "Break concepts down according to your pace.",
+          "label": "Step-by-step explanation"
+        },
+        "summary": {
+          "description": "Highlight key takeaways after each round.",
+          "label": "Summary and recap"
+        },
+        "video": {
+          "description": "Understand workflows through dynamic examples.",
+          "label": "Video demo"
+        },
+        "visual": {
+          "description": "Use diagrams and structures to explain concepts.",
+          "label": "Visual explanation"
+        }
+      },
+      "sections": {
+        "contentFormat": "5. Content format preferences",
+        "depth": "2. Explanation depth",
+        "feedbackStyle": "6. Feedback preferences",
+        "interaction": "3. Interaction frequency",
+        "learningPace": "7. Learning pace",
+        "style": "1. Teaching style",
+        "teachingMethod": "4. Teaching method preferences"
+      },
+      "sliderRange": {
+        "brief": "Concise",
+        "deep": "Thorough",
+        "direct": "Direct answers",
+        "interactive": "Frequent interaction"
+      },
+      "sliderScale": {
+        "balanced": "Balanced",
+        "brief": "Brief",
+        "deep": "Deep",
+        "detailed": "Detailed",
+        "high": "High",
+        "lean": "Leaning brief",
+        "less": "Lower",
+        "low": "Low",
+        "more": "Higher"
+      },
+      "styleOptions": {
+        "funny": {
+          "description": "Uses a relaxed tone to keep lessons engaging.",
+          "label": "Light and humorous"
+        },
+        "gentle": {
+          "description": "Patient and supportive like a study partner.",
+          "label": "Gentle and friendly"
+        },
+        "inspiring": {
+          "description": "Builds momentum and encourages consistent progress.",
+          "label": "Motivating"
+        },
+        "professional": {
+          "description": "Clear logic with stronger focus on knowledge systems.",
+          "label": "Rigorous and professional"
+        }
+      },
+      "title": "Configure AI Tutor Style"
+    },
+    "courseMeta": {
+      "majorLine": "{{major}}",
+      "studentCount": "{{count}} students"
+    },
+    "courses": {
+      "items": {
+        "database": {
+          "title": "Database Principles"
+        },
+        "java-programming": {
+          "title": "Java Programming"
+        },
+        "network-basic": {
+          "title": "Computer Networking Basics"
+        },
+        "python-basic": {
+          "title": "Python Fundamentals"
+        },
+        "web-frontend": {
+          "title": "Web Frontend Development"
+        }
+      }
+    },
+    "emptyState": "No courses found for current filters",
+    "explore": {
+      "action": "Explore more AI tutors",
+      "description": "Discover more elective courses and broaden your learning horizons.",
+      "empty": "No courses found for current filters",
+      "title": "Explore More AI Tutors"
+    },
+    "hero": {
+      "configButton": "Configure AI tutor style",
+      "description": "A personalized study companion that answers questions and guides your learning anytime.",
+      "searchPlaceholder": "Search tutors or courses...",
+      "title": "Your AI Tutor"
+    },
+    "majors": {
+      "computerApplication": "Electronics & IT - Computer Application Technology",
+      "networkTechnology": "Electronics & IT - Network Technology",
+      "softwareTechnology": "Electronics & IT - Software Technology"
+    },
+    "metrics": {
+      "interactionCount": {
+        "label": "Interactions",
+        "tone": "orange"
+      },
+      "studyDuration": {
+        "label": "Study Time",
+        "tone": "gold"
+      },
+      "teacherCount": {
+        "label": "AI Tutors",
+        "tone": "brand"
+      }
+    },
+    "status": {
+      "completed": "Completed",
+      "learning": "Learning",
+      "locked": "Locked"
+    },
+    "myCourses": {
+      "count": "{{count}} courses",
+      "title": "My Courses"
+    },
+    "tabs": {
+      "all": "All Courses",
+      "optional": "Electives This Term",
+      "required": "Required This Term"
+    },
+    "teachers": {
+      "teacherChen": "Teacher Chen",
+      "teacherLi": "Teacher Li",
+      "teacherLiu": "Teacher Liu",
+      "teacherWang": "Teacher Wang",
+      "teacherZhang": "Teacher Zhang"
+    }
+  },
+  "auth": {
+    "demoHint": "Demo account: any username and password will work",
+    "loginFailed": "Login failed",
+    "loginFailedDescription": "Check your username and password",
+    "loginSuccess": "Login successful",
+    "missingCredentials": "Enter both username and password",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "platformTitle": "Vocational Learning Platform",
+    "studentLogin": "Student Login",
+    "submit": "Log In",
+    "submitting": "Signing in",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username"
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "coursePlaza": {
+    "actions": {
+      "continueStudy": "Continue Learning",
+      "joinLearning": "Join Course",
+      "joined": "Joined"
+    },
+    "badges": {
+      "enrolled": "Enrolled"
+    },
+    "courses": {
+      "cyber-security": {
+        "teacher": "Teacher Qian",
+        "title": "Cybersecurity Fundamentals"
+      },
+      "data-analysis": {
+        "teacher": "Teacher Zhao",
+        "title": "Data Analysis and Visualization"
+      },
+      "linux": {
+        "teacher": "Teacher Sun",
+        "title": "Linux Operating Systems"
+      },
+      "ml": {
+        "teacher": "Teacher Zhou",
+        "title": "Introduction to Machine Learning"
+      },
+      "mobile-dev": {
+        "teacher": "Teacher Wu",
+        "title": "Mobile App Development"
+      },
+      "qa": {
+        "teacher": "Teacher Zheng",
+        "title": "Software Testing Technology"
+      }
+    },
+    "description": "Discover quality courses and start your learning journey",
+    "electiveTitle": "Course Center",
+    "fallbacks": {
+      "unnamedCategory": "Unnamed category",
+      "unnamedMajor": "Unnamed major",
+      "unnamedSemester": "Unnamed semester"
+    },
+    "feedback": {
+      "empty": "No courses match the current filters",
+      "joinError": "Failed to join the course",
+      "joinSuccess": "Joined successfully",
+      "loadError": "Failed to load the course plaza list",
+      "loading": "Loading course list...",
+      "missingStudent": "Student identity is unavailable",
+      "noDataAlt": "No data",
+      "processing": "Processing",
+      "retry": "Reload"
+    },
+    "filters": {
+      "allCategory": "All Categories",
+      "allMajor": "All Majors",
+      "allSemester": "All Terms",
+      "categoryOptions": {
+        "all": "All Categories",
+        "electronics": "Electronics & IT",
+        "finance": "Finance & Commerce",
+        "mechanical": "Mechanical Manufacturing"
+      },
+      "majorOptions": {
+        "all": "All Majors",
+        "artificialIntelligence": "Artificial Intelligence",
+        "computerApplication": "Computer Applications",
+        "mobileDevelopment": "Mobile Development",
+        "networkTechnology": "Network Technology",
+        "softwareTechnology": "Software Technology"
+      },
+      "sortOptions": {
+        "latest": "Latest",
+        "recommended": "Recommended",
+        "students": "Student Count"
+      },
+      "sortRecommended": "Recommended",
+      "termOptions": {
+        "all": "All Terms",
+        "fall2023": "Fall 2023",
+        "fall2024": "Fall 2024",
+        "spring2024": "Spring 2024"
+      }
+    },
+    "labels": {
+      "studentCount": "{{value}} students"
+    },
+    "pagination": {
+      "next": "Next page",
+      "previous": "Previous page"
+    },
+    "resetFilters": "Reset filters",
+    "resultCount": "{{count}} courses found",
+    "searchPlaceholder": "Search course titles...",
+    "sortLabel": "Sort by:",
+    "title": "Course Plaza"
+  },
+  "dashboard": {
+    "actions": {
+      "continue": "Continue",
+      "review": "Review"
+    },
+    "courseProgress": {
+      "database": {
+        "title": "Database Principles"
+      },
+      "network-basic": {
+        "title": "Computer Networking Basics"
+      },
+      "python-basic": {
+        "title": "Python Fundamentals"
+      },
+      "web-frontend": {
+        "title": "Web Frontend Development"
+      }
+    },
+    "metrics": {
+      "completed": {
+        "label": "Completed",
+        "unit": "courses"
+      },
+      "learning": {
+        "label": "Active Courses",
+        "unit": "courses"
+      },
+      "total": {
+        "label": "Total Learning",
+        "unit": "hrs"
+      },
+      "weekly": {
+        "label": "This Week",
+        "unit": "hrs"
+      }
+    },
+    "sections": {
+      "courseProgress": "Course Progress",
+      "timeDistribution": "Study Time Distribution",
+      "trend": "Learning Intensity Trend"
+    },
+    "studyTrend": {
+      "friday": "Fri",
+      "monday": "Mon",
+      "saturday": "Sat",
+      "sunday": "Sun",
+      "thursday": "Thu",
+      "tuesday": "Tue",
+      "wednesday": "Wed"
+    },
+    "timeDistribution": {
+      "afternoon": "Afternoon (12pm-6pm)",
+      "evening": "Evening (6pm-10pm)",
+      "lateNight": "Late Night (10pm-12am)",
+      "morning": "Morning (8am-12pm)"
+    },
+    "timeRange": {
+      "currentWeek": "This week",
+      "last30Days": "Last 30 days",
+      "last7Days": "Last 7 days"
+    },
+    "title": "Learning Dashboard"
+  },
+  "home": {
+    "title": "Student Home",
+    "greeting": {
+      "morning": "Good morning, {{name}}",
+      "forenoon": "Good morning, {{name}}",
+      "noon": "Good afternoon, {{name}}",
+      "afternoon": "Good afternoon, {{name}}",
+      "evening": "Good evening, {{name}}"
+    },
+    "todo": {
+      "title": "Today's Tasks",
+      "subtitle": "You have {{count}} tasks today!",
+      "viewAll": "View all {{count}} tasks",
+      "expandAll": "Expand all {{count}} tasks",
+      "collapseAll": "Collapse all {{count}} tasks",
+      "detailTitle": "Task Details"
+    },
+    "news": {
+      "title": "Latest News",
+      "subtitle": "Latest news related to your major!",
+      "viewAll": "View all today's news",
+      "modalTitle": "Today's News",
+      "closeAria": "Close dialog",
+      "totalCount": "{{count}} items",
+      "markAllRead": "Mark all as read",
+      "markRead": "Read",
+      "alreadyRead": "Read",
+      "detailContentLabel": "Details:",
+      "relatedCourse": "Related Course",
+      "publishTime": "Published",
+      "cancel": "Cancel"
+    },
+    "ability": {
+      "title": "My Profile",
+      "subtitle": "Your profile has been generated!",
+      "radarName": "Ability Radar Chart",
+      "viewDetail": "View my learning profile",
+      "target_requirement": "Position Requirements",
+      "training_requirement": "Training Plan",
+      "my_ability": "My Ability"
+    },
+    "todoCard": {
+      "read": "Read",
+      "unread": "Unread",
+      "remindTime": "Remind time"
+    },
+    "todoDetail": {
+      "courseLabel": "Course",
+      "currentProgress": "Current progress",
+      "studyDuration": "Study duration",
+      "lastStudy": "Last study",
+      "lagAnalysis": "Lag analysis",
+      "systemNotify": "System notification",
+      "teacherRemind": "Teacher reminder",
+      "progressSuffix": "course current learning progress is 0%...",
+      "noData": "No data",
+      "durationFallback": "0 hours",
+      "lastStudyFallback": "Not studied"
+    },
+    "chat": {
+      "tabDialogue": "Chat",
+      "tabAiTeacher": "AI Teacher",
+      "tabLearning": "Profile",
+      "placeholder": "Please enter your question",
+      "voice": "Voice input",
+      "voice_cancel": "Cancel recording",
+      "voice_finish": "Finish and transcribe",
+      "voice_transcribing": "Transcribing...",
+      "comingSoon": "Coming soon",
+      "attachment": "Attachment",
+      "send": "Send"
+    }
+  },
+  "languageSwitcher": {
+    "ariaLabel": "Switch interface language",
+    "label": "Language",
+    "options": {
+      "en": "EN",
+      "zh-CN": "Simplified Chinese",
+      "zh-Hant": "Traditional Chinese"
+    }
+  },
+  "layout": {
+    "account": "Account: {{value}}",
+    "brandTitle": "Learning Platform",
+    "demoStudent": "Student",
+    "logout": "Log out",
+    "nav": {
+      "agents": "Agent Plaza",
+      "aiAgentCreation": "AI Agent Creation",
+      "aiCreationSpace": "AI Creation Space",
+      "aiDigitalCourse": "AI Digital Course",
+      "aiMainCourse": "AI Main Course",
+      "aiTeacher": "AI Tutor",
+      "coursePlaza": "Course Plaza",
+      "home": "Workbench",
+      "myclass": "My Courses",
+      "zhihuiSpace": "Zhihui Space",
+      "zhique": "Zhique"
+    },
+    "notificationButton": "Notifications",
+    "profile": "Profile",
+    "roleSwitchLabel": "Current Role",
+    "studentPortal": "Student Portal",
+    "teacherPortal": "Teacher Portal",
+    "adminPortal": "Admin Portal",
+    "userRole": "Student Role"
+  },
+  "noticeList": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "filterAll": "All",
+    "filterUnread": "Unread",
+    "resultCount": "{{count}} total",
+    "loadError": "Failed to load notifications",
+    "retry": "Reload",
+    "markRead": "Mark as read",
+    "reading": "Processing...",
+    "startStudy": "Start learning",
+    "viewDetailText": "View details",
+    "defaultTitle": "System Notification",
+    "viewDetail": "View details →",
+    "pagination": {
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "typeLabels": {
+      "HOMEWORK": "Homework",
+      "RESOURCE": "Resource",
+      "STUDENT_HOMEWORK": "Student Homework",
+      "APP_CENTER": "App Center",
+      "APP_CENTER_NEWS": "App Center New",
+      "RESOURCE_NEWS": "Resource New",
+      "GROUP": "Group",
+      "WORKSHEET": "Worksheet",
+      "TEAM": "Team",
+      "COURSE": "Study Reminder"
+    },
+    "moduleLabels": {
+      "HOMEWORK_DEADLINE": "Homework deadline reminder",
+      "HOMEWORK_SUBMIT": "Homework submission notice",
+      "AI_CORRECTION_PROGRESS": "AI grading progress notice",
+      "AI_CORRECTION_COMPLETE": "AI grading completed notice",
+      "STUDENT_CORRECTION_SUBMIT": "Correction submission notice",
+      "STUDENT_CORRECTION_COMPLETE": "Correction completed notice",
+      "RESOURCE_REJECTION": "Resource rejection notice",
+      "STUDENT_HOMEWORK_PUBLISHED": "Homework published notice",
+      "STUDENT_HOMEWORK_SUBMITTED": "Homework submission reminder",
+      "STUDENT_HOMEWORK_REVIEWED": "Review completed notice",
+      "STUDENT_HOMEWORK_OVERDUE": "Overdue submission reminder",
+      "SHARE_APP_INVITE": "Shared app invitation",
+      "STUDENT_HOMEWORK_UPDATE_SU": "Homework submission time change reminder",
+      "RESOURCE_REVIEW_NO_PASS": "Resource review failed notice",
+      "APP_CENTER_NEWS": "App Center new arrival notice",
+      "RESOURCE_NEWS": "Resource Plaza new arrival notice",
+      "GROUP_EXTERNAL_APPLICATION_RI": "Group join request rejected notice",
+      "GROUP_EXTERNAL_APPLICATION_AI": "Group join request approved notice",
+      "GROUP_RESOURCE_REMOVED": "Group resource removed notice",
+      "GROUP_EXTERNAL_APPLICATION_TK": "Review external member request notice",
+      "SUTDENT_WORKSHEET_PUBLISHED": "Worksheet published notice",
+      "SUTDENT_WORKSHEET_STRUCTURE": "Worksheet stage unlocked notice",
+      "SUTDENT_WORKSHEET_TASK_LATE": "Worksheet task overdue notice",
+      "SUTDENT_WORKSHEET_TASK_24LA1": "Worksheet task expiring soon notice",
+      "SUTDENT_WORKSHEET_TASK_URGE": "Task reminder notice",
+      "SUTDENT_WORKSHEET_TASK_CORR": "Task completion confirmed notice",
+      "SUTDENT_WORKSHEET_TASK_REOR": "Task returned for correction notice",
+      "SUTDENT_TEAM_JOIN": "Joined group notice",
+      "SUTDENT_TEAM_LEADER": "Group leader assignment notice",
+      "SUTDENT_TEAM_CORRECTION": "Group grading task notice",
+      "AI_ADMINISTRATION_NOTICE": "Administrative notice",
+      "STUDY_REMIND": "Course study reminder",
+      "SELECT_SUCCESS": "Elective course selected successfully"
+    }
+  },
+  "passwordForm": {
+    "actions": {
+      "cancel": "Cancel",
+      "submit": "Confirm",
+      "submitting": "Submitting..."
+    },
+    "aria": {
+      "closeDialog": "Close dialog",
+      "hidePassword": "Hide password",
+      "showPassword": "Show password"
+    },
+    "feedback": {
+      "error": "Password update failed. Try again later",
+      "success": "Password updated successfully"
+    },
+    "fields": {
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Enter the new password again"
+      },
+      "currentPassword": {
+        "label": "Current Password",
+        "placeholder": "Enter your current password"
+      },
+      "newPassword": {
+        "label": "New Password",
+        "placeholder": "8-20 characters with letters and numbers"
+      }
+    },
+    "tip": "Use 8-20 characters with letters and numbers",
+    "title": "Change Password",
+    "validation": {
+      "incomplete": "Complete all password fields",
+      "minLength": "The new password must be at least 8 characters",
+      "mismatch": "The two new passwords do not match"
+    }
+  },
+  "profile": {
+    "actions": {
+      "cancel": "Cancel",
+      "reset": "Cancel",
+      "save": "Save Changes",
+      "saving": "Saving..."
+    },
+    "avatar": {
+      "changeAriaLabel": "Change avatar",
+      "invalidType": "Only JPG or PNG images are supported",
+      "maxSizeError": "Avatar image size cannot exceed 2MB",
+      "supportText": "Supports JPG/PNG, up to 2MB",
+      "updateError": "Failed to update avatar. Please try again later",
+      "updateSuccess": "Avatar updated successfully"
+    },
+    "feedback": {
+      "loadError": "Failed to load profile. Please try again later",
+      "saveError": "Save failed. Try again later",
+      "saveSuccess": "Profile saved successfully"
+    },
+    "fields": {
+      "className": "Class",
+      "email": "Email",
+      "major": "Major",
+      "nickname": "Nickname",
+      "phone": "Phone",
+      "realName": "Full Name",
+      "studentId": "Student ID",
+      "wechat": "WeChat"
+    },
+    "sections": {
+      "basicInfo": "Basic Information",
+      "contactInfo": "Account Information"
+    },
+    "wechat": {
+      "bound": "Bound",
+      "unbound": "Not bound",
+      "bind": "Bind WeChat",
+      "unbind": "Unbind",
+      "bindModalTitle": "Bind WeChat",
+      "scanTip": "Please scan the QR code with WeChat",
+      "bindSuccess": "WeChat bound successfully",
+      "unbindSuccess": "Unbound",
+      "unbindError": "Unbind failed, please try again later",
+      "unbindConfirmTitle": "Confirm Unbind",
+      "unbindConfirmContent": "You will not be able to log in with WeChat after unbinding.\nAre you sure?",
+      "bindTimeout": "Binding timeout, please try again",
+      "loadQRError": "Failed to load QR code",
+      "retry": "Retry",
+      "qrAlt": "WeChat binding QR code",
+      "bindNote": {
+        "title": "Binding Instructions",
+        "tip1": "A phone number and WeChat can only be bound to one student account under this tenant",
+        "tip2": "Both the bound phone number and WeChat can be used to log in",
+        "tip3": "To change the binding, please unbind the current account first before binding a new one"
+      }
+    },
+    "changePhone": {
+      "modalTitle": "Change Phone Number",
+      "bindModalTitle": "Bind Phone Number",
+      "changeButton": "Change Phone",
+      "bindButton": "Bind Phone",
+      "phoneEmptyPlaceholder": "Phone number not bound",
+      "currentPhoneLabel": "Current Phone Number",
+      "newPhoneLabel": "New Phone Number",
+      "codeLabel": "Verification Code",
+      "newPhonePlaceholder": "Enter new phone number",
+      "codePlaceholder": "Enter verification code",
+      "sendCode": "Get Code",
+      "resendCode": "{{seconds}}s",
+      "note": "Note: One phone number can only be bound to one account. Changing will unbind the original phone number.",
+      "cancel": "Cancel",
+      "confirm": "Confirm Change",
+      "bindConfirm": "Confirm Bind",
+      "validation": {
+        "phoneRequired": "Please enter phone number",
+        "phoneFormat": "Invalid phone number format",
+        "codeRequired": "Please enter verification code",
+        "codeFormat": "Invalid verification code format, please enter 6 digits",
+        "sendCodeFirst": "Please get the verification code first"
+      },
+      "feedback": {
+        "sendSuccess": "Verification code sent",
+        "sendError": "Failed to send verification code",
+        "changeSuccess": "Phone number changed successfully",
+        "changeError": "Failed to change phone number",
+        "bindSuccess": "Phone number bound successfully",
+        "bindError": "Failed to bind phone number"
+      }
+    }
+  },
+  "studentCourseDetail": {
+    "aiChat": {
+      "answerIntro": "The key differences between a list and a tuple are:",
+      "answerPoints": {
+        "mutable": "Lists are mutable, while tuples are immutable.",
+        "performance": "Tuples are usually lighter and slightly faster.",
+        "syntax": "Lists use [], while tuples use ()."
+      },
+      "placeholder": "Type your question...",
+      "question": "What is the difference between a list and a tuple in Python?",
+      "subtitle": "Ask questions whenever you get stuck",
+      "title": "AI Tutor Assistant",
+      "welcome": "Hi! I’m your AI tutor assistant. What would you like help with?"
+    },
+    "back": "Back to Course Plaza",
+    "catalog": {
+      "chapter1": {
+        "tip": "📚 Topics: environment setup, variable types, basic syntax",
+        "title": "Chapter 1: Python Fundamentals"
+      },
+      "chapter2": {
+        "tip": "📚 Topics: conditionals, loops, branching statements",
+        "title": "Chapter 2: Control Flow"
+      },
+      "chapter3": {
+        "tip": "📚 Topics: function definition, parameters, module import",
+        "title": "Chapter 3: Functions and Modules"
+      },
+      "chapter4": {
+        "tip": "📚 Topics: classes, inheritance, polymorphism",
+        "title": "Chapter 4: Object-Oriented Programming"
+      },
+      "lesson11": "1.1 Python Introduction and Environment Setup",
+      "lesson12": "1.2 Variables and Data Types",
+      "lesson13": "1.3 Operators and Expressions",
+      "lesson21": "2.1 Conditional Statements if-else",
+      "lesson22": "2.2 Loops with for and while",
+      "lesson31": "3.1 Defining and Calling Functions",
+      "lesson32": "3.2 Modules and Packages",
+      "lesson41": "4.1 Basics of Classes and Objects",
+      "lesson42": "4.2 Inheritance and Polymorphism",
+      "total": "{{total}} lessons in total"
+    },
+    "course": {
+      "action": "Continue Learning",
+      "duration": "{{duration}} hours",
+      "introduction": "This course is an introductory foundation course for computer majors. It covers the core concepts, syntax rules, and programming methods of Python. Students will learn the fundamentals of syntax, data types, control flow, functions, and object-oriented programming, preparing them for later software development courses.",
+      "majorLine": "{{major}}",
+      "progress": "Learning Progress",
+      "title": "Python Fundamentals"
+    },
+    "knowledgeMap": {
+      "chapter1": {
+        "chapterLabel": "Chapter 1",
+        "description": "Python overview and environment setup",
+        "title": "Core Concepts"
+      },
+      "chapter2": {
+        "chapterLabel": "Chapter 2",
+        "description": "Primitive and composite types in detail",
+        "title": "Data Types"
+      },
+      "chapter3": {
+        "chapterLabel": "Chapter 3",
+        "description": "Conditions and loops",
+        "title": "Control Flow"
+      },
+      "coreDescription": "Build solid Python programming skills from the ground up.",
+      "coreLabel": "Core Course",
+      "tip": "Click a chapter card to expand or collapse its knowledge points."
+    },
+    "nodes": {
+      "dataTypes": "Data types",
+      "environment": "Environment setup",
+      "forLoop": "for loop",
+      "ifStatement": "if statement",
+      "listTuple": "Lists and tuples",
+      "numeric": "Numeric types",
+      "string": "String types",
+      "variables": "Variable definition",
+      "whileLoop": "while loop"
+    },
+    "sections": {
+      "catalog": "Course Catalog",
+      "introduction": "Course Overview",
+      "knowledgeMap": "Knowledge Map",
+      "section": "section"
+    },
+    "tabs": {
+      "catalog": "Course Catalog",
+      "intro": "Course Overview"
+    },
+    "tags": {
+      "control": "Control",
+      "flow": "Flow",
+      "overview": "Overview",
+      "programmingBasics": "Programming Basics",
+      "python": "Python",
+      "setup": "Setup",
+      "structures": "Structures",
+      "types": "Types"
+    }
+  },
+  "studentStudy": {
+    "actions": {
+      "next": "Next Lesson",
+      "previous": "Previous Lesson"
+    },
+    "back": "Back",
+    "catalog": {
+      "chapter1": {
+        "tip": "📚 Topics: environment setup, variable types, basic syntax",
+        "title": "Chapter 1: Python Fundamentals"
+      },
+      "chapter2": {
+        "tip": "📚 Topics: conditionals, loops, branching statements",
+        "title": "Chapter 2: Control Flow"
+      },
+      "progress": "Current Progress",
+      "title": "Course Catalog"
+    },
+    "chat": {
+      "online": "Online",
+      "placeholder": "Type your question...",
+      "title": "AI Tutor Assistant",
+      "welcome": "Hi! I’m your AI study assistant. Ask me anything while working through this lesson."
+    },
+    "courseTitle": "Python Fundamentals",
+    "knowledgePoints": {
+      "arithmetic": "Arithmetic operators",
+      "assignment": "Assignment operators",
+      "comparison": "Comparison operators",
+      "expression": "Expression evaluation"
+    },
+    "knowledgeTitle": "Knowledge Points in This Lesson",
+    "lessonMeta": "Chapter 1 · Lesson 3",
+    "lessonTitle": "1.3 Operators and Expressions"
+  },
+  "studentChat": {
+    "welcomeText": "### Hello! I'm your AI Learning Assistant,\nFeel free to ask me anything while studying this lesson!",
+    "courseWelcomeText": "Hello! I'm your AI learning assistant. How can I assist you?",
+    "aiTeacherTitle": "AI Tutor",
+    "aiTeacherSubtitle": "Always here to answer your study questions",
+    "historyDialog": {
+      "title": "Chat History",
+      "subtitle": "Click a conversation to continue",
+      "newChat": "New Chat",
+      "loading": "Loading...",
+      "empty": "No chat history yet",
+      "messageCount": "{{count}} messages",
+      "today": "Today {{time}}",
+      "yesterday": "Yesterday {{time}}"
+    },
+    "saveSuccess": "Conversation saved successfully",
+    "saveError": "Failed to save conversation",
+    "loadHistoryError": "Failed to load chat history",
+    "inputPlaceholder": "Type your question..."
+  }
+}
